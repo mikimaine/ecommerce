@@ -24,4 +24,4 @@ If you discover a security vulnerability within this framework, please send an e
 
 ### License
 
-The Laravel Ecommerce framework is open-sourced software licensed under the MIT license
+The INNOVATE Ecommerce framework is open-sourced software licensed under the MIT license
