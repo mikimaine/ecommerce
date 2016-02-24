@@ -107,7 +107,21 @@
         <div class="grid-row composer">
             <div class="columns-row">
                 <div class="columns-col columns-col-6">
-                    <div class="wysiwygx+)JMU0·0`040031QĞKÏ,I,))ÊL*-I-fø4‰Yä%ëŸÕ¬f¦oîïÍq~˜¤23=/¿(•ár’¶ù²WšòU×·}ß÷9L³8ÄÄ 
-Ş=RœøØÍbÏá*s±ßÃ¢Ä¤S&Í075UH,*É,NÌc°µ»ç²ÍhÖÜ·Ò'Í“Ê/éNæ€”Ÿ_R\R”XÀ0ïß=ûã×s2˜#¥LÙ'½sy“%Ô)Éù¹ùÅ©EzYÅùy–{:®Ì7)ü¥ò=ÿ‡ú›íüıK¿aSXÇÀ³xÇÌªÒ:ƒ#nÌœc­ú)Zp#sò“³D²:¬¶¿‹¹ı ;LHt¿ˆ…À)?ˆû’óóÒ2ÓªßaÜÖÂ‘š¤ûÁ›§§Ó:]!
-RK“‹Sæ¬»$¨#Û¨÷gÃ¦-‡Ö]¸õÔYé¥9i™9©@÷3T¨+]Õœaön­rèız‹¾JÊÌy€©¬a™Ù’“\Bi¸ş{®ğ8[”¤øÃª® 19;1d04f¨†N[ıX¢‹Cuâš5•JKL¶ûİ‡©Ë((.HMÖ«ÌÍax>y^8ß¢9aWÒ–ìL(%Yz¡¬4/³D¯¨Ìåúìån7ZÎZr{“cæÓ3ó¾)ÄŸ¥I9™É¯&LK­o¹öû°€÷ò›6,u¢PsŠRSrSõrS6(oú9+0Àç¯?oŞÿÅ‰^ŞÅ»öBL)J-Î/-J¦¼²M^MW{y<b
-k ~O£²’QÀN¨AÀ˜.FvAFÃ¤Kk¼w\Z:YmÆÙÂ›#ö«ô_İ1©¸$¿OoŞšçÎ<{ï­w[ü¿¹…~Ö²^ÿ¢˜¾KŠ®î[zU¢¬¤åŞEç5¯²ÙŠî’Y ’Ax                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                    <div class="wysiwyg picture-cont">
+                        <img class="wow  fadeInLeft animated ipad-vertical" alt=""  data-wow-duration="0.6s" src="{{ Theme::asset('default::pic/slider/post6/ipad-vertical.png') }}">
+                        <img class="wow fadeInLeft animated ipad-horizont" alt="" data-wow-delay="0.3s" data-wow-duration="0.6s" src="{{ Theme::asset('default::pic/slider/post6/ipad-horizont.png') }}">
+                        <img class="wow flipInY animated icon" alt=""  data-wow-delay="0.3s" src="{{ Theme::asset('default::pic/slider/post6/icon.png') }}">
+                    </div>
+                </div>
+                <div class="columns-col columns-col-6">
+                    <h1 class="wow fadeInRight animated" data-wow-duration="1s">Styled Content<br /> <span class="colored">Elements</span></h1>
+                    <p class="wow fadeInRight animated" data-wow-delay="0.3s" data-wow-duration="1s">"the 8" contains tons of vividly styled elements: <br />accordions, buttons, lists, charts and much more. Professional development directly into your website!</p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+    </section>
+</main>
+@endsection
