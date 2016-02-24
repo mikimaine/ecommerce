@@ -12,7 +12,7 @@
         "hieu-le/active": "~2.0",
 		"doctrine/dbal": "~2.5",
 	    "laracasts/utilities": "~2.1",
-		"arcanedev/log-viewer": "~3.5.0",
+		"arcanedev/log-viewer": "~3.7.0",
 		"creativeorange/gravatar": "~1.0",
 		"davejamesmiller/laravel-breadcrumbs": "^3.0",
 		"caffeinated/themes": "~2.0"

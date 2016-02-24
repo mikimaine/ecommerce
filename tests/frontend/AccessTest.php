@@ -11,20 +11,20 @@ class AccessTest extends TestCase
 
     /**
      *
-     */
+
     public function test_user_can_see_auth_register()
     {
         $this->visit('/auth/register')->see('Register');
     }
-
+     */
     /**
      *
-     */
+
     public function test_user_can_see_auth_login()
     {
         $this->visit('/auth/login')->see('Login');
     }
-
+     */
     /**
      *
      */
