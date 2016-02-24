@@ -2,7 +2,7 @@
 
 @section('page-header')
     <h1>
-        Laravel 5 Bootstrap
+      INNOVATE E-commerce Back end
         <small>{{ trans('strings.backend.dashboard_title') }}</small>
     </h1>
 @endsection
