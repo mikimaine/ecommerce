@@ -104,7 +104,7 @@ class PasswordController extends Controller
      */
     public function getChangePassword()
     {
-        return view('frontend.auth.change-password');
+        return \Theme::view('auth.change-password');
     }
 
     /**

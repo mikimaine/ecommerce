@@ -3,7 +3,7 @@
 @section('page-header')
     <h1>
         Log Viewer
-        <small>By <a href="https://github.com/ARCANEDEV/LogViewer" target="_blank">ARCANEDEV</a></small>
+
     </h1>
 @endsection
 

@@ -178,6 +178,13 @@ return [
 		HieuLe\Active\ActiveServiceProvider::class,
 		Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
+
+		/*
+		 * MikiMaine Dependent
+		 */
+
+		Mikimaine\Demo\DemoServiceProvider::class,
+		Caffeinated\Themes\ThemesServiceProvider::class,
 	],
 
 	/*
@@ -235,5 +242,12 @@ return [
 		'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
 		'HTML'		  => Collective\Html\HtmlFacade::class,
 		'Socialize'   => Laravel\Socialite\Facades\Socialite::class,
+
+		/**
+		 * Miki Maine
+		 */
+		'Demo' => Mikimaine\Demo\DemoFacade::class,
+		'Theme' => Caffeinated\Themes\Facades\Theme::class,
+        'Component' => Caffeinated\Themes\Facades\Component::class,
 	],
 ];
