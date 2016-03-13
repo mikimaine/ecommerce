@@ -18,6 +18,15 @@ require __DIR__.'/bootstrap/autoload.php';
 $app = require_once __DIR__.'/bootstrap/app.php';
 
 /*
+ |-------------------------------------------------------------------------
+ | Print the Version of the E-commerce Framework
+ |-------------------------------------------------------------------------
+ |
+ | INNOVATE commandline tool version printer
+ */
+print('INNOVATE E-COMMERCE Version  0.1  And  ');
+
+/*
 |--------------------------------------------------------------------------
 | Run The INNOVATE Application
 |--------------------------------------------------------------------------
@@ -27,6 +36,7 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 | or another output device for the developers. Here goes nothing!
 |
 */
+
 
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 
