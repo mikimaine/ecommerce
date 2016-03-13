@@ -23,5 +23,5 @@
         <div>
             <button type="submit">Login</button>
         </div>
-    </form>
+</form>
 @endsection

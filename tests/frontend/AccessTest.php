@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+
 /**
  * Class AccessTest
  */
@@ -9,22 +10,19 @@ class AccessTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     *
+
 
     public function test_user_can_see_auth_register()
     {
         $this->visit('/auth/register')->see('Register');
     }
-     */
-    /**
-     *
+
 
     public function test_user_can_see_auth_login()
     {
         $this->visit('/auth/login')->see('Login');
     }
-     */
+
     /**
      *
      */
@@ -48,14 +46,12 @@ class AccessTest extends TestCase
     ->seeInDatabase( 'users', [ 'email' => 'test@test.com' ] );
     }*/
 
-    /**
-     *
-     */
+
     public function test_user_can_login_without_remember_me()
     {
         $this->visit('/auth/login')
-            ->type('user@user.com', 'email')
-            ->type('1234', 'password')
+            ->type('mikias.amdu@gmail.com', 'email')
+            ->type('123456', 'password')
             ->press('Login')
             ->seePageIs('/dashboard')
             ->see('Dashboard');
@@ -63,7 +59,7 @@ class AccessTest extends TestCase
 
     /**
      *
-     */
+
     public function test_user_can_login_with_remember_me()
     {
         $this->visit('/auth/login')
@@ -74,5 +70,5 @@ class AccessTest extends TestCase
             ->seePageIs('/dashboard')
         //missing to check weather remember-me session/cookie exist
             ->see('Dashboard');
-    }
+    }  */
 }

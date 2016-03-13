@@ -15,11 +15,11 @@
 		"arcanedev/log-viewer": "~3.7.0",
 		"creativeorange/gravatar": "~1.0",
 		"davejamesmiller/laravel-breadcrumbs": "^3.0",
-		"caffeinated/themes": "~2.0"
+		"caffeinated/themes": "~2.0",
+		"symfony/css-selector": "~2.1"
 	},
 	"require-dev": {
 	  	"symfony/dom-crawler": "~3.0",
-	  	"symfony/css-selector": "~3.0",
 		"fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
@@ -28,7 +28,8 @@
 	},
 	"autoload": {
 		"classmap": [
-			"database"
+			"database",
+		    "tests/Testcase.php"
 		],
 		"psr-4": {
 			"App\\": "app/",

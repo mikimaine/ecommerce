@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call(AccessTableSeeder::class);
+        $this->call(CheckOutAgreementTable::class);
 
         if (env('DB_DRIVER') == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');

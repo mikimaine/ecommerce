@@ -25,7 +25,7 @@ class SetupAccessTables extends Migration
             $table->timestamps();
 
             /**
-             * Add Foreign/Unique/Index
+             * Add Foreign/Uniqu e/Index
              */
             $table->unique('name');
         });

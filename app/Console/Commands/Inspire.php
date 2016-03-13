@@ -19,15 +19,15 @@ class Inspire extends Command
      *
      * @var string
      */
-    protected $description = 'Display an inspiring quote';
+    protected$description = 'Display an inspiring quote';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        $this->comment(PHP_EOL . Inspiring::quote() . PHP_EOL);
-    }
+/**
+* Execute the console command.
+ *
+ * @return mixed
+*/
+public function handle()
+{
+    $this->comment(PHP_EOL . Inspiring::quote() . PHP_EOL);
+}
 }
