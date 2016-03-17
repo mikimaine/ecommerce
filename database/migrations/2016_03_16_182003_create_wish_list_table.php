@@ -32,7 +32,7 @@ class CreateWishListTable extends Migration
 
 
 
-            
+
 
 
 
