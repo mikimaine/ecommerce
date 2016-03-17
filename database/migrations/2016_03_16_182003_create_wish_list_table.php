@@ -32,6 +32,10 @@ class CreateWishListTable extends Migration
 
 
 
+            
+
+
+
         });
     }
 
