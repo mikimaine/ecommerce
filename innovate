@@ -24,7 +24,8 @@ $app = require_once __DIR__.'/bootstrap/app.php';
  |
  | INNOVATE commandline tool version printer
  */
-print('INNOVATE E-COMMERCE Version  0.1  And  ');
+print('INNOVATE E-COMMERCE CONSOLE  V0.1   '). PHP_EOL;
+
 
 /*
 |--------------------------------------------------------------------------
