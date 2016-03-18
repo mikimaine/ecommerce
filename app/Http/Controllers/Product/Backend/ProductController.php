@@ -19,17 +19,13 @@ use Innovate\Products\ProductSoldCommand;
  * @package app\Http\Controllers\Product\Backend
  */
 class ProductController extends CommandsDomainEventController{
-
-
-
+    
     /**
      *
      */
     public function store()
     {
-
-        $input = Input::only('title','description');
-
+         $input = Input::only('title','description');
          $command = new PostProductCommand($input['title'],$input['description']);
          $this->commandBus->execute($command);
     }
