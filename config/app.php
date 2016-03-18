@@ -185,6 +185,7 @@ return [
 
 		Mikimaine\Demo\DemoServiceProvider::class,
 		Caffeinated\Themes\ThemesServiceProvider::class,
+		Innovate\Eventing\EventingServiceProvider::class
 	],
 
 	/*

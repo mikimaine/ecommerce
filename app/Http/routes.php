@@ -1,8 +1,15 @@
 <?php
 
+Route::get('product/store', 'Product\Backend\ProductController@store');
+
+Route::get('product/delete', 'Product\Backend\ProductController@delete');
+
 /**
  * Switch between the included languages
  */
+
+//Event::listen('Innovate.*','\Innovate\Listeners\EmailNotifier');
+
 $router->group(['namespace' => 'Language'], function () use ($router) {
     require (__DIR__ . '/Routes/Language/Lang.php');
 });
