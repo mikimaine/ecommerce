@@ -12,14 +12,29 @@ namespace Innovate\Products;
 
 use Innovate\Commanding\CommandHandler;
 use Innovate\Eventing\EventDispatcher;
+use Innovate\Repositories\Product\ProductContract;
 
+/**
+ * Class ProductSoldCommandHandler
+ * @package Innovate\Products
+ */
 class ProductSoldCommandHandler implements CommandHandler{
 
+    /**
+     * @var
+     */
     protected $product ;
 
+    /**
+     * @var
+     */
     private $dispatcher;
 
-    function __construct(Product $product, EventDispatcher $dispatcher)
+    /**
+     * @param Product|ProductContract $product
+     * @param EventDispatcher $dispatcher
+     */
+    function __construct(ProductContract $product, EventDispatcher $dispatcher)
     {
         $this->product = $product;
         $this->dispatcher = $dispatcher;
@@ -34,9 +49,11 @@ class ProductSoldCommandHandler implements CommandHandler{
      */
     public function handle($command)
     {
-        $product = $this->product->findOrFail($command->productId);
-        $product->archive();
+       // var_dump( $this->product);
+        $this->product->archive($command->productId);
 
-        $this->dispatcher->dispatch($product->releaseEvents());
+
+
+        $this->dispatcher->dispatch($this->product->releaseEvents());
     }
 }

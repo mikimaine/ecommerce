@@ -10,8 +10,15 @@
 namespace Innovate\Eventing;
 
 
+/**
+ * Class EventGenerator
+ * @package Innovate\Eventing
+ */
 trait EventGenerator {
 
+    /**
+     * @var array
+     */
     protected $pendingEvents = [];
 
     /**

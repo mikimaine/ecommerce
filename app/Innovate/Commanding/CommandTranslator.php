@@ -12,8 +12,17 @@ namespace Innovate\Commanding;
 
 use Exception;
 
+/**
+ * Class CommandTranslator
+ * @package Innovate\Commanding
+ */
 class CommandTranslator {
 
+    /**
+     * @param $command
+     * @return mixed
+     * @throws Exception
+     */
     public function  toCommandHandler($command)
     {
 

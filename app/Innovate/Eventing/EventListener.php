@@ -12,6 +12,10 @@ namespace Innovate\Eventing;
 
 use ReflectionClass;
 
+/**
+ * Class EventListener
+ * @package Innovate\Eventing
+ */
 class EventListener {
 
 

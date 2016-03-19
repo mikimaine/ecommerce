@@ -10,13 +10,27 @@
 namespace Innovate\Products;
 
 
+/**
+ * Class PostProductCommand
+ * @package Innovate\Products
+ */
 class PostProductCommand {
 
 
+    /**
+     * @var
+     */
     public  $title;
 
+    /**
+     * @var
+     */
     public $description;
 
+    /**
+     * @param $title
+     * @param $description
+     */
     function __construct($title,$description)
     {
         $this->description = $description;

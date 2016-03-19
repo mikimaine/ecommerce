@@ -12,6 +12,10 @@ namespace Innovate\Eventing;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class EventingServiceProvider
+ * @package Innovate\Eventing
+ */
 class EventingServiceProvider extends ServiceProvider {
 
 

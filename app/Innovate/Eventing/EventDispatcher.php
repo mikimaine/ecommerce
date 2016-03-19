@@ -13,18 +13,35 @@ namespace Innovate\Eventing;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Log\Writer;
 
+/**
+ * Class EventDispatcher
+ * @package Innovate\Eventing
+ */
 class EventDispatcher {
 
+    /**
+     * @var Dispatcher
+     */
     protected $event;
 
+    /**
+     * @var Writer
+     */
     protected $log;
 
+    /**
+     * @param Dispatcher $event
+     * @param Writer $log
+     */
     function __construct(Dispatcher $event, Writer $log)
     {
         $this->event = $event;
         $this->log = $log;
     }
 
+    /**
+     * @param array $events
+     */
     public function dispatch(array $events){
 
         foreach($events as $event)

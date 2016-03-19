@@ -10,10 +10,20 @@
 namespace Innovate\Products;
 
 
+/**
+ * Class ProductSoldCommand
+ * @package Innovate\Products
+ */
 class ProductSoldCommand {
 
+    /**
+     * @var
+     */
     public $productId;
 
+    /**
+     * @param $productId
+     */
     function __construct($productId)
     {
         $this->productId = $productId;

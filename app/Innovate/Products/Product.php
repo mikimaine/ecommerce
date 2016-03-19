@@ -11,10 +11,15 @@ namespace Innovate\Products;
 
 
 use Innovate\Eventing\EventGenerator;
+use Illuminate\Database\Eloquent\Model;
 
-class Product extends \Eloquent {
+/**
+ * Class Product
+ * @package Innovate\Products
+ */
+class Product extends Model {
 
-    use EventGenerator;
+
 
 
     /**
@@ -24,30 +29,12 @@ class Product extends \Eloquent {
      */
     protected $table = 'product';
 
+    /**
+     * @var array
+     */
     protected  $fillable = ['title','description'];
 
-    /**
-     * @param $title
-     * @param $description
-     * @return $this
-     */
-    public function post($title, $description)
-    {
-        $this->title = $title;
-        $this->description = $description;
 
-         $this->save();
 
-        $this->raise(new ProductWasPosted($this));
 
-        return $this;
-    }
-
-    public function archive()
-    {
-        $this->delete();
-
-        $this->raise(new ProductWasArchived($this));
-
-    }
 }

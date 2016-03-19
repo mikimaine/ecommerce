@@ -19,7 +19,7 @@ use Innovate\Products\ProductSoldCommand;
  * @package app\Http\Controllers\Product\Backend
  */
 class ProductController extends CommandsDomainEventController{
-    
+
     /**
      *
      */

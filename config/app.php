@@ -180,12 +180,14 @@ return [
 		Laravel\Socialite\SocialiteServiceProvider::class,
 
 		/*
-		 * MikiMaine Dependent
+		 * Innovate Dependent
 		 */
 
 		Mikimaine\Demo\DemoServiceProvider::class,
 		Caffeinated\Themes\ThemesServiceProvider::class,
-		Innovate\Eventing\EventingServiceProvider::class
+		Innovate\Eventing\EventingServiceProvider::class,
+		Innovate\Providers\ProductServiceProvider::class
+
 	],
 
 	/*

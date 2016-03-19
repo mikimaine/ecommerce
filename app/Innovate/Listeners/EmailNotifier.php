@@ -14,6 +14,10 @@ use Innovate\Eventing\EventListener;
 use Innovate\Products\ProductWasArchived;
 use Innovate\Products\ProductWasPosted;
 
+/**
+ * Class EmailNotifier
+ * @package Innovate\Listeners
+ */
 class EmailNotifier extends EventListener {
 
 

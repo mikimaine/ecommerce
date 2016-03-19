@@ -12,17 +12,28 @@ namespace Innovate\Products;
 
 use Innovate\Commanding\CommandHandler;
 use Innovate\Eventing\EventDispatcher;
+use Innovate\Repositories\Product\ProductContract;
 
+/**
+ * Class PostProductCommandHandler
+ * @package Innovate\Products
+ */
 class PostProductCommandHandler implements CommandHandler {
-   protected $product;
+    /**
+     * @var Product
+     */
+    protected $product;
 
+    /**
+     * @var EventDispatcher
+     */
     protected $dispatcher;
 
     /**
-     * @param Product $product
+     * @param Product|ProductContract $product
      * @param EventDispatcher $dispatcher
      */
-    function __construct(Product $product,EventDispatcher $dispatcher )
+    function __construct(ProductContract $product,EventDispatcher $dispatcher )
     {
         $this->product = $product;
 
