@@ -3,6 +3,7 @@
 return [
 
     'listeners' =>[
-        'Innovate\Listeners\EmailNotifier'
+        'Innovate\Listeners\EmailNotifier',
+        'Innovate\Listeners\SmsNotifier'
     ]
 ];

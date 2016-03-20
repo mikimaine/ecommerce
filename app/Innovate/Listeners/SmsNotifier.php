@@ -11,6 +11,7 @@ namespace Innovate\Listeners;
 
 
 use Innovate\Eventing\EventListener;
+use Innovate\Products\ProductIsAboutToBePosted;
 use Innovate\Products\ProductWasArchived;
 use Innovate\Products\ProductWasPosted;
 
@@ -18,14 +19,16 @@ use Innovate\Products\ProductWasPosted;
  * Class EmailNotifier
  * @package Innovate\Listeners
  */
-class EmailNotifier extends EventListener {
+class SmsNotifier extends EventListener {
 
 
-    public function whenProductWasPosted(ProductWasPosted $event)
+   public function whenProductIsAboutToBePosted(ProductIsAboutToBePosted $event)
     {
-        var_dump('Send Confirmation Email about event :  '.$event->product->title);
 
+        var_dump('Send Confirmation Sms about event :  '.$event->product->title);
     }
+
+
 
     /**
      * @param ProductWasArchived $event

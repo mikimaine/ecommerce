@@ -10,6 +10,10 @@
 namespace Innovate\Services\Product;
 
 
+/**
+ * Class Product
+ * @package Innovate\Services\Product
+ */
 class Product {
 
 

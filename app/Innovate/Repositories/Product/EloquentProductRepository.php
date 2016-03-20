@@ -12,6 +12,7 @@ namespace Innovate\Repositories\Product;
 use Innovate\Products\Product;
 
 use Innovate\Eventing\EventGenerator;
+use Innovate\Products\ProductIsAboutToBePosted;
 use Innovate\Products\ProductWasArchived;
 use Innovate\Products\ProductWasPosted;
 
@@ -128,6 +129,7 @@ class EloquentProductRepository implements ProductContract {
 
         $this->product->title = $title;
         $this->product->description = $description;
+
 
 
         $this->product->save();
