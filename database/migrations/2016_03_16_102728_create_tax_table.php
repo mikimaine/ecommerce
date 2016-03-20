@@ -15,7 +15,6 @@ class CreateTaxTable extends Migration
         //
         Schema::create('tax', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('product_id')->unsigned();
             $table->string('name');
             $table->integer('rate');
             $table->timestamps();

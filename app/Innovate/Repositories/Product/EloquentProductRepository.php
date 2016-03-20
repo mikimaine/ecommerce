@@ -12,7 +12,6 @@ namespace Innovate\Repositories\Product;
 use Innovate\Products\Product;
 
 use Innovate\Eventing\EventGenerator;
-use Innovate\Products\ProductIsAboutToBePosted;
 use Innovate\Products\ProductWasArchived;
 use Innovate\Products\ProductWasPosted;
 

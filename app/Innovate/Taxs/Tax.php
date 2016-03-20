@@ -7,7 +7,7 @@
  * Time: 1:33 PM
  */
 
-namespace Innovate\Products;
+namespace Innovate\Taxs;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Product
  * @package Innovate\Products
  */
-class Product extends Model {
+class Tax extends Model {
 
 
 
@@ -25,12 +25,12 @@ class Product extends Model {
      *
      * @var string
      */
-    protected $table = 'product';
+    protected $table = 'tax';
 
     /**
      * @var array
      */
-    protected  $fillable = ['title','description'];
+    protected  $fillable = ['name','rate'];
 
 
 

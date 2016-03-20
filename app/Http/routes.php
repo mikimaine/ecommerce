@@ -1,6 +1,7 @@
 <?php
 
 Route::get('product/store', 'Product\Backend\ProductController@store');
+Route::get('tax/store', 'Tax\Backend\TaxController@store');
 
 Route::get('product/delete', 'Product\Backend\ProductController@delete');
 
