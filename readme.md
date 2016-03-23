@@ -4,11 +4,59 @@
 
 ### Introduction
 
-INNOVATE Ecommerce provides you with a starting ecommerce framework on top of laravel framework.
+INNOVATE Ecommerce provides you with an E-commerce framework on top of laravel framework.
 
-### Wiki
+The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high level of interoperability between shared PHP code. At the moment the package is not unit tested, but is planned to be covered later down the road.
 
-Cooming Soon
+### Requirements
+---------------------
+
+- You must have at list PHP 5.6 installed on your machine
+- And also For now you have to install both git and composer on your system
+  You will find [Composer here](https://getcomposer.org) and
+                [Git here](https://git.org)  then follow the instructions there to install on your specific machine
+
+
+### Quick Installation
+------------------------
+
+Begin by cloning the Framework to ur directory. Go to your server public directory and enter this commands
+
+```
+git clone https://github.com/mikimaine/innovate.git
+```
+Once the framework get cloned to your desktop, simply run composer install from the project root directory
+
+```
+composer install
+```
+This will install all the required packages to your system including Laravel
+
+After that rename example.env to .env and fill your database credentials.
+
+Then use this commands to install the database tables and there seed data
+
+#### Generate Application key
+```php
+php innovate key:generate
+```
+
+#### Migration
+```php
+ php innovate migrate
+```
+
+#### Seed the database
+```php
+ php innovate db:seed
+```
+
+And that's it ! Start building awesome E-commerce applications for your business
+
+Documentation
+-------------
+
+I will release a user friendly documentation and screen cast soon
 
 ### Issues
 

@@ -2,7 +2,7 @@
           <header class="main-header">
 
             <!-- Logo -->
-            <a href="{!!route('home')!!}" class="logo"><b>INNOVET</b></a>
+            <a href="{!!route('home')!!}" class="logo"><b>INNOVATE</b></a>
 
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">

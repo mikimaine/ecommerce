@@ -33,6 +33,79 @@
                 <!-- Optionally, you can add icons to the links -->
                 <li class="{{ Active::pattern('admin/dashboard') }}"><a href="{!!route('admin.dashboard')!!}"><span>{{ trans('menus.dashboard') }}</span></a></li>
 
+                @permission('view-innovate-ecommerce')
+                <li class="{{ Active::pattern('admin/tax*') }} treeview">
+                  <a href="#">
+                    <span>{{ trans('innovate.menus.ecommerce') }}</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+
+
+                  <ul class="treeview-menu {{ Active::pattern('admin/tax*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/tax*', 'display: block;') }}">
+                      <!--  Sales -->
+                      <li class="{{ Active::pattern('admin/eav*') }} treeview">
+                          <a href="#">
+                              <span>{{ trans('innovate.menus.sales') }}</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                          <ul class="treeview-menu {{ Active::pattern('admin/check_out_agreement*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/bank_transfer_info') !!}">{{ trans('innovate.menus.product_attribute_category') }}</a>
+                              </li>
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/check_out_agreement') !!}">{{ trans('innovate.menus.product_attribute') }}</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <!--  End Sales -->
+
+                      <!--  Catalog -->
+                      <li class="{{ Active::pattern('admin/eav*') }} treeview">
+                          <a href="#">
+                              <span>{{ trans('innovate.menus.catalog') }}</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                          <ul class="treeview-menu {{ Active::pattern('admin/check_out_agreement*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+
+                          <li class="{{ Active::pattern('admin/eav*') }} treeview">
+                          <a href="#">
+                              <span>{{ trans('innovate.menus.eav_product') }}</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                          <ul class="treeview-menu {{ Active::pattern('admin/check_out_agreement*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/bank_transfer_info') !!}">{{ trans('innovate.menus.product_attribute_category') }}</a>
+                              </li>
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/check_out_agreement') !!}">{{ trans('innovate.menus.product_attribute') }}</a>
+                              </li>
+                          </ul>
+                      </li>
+                          </ul>
+                   </li>
+                      <!--  End Catalog -->
+                        <li class="{{ Active::pattern('admin/tax') }}">
+                          <a href="{!! url('admin/tax') !!}">{{ trans('innovate.menus.tax') }}</a>
+                        </li>
+
+                         <li class="{{ Active::pattern('admin/check_out_agreement*') }} treeview">
+                          <a href="#">
+                              <span>{{ trans('innovate.menus.static_pages') }}</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                          <ul class="treeview-menu {{ Active::pattern('admin/check_out_agreement*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/bank_transfer_info') !!}">{{ trans('innovate.menus.bank_info') }}</a>
+                              </li>
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/check_out_agreement') !!}">{{ trans('innovate.menus.check_out_agreement') }}</a>
+                              </li>
+                          </ul>
+                         </li>
+
+                  </ul>
+                </li>
+                @endauth
                 @permission('view-access-management')
                   <li class="{{ Active::pattern('admin/access/*') }}"><a href="{!!url('admin/access/users')!!}"><span>{{ trans('menus.access_management') }}</span></a></li>
                 @endauth

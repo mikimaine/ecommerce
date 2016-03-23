@@ -16,7 +16,6 @@ abstract class CommandsDomainEventController extends BaseController
 {
     use DispatchesJobs, ValidatesRequests;
 
-
     /**
      * @var
      */

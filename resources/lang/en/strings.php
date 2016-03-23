@@ -15,7 +15,7 @@ return [
 
     'here' => 'Here',
     'all_rights_reserved' => 'All rights reserved.',
-    'boilerplate_link' => 'Laravel Boilerplate',
+    'boilerplate_link' => 'INNOVATE E-COMMERCE',
     'backend' => [
         'WELCOME' => 'WELCOME',
         'dashboard_title' => 'Administrative Dashboard',
@@ -37,6 +37,7 @@ return [
     'password_successfully_changed' => 'Password successfully changed',
     'profile_successfully_updated' => 'Profile successfully updated.',
     'save_button' => 'Save',
+    'update_button' => 'Update',
     'search_placeholder' => 'Search...',
     'see_all' => [
         'messages' => 'See all messages',

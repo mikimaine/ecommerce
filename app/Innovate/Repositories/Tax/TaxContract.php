@@ -31,7 +31,7 @@ interface TaxContract {
      * @param  $status
      * @return mixed
      */
-    public function getTaxPaginated($per_page, $status = 1, $order_by = 'id', $sort = 'asc');
+    public function getTaxPaginated($per_page, $order_by = 'id', $sort = 'asc');
 
 
 

@@ -1,9 +1,10 @@
 <?php
 
 Route::get('product/store', 'Product\Backend\ProductController@store');
-Route::get('tax/store', 'Tax\Backend\TaxController@store');
+//Route::get('tax/store', 'Tax\Backend\TaxController@store');
+//Route::get('tax', 'Tax\Backend\TaxController@index');
 
-Route::get('product/delete', 'Product\Backend\ProductController@delete');
+//Route::get('product/delete', 'Product\Backend\ProductController@delete');
 
 /**
  * Switch between the included languages
@@ -39,6 +40,7 @@ $router->group(['namespace' => 'Backend'], function () use ($router) {
             require (__DIR__ . '/Routes/Backend/Dashboard.php');
             require (__DIR__ . '/Routes/Backend/Access.php');
             require (__DIR__ . '/Routes/Backend/LogViewer.php');
+            require (__DIR__ . '/Routes/Backend/Innovate.php');
         });
     });
 });

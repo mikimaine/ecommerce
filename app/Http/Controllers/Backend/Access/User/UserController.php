@@ -22,7 +22,7 @@ use App\Http\Requests\Backend\Access\User\ResendConfirmationEmailRequest;
 /**
  * Class UserController
  */
-class UserController extends Controller
+class  UserController extends Controller
 {
     /**
      * @var UserContract

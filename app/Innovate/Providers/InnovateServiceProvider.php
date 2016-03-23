@@ -44,6 +44,21 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Tax\TaxContract::class,
             \Innovate\Repositories\Tax\EloquentTaxRepository::class
         );
+        /**
+         * bind BankTransferInfoContract to its elquent implementation EloquentBankTransferInfoRepository
+         */
+        $this->app->bind(
+            \Innovate\Repositories\StaticPages\BankTransferInfo\BankTransferInfoContract::class,
+            \Innovate\Repositories\StaticPages\BankTransferInfo\EloquentBankTransferInfoRepository::class
+        );
+
+        /**
+         *
+         */
+        $this->app->bind(
+            \Innovate\Repositories\StaticPages\CheckOutAgreement\CheckOutAgreementContract::class,
+            \Innovate\Repositories\StaticPages\CheckOutAgreement\EloquentCheckOutAgreementRepository::class
+        );
 
 
     }

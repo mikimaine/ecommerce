@@ -20,13 +20,20 @@ use Innovate\Taxs\Tax;
 class EloquentTaxRepository implements TaxContract {
 
     /**
-     * @param  $id
+     * @param $id
      * @return mixed
+     * @throws GeneralException
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
     {
-        // TODO: Implement findOrThrowException() method.
+        $tax = Tax::find($id);
+
+        if (!is_null($tax)) {
+            return $tax;
+        }
+
+        throw new GeneralException('That Tax does not exist.');
     }
 
     /**
@@ -36,9 +43,9 @@ class EloquentTaxRepository implements TaxContract {
      * @param  $status
      * @return mixed
      */
-    public function getTaxPaginated($per_page, $status = 1, $order_by = 'id', $sort = 'asc')
+    public function getTaxPaginated($per_page, $order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getTaxPaginated() method.
+        return Tax::orderBy($order_by, $sort)->paginate($per_page);
     }
 
     /**
@@ -48,7 +55,7 @@ class EloquentTaxRepository implements TaxContract {
      */
     public function getAllTax($order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getAllTax() method.
+        return Tax::orderBy($order_by, $sort)->get();
     }
 
     /**
@@ -71,23 +78,38 @@ class EloquentTaxRepository implements TaxContract {
     }
 
     /**
-     * @param  $id
-     * @param  $input
-     * @param  $roles
+     * @param $id
+     * @param $input
      * @return mixed
+     * @throws GeneralException
+     * @internal param $roles
      */
     public function update($id, $input)
     {
-        // TODO: Implement update() method.
+        $tax = $this->findOrThrowException($id);
+
+        if($tax->update($input))
+        {
+            return true;
+        }
+        throw new GeneralException('There was a problem updating this tax. Please try again.');
     }
 
     /**
-     * @param  $id
+     * @param $id
      * @return mixed
+     * @throws GeneralException
      */
     public function destroy($id)
     {
-        // TODO: Implement destroy() method.
+        $tax = $this->findOrThrowException($id);
+        if ($tax->delete())
+        {
+        return true;
+        }
+
+        throw new GeneralException('There was a problem deleting this tax. Please try again.');
+
     }
 
     /**

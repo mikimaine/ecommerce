@@ -10,12 +10,15 @@
 namespace Innovate\Taxs;
 
 use Illuminate\Database\Eloquent\Model;
+use Innovate\Taxs\Traits\Attribute\TaxAttribute;
 
 /**
  * Class Product
  * @package Innovate\Products
  */
 class Tax extends Model {
+
+    use TaxAttribute;
 
 
 
