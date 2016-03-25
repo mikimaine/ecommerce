@@ -23,7 +23,7 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 Begin by cloning the Framework to ur directory. Go to your server public directory and enter this commands
 
 ```
-git clone https://github.com/mikimaine/innovate.git
+git clone https://github.com/mikimaine/ecommerce.git
 ```
 Once the framework get cloned to your desktop, simply run composer install from the project root directory
 
