@@ -60,7 +60,7 @@ I will release a user friendly documentation and screen cast soon
 
 ### Issues
 
-If you come across any issues please [report them here](https://github.com/mikimaine/ecommerce/issues).
+If you come across any issues please [report them here](https://github.com/mikimaine/ecommerce.git).
 
 ### Contributing
 
