@@ -14,7 +14,7 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 - You must have at list PHP 5.6 installed on your machine
 - And also For now you have to install both git and composer on your system
   You will find [Composer here](https://getcomposer.org) and
-                [Git here](https://git.org)  then follow the instructions there to install on your specific machine
+                [Git here](https://git-scm.com/)  then follow the instructions there to install on your specific machine
 
 
 ### Quick Installation
