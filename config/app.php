@@ -178,6 +178,16 @@ return [
 		HieuLe\Active\ActiveServiceProvider::class,
 		Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
+		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+		Dimsav\Translatable\TranslatableServiceProvider::class,
+		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+		Spatie\Tail\TailServiceProvider::class,
+		Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+		Orangehill\Iseed\IseedServiceProvider::class,
+		Yajra\Datatables\DatatablesServiceProvider::class,
+		Sofa\Eloquence\ServiceProvider::class,
+		Spatie\Activitylog\ActivitylogServiceProvider::class,
+		Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
 
 		/*
 		 * Innovate Dependent
@@ -246,6 +256,11 @@ return [
 		'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
 		'HTML'		  => Collective\Html\HtmlFacade::class,
 		'Socialize'   => Laravel\Socialite\Facades\Socialite::class,
+		'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
+		'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
+		'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
+		'Activity' => Spatie\Activitylog\ActivitylogFacade::class,
+		'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
 
 		/**
 		 * Miki Maine

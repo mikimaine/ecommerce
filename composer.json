@@ -1,10 +1,20 @@
 {
 	"name": "mikimaine/ecommerce",
 	"description": "The Laravel Ecommerce Framework.",
-	"keywords": ["framework", "laravel", "ecommerce"],
+	"keywords": ["framework", "laravel", "ecommerce","Ethiopia","innovate","innovate ecommerce","laravel ecommerce"],
 	"license": "MIT",
+    "version": "0.0.1",
 	"type": "project",
+	"authors": [
+	  {
+		"name": "Mikiyas Amdu",
+		"email": "mikias.amdu@gmail.com",
+		"homepage": "https://github.com/mikimaine/ecommerce",
+		"role": "Developer"
+	  }
+	],
 	"require": {
+	    "php" : ">=5.6.0",
 		"laravel/framework": "5.2.*",
         "laravelcollective/html": "5.2.*",
         "laravel/socialite" : "~2.0",
@@ -16,7 +26,17 @@
 		"creativeorange/gravatar": "~1.0",
 		"davejamesmiller/laravel-breadcrumbs": "^3.0",
 		"caffeinated/themes": "~2.0",
-		"symfony/css-selector": "~2.1"
+		"symfony/css-selector": "~2.1",
+		"cviebrock/eloquent-sluggable": "^3.1",
+		"dimsav/laravel-translatable": "^5.5",
+		"barryvdh/laravel-ide-helper": "^2.1",
+		"spatie/laravel-tail": "^1.1",
+		"artesaos/seotools": "^0.8.2",
+		"orangehill/iseed": "^2.1",
+		"yajra/laravel-datatables-oracle": "~6.0",
+		"sofa/eloquence": " ~5.2@dev",
+		"spatie/activitylog": "^2.4",
+		"spatie/laravel-url-signer": "^1.1"
 	},
 	"require-dev": {
 	  	"symfony/dom-crawler": "~3.0",
@@ -51,7 +71,8 @@
 			"php artisan optimize"
 		],
         "pre-update-cmd": [
-            "php artisan clear-compiled"
+            "php artisan clear-compiled",
+		    "php artisan ide-helper:generate"
         ],
 		"post-update-cmd": [
 			"php artisan optimize"
@@ -64,11 +85,11 @@
 	"config": {
 		"preferred-install": "dist"
 	},
+  "minimum-stability": "stable",
   "repositories": [
   {
 	"type": "composer",
 	"url": "https://packagist.org"
-  },
-  { "packagist": false }
-]
+  }
+   ]
 }
