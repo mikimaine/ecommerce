@@ -54,7 +54,7 @@
 		"psr-4": {
 			"App\\": "app/",
 		    "Innovate\\":"app/innovate",
-			//"Mikimaine\\Demo\\": "packages/Mikimaine/Demo/src/"
+			"Mikimaine\\Demo\\": "packages/Mikimaine/Demo/src/"
 		},
         "files": [
             "app/helpers.php"
