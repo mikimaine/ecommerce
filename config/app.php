@@ -170,7 +170,9 @@ return [
 
 		/*
 		 * Third party service providers
+		 * Innovate E-commerce Dependent
 		 */
+
 		Arcanedev\LogViewer\LogViewerServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
 		Creativeorange\Gravatar\GravatarServiceProvider::class,
@@ -188,16 +190,17 @@ return [
 		Sofa\Eloquence\ServiceProvider::class,
 		Spatie\Activitylog\ActivitylogServiceProvider::class,
 		Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
+		Intervention\Image\ImageServiceProvider::class,
+		
 
-		/*
-		 * Innovate Dependent
-		 */
-
+		
 		Mikimaine\Demo\DemoServiceProvider::class,
 		Caffeinated\Themes\ThemesServiceProvider::class,
 		Innovate\Eventing\EventingServiceProvider::class,
 		Innovate\Providers\ProductServiceProvider::class,
-		Innovate\Providers\InnovateServiceProvider::class
+		Innovate\Providers\InnovateServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
+		Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class
 
 	],
 
@@ -248,6 +251,7 @@ return [
 
 		/*
 		 * Third party aliases
+		 * Innovate E-commerce Dependent
 		 */
 		'Active'      => HieuLe\Active\Facades\Active::class,
 		'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
@@ -261,10 +265,8 @@ return [
 		'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
 		'Activity' => Spatie\Activitylog\ActivitylogFacade::class,
 		'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
+		'Image' => Intervention\Image\Facades\Image::class,
 
-		/**
-		 * Miki Maine
-		 */
 		'Demo' => Mikimaine\Demo\DemoFacade::class,
 		'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'Component' => Caffeinated\Themes\Facades\Component::class,
