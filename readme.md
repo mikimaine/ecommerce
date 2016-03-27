@@ -20,15 +20,10 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 ### Quick Installation
 ------------------------
 
-Begin by cloning the Framework to ur directory. Go to your server public directory and enter this commands
+Begin by creating a new project using the composer create commande
 
 ```
-git clone https://github.com/mikimaine/ecommerce.git
-```
-Once the framework get cloned to your desktop, simply run composer install from the project root directory
-
-```
-composer install
+composer create-project mikimaine/ecommerce yourprojectname
 ```
 This will install all the required packages to your system including Laravel
 
