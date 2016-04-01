@@ -181,7 +181,6 @@ return [
 		Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
 		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
-		Dimsav\Translatable\TranslatableServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 		Spatie\Tail\TailServiceProvider::class,
 		Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
@@ -192,7 +191,9 @@ return [
 		Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
 		//Spatie\Feed\FeedServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
-
+		AdamWathan\BootForms\BootFormsServiceProvider::class,
+		Dimsav\Translatable\TranslatableServiceProvider::class,
+        Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 
 		
@@ -273,5 +274,6 @@ return [
 		'Demo' 		=> Mikimaine\Demo\DemoFacade::class,
 		'Theme' 	=> Caffeinated\Themes\Facades\Theme::class,
         'Component' => Caffeinated\Themes\Facades\Component::class,
+		'TranslatableBootForm' => Propaganistas\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
 	],
 ];
