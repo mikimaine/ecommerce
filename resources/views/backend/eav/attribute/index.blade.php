@@ -1,6 +1,6 @@
 @extends ('backend.layouts.master')
 
-@section ('title', trans('tax.tax_management'))
+@section ('title', trans('eav.eav_attribute_management'))
 
 @section('after-styles-end')
     {!! HTML::style('css/backend/plugin/datatables/dataTables.bootstrap.css') !!}
@@ -41,7 +41,7 @@
                     <tbody>
                     @if($attributes->count() )
                         @foreach ($attributes as $attribute)
-                            <tr>
+                            <tr id="attribute">
                                 <td>{!! $attribute->id !!}</td>
                                 <td>{!! $attribute->title !!}</td>
                                 <td>{!! $attribute->product_attribute_category->attribute_set_name !!}</td>
@@ -53,7 +53,7 @@
                                         <td>Integer</td>
                                      @else
                                         <td>{!! $attribute->datatype !!}</td>
-                                    @endi
+                                    @endif
                                 @if($attribute->notnull)
                                     <td>  <span class="label label-success"> Yes </span> </td>
                                 @else
@@ -82,6 +82,8 @@
             <div class="clearfix"></div>
         </div><!-- /.box-body -->
     </div><!--box-->
+
+
 @stop
 
 @section('after-scripts-end')
@@ -99,4 +101,5 @@
             });
         });
     </script>
+
 @endsection

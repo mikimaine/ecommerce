@@ -53,12 +53,18 @@ return [
 
     'menus' => [
         'eav_attribute_category' => 'Attribute Set',
+        'eav_attribute' => 'Attribute ',
         'button' => 'Roles',
         'header_buttons' =>[
             'eav_attribute_category' =>[
                 'button' => 'Attribute set\'s',
                 'all' => 'All Attribute set\'s',
                 'create_tax' => 'Create Attribute set',
+            ],
+            'eav_attribute' =>[
+                'button' => 'Attribute\'s',
+                'all' => 'All Attribute\'s',
+                'create_tax' => 'Create Attribute',
             ]
         ]
     ],

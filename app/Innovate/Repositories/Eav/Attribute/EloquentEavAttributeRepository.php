@@ -11,7 +11,12 @@ namespace Innovate\Repositories\Eav\Attribute;
 
 
 use App\Exceptions\GeneralException;
+use Exception;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Log;
 use Innovate\Eav\Attribute\ProductAttribute;
+use Monolog\Logger;
+use Psy\Exception\ErrorException;
 
 /**
  * Class EloquentEavAttributeRepository
@@ -27,7 +32,7 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
      */
     public function findOrThrowException($id)
     {
-        $attribute = ProductAttribute::find(id);
+        $attribute = ProductAttribute::find($id);
 
         if (!is_null($attribute)) {
             return $attribute;
@@ -67,13 +72,14 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
     public function create($input)
     {
         $attribute = $this->createEavAttributeStub($input);
+        try{
+            if($attribute->save()) {
+                return true;
+            }
+        }catch (Exception $e){
+            //Do things with the Error
 
-        if($attribute->save())
-        {
-            return true;
-        }
-
-        throw new GeneralException('There was a problem creating this Attribute. Please try again!');
+        }throw new GeneralException('There was a problem creating this Attribute. Please try again!');
     }
 
     /**
@@ -87,11 +93,16 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
     {
         $attribute = $this->findOrThrowException($id);
 
-        if($attribute->update($input))
-        {
-            return true;
-        }
-        throw new GeneralException('There was a problem updating this Attribute. Please try again.');
+        isset($input['notnull']) ?  $input['notnull']= 1 : $input['notnull']= 0;
+        try{
+                if($attribute->update($input))
+                {
+                    return true;
+                }
+        }catch (Exception $e){
+                    //Do things with the Error
+
+        }throw new GeneralException('There was a problem updating this Attribute. Please try again.');
 
     }
 
@@ -103,12 +114,15 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
     public function destroy($id)
     {
         $attribute = $this->findOrThrowException($id);
-        if ($attribute->delete())
-        {
-            return true;
-        }
+        try{
+                if ($attribute->delete())
+                {
+                    return true;
+                }
+        }catch (Exception $e){
+            //Do things with the Error
 
-        throw new GeneralException('There was a problem deleting this Attribute. Please try again.');
+        }throw new GeneralException('There was a problem deleting this Attribute. Please try again.');
 
     }
 
@@ -130,15 +144,10 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
         $attribute = new ProductAttribute();
         $attribute->product_category_id = $input['product_category_id'];
         $attribute->title = $input['title'];
-
-
-        $attribute->notnull = 0 ;
-        //check if Not Null value is set
-        if($input['notnull']== 'on')
-        {
-            $attribute->notnull = 1 ;
-        }
         $attribute->datatype = $input['datatype'];
+
+        isset($input['notnull']) ?  $input['notnull']= 1 : $input['notnull']= 0;
+
 
         return $attribute;
     }

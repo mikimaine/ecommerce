@@ -30,4 +30,5 @@ $router->resource('tax', 'Tax\Backend\TaxController');
 
 
 $router->resource('eav/attribute', 'Eav\Attribute\EavProductAttribute');
+$router->resource('eav/category',  'Eav\Category\EavProductAttributeCategory');
 

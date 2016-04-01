@@ -10,7 +10,10 @@
 @endsection
 
 @section('content')
-    {!! Form::open(['route' => 'admin.eav.attribute.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
-    @include('backend.eav.attribute.includes.partials._form',[$pageName = 'create',$buttonText = trans('strings.save_button') ])
-    {!! Form::close() !!}
+
+                        {!! Form::open(['route' => 'admin.eav.attribute.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
+                        @include('backend.eav.attribute.includes.partials._form',[$pageName = 'create',$buttonText = trans('strings.save_button') ])
+                        {!! Form::close() !!}
 @endsection
+
+

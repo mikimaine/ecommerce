@@ -9,11 +9,11 @@
 
 namespace App\Http\Controllers\Backend\Eav\Attribute;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Innovate\Eav\Attribute\ProductAttribute;
 use Innovate\Repositories\Eav\Attribute\EavAttributeContract;
 use Innovate\Repositories\Eav\Category\EavCategoryContract;
 use Innovate\Requests\Eav\Attribute\StoreEavAttributeRequest;
@@ -62,6 +62,11 @@ class EavProductAttribute extends Controller
      */
     public function store(StoreEavAttributeRequest $request)
     {
+        if($request->ajax()){
+
+               $aa = $this->eavAttribute->create($request->all());
+                return new JsonResponse($aa);
+        }
         $this->eavAttribute->create($request->all());
         return redirect()->route('admin.eav.attribute.index')->withFlashSuccess(trans('tax.alerts.created'));
     }
@@ -85,19 +90,27 @@ class EavProductAttribute extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $attribute = $this->eavAttribute->findOrThrowException($id, true);
+        $attribute->product_attribute_category->toArray();
+        return view('backend.eav.attribute..edit')
+                   ->withAttribute($attribute)
+                   ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory());
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Request|StoreEavAttributeRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEavAttributeRequest $request, $id)
     {
-        //
+
+        $this->eavAttribute->update($id,$request->all());
+        return redirect()->route('admin.eav.attribute.index')->withFlashSuccess(trans('eav.alerts.eav_attribute_updated'));
     }
 
     /**
@@ -108,6 +121,7 @@ class EavProductAttribute extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->eavAttribute->destroy($id);
+        return redirect()->back()->withFlashSuccess(trans('eav.alerts.eav_attribute_deleted'));
     }
 }

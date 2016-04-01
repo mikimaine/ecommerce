@@ -11,7 +11,9 @@ namespace Innovate\Repositories\Eav\Category;
 
 
 use App\Exceptions\GeneralException;
+use Exception;
 use Innovate\Eav\Category\ProductAttributeCategory;
+
 
 /**
  * Class EloquentEavCategoryRepository
@@ -28,7 +30,7 @@ class EloquentEavCategoryRepository implements EavCategoryContract{
      */
     public function findOrThrowException($id)
     {
-        $category = ProductAttributeCategory::find(id);
+        $category = ProductAttributeCategory::find($id);
 
         if (!is_null($category)) {
             return $category;
@@ -69,13 +71,15 @@ class EloquentEavCategoryRepository implements EavCategoryContract{
     public function create($input)
     {
         $category = $this->createEavCategoryStub($input);
+          try{
+                if($category->save())
+                {
+                    return true;
+                }
+          }catch (Exception $e){
+              //Do things with the Error
 
-        if($category->save())
-        {
-            return true;
-        }
-
-        throw new GeneralException('There was a problem creating this Attribute Set. Please try again!');
+          }throw new GeneralException('There was a problem creating this Attribute Set. Please try again!');
 
     }
 
@@ -89,12 +93,15 @@ class EloquentEavCategoryRepository implements EavCategoryContract{
     public function update($id, $input)
     {
         $category = $this->findOrThrowException($id);
+        try{
+            if($category->update($input))
+            {
+                return true;
+            }
+        }catch (Exception $e){
+            //Do things with the Error
 
-        if($category->update($input))
-        {
-            return true;
-        }
-        throw new GeneralException('There was a problem updating this Attribute set. Please try again.');
+        }throw new GeneralException('There was a problem updating this Attribute set. Please try again.');
     }
 
     /**
@@ -105,12 +112,15 @@ class EloquentEavCategoryRepository implements EavCategoryContract{
     public function destroy($id)
     {
         $category = $this->findOrThrowException($id);
-        if ($category->delete())
-        {
-            return true;
-        }
+        try{
+            if ($category->delete())
+            {
+                return true;
+            }
+        }catch (Exception $e){
+            //Do things with the Error
 
-        throw new GeneralException('There was a problem deleting this Attribute set. Please try again.');
+        } throw new GeneralException('There was a problem deleting this Attribute set. Please try again.');
 
     }
 
@@ -131,7 +141,7 @@ class EloquentEavCategoryRepository implements EavCategoryContract{
     {
         $category = new ProductAttributeCategory();
 
-        $category->Attribute_set_name = $input['Attribute_set_name'];
+        $category->attribute_set_name = $input['attribute_set_name'];
 
         return $category;
     }

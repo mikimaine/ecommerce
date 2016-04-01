@@ -20,4 +20,10 @@ class ProductAttribute extends Model {
 
     protected $table = 'product_attribute';
 
+
+    /**
+     * @var array
+     */
+    protected  $fillable = ['product_category_id','title','notnull','datatype'];
+
 }

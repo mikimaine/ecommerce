@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Innovate\Repositories\Eav\Category\EavCategoryContract;
+use Innovate\Requests\Eav\Category\StoreEavCategoryRequest;
 
 /**
  * Class EavProductAttributeCategory
@@ -54,18 +55,19 @@ class EavProductAttributeCategory extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.eav.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StoreEavCategoryRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEavCategoryRequest $request)
     {
-        //
+        $this->eavProductCategory->create($request->all());
+        return redirect()->route('admin.eav.category.index')->withFlashSuccess(trans('eav.alerts.eav_category_created'));
     }
 
     /**
@@ -87,7 +89,9 @@ class EavProductAttributeCategory extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = $this->eavProductCategory->findOrThrowException($id, true);
+        return view('backend.eav.category.edit')
+            ->withCategory($category);
     }
 
     /**
@@ -99,7 +103,8 @@ class EavProductAttributeCategory extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->eavProductCategory->update($id,$request->all());
+        return redirect()->route('admin.eav.category.index')->withFlashSuccess(trans('eav.alerts.eav_category_updated'));
     }
 
     /**
@@ -110,6 +115,7 @@ class EavProductAttributeCategory extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->eavProductCategory->destroy($id);
+        return redirect()->back()->withFlashSuccess(trans('eav.alerts.eav_category_deleted'));
     }
 }
