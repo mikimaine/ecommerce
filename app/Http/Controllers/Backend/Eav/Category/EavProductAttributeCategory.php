@@ -1,14 +1,41 @@
 <?php
 
+/**
+ * Created by Miki Maine Amdu.
+ * For : INNOVATE E-COMMERCE
+ * User: MIKI$
+ * Date: 3/29/2016
+ * Time: 6:08 PM
+ */
 namespace App\Http\Controllers\Backend\Eav\Category;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Innovate\Repositories\Eav\Category\EavCategoryContract;
 
+/**
+ * Class EavProductAttributeCategory
+ * @package App\Http\Controllers\Backend\Eav\Category
+ */
 class EavProductAttributeCategory extends Controller
 {
+
+    /**
+     * @var
+     */
+    public $eavProductCategory;
+
+
+    /**
+     * @param $eavProductCategory
+     */
+    function __construct(EavCategoryContract $eavProductCategory)
+    {
+        $this->eavProductCategory = $eavProductCategory;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +43,8 @@ class EavProductAttributeCategory extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.eav.category.index')
+            ->withProductattributecategorys($this->eavProductCategory->getEavCategoryPaginated(config('access.users.default_per_page')));
     }
 
     /**

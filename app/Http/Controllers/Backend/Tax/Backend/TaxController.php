@@ -54,7 +54,7 @@ class TaxController extends Controller
     public function store(StoreTaxRequest $request)
     {
         $this->tax->create($request->all());
-        return redirect()->route('admin.tax.index')->withFlashSuccess(trans('tax.alerts.created'));
+        return redirect()->route('admin.tax.index')->withFlashSuccess(trans('eav.alerts.eav_attribute_created'));
     }
 
     /**
@@ -66,7 +66,6 @@ class TaxController extends Controller
         $tax = $this->tax->findOrThrowException($id, true);
         return view('backend.tax.edit')
                ->withTax($tax);
-
     }
 
     /**

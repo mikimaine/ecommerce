@@ -2,6 +2,8 @@
 
 @section ('title', trans('tax.tax_management'))
 
+
+
 @section('page-header')
     <h1>
         {{ trans('tax.tax_management') }}

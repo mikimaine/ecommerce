@@ -190,7 +190,9 @@ return [
 		Sofa\Eloquence\ServiceProvider::class,
 		Spatie\Activitylog\ActivitylogServiceProvider::class,
 		Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
+		//Spatie\Feed\FeedServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
+
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 
 		

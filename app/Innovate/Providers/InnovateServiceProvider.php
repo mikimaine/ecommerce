@@ -60,6 +60,22 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\StaticPages\CheckOutAgreement\EloquentCheckOutAgreementRepository::class
         );
 
+       $this->eavAttributeBindings();
+       $this->eavAttributeCategoryBindings();
+    }
 
+    private function eavAttributeBindings(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Eav\Attribute\EavAttributeContract::class,
+            \Innovate\Repositories\Eav\Attribute\EloquentEavAttributeRepository::class
+        );
+    }
+    private function eavAttributeCategoryBindings(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Eav\Category\EavCategoryContract::class,
+            \Innovate\Repositories\Eav\Category\EloquentEavCategoryRepository::class
+        );
     }
 }

@@ -28,3 +28,6 @@ $router->resource('bank_transfer_info','StaticPage\BankTransferInfoController');
 
 $router->resource('tax', 'Tax\Backend\TaxController');
 
+
+$router->resource('eav/attribute', 'Eav\Attribute\EavProductAttribute');
+

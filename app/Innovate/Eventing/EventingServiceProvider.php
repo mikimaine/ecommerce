@@ -29,7 +29,7 @@ class EventingServiceProvider extends ServiceProvider {
         $listeners = $this->app['config']->get('innovate.listeners');
         foreach($listeners as $listener)
         {
-            $this->app['events']->listen('Innovate.*',$listener);
+            $this->app['events']->listen('Innovate.Products.ProductWasPosted',$listener);
         }
     }
 }

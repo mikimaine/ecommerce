@@ -27,6 +27,7 @@ class ProductWasPosted {
     function __construct(Product $product)
     {
         $this->product = $product;
+
     }
 
 
