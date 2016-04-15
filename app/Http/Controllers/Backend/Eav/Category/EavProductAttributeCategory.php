@@ -78,7 +78,11 @@ class EavProductAttributeCategory extends Controller
      */
     public function show($id)
     {
-        //
+        $category =$this->eavProductCategory->findOrThrowException($id);
+        //$cc->product_attributes->toArray();
+        return view('backend.eav.category.show')
+            ->withCategory($category);
+        //dd($category->product_attributes[0]['title']);
     }
 
     /**

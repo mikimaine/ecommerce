@@ -43,7 +43,7 @@
                         @foreach ($productattributecategorys as $productattributecategory)
                             <tr id="attribute">
                                 <td>{!! $productattributecategory->id !!}</td>
-                                <td  ><a href="  {!! route('admin.eav.attribute.show', $productattributecategory->id) !!} " > {!! $productattributecategory->attribute_set_name !!}</a> </td>
+                                <td  ><a href="  {!! route('admin.eav.category.show', $productattributecategory->id) !!} " > {!! $productattributecategory->attribute_set_name !!}</a> </td>
 
                                 <td class="visible-lg">{!! $productattributecategory->created_at->diffForHumans() !!}</td>
                                 <td class="visible-lg">{!! $productattributecategory->updated_at->diffForHumans() !!}</td>

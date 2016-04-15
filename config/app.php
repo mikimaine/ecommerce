@@ -204,7 +204,9 @@ return [
 		Innovate\Providers\InnovateServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
-		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+		Devio\Eavquent\EavquentServiceProvider::class
+
 
 	],
 
@@ -275,5 +277,6 @@ return [
 		'Theme' 	=> Caffeinated\Themes\Facades\Theme::class,
         'Component' => Caffeinated\Themes\Facades\Component::class,
 		'TranslatableBootForm' => Propaganistas\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
+		'BootForm' => AdamWathan\BootForms\Facades\BootForm::class,
 	],
 ];

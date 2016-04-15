@@ -31,10 +31,14 @@ trait EventGenerator {
     }
 
     /**
+     * release the events on the pending events
      * @return array
      */
     public function releaseEvents()
   {
+      // Swap the pending events with the event array and
+      // clear the pending events array
+      // the return the events
         $events = $this->pendingEvents;
         $this->pendingEvents = [];
 

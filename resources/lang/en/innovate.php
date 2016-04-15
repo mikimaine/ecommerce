@@ -34,6 +34,10 @@ return [
         'eav_product' => 'Products Attributes',
         'product_attribute_category' =>'Attribute Category',
         'product_attribute' =>'Attributes',
+        'category'=>'Category',
+        'product'=>'Product',
+        'product_category' => 'Product Category',
+        'product_category_description' => 'Product Category Description',
         'setting' => 'E-commerce Settings ',
         'bank_info' => 'Bank Transfer Info',
         'check_out_agreement' => 'Check out Agreement'

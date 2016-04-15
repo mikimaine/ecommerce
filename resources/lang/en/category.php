@@ -20,20 +20,29 @@ return [
     |
     */
 
-    'eav_category_management' => 'Attribute Category Management',
-    'eav_attribute_management' => 'Attribute Management',
-    'active_eav_category' => 'Active Attribute sets',
-    'active_eav_attribute' => 'Active Attributes',
-    'eav_attribute_category_id' => 'Attribute set ID',
-    'eav_attribute_category_name' => 'Attribute set Name',
+    'add_new_category'=>'Add New Product category',
+    'category_management' => 'Category Management',
+    'attribute_management' => 'Attribute Management',
+    'active_category' => 'Active Category',
+    'category_name' => 'Category Name',
+    'category_meta_title' => 'Meta Title',
+    'category_meta_description' => 'Meta Description',
+    'category_meta_keywords' => 'Meta Keywords',
+    'image' => 'Image',
+    'parent_category' => 'Parent Category',
+    'name_en' => 'Name (EN)',
+    'description_en' => 'Description (EN)',
+    'name_am' => 'Name (AM)',
+    'description_am' => 'Description (AM)',
+    'status' => 'Active',
     'eav_attribute_id' => 'Attribute ID',
     'eav_attribute_title' => 'Attribute title',
     'eav_attribute_notnull' => 'Attribute Not Null',
     'eav_attribute_datatype' => 'Attribute Data Type',
     'eav_created' => 'Created at',
     'eav_updated' => 'Updated at',
-    'create_eav_category' => 'Create Attribute set',
-    'update_eav_category' => 'Update Attribute set',
+    'create_category' => 'Create Category',
+    'update_category' => 'Update Category',
     'create_eav_attribute' => 'Create Attribute',
     'update_eav_attribute' => 'Update Attribute',
     'no_category' => 'There is no Attribute set information found',
@@ -68,6 +77,5 @@ return [
             ]
         ]
     ],
-    'add_new_attribute' =>'Add New Attribute to this category'
 
 ];

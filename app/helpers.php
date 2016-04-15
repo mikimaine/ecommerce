@@ -46,3 +46,19 @@ if (!function_exists('gravatar')) {
         return app('gravatar');
     }
 }
+
+if(!function_exists('googleCurrency'))
+{
+    /**
+     * Return the converted value of a given currency and value
+     * @param $from
+     * @param $to
+     * @param $value
+     * @return int
+     */
+    function googleCurrency($from,$to,$value)
+    {
+        return 0;
+    }
+
+}

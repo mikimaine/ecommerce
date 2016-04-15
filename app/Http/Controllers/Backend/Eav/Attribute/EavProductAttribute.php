@@ -62,11 +62,11 @@ class EavProductAttribute extends Controller
      */
     public function store(StoreEavAttributeRequest $request)
     {
-        if($request->ajax()){
-
-               $aa = $this->eavAttribute->create($request->all());
-                return new JsonResponse($aa);
+        if($request->ajax())
+        {
+                return new JsonResponse($this->eavAttribute->create($request->all()));
         }
+
         $this->eavAttribute->create($request->all());
         return redirect()->route('admin.eav.attribute.index')->withFlashSuccess(trans('tax.alerts.created'));
     }

@@ -40,10 +40,14 @@ class EventDispatcher {
     }
 
     /**
+     * Release the events on the event stack
      * @param array $events
      */
     public function dispatch(array $events){
 
+        // For every Event's on the event array
+        // It will get the event name from the object Namespace the fire that event
+        // Also will write that in the log file as an information log
         foreach($events as $event)
         {
             $eventName = $this->getEventName($event);

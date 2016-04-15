@@ -18,4 +18,5 @@ trait ProductAttributeCategoryRelationship {
     {
         return $this->hasMany('Innovate\Eav\Attribute\ProductAttribute','product_category_id');
     }
+
 }

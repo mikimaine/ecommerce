@@ -65,7 +65,7 @@
                               <span>{{ trans('innovate.menus.catalog') }}</span>
                               <i class="fa fa-angle-left pull-right"></i>
                           </a>
-                          <ul class="treeview-menu {{ Active::pattern('admin/check_out_agreement*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+                          <ul class="treeview-menu {{ Active::pattern('admin/catalog*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
 
                           <li class="{{ Active::pattern('admin/eav*') }} treeview">
                           <a href="#">
@@ -79,6 +79,18 @@
                               <li class="{{ Active::pattern('admin/eav/attribute') }}">
                                   <a href="{!! url('admin/eav/attribute') !!}">{{ trans('innovate.menus.product_attribute') }}</a>
                               </li>
+                          </ul>
+                      </li>
+                      <li class="{{ Active::pattern('admin/category*') }} treeview">
+                          <a href="#">
+                              <span>{{ trans('innovate.menus.category') }}</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                          <ul class="treeview-menu {{ Active::pattern('admin/eav/*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
+                                  <a href="{!! url('admin/category') !!}">{{ trans('innovate.menus.product_category') }}</a>
+                              </li>
+
                           </ul>
                       </li>
                           </ul>

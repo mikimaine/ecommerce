@@ -36,6 +36,5 @@ class PostProductCommand {
         $this->description = $description;
         $this->title = $title;
 
-
     }
 }

@@ -44,7 +44,7 @@
                             <tr id="attribute">
                                 <td>{!! $attribute->id !!}</td>
                                 <td>{!! $attribute->title !!}</td>
-                                <td>{!! $attribute->product_attribute_category->attribute_set_name !!}</td>
+                                <td><a href="  {!! route('admin.eav.category.show', $attribute->product_attribute_category->id) !!} " >{!! $attribute->product_attribute_category->attribute_set_name !!}</a></td>
                                     @if($attribute->datatype == 'product_attribute_varchar')
                                     <td>   Varchar </td>
                                     @elseif($attribute->datatype == 'product_attribute_text')

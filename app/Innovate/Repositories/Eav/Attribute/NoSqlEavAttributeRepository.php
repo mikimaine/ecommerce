@@ -22,7 +22,7 @@ use Psy\Exception\ErrorException;
  * Class EloquentEavAttributeRepository
  * @package Innovate\Repositories\Eav\Attribute
  */
-class EloquentEavAttributeRepository implements EavAttributeContract{
+class NoSqlEavAttributeRepository implements EavAttributeContract{
 
     /**
      * @param $id
@@ -146,7 +146,7 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
         $attribute->title = $input['title'];
         $attribute->datatype = $input['datatype'];
 
-        isset($attribute['notnull']) ?  $attribute['notnull']= 1 : $attribute['notnull']= 0;
+        isset($input['notnull']) ?  $input['notnull']= 1 : $input['notnull']= 0;
 
 
         return $attribute;

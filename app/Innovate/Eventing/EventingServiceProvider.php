@@ -20,16 +20,19 @@ class EventingServiceProvider extends ServiceProvider {
 
 
     /**
-     * Register the service provider.
+     * Register the service provider for the innovate event listener.
      *
      * @return void
      */
     public function register()
     {
+        // Get all event listener from the config file
+        // for all of those listener will attach the Innovate.* (all events that fall in the innovate namespace)
+        // the listen for the events
         $listeners = $this->app['config']->get('innovate.listeners');
         foreach($listeners as $listener)
         {
-            $this->app['events']->listen('Innovate.Products.ProductWasPosted',$listener);
+            $this->app['events']->listen('Innovate.*',$listener);
         }
     }
 }

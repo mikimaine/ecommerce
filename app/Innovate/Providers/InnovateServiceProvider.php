@@ -62,8 +62,16 @@ class InnovateServiceProvider extends ServiceProvider
 
        $this->eavAttributeBindings();
        $this->eavAttributeCategoryBindings();
+
+        $this->CategoryBindings();
+        $this->CategoryDescriptionBindings();
+
+        $this->ImageDriverBinding();
     }
 
+    /**
+     * Binds the Eav Attribute Contracts with its concrete class
+     */
     private function eavAttributeBindings(){
 
         return $this->app->bind(
@@ -77,5 +85,32 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Eav\Category\EavCategoryContract::class,
             \Innovate\Repositories\Eav\Category\EloquentEavCategoryRepository::class
         );
+    }
+
+    private function CategoryBindings(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Category\CategoryContract::class,
+            \Innovate\Repositories\Category\EloquentCategoryRepository::class
+        );
+    }
+    private function CategoryDescriptionBindings(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Category\CategoryDescriptionContract::class,
+            \Innovate\Repositories\Category\EloquentCategoryDescriptionRepository::class
+        );
+    }
+
+    /**
+     * Bind the appropriate image driver to use
+     */
+    private function ImageDriverBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Image\InnovateImageUploadContract::class,
+            \Innovate\Image\InnovateImageUpload::class
+        );
+
     }
 }

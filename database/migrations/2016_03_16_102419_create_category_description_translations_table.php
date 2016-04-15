@@ -14,7 +14,7 @@ class CreateCategoryDescriptionTranslationsTable extends Migration
     {
         Schema::create('category_description_translations', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('description_id')->unsigned();
+            $table->integer('category_description_id')->unsigned();
             $table->string('locale');
             $table->string('name');
             $table->string('description');
