@@ -7,14 +7,14 @@
  * Time: 5:31 PM
  */
 
-namespace Innovate\Products;
+namespace Innovate\Products\Events;
 
 
 /**
  * Class ProductWasPosted
  * @package Innovate\Products
  */
-class ProductWasPosted {
+class ProductIsAboutToBePosted {
 
     /**
      * @var Product
@@ -27,7 +27,6 @@ class ProductWasPosted {
     function __construct(Product $product)
     {
         $this->product = $product;
-
     }
 
 

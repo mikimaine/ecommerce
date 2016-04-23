@@ -12,8 +12,6 @@ namespace Innovate\Category\Traits\Relationship;
 
 trait CategoryRelationship {
 
-
-
     public function category_description()
     {
         return $this->hasOne('Innovate\Category\CategoryDescription','category_id');

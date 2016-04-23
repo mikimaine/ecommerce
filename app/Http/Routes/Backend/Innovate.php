@@ -51,3 +51,8 @@ $router->resource('eav/category',  'Eav\Category\EavProductAttributeCategory');
 $router->resource('category/description',  'Category\CategoryDescriptionController');
 $router->resource('category',  'Category\CategoryController');
 
+/**
+ * Product Module Routes
+ */
+$router->resource('product',  'Product\ProductController');
+

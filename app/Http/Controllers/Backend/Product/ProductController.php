@@ -7,18 +7,52 @@
  * Time: 12:44 PM
  */
 
-namespace app\Http\Controllers\Product\Backend;
+namespace App\Http\Controllers\Backend\Product;
 
 use App\Http\Controllers\CommandsDomainEventController;
+use App\Http\Requests\Request;
 use Innovate\Products\PostProductCommand;
 use Illuminate\Support\Facades\Input;
 use Innovate\Products\ProductSoldCommand;
+use Innovate\Repositories\Category\CategoryContract;
+use Innovate\Repositories\Product\ProductContract;
 
 /**
  * Class ProductController
  * @package app\Http\Controllers\Product\Backend
  */
 class ProductController extends CommandsDomainEventController{
+
+    private $product;
+
+    private $category;
+    public function __construct(ProductContract $productContract,CategoryContract $categoryContract)
+    {
+        $this->product = $productContract;
+
+        $this->category = $categoryContract;
+    }
+
+    public function index()
+    {
+
+        return view('backend.product.index')
+               ->withProducts($this->product->getAllProducts())
+               ->withCategorys($this->category->getAllCategory());
+
+    }
+
+    public function create()
+    {
+
+    }
+
+    public function newProduct($attributeSet,$productType,Request $request)
+    {
+
+
+    }
+
 
     /**
      *

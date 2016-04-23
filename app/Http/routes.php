@@ -1,6 +1,6 @@
 <?php
 
-Route::get('product/store', 'Product\Backend\ProductController@store');
+//Route::get('product/store', 'Product\Backend\ProductController@store');
 //Route::get('tax/store', 'Tax\Backend\TaxController@store');
 //Route::get('tax', 'Tax\Backend\TaxController@index');
 

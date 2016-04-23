@@ -146,9 +146,18 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
         $attribute->title = $input['title'];
         $attribute->datatype = $input['datatype'];
 
-        isset($attribute['notnull']) ?  $attribute['notnull']= 1 : $attribute['notnull']= 0;
+        isset($input['notnull']) ?  $attribute['notnull']= 1 : $attribute['notnull']= 0;
 
 
         return $attribute;
     }
+
+    public function eagerLoadPaginated($table,$per_page)
+    {
+
+        return ProductAttribute::with(['product_attribute_category' => function($query){
+                                $query->orderBy('id', 'asc');
+                            }])->paginate($per_page);
+    }
+
 }

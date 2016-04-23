@@ -12,8 +12,8 @@ namespace Innovate\Repositories\Product;
 use Innovate\Products\Product;
 
 use Innovate\Eventing\EventGenerator;
-use Innovate\Products\ProductWasArchived;
-use Innovate\Products\ProductWasPosted;
+use Innovate\Products\Events\ProductWasArchived;
+use Innovate\Products\Events\ProductWasPosted;
 
 class EloquentProductRepository implements ProductContract {
 
@@ -65,7 +65,7 @@ class EloquentProductRepository implements ProductContract {
      */
     public function getAllProducts($order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getAllProducts() method.
+        return Product::orderBy($order_by, $sort)->get();
     }
 
     /**

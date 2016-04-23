@@ -37,11 +37,11 @@ class EloquentTaxRepository implements TaxContract {
     }
 
     /**
-     * @param  $per_page
+     * @param $per_page
      * @param  string $order_by
      * @param  string $sort
-     * @param  $status
      * @return mixed
+     * @internal param $status
      */
     public function getTaxPaginated($per_page, $order_by = 'id', $sort = 'asc')
     {

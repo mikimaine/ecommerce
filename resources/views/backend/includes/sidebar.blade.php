@@ -93,6 +93,13 @@
 
                           </ul>
                       </li>
+
+
+                      <li class="{{ Active::pattern('admin/product') }}">
+                          <a href="{!! url('admin/product') !!}">{{ trans('innovate.menus.product') }}</a>
+                      </li>
+
+
                           </ul>
                    </li>
                       <!--  End Catalog -->

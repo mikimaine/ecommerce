@@ -13,6 +13,10 @@ namespace Innovate\Repositories\Category;
 use App\Exceptions\GeneralException;
 use Innovate\Category\CategoryDescription;
 
+/**
+ * Class EloquentCategoryDescriptionRepository
+ * @package Innovate\Repositories\Category
+ */
 class EloquentCategoryDescriptionRepository implements CategoryDescriptionContract{
 
     /**
@@ -115,6 +119,13 @@ class EloquentCategoryDescriptionRepository implements CategoryDescriptionContra
         // TODO: Implement delete() method.
     }
 
+
+    /**
+     * returns categoryDescription Object with its data
+     * Prepare
+     * @param $input
+     * @return CategoryDescription
+     */
     private function createCategoryDescriptionStub($input)
     {
         $categoryDescription = new CategoryDescription();
@@ -126,6 +137,7 @@ class EloquentCategoryDescriptionRepository implements CategoryDescriptionContra
     }
 
     /**
+     * Prepare the input for insertion in to the Translation table
      * @param $input
      * @param $categoryDescription
      */

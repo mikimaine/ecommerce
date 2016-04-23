@@ -49,11 +49,7 @@ class ProductSoldCommandHandler implements CommandHandler{
      */
     public function handle($command)
     {
-       // var_dump( $this->product);
-        $this->product->archive($command->productId);
-
-
-
+      $this->product->archive($command->productId);
         $this->dispatcher->dispatch($this->product->releaseEvents());
     }
 }

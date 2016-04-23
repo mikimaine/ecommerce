@@ -7,5 +7,5 @@ return [
         'Innovate\Listeners\SmsNotifier',
         'Innovate\Listeners\FacebookNotifier',
     ],
-    'upload_path' => storage_path(env('APP_UPLOAD_PATH','app/innovate/'))
+    'upload_path' => base_path(env('APP_UPLOAD_PATH','public'.DS.'app'.DS.'innovate'))
 ];

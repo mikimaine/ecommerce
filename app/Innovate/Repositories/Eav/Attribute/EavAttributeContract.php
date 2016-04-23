@@ -68,5 +68,7 @@ interface EavAttributeContract {
      */
     public function delete($id);
 
+    public function eagerLoadPaginated($table,$per_page);
+
 
 }

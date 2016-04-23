@@ -10,6 +10,7 @@
 namespace Innovate\Category;
 
 
+use Innovate\SEOProvider\ObjectFlat;
 use Illuminate\Database\Eloquent\Model;
 use Innovate\Category\Traits\Relationship\CategoryRelationship;
 
@@ -17,7 +18,7 @@ use Innovate\Category\Traits\Relationship\CategoryRelationship;
  * Class Category
  * @package Innovate\Category
  */
-class Category extends Model {
+class Category extends Model implements ObjectFlat {
     use CategoryRelationship;
 
     protected $table = 'category';

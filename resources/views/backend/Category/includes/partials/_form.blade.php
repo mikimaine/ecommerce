@@ -30,7 +30,7 @@
                     <div class="form-group">
                         {!! Form::label('meta_title', trans('category.category_meta_title'), ['class' => 'col-lg-2 control-label']) !!}
                         <div class="col-lg-10">
-                            {!! Form::text('meta_title', null, ['class' => 'form-control', 'placeholder' => trans('category.category_meta_title')]) !!}
+                            {!! Form::text('meta_title', null, ['class' => 'form-control','placeholder' => trans('category.category_meta_title')]) !!}
                         </div>
                     </div><!--form control-->
 
@@ -38,14 +38,6 @@
                         {!! Form::label('meta_description', trans('category.category_meta_description'), ['class' => 'col-lg-2 control-label']) !!}
                         <div class="col-lg-10">
                             {!! Form::textarea('meta_description', null, ['class' => 'form-control', 'placeholder' => trans('category.category_meta_description')]) !!}
-                        </div>
-                    </div><!--form control-->
-
-
-                    <div class="form-group">
-                        {!! Form::label('meta_keywords', trans('category.category_meta_keywords'), ['class' => 'col-lg-2 control-label']) !!}
-                        <div class="col-lg-10">
-                            {!! Form::text('meta_keywords', null, ['class' => 'form-control', 'placeholder' => trans('category.category_meta_keywords')]) !!}
                         </div>
                     </div><!--form control-->
 

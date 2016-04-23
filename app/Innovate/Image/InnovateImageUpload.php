@@ -75,6 +75,7 @@ class InnovateImageUpload implements InnovateImageUploadContract {
     {
             $this->image  = Image::make($image);
             return $this->image->resize($this->horizontal,$this->vertical)->save($path);
+
     }
 
 

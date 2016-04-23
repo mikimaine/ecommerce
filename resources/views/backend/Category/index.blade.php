@@ -19,9 +19,8 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="alert alert-info">
-                <i class="fa fa-info-circle"></i> Here are the list of Attribute(s) in this particular Attribute Category.<br />
+                <i class="fa fa-info-circle"></i> Here are the list of Categorys and sub category.<br />
                 <a href="{{route('admin.category.create')}}"><i class="fa fa-plus"> </i> {{ trans('category.add_new_category') }}</a>
-                <a class="pull-right" href="{{route('admin.eav.category.index')}}"><i class="fa fa-retweet"> </i> Back to All  category</a>
             </div><!--alert info-->
 
             <div class="dd permission-hierarchy">
@@ -30,12 +29,12 @@
                         @if ($categorys->count())
                             @foreach($categorys as $category)
                                 @if($category->parent_id == NULL)
-                        <div class="dd-handle">{!! $category->category_description['meta_title'] !!}  <span class="pull-right">{!! $categorys->count() !!} Attributes</span></div>
+                        <div class="dd-handle"><a href="{{route('admin.category.show',$category->id)}}"> {!! $category->category_description->name !!} </a> <span class="pull-right">{!! $category->status ? "Active" : "Not Active" !!}</span></div>
                                     <ol class="dd-list">
                                         @foreach($categorys as $category_h)
                                           @if($category_h->parent_id == $category->id)
                                             <li class="dd-item" data-id="{!! $category->id !!}">
-                                                <div class="dd-handle"><a href="/asd">{!! $category_h->category_description->name !!} </a> <span class="pull-right">{!! $category->status ? "Active" : "Not Active" !!} </span></div>
+                                                <div class="dd-handle"><a href="{{route('admin.category.show',$category_h->id)}}">{!! $category_h->category_description->name !!} </a> <span class="pull-right">{!! $category_h->status ? "Active" : "Not Active" !!} </span></div>
                                             </li>
                                             @endif
                                         @endforeach

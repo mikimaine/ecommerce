@@ -7,7 +7,7 @@
  * Time: 10:30 PM
  */
 
-namespace Innovate\Products;
+namespace Innovate\Products\Events;
 
 
 /**

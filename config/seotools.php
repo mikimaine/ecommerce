@@ -6,8 +6,8 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'       => "It's Over 9000!", // set false to total remove
-            'description' => 'For those who helped create the Genki Dama', // set false to total remove
+            'title'       => "Innovate E-commerce ", // set false to total remove
+            'description' => 'Innovate E-commerce Framework ', // set false to total remove
             'separator'   => ' - ',
             'keywords'    => [],
         ],
@@ -28,8 +28,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Over 9000 Thousand!', // set false to total remove
-            'description' => 'For those who helped create the Genki Dama', // set false to total remove
+            'title'       => 'Innovate E-commerce', // set false to total remove
+            'description' => 'Innovate E-commerce Framework ', // set false to total remove
             'url'         => false,
             'type'        => false,
             'site_name'   => false,

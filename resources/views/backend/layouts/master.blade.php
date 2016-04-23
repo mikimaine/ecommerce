@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="_token" content="{{ csrf_token() }}" />
-        <title>@yield('title', app_name())</title>
+
         <meta name="description" content="@yield('meta_description', 'Default Description')">
         <meta name="author" content="@yield('author', 'Anthony Rappa')">
         @yield('meta')
-
+        <title>@yield('title', app_name())</title>
         @yield('before-styles-end')
         {!! HTML::style(elixir('css/backend.css')) !!}
         @yield('after-styles-end')

@@ -14,15 +14,21 @@ use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Innovate\Category\SEOProvider\CategorySEOGenerator;
 use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Repositories\Category\CategoryContract;
 use Innovate\Requests\Category\StoreCategoryRequest;
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
+
 
 /**
  * Class CategoryController
  * @package App\Http\Controllers\Backend\Category
  */
 class CategoryController  extends Controller{
+
+    //use SEOToolsTrait;
+
     /**
      * @var
      */
@@ -30,6 +36,7 @@ class CategoryController  extends Controller{
 
 
     public $imageDriver ;
+
 
     /**
      * @param CategoryContract $categoryContract
@@ -78,7 +85,7 @@ class CategoryController  extends Controller{
             if (!$file->isValid()) {
                 throw new GeneralException('There is error in your image file.');
             }
-            $im = $this->imageDriver->up($file,config('innovate.upload_path').'\product\ '.Str::random(32) . '.' . $file->guessExtension());
+            $im = $this->imageDriver->up($file,config('innovate.upload_path').DS.'product'.DS.Str::random(32) . '.' . $file->guessExtension());
             $all =$request->all();
             $all['valid_image'] = $im->basename;
             $this->category->create($all);
@@ -92,12 +99,16 @@ class CategoryController  extends Controller{
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     * @param CategorySEOGenerator $seo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,CategorySEOGenerator $seo)
     {
-        //
+        $category =$this->category->findOrThrowException($id);
+        $seo->set($category);
+        return view('backend.category.show')
+            ->withCategory($category);
     }
 
     /**

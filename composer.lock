@@ -643,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IsraelOrtuno/Eavquent.git",
-                "reference": "7b22474d209f81bad48079354b38cd135ee31d11"
+                "reference": "3f60f7d69cc4e73f80232bc679e3826f745cf430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IsraelOrtuno/Eavquent/zipball/7b22474d209f81bad48079354b38cd135ee31d11",
-                "reference": "7b22474d209f81bad48079354b38cd135ee31d11",
+                "url": "https://api.github.com/repos/IsraelOrtuno/Eavquent/zipball/3f60f7d69cc4e73f80232bc679e3826f745cf430",
+                "reference": "3f60f7d69cc4e73f80232bc679e3826f745cf430",
                 "shasum": ""
             },
             "require": {
@@ -701,7 +701,7 @@
                 "laravel",
                 "schema"
             ],
-            "time": "2016-04-08 11:39:14"
+            "time": "2016-04-15 10:51:16"
         },
         {
             "name": "dimsav/laravel-translatable",
@@ -1549,16 +1549,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/31382fef2889136415751badebbd1cb022a4ed72",
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72",
                 "shasum": ""
             },
             "require": {
@@ -1603,7 +1603,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-02-18 21:54:00"
+            "time": "2016-04-13 19:56:01"
         },
         {
             "name": "hieu-le/active",
@@ -2530,16 +2530,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/064b38c16790249488e7a8b987acf1c9d7383c09",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -2604,7 +2604,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mpociot/laravel-test-factory-helper",
@@ -3439,16 +3439,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "3.4.1",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "1793179e6a18395f62dee558c4bf99805e65c7b0"
+                "reference": "aa300d50873fcec64527773d0baba1279a68a780"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/1793179e6a18395f62dee558c4bf99805e65c7b0",
-                "reference": "1793179e6a18395f62dee558c4bf99805e65c7b0",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/aa300d50873fcec64527773d0baba1279a68a780",
+                "reference": "aa300d50873fcec64527773d0baba1279a68a780",
                 "shasum": ""
             },
             "require": {
@@ -3497,7 +3497,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2016-04-07 07:58:29"
+            "time": "2016-04-13 08:49:01"
         },
         {
             "name": "spatie/laravel-tail",
@@ -5646,16 +5646,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.3.1",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "34a3acb401ae79deb37bc6e5f5ec3d325b369b4c"
+                "reference": "2c6da3536035617bae3fe3db37283c9e0eb63ab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/34a3acb401ae79deb37bc6e5f5ec3d325b369b4c",
-                "reference": "34a3acb401ae79deb37bc6e5f5ec3d325b369b4c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2c6da3536035617bae3fe3db37283c9e0eb63ab3",
+                "reference": "2c6da3536035617bae3fe3db37283c9e0eb63ab3",
                 "shasum": ""
             },
             "require": {
@@ -5717,7 +5717,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-04-07 07:04:34"
+            "time": "2016-04-12 16:20:08"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

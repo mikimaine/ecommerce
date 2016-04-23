@@ -38,7 +38,7 @@ class SampleCommand extends Command {
    public function fire()
     {
 
-       echo "hello from sample fire";
+       echo "Innovate V 0.0.1";
     }
 
    /* public function handle()

@@ -137,6 +137,7 @@ class EloquentCategoryRepository implements CategoryContract{
         $category->image = trim($input['valid_image']);
         $category->parent_id = $input['parent_category'];
         isset($input['status']) ?  $category['status']= 1 : $category['status']= 0;
+        isset($input['parent_category']) ?  $category->parent_id= $input['parent_category'] : $category->parent_id= NULL;
 
         return $category;
     }
