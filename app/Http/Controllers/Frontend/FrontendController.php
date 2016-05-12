@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
  */
 class FrontendController extends Controller
 {
+
+
+
     /**
      * @return \Illuminate\View\View
      */
@@ -19,7 +22,9 @@ class FrontendController extends Controller
             'test' => 'it works!',
         ]);
 
-        return view('frontend.index');
+       return view('frontend.index');
+
+        //return JsonResponse::create([$this->tax->getPaginated(config('access.users.default_per_page'))]);
     }
 
     /**

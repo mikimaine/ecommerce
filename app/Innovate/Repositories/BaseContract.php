@@ -3,14 +3,16 @@
  * Created by Miki Maine Amdu.
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
- * Date: 4/2/2016
- * Time: 1:47 PM
+ * Date: 4/24/2016
+ * Time: 4:39 PM
  */
 
-namespace Innovate\Repositories\Category;
+namespace Innovate\Repositories;
 
 
-interface CategoryContract {
+interface BaseContract {
+
+
     /**
      * @param  $id
      * @return mixed
@@ -25,8 +27,7 @@ interface CategoryContract {
      * @return mixed
      * @internal param $status
      */
-    public function getCategoryPaginated($per_page, $order_by = 'id', $sort = 'asc');
-
+    public function getPaginated($per_page, $order_by = 'id', $sort = 'asc');
 
 
 
@@ -35,7 +36,8 @@ interface CategoryContract {
      * @param  string  $sort
      * @return mixed
      */
-    public function getAllCategory($order_by = 'id', $sort = 'asc');
+    public function getAll($order_by = 'id', $sort = 'asc');
+
     /**
      * @param  $input
      * @return mixed
@@ -62,6 +64,4 @@ interface CategoryContract {
      * @return mixed
      */
     public function delete($id);
-
-    public function eagerLoad($table,$order_by = 'id', $sort = 'asc');
 }

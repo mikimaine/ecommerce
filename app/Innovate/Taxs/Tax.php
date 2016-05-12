@@ -20,9 +20,6 @@ class Tax extends Model {
 
     use TaxAttribute;
 
-
-
-
     /**
      * The database table used by the model.
      *

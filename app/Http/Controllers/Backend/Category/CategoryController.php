@@ -79,12 +79,14 @@ class CategoryController  extends Controller{
      */
     public function store(StoreCategoryRequest $request)
     {
-        if ($request->hasFile('image'))
-        {
+        //check if there is a image file in the form request
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
+            //check if the image file valid
             if (!$file->isValid()) {
                 throw new GeneralException('There is error in your image file.');
             }
+            //pass the image along with the path to the upload to the imageDriver for further processing
             $im = $this->imageDriver->up($file,config('innovate.upload_path').DS.'product'.DS.Str::random(32) . '.' . $file->guessExtension());
             $all =$request->all();
             $all['valid_image'] = $im->basename;

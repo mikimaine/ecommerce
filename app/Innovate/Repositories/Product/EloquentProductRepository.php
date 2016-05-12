@@ -123,20 +123,20 @@ class EloquentProductRepository implements ProductContract {
      * @return $this
      */
     public function post($title, $description)
-    {
-        //$product = new Product();
+{
+    //$product = new Product();
 
-        $this->product->title = $title;
-        $this->product->description = $description;
+    $this->product->title = $title;
+    $this->product->description = $description;
 
 
 
-        $this->product->save();
+    $this->product->save();
 
-        $this->raise(new ProductWasPosted($this->product));
+    $this->raise(new ProductWasPosted($this->product));
 
-        return $this;
-    }
+    return $this;
+}
 
     /**
      * @param $productId

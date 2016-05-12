@@ -41,7 +41,7 @@ class StoreCategoryRequest extends Request  {
        $rules=  [
               "meta_title" => 'required|min:3',
               "meta_description" => 'required|min:10',
-              "meta_keywords" => 'required|min:4',
+
               "image" => 'required',
               "name_en" => 'required',
               "description_en" => 'required',

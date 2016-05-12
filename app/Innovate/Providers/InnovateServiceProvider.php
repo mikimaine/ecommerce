@@ -29,6 +29,7 @@ class InnovateServiceProvider extends ServiceProvider
     {
 
         $this->registerBinding();
+
     }
 
     /**

@@ -8,66 +8,13 @@
  */
 
 namespace Innovate\Repositories\Tax;
+use Innovate\Repositories\BaseContract;
 
 
 /**
  * Interface TaxContract
  * @package Innovate\Repositories\Tax
  */
-interface TaxContract {
-
-
-    /**
-     * @param  $id
-     * @return mixed
-     * @internal param bool $withRoles
-     */
-    public function findOrThrowException($id);
-
-    /**
-     * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
-     * @return mixed
-     * @internal param $status
-     */
-    public function getTaxPaginated($per_page, $order_by = 'id', $sort = 'asc');
-
-
-
-    /**
-     * @param  string  $order_by
-     * @param  string  $sort
-     * @return mixed
-     */
-    public function getAllTax($order_by = 'id', $sort = 'asc');
-
-    /**
-     * @param  $input
-     * @return mixed
-     * @internal param $roles
-     */
-    public function create($input);
-
-    /**
-     * @param  $id
-     * @param  $input
-     * @return mixed
-     * @internal param $roles
-     */
-    public function update($id, $input);
-
-    /**
-     * @param  $id
-     * @return mixed
-     */
-    public function destroy($id);
-
-    /**
-     * @param  $id
-     * @return mixed
-     */
-    public function delete($id);
-
+interface TaxContract extends BaseContract {
 
 }

@@ -35,7 +35,7 @@ class TaxController extends Controller
     public function  index()
     {
         return view('backend.tax.tax')
-                ->withTaxs($this->tax->getTaxPaginated(config('access.users.default_per_page')));
+                ->withTaxs($this->tax->getPaginated(config('access.users.default_per_page')));
     }
 
     /**
