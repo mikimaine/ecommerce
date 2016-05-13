@@ -197,7 +197,7 @@ return [
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 
 		
-		Mikimaine\Demo\DemoServiceProvider::class,
+		//Mikimaine\Demo\DemoServiceProvider::class,
 		Caffeinated\Themes\ThemesServiceProvider::class,
 		Innovate\Eventing\EventingServiceProvider::class,
 		Innovate\Providers\ProductServiceProvider::class,
@@ -273,7 +273,7 @@ return [
 		'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
 		'Image' 	=> Intervention\Image\Facades\Image::class,
 		'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
-		'Demo' 		=> Mikimaine\Demo\DemoFacade::class,
+		//'Demo' 		=> Mikimaine\Demo\DemoFacade::class,
 		'Theme' 	=> Caffeinated\Themes\Facades\Theme::class,
         'Component' => Caffeinated\Themes\Facades\Component::class,
 		'TranslatableBootForm' => Propaganistas\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,

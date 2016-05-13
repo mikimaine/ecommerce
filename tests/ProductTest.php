@@ -28,6 +28,7 @@ class ProductTest extends TestCase {
 
     private function makeProduct()
     {
+
     }
 
     private function getResponse($string)

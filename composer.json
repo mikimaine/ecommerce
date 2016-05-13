@@ -60,8 +60,7 @@
 		],
 		"psr-4": {
 			"App\\": "app/",
-		    "Innovate\\":"app/Innovate",
-			"Mikimaine\\Demo\\": "packages/Mikimaine/Demo/Src/"
+		    "Innovate\\":"app/Innovate"
 		},
         "files": [
             "app/helpers.php"

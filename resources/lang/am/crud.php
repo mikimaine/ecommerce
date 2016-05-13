@@ -47,7 +47,7 @@ return [
         'no_banned_users' => 'No Banned Users',
         'no_deactivated_users' => 'No Deactivated Users',
         'no_deleted_users' => 'የተሰረዘ ተጠቃሚ የለም',
-        'other_permissions' => 'ሌላ ፈቃዶቆች',
+        'other_permissions' => 'ሌላ ፈቃዶች',
         'restore_user' => 'Restore User',
         'roles' => 'ሚናዎች',
         'total' => 'አጠቃላይ ተጠቃሚ (ዎች)',

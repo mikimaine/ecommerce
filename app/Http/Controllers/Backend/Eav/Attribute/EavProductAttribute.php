@@ -41,6 +41,8 @@ class EavProductAttribute extends Controller
     {
         return view('backend.eav.attribute.index')
            ->withAttributes($this->eavAttribute->eagerLoadPaginated('product_category_id',config('access.users.default_per_page')));
+       // return view('backend.eav.attribute.index')
+         //  ->withAttributes($this->eavAttribute->getAllEavAttribute());
     }
 
     /**

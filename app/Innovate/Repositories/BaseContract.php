@@ -27,7 +27,7 @@ interface BaseContract {
      * @return mixed
      * @internal param $status
      */
-    public function getPaginated($per_page, $order_by = 'id', $sort = 'asc');
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc');
 
 
 
