@@ -34,7 +34,7 @@ class CheckOutAgreementController extends Controller
     public function index()
     {
         return view('backend.staticPage.check_out_agreement.index')
-            ->withCheckouts($this->checkOutAgreement->getBankInfoPaginated(config('access.users.default_per_page')));
+            ->withCheckouts($this->checkOutAgreement->Paginated(config('access.users.default_per_page')));
     }
 
     /**
@@ -114,7 +114,7 @@ class CheckOutAgreementController extends Controller
     {
 
         return view('backend.staticPage.check_out_agreement.deleted')
-            ->withCheckouts($this->checkOutAgreement->getDeletedBankInfoPaginated(25));
+            ->withCheckouts($this->checkOutAgreement->getDeletedPaginated(25));
     }
 
     public function restore($id)

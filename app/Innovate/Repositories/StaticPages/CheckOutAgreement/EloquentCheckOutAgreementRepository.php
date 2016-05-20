@@ -44,7 +44,7 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
      * @return mixed
      * @internal param $status
      */
-    public function getBankInfoPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
     {
         return CheckOutAgreement::orderBy($order_by, $sort)->paginate($per_page);
     }
@@ -55,7 +55,7 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
      * @param string $sort
      * @return mixed
      */
-    public function getDeletedBankInfoPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function getDeletedPaginated($per_page, $order_by = 'id', $sort = 'asc')
     {
         return CheckOutAgreement::onlyTrashed()->paginate($per_page);
     }
@@ -65,7 +65,7 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
      * @param  string $sort
      * @return mixed
      */
-    public function getAllBankInfo($order_by = 'id', $sort = 'asc')
+    public function getAll($order_by = 'id', $sort = 'asc')
     {
         return CheckOutAgreement::orderBy($order_by, $sort)->get();
     }

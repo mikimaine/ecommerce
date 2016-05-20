@@ -149,4 +149,10 @@ class EloquentProductRepository implements ProductContract {
         $this->raise(new ProductWasArchived($product));
 
     }
+
+    public function eagerLoadPaginated($per_page)
+    {
+
+        return Product::with('category','tax','product_attribute_category')->paginate($per_page);
+    }
 }

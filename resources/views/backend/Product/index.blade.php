@@ -1,11 +1,9 @@
 @extends ('backend.layouts.master')
 
 @section('content')
-
-
     <div class="box box-success">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ trans('tax.active_tax') }}</h3>
+            <h3 class="box-title">{{ trans('product.product_management') }}</h3>
 
             <div class="box-tools pull-right">
                 @include('backend.product.includes.partials.header-buttons')
@@ -17,11 +15,13 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>{{ trans('tax.tax_id') }}</th>
-                        <th>{{ trans('tax.tax_name') }}</th>
-                        <th>{{ trans('tax.tax_rate') }}</th>
-                        <th class="visible-lg">{{ trans('tax.tax_created') }}</th>
-                        <th class="visible-lg">{{ trans('tax.tax_updated') }}</th>
+                        <th>{{ trans('product.product_id') }}</th>
+                        <th>{{ trans('product.product_name') }}</th>
+                        <th>{{ trans('product.product_price') }}</th>
+                        <th class="visible-lg">{{ trans('product.product_sku') }}</th>
+                        <th class="visible-lg">{{ trans('product.product_type') }}</th>
+                        <th>{{ trans('eav.eav_attribute_category_name') }}</th>
+                        <th>{{ trans('crud.actions') }}</th>
                         <th>{{ trans('crud.actions') }}</th>
                     </tr>
                     </thead>
@@ -31,10 +31,18 @@
                             <tr>
                                 <td>{!! $product->id !!}</td>
                                 <td>{!! $product->name !!}</td>
-                                <td>{!! $product->price !!}</td>
-                                <td class="visible-lg">{!! $product->created_at->diffForHumans() !!}</td>
-                                <td class="visible-lg">{!! $product->updated_at->diffForHumans() !!}</td>
-                                <td>{!! $product->location !!}</td>
+                                <td>{!! $product->price !!} {!! $product->currency !!} ( {!! googleCurrency($product->currency,'USD',$product->price) !!} ) </td>
+                                <td class="visible-lg">{!! $product->sku !!}</td>
+                                <td class="visible-lg">
+                                       @if($product->is_downloadable)
+                                        {{ trans('product.product_downloadable') }}
+                                           @else
+                                        {{ trans('product.product_non_downloadable') }}
+                                @endif
+                                </td>
+                                <td>{!! $product->product_attribute_category->attribute_set_name !!}</td>
+                                <td>{!! $product->category->category_description->name !!}</td>
+                                <td>{!! $product->product_attribute_category->attribute_set_name !!}</td>
                             </tr>
                         @endforeach
                     @else

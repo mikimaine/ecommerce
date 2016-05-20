@@ -68,6 +68,17 @@ class BaseRepository implements BaseContract{
         $instance = $this->getNewInstance();
         return $instance->orderBy($order_by, $sort)->paginate($per_page);
     }
+    /**
+     * @param  $per_page
+     * @param  string $order_by
+     * @param  string $sort
+     * @return mixed
+     * @internal param $status
+     */
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
+    {
+        // TODO: Implement Paginated() method.
+    }
 
     /**
      * @param  string $order_by
@@ -144,4 +155,6 @@ class BaseRepository implements BaseContract{
     {
         // TODO: Implement delete() method.
     }
+
+
 }

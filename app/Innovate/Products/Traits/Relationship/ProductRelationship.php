@@ -46,7 +46,16 @@ trait ProductRelationship {
      */
     public function tax()
     {
-        return $this->belongsTo('Innovate\Tax\Tax','tax_id');
+        return $this->belongsTo('Innovate\Taxs\Tax','tax_id');
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function product_attribute_category()
+    {
+        return $this->belongsTo('Innovate\Eav\Category\ProductAttributeCategory','attribute_category_id');
     }
 
 

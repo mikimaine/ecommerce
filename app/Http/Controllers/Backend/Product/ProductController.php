@@ -37,8 +37,9 @@ class ProductController extends CommandsDomainEventController{
     {
 
         return view('backend.product.index')
-               ->withProducts($this->product->getAllProducts())
-               ->withCategorys($this->category->getAllCategory());
+               ->withProducts($this->product->eagerLoadPaginated(10));
+      //  return view('backend.product.index')
+             //  ->withProducts($this->product->getAllProducts());
 
     }
 

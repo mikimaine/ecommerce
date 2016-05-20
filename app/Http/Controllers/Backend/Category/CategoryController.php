@@ -91,6 +91,7 @@ class CategoryController  extends Controller{
             $all =$request->all();
             $all['valid_image'] = $im->basename;
             $this->category->create($all);
+            return redirect()->route('admin.category.index')->withFlashSuccess('Product category created !');
         }else{
             throw new GeneralException('The file should not be empty');
         }

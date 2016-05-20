@@ -43,7 +43,7 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
      * @return mixed
      * @internal param $status
      */
-    public function getBankInfoPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
     {
         return BankTransferInfo::orderBy($order_by, $sort)->paginate($per_page);
     }
@@ -54,7 +54,7 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
      * @param string $sort
      * @return mixed
      */
-    public function getDeletedBankInfoPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function getDeletedPaginated($per_page, $order_by = 'id', $sort = 'asc')
     {
         return BankTransferInfo::onlyTrashed()->paginate($per_page);
     }
@@ -64,7 +64,7 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
      * @param  string $sort
      * @return mixed
      */
-    public function getAllBankInfo($order_by = 'id', $sort = 'asc')
+    public function getAll($order_by = 'id', $sort = 'asc')
     {
         return BankTransferInfo::orderBy($order_by, $sort)->get();
     }
@@ -170,6 +170,4 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
 
             return $bankinfo;
     }
-
-
 }
