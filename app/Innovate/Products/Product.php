@@ -9,8 +9,11 @@
 
 namespace Innovate\Products;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Innovate\Products\Traits\Attribute\ProductAttribute;
 use Innovate\Products\Traits\Relationship\ProductRelationship;
 use Innovate\SEOProvider\ObjectFlat;
 
@@ -18,9 +21,9 @@ use Innovate\SEOProvider\ObjectFlat;
  * Class Product
  * @package Innovate\Products
  */
-class Product extends Model implements ObjectFlat{
+class Product extends Model implements ObjectFlat,SluggableInterface{
 
-    use Translatable,ProductRelationship;
+    use Translatable,ProductRelationship,ProductAttribute,SluggableTrait;
 
     /**
      * The translation model for product
@@ -46,6 +49,15 @@ class Product extends Model implements ObjectFlat{
      * @var array
      */
  //   protected  $fillable = ['title','description'];
+
+    /**
+     * This array holds information about
+     * @var array
+     */
+    protected $sluggable =[
+        'build_from' =>'sku',
+        'save_to' => 'slug',
+    ];
 
 
 

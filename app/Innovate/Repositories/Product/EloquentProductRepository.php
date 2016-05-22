@@ -152,7 +152,8 @@ class EloquentProductRepository implements ProductContract {
 
     public function eagerLoadPaginated($per_page)
     {
-
+       // $this->raise(new ProductWasPosted(new Product()));
         return Product::with('category','tax','product_attribute_category')->paginate($per_page);
+
     }
 }

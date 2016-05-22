@@ -12,6 +12,8 @@
         <title>@yield('title', app_name())</title>
         @yield('before-styles-end')
         {!! HTML::style(elixir('css/backend.css')) !!}
+        {!! HTML::style('css/backend/plugin/select2/select2.min.css') !!}
+
         @yield('after-styles-end')
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,5 +54,14 @@
         @yield('before-scripts-end')
         {!! HTML::script(elixir('js/backend.js')) !!}
         @yield('after-scripts-end')
+
+        {!! HTML::script('css/backend/plugin/select2/select2.full.min.js') !!}
+
+        <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $(".select2").select2();
+            });
+        </script>
     </body>
 </html>

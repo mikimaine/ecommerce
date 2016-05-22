@@ -57,7 +57,7 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="activity">
-                        {!! Form::model($category->category_description,['route' =>[ 'admin.category.update',$category->id],'files' => true, 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
+                        {!! Form::model([$category->category_description],['route' =>[ 'admin.category.update',$category->id],'files' => true, 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
                         @include('backend.category.includes.partials._form',[$pageName = 'update',$buttonText = trans('strings.save_button') ])
                         {!! Form::close() !!}
 
@@ -76,6 +76,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
 
                                 </tbody>
                             </table>

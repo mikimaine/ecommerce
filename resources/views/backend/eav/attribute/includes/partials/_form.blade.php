@@ -15,7 +15,7 @@
         <div class="form-group">
             {!! Form::label('product_category_id', trans('eav.menus.eav_attribute_category'), ['class' => 'col-lg-2 control-label']) !!}
             <div class="col-lg-10">
-                <select id="product_category_id" name="product_category_id" class="form-control">
+                <select id="product_category_id" name="product_category_id" class="form-control select2">
                     <option value="">Select Attribute Category</option>
                     @if($pageName == 'create')
                         @foreach ($eavcategorys as $eavcategory)
@@ -41,7 +41,7 @@
         <div class="form-group">
             {!! Form::label('datatype', trans('eav.eav_attribute_datatype'), ['class' => 'col-lg-2 control-label']) !!}
             <div class="col-lg-10">
-                <select id="datatype" name="datatype" class="form-control">
+                <select id="datatype" name="datatype" class="form-control select2">
                     <option value="">Select Attribute Data type</option>
                     @if($pageName == 'create')
                     <option value="product_attribute_int">Int</option>

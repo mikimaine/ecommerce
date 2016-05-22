@@ -1,5 +1,10 @@
 @extends ('backend.layouts.master')
 
+@section('after-styles-end')
+    {!! HTML::style('css/backend/plugin/datatables/dataTables.bootstrap.css') !!}
+@endsection
+
+
 @section('content')
     <div class="box box-success">
         <div class="box-header with-border">
@@ -12,7 +17,7 @@
 
         <div class="box-body">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
+                <table id="datatable1" class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>{{ trans('product.product_id') }}</th>
@@ -21,7 +26,7 @@
                         <th class="visible-lg">{{ trans('product.product_sku') }}</th>
                         <th class="visible-lg">{{ trans('product.product_type') }}</th>
                         <th>{{ trans('eav.eav_attribute_category_name') }}</th>
-                        <th>{{ trans('crud.actions') }}</th>
+                        <th>{{ trans('category.category_name') }}</th>
                         <th>{{ trans('crud.actions') }}</th>
                     </tr>
                     </thead>
@@ -42,7 +47,7 @@
                                 </td>
                                 <td>{!! $product->product_attribute_category->attribute_set_name !!}</td>
                                 <td>{!! $product->category->category_description->name !!}</td>
-                                <td>{!! $product->product_attribute_category->attribute_set_name !!}</td>
+                                <td>{!! $product->getActionButtonsAttribute() !!}</td>
                             </tr>
                         @endforeach
                     @else
@@ -57,3 +62,21 @@
         </div><!-- /.box-body -->
     </div><!--box-->
     @endsection
+
+@section('after-scripts-end')
+    {!! HTML::script('css/backend/plugin/datatables/jquery.dataTables.min.js') !!}
+    {!! HTML::script('css/backend/plugin/datatables/dataTables.bootstrap.min.js') !!}
+    <script>
+        $(function () {
+            $('#datatable1').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": false,
+                "info": false,
+                "autoWidth": true
+            });
+        });
+    </script>
+
+@endsection

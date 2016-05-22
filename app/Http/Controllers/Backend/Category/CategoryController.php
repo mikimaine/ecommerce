@@ -67,7 +67,8 @@ class CategoryController  extends Controller{
     public function create()
     {
 
-        return view('backend.category.create');
+        return view('backend.category.create')
+            ->withCategorys($this->category->eagerLoad('category_description'));
     }
 
     /**
@@ -111,7 +112,8 @@ class CategoryController  extends Controller{
         $category =$this->category->findOrThrowException($id);
         $seo->set($category);
         return view('backend.category.show')
-            ->withCategory($category);
+            ->withCategory($category)
+            ->withCategorys($this->category->eagerLoad('category_description'));
     }
 
     /**
