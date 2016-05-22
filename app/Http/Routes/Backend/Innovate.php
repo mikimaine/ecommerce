@@ -54,5 +54,6 @@ $router->resource('category',  'Category\CategoryController');
 /**
  * Product Module Routes
  */
+$router->post('product/newproduct','Product\ProductController@newProduct')->name('admin.product.newProduct');
 $router->resource('product',  'Product\ProductController');
 

@@ -10,11 +10,12 @@
 namespace App\Http\Controllers\Backend\Product;
 
 use App\Http\Controllers\CommandsDomainEventController;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use Innovate\Products\PostProductCommand;
 use Illuminate\Support\Facades\Input;
 use Innovate\Products\ProductSoldCommand;
 use Innovate\Repositories\Category\CategoryContract;
+use Innovate\Repositories\Eav\Category\EavCategoryContract;
 use Innovate\Repositories\Product\ProductContract;
 
 /**
@@ -26,11 +27,16 @@ class ProductController extends CommandsDomainEventController{
     private $product;
 
     private $category;
-    public function __construct(ProductContract $productContract,CategoryContract $categoryContract)
+
+    private $eavAttributeCategory;
+
+    public function __construct(ProductContract $productContract,CategoryContract $categoryContract ,EavCategoryContract $eavCategoryContract)
     {
         $this->product = $productContract;
 
         $this->category = $categoryContract;
+
+        $this->eavAttributeCategory = $eavCategoryContract;
     }
 
     public function index()
@@ -45,16 +51,22 @@ class ProductController extends CommandsDomainEventController{
 
     public function create()
     {
-
+        return view('backend.product.create')
+            ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory());
     }
 
-    public function newProduct($attributeSet,$productType,Request $request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function newProduct(Request $request)
     {
-
-
+         if($request['product_type'] == 'downloadable'){
+             return view('backend.product.create_downloadable');
+         }elseif($request['product_type'] == 'non-downloadable'){
+             return view('backend.product.create_non_downloadable');
+         }
     }
-
-
     /**
      *
      */

@@ -16,6 +16,24 @@ namespace Innovate\Products\Traits\Relationship;
  */
 trait ProductRelationship {
 
+    /**
+     * Gets the description of the product
+     * @return mixed
+     */
+    public function product_description()
+    {
+        return $this->hasOne('Innovate\Products\ProductDescription','product_id');
+    }
+
+    /**
+     * Gets attributes for the specified product_attribute_set
+     * @return mixed
+     */
+    public function attributes()
+    {
+        return $this->hasManyThrough('Innovate\Eav\Attribute\ProductAttribute', 'Innovate\Eav\Category\ProductAttributeCategory',
+                                     'attribute_category_id', 'product_category_id', 'id');
+    }
 
     /**
      * @return mixed

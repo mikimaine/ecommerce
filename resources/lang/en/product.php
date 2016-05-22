@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'product_management' => 'Product management',
+    'product_management' => 'Product Management',
     'active_tax' => 'Active tax',
     'product_id' => 'Product ID',
     'product_name' => 'Product name',
@@ -32,8 +32,11 @@ return [
     'product_sku' => 'SKU',
     'product_quantity' => 'Qty.',
     'product_type' => 'Type',
+    'select_product_type' => 'Select Product Type',
     'product_downloadable' => 'Product Downloadable',
     'product_non_downloadable' =>'Product Non-Downloadable',
+    'create_product' => 'Create Product',
+    'update_product' => 'Update Product',
 
 
     'alerts'=>[

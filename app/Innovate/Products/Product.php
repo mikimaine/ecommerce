@@ -24,6 +24,10 @@ use Sofa\Eloquence\Eloquence;
  */
 class Product extends Model implements ObjectFlat,SluggableInterface{
 
+
+    /**
+     * This are trait definition's and a solution for the conflict inside them
+     */
     use Translatable,ProductRelationship,ProductAttribute,SluggableTrait,Eloquence{
 
         Eloquence::getAttribute  as getAttributeEloquence;
