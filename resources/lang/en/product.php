@@ -29,7 +29,9 @@ return [
     'product_updated' => 'Updated at',
     'product_deleted' => 'Deleted at',
     'product_price' => 'Price',
+    'product_previous_price' => 'Previous Price',
     'product_sku' => 'SKU',
+    'product_currency' => 'Currency',
     'product_quantity' => 'Qty.',
     'product_type' => 'Type',
     'select_product_type' => 'Select Product Type',
@@ -37,6 +39,12 @@ return [
     'product_non_downloadable' =>'Product Non-Downloadable',
     'create_product' => 'Create Product',
     'update_product' => 'Update Product',
+    'general' =>  'General',
+    'meta' => 'Meta Information',
+    'product' => 'Product',
+    'product_category'=> 'Product Category',
+    'product_ethiopia' => 'Ethiopian Birr(ETB)',
+    'product_usa' => 'United States of America(USAD)',
 
 
     'alerts'=>[

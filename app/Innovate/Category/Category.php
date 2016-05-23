@@ -15,9 +15,9 @@ use Illuminate\Database\Eloquent\Model;
 use Innovate\Category\Traits\Relationship\CategoryRelationship;
 
 /**
- * Class Category
+* Class Category
  * @package Innovate\Category
- */
+*/
 class Category extends Model implements ObjectFlat {
     use CategoryRelationship;
 

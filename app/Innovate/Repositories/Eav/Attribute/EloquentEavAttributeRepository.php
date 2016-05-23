@@ -41,6 +41,17 @@ class EloquentEavAttributeRepository implements EavAttributeContract{
         throw new GeneralException('That Attribute does not exist.');
     }
 
+    public function getWhereCategory($id)
+    {
+        $attribute = ProductAttribute::where('product_category_id','=',$id)->get();
+
+        if (!is_null($attribute)) {
+            return $attribute;
+        }
+
+        throw new GeneralException('There is no Attribute.');
+    }
+
     /**
      * @param  $per_page
      * @param  string $order_by

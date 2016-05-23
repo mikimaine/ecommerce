@@ -18,7 +18,6 @@ use Innovate\Category\SEOProvider\CategorySEOGenerator;
 use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Repositories\Category\CategoryContract;
 use Innovate\Requests\Category\StoreCategoryRequest;
-use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 
 
 /**
