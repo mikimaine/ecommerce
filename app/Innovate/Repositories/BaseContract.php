@@ -41,7 +41,6 @@ interface BaseContract {
     /**
      * @param  $input
      * @return mixed
-     * @internal param $roles
      */
     public function create($input);
 

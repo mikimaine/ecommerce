@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Innovate\Commanding\CommandBus;
 
+//use Innovate\Commanding\CommandBus;
+
 
 /**
  * Class CommandsDomainEventController
@@ -19,12 +21,12 @@ abstract class CommandsDomainEventController extends BaseController
     /**
      * @var
      */
-    protected $commandBus;
+    protected  $commandBus;
 
     /**
      * @param $commandBus
      */
-    function __construct(CommandBus $commandBus)
+    public function __construct(CommandBus $commandBus)
     {
         $this->commandBus = $commandBus;
     }

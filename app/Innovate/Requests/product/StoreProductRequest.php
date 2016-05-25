@@ -10,6 +10,10 @@
 namespace Innovate\Requests\product;
 
 
+use Illuminate\Http\Request  as Re;
+
+use App\Http\Requests\Request;
+
 class StoreProductRequest extends Request  {
 
     /**
@@ -29,17 +33,34 @@ class StoreProductRequest extends Request  {
      */
     public function rules()
     {
+
         $rules=  [
             "meta_title" => 'required|min:3',
             "meta_description" => 'required|min:10',
 
             "image" => 'required',
             "name_en" => 'required',
-            "description_en" => 'required',
+            "cart_description_en" => 'required',
+            "short_description_en" => 'required',
+            "long_description_en" => 'required',
+
+            "parent_category" => 'required',
+            "sku" => 'required',
+            "tax_id"=> 'required',
+            "currency"=> 'required',
+            "price"=> 'required',
+            "previous_price"=> 'required',
+            "stock"=> 'required',
+            "location"=> 'required',
+
         ];
 
         if (Re::has('status')) {
             $rules['status'] = 'required';
+        }
+
+        if (Re::has('unlimited')) {
+            $rules['unlimited'] = 'required';
         }
 
         return $rules ;

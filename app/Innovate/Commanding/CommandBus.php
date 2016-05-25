@@ -36,6 +36,7 @@ class CommandBus {
      */
     function __construct(Application $app, CommandTranslator $commandTranslator)
     {
+
         $this->commandTranslator = $commandTranslator;
         $this->app = $app;
     }
@@ -49,6 +50,7 @@ class CommandBus {
      */
     public function execute($command)
     {
+
         $handler = $this->commandTranslator->toCommandHandler($command);
 
 

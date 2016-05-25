@@ -67,6 +67,12 @@ class InnovateServiceProvider extends ServiceProvider
         $this->CategoryBindings();
         $this->CategoryDescriptionBindings();
 
+        $this->eavIntValueBinding();
+        $this->eavTextValueBinding();
+        $this->eavVarcharValueBinding();
+
+        $this->ProductDescripionBinding();
+
         $this->ImageDriverBinding();
     }
 
@@ -100,6 +106,35 @@ class InnovateServiceProvider extends ServiceProvider
         return $this->app->bind(
             \Innovate\Repositories\Category\CategoryDescriptionContract::class,
             \Innovate\Repositories\Category\EloquentCategoryDescriptionRepository::class
+        );
+    }
+    private function eavIntValueBinding(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Eav\Value\EavValueIntContract::class,
+            \Innovate\Repositories\Eav\Value\EloquentEavValueIntRepository::class
+        );
+    }
+    private function eavTextValueBinding(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Eav\Value\EavValueTextContract::class,
+            \Innovate\Repositories\Eav\Value\EloquentEavValueTextRepository::class
+        );
+    }
+    private function eavVarcharValueBinding(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Eav\Value\EavValueVarcharContract::class,
+            \Innovate\Repositories\Eav\Value\EloquentEavValueVarcharRepository::class
+        );
+    }
+
+    private function ProductDescripionBinding(){
+
+        return $this->app->bind(
+            \Innovate\Repositories\Product\ProductDescriptionContract::class,
+            \Innovate\Repositories\Product\EloquentProductDescriptionRepository::class
         );
     }
 

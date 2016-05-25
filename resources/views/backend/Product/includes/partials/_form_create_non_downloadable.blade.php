@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 {!! Form::label('product_category_id', trans('eav.menus.eav_attribute_category'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    <select id="product_category_id" name="product_category_id" disabled="true" class="form-control select2">
+                                    <select id="product_category_id" name="product_category_id"class="form-control select2">
                                         <option value="">Select Attribute Category</option>
                                         @if($pageName == 'create')
                                             @foreach ($eavcategorys as $eavcategory)
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 {!! Form::label('product_category', trans('product.product_category'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    <select id="parent_category" name="parent_category" class="form-control select2" style="width: 100%;">
+                                    <select id="parent_category" name="parent_category" required="required" class="form-control select2" style="width: 100%;">
                                         <option value="">{!! trans('product.product_category') !!}</option>
                                         @if($pageName == 'create')
                                             @foreach ($categorys as $category)
@@ -66,13 +66,13 @@
                             <div class="form-group">
                                 {!! Form::label('sku', trans('product.product_sku'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    {!! Form::text('sku', null, ['class' => 'form-control', 'placeholder' => trans('product.product_sku')]) !!}
+                                    {!! Form::text('sku', null, ['class' => 'form-control','required'=>'required', 'placeholder' => trans('product.product_sku')]) !!}
                                 </div>
                             </div><!--form control-->
                             <div class="form-group">
-                                {!! Form::label('product_category', trans('tax.tax_rate'), ['class' => 'col-lg-2 control-label']) !!}
+                                {!! Form::label('tax_id', trans('tax.tax_rate'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    <select id="parent_category" name="parent_category" class="form-control select2" style="width: 100%;">
+                                    <select id="tac_id" name="tax_id" required="required" class="form-control select2" style="width: 100%;">
                                         <option value="">{!! trans('tax.tax_rate') !!}</option>
                                         @if($pageName == 'create')
                                             @foreach ($taxs as $tax)
@@ -87,33 +87,46 @@
                                 </div>
                             </div><!--form control-->
                             <div class="form-group">
-                                {!! Form::label('product_category', trans('tax.tax_rate'), ['class' => 'col-lg-2 control-label']) !!}
+                                {!! Form::label('currency', trans('product.product_currency'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    <select id="parent_category" name="parent_category" class="form-control select2" style="width: 100%;">
+                                    <select id="currency" name="currency" class="form-control select2" required="required" style="width: 100%;">
                                         <option value="">{!! trans('product.product_currency') !!}</option>
                                         <option value="ETB">{!!  trans('product.product_ethiopia')  !!}</option>
                                         <option value="USD">{!!  trans('product.product_usa') !!}</option>
-
-
                                     </select>
                                 </div>
                             </div><!--form control-->
                             <div class="form-group">
-                                {!! Form::label('sku', trans('product.product_price'), ['class' => 'col-lg-2 control-label']) !!}
+                                {!! Form::label('price', trans('product.product_price'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    {!! Form::text('sku', null, ['class' => 'form-control', 'placeholder' => trans('product.product_price')]) !!}
+                                    {!! Form::text('price', null, ['class' => 'form-control','required'=>'required', 'placeholder' => trans('product.product_price')]) !!}
                                 </div>
                             </div><!--form control-->
                             <div class="form-group">
-                                {!! Form::label('price', trans('product.product_previous_price'), ['class' => 'col-lg-2 control-label']) !!}
+                                {!! Form::label('previous_price', trans('product.product_previous_price'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    {!! Form::text('previous_previous_price', null, ['class' => 'form-control', 'placeholder' => trans('product.product_previous_price')]) !!}
+                                    {!! Form::text('previous_price', null, ['class' => 'form-control', 'placeholder' => trans('product.product_previous_price')]) !!}
                                 </div>
                             </div><!--form control-->
+
+                            <div class="form-group">
+                                {!! Form::label('stock', trans('product.product_quantity'), ['class' => 'col-lg-2 control-label']) !!}
+                                <div class="col-lg-10">
+                                    {!! Form::text('stock', null, ['class' => 'form-control','required'=>'required', 'placeholder' => trans('product.product_quantity')]) !!}
+                                </div>
+                            </div><!--form control-->
+
+                            <div class="form-group">
+                                {!! Form::label('location', trans('product.product_location'), ['class' => 'col-lg-2 control-label']) !!}
+                                <div class="col-lg-10">
+                                    {!! Form::text('location', null, ['class' => 'form-control','required'=>'required', 'placeholder' => trans('product.product_location')]) !!}
+                                </div>
+                            </div><!--form control-->
+
                             <div class="form-group">
                                 {!! Form::label('image', trans('category.image'), ['class' => 'col-lg-2 control-label']) !!}
                                 <div class="col-lg-10">
-                                    {!! Form::file('image', null, ['class' => 'form-control', 'placeholder' => trans('category.image')]) !!}
+                                    {!! Form::file('image', null, ['class' => 'form-control','required'=>'required', 'placeholder' => trans('category.image')]) !!}
                                 </div>
                             </div><!--form control-->
 
@@ -123,9 +136,14 @@
                                     {!! Form::checkbox('status', null, ['class' => 'form-control', 'placeholder' => trans('eav.eav_attribute_category_name')]) !!}
                                 </div>
                             </div><!--form control-->
-
-
-
+                            <div class="form-group">
+                                {!! Form::label('unlimited', trans('product.product_unlimited'), ['class' => 'col-lg-2 control-label']) !!}
+                                <div class="col-lg-10">
+                                    {!! Form::checkbox('unlimited', null, ['class' => 'form-control', 'placeholder' => trans('product.product_unlimited')]) !!}
+                                </div>
+                            </div><!--form control-->
+                            <hr />
+                            <h5>Custom Attributes (product specific)</h5>
                            @foreach($attributes->toArray() as $attribute)
                                @if($attribute['datatype'] == 'product_attribute_int')
                             <div class="form-group">
@@ -138,6 +156,7 @@
                                    @endif
                                 </div>
                             </div><!--form control-->
+
                                 @endif
                                    @if($attribute['datatype'] == 'product_attribute_text')
                                        <div class="form-group">
@@ -186,6 +205,77 @@
 
                         </div><!-- /.tab-pane -->
                         <div class="tab-pane" id="tab_3">
+
+                            <!-- Custom Tabs -->
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab_en" data-toggle="tab">{!! trans('product.en') !!}</a></li>
+                                    <li><a href="#tab_am" data-toggle="tab">{!! trans('product.am') !!}</a></li>
+
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_en">
+                                        <div class="form-group">
+                                            {!! Form::label('name_en', trans('product.name_en'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::text('name_en', null, ['class' => 'form-control', 'placeholder' => trans('product.name_en')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                        <div class="form-group">
+                                            {!! Form::label('cart_description_en', trans('product.cart_description_en'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::textarea('cart_description_en', null, ['class' => 'form-control', 'placeholder' => trans('product.cart_description_en')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                        <div class="form-group">
+                                            {!! Form::label('short_description_en', trans('product.short_description_en'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::textarea('short_description_en', null, ['class' => 'form-control', 'placeholder' => trans('product.short_description_en')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                        <div class="form-group">
+                                            {!! Form::label('long_description_en', trans('product.long_description_en'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::textarea('long_description_en', null, ['class' => 'form-control','id' =>'editor2', 'placeholder' => trans('product.long_description_en')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+
+                                    </div>
+
+                                    <div class="tab-pane " id="tab_am">
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                                            {!! trans('product.message') !!}
+                                        </div>
+                                       <div class="form-group">
+                                            {!! Form::label('name_am', trans('product.name_am'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::text('name_am', null, ['class' => 'form-control', 'placeholder' => trans('product.name_am')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                        <div class="form-group">
+                                            {!! Form::label('cart_description_am', trans('product.cart_description_am'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::textarea('cart_description_am', null, ['class' => 'form-control', 'placeholder' => trans('product.cart_description_am')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                        <div class="form-group">
+                                            {!! Form::label('short_description_am', trans('product.short_description_am'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::textarea('short_description_am', null, ['class' => 'form-control', 'placeholder' => trans('product.short_description_am')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                        <div class="form-group">
+                                            {!! Form::label('long_description_am', trans('product.long_description_am'), ['class' => 'col-lg-2 control-label']) !!}
+                                            <div class="col-lg-10">
+                                                {!! Form::textarea('long_description_am', null, ['class' => 'form-control','id' =>'editor3', 'placeholder' => trans('product.long_description_am')]) !!}
+                                            </div>
+                                        </div><!--form control-->
+                                    </div>
+                                </div
+                            </div>
+
 
                         </div><!-- /.tab-pane -->
                     </div><!-- /.tab-content -->

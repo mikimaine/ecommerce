@@ -10,7 +10,11 @@
 namespace Innovate\Repositories\Eav\Value;
 
 
-class EloquentEavValueTextRepository implements EavValueContract{
+use App\Exceptions\GeneralException;
+use Innovate\Eav\Value\ProductAttributeText;
+
+class EloquentEavValueTextRepository implements EavValueTextContract{
+
 
     /**
      * @param  $id
@@ -29,9 +33,9 @@ class EloquentEavValueTextRepository implements EavValueContract{
      * @return mixed
      * @internal param $status
      */
-    public function getEavCategoryPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getEavCategoryPaginated() method.
+        // TODO: Implement Paginated() method.
     }
 
     /**
@@ -39,9 +43,9 @@ class EloquentEavValueTextRepository implements EavValueContract{
      * @param  string $sort
      * @return mixed
      */
-    public function getAllEavCategory($order_by = 'id', $sort = 'asc')
+    public function getAll($order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getAllEavCategory() method.
+        // TODO: Implement getAll() method.
     }
 
     /**
@@ -81,5 +85,31 @@ class EloquentEavValueTextRepository implements EavValueContract{
     public function delete($id)
     {
         // TODO: Implement delete() method.
+    }
+
+    /**
+     * @param $product
+     * @param $new_string
+     * @param $value
+     * @return mixed
+     * @throws GeneralException
+     * @internal param $input
+     * @internal param $roles
+     */
+    public function createFromInput($product, $new_string, $value)
+    {
+
+        $text = new ProductAttributeText();
+        $text->product_id = 1;
+        $text->product_attribute_id = $new_string[2];
+        $text->value = $value;
+        try {
+            if ($text->save()) {
+                return true;
+            }
+
+        } catch (GeneralException $e) {
+
+        }throw new GeneralException('Something went wrong Inserting Custom Text Value. Try again later!');
     }
 }

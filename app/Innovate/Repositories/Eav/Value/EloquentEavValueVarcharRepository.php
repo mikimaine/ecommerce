@@ -9,12 +9,17 @@
 
 namespace Innovate\Repositories\Eav\Value;
 
+use App\Exceptions\GeneralException;
+use Innovate\Eav\Value\ProductAttributeVarchar;
+
 
 /**
  * Class EloquentEavValueVarcharRepository
  * @package Innovate\Repositories\Eav\Value
  */
-class EloquentEavValueVarcharRepository implements EavValueContract{
+class EloquentEavValueVarcharRepository implements EavValueVarcharContract
+{
+
 
     /**
      * @param  $id
@@ -33,9 +38,9 @@ class EloquentEavValueVarcharRepository implements EavValueContract{
      * @return mixed
      * @internal param $status
      */
-    public function getEavCategoryPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getEavCategoryPaginated() method.
+        // TODO: Implement Paginated() method.
     }
 
     /**
@@ -43,9 +48,9 @@ class EloquentEavValueVarcharRepository implements EavValueContract{
      * @param  string $sort
      * @return mixed
      */
-    public function getAllEavCategory($order_by = 'id', $sort = 'asc')
+    public function getAll($order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getAllEavCategory() method.
+        // TODO: Implement getAll() method.
     }
 
     /**
@@ -85,5 +90,34 @@ class EloquentEavValueVarcharRepository implements EavValueContract{
     public function delete($id)
     {
         // TODO: Implement delete() method.
+    }
+
+    /**
+     * @param $product
+     * @param $new_string
+     * @param $value
+     * @return mixed
+     * @throws GeneralException
+     * @internal param $input
+     * @internal param $roles
+     */
+    public function createFromInput($product, $new_string, $value)
+    {
+
+
+        $varchar = new ProductAttributeVarchar();
+        $varchar->product_id = $product->id;
+        $varchar->product_attribute_id = $new_string[2];
+        $varchar->value = $value;
+        try {
+            if ($varchar->save()) {
+                return true;
+            }
+
+        } catch (GeneralException $e) {
+
+        }
+        throw new GeneralException('Something went wrong Inserting custom varchar value. Try again later!');
+
     }
 }

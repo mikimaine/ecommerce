@@ -36,4 +36,9 @@ class Product {
         $this->app = $app;
     }
 
+    public function Product(){
+
+        return \Innovate\Products\Product::all();
+    }
+
 }

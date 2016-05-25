@@ -11,6 +11,7 @@ namespace Innovate\Repositories\Category;
 
 
 use App\Exceptions\GeneralException;
+use Exception;
 use Innovate\Category\Category;
 
 

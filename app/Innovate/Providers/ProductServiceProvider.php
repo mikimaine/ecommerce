@@ -48,6 +48,7 @@ class ProductServiceProvider extends ServiceProvider
             \Innovate\Repositories\Product\EloquentProductRepository::class
         );
 
+
     }
 
     public function registerFacade()

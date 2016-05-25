@@ -44,7 +44,6 @@ $router->resource('tax', 'Tax\Backend\TaxController');
 $router->resource('eav/attribute', 'Eav\Attribute\EavProductAttribute');
 $router->resource('eav/category',  'Eav\Category\EavProductAttributeCategory');
 
-
 /**
  * Category Module Routes
  */
@@ -54,6 +53,11 @@ $router->resource('category',  'Category\CategoryController');
 /**
  * Product Module Routes
  */
+
+$router->post('product/newproduct/downloadable','Product\ProductController@storeDownloadable')->name('admin.product.store.downloadable');
+$router->post('product/newproduct/non_downloadable','Product\ProductController@storeNonDownloadable')->name('admin.product.store.non_downloadable');
 $router->post('product/newproduct','Product\ProductController@newProduct')->name('admin.product.newProduct');
+$router->get('product/newproduct','Product\ProductController@create')->name('admin.product.newProduct.get');
+$router->get('product/delete*','Product\ProductController@delete')->name('admin.product.newProduct.delete');
 $router->resource('product',  'Product\ProductController');
 

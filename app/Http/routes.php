@@ -4,7 +4,7 @@
 //Route::get('tax/store', 'Tax\Backend\TaxController@store');
 //Route::get('tax', 'Tax\Backend\TaxController@index');
 
-//Route::get('product/delete', 'Product\Backend\ProductController@delete');
+//Route::get('product/delete', 'Backend\Product\ProductController@delete');
 
 /**
  * Switch between the included languages

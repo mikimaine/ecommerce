@@ -47,10 +47,10 @@ interface ProductContract {
 
     /**
      * @param  $input
-     * @param  $roles
      * @return mixed
+     * @internal param $roles
      */
-    public function create($input, $roles, $permissions);
+    public function create($input);
 
     /**
      * @param  $id

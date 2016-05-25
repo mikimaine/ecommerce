@@ -8,13 +8,16 @@
  */
 
 namespace Innovate\Repositories\Eav\Value;
+use App\Exceptions\GeneralException;
+use Innovate\Eav\Value\ProductAttributeInt;
 
 
 /**
  * Class EloquentEavValueIntRepository
  * @package Innovate\Repositories\Eav\Value
  */
-class EloquentEavValueIntRepository implements EavValueContract{
+class EloquentEavValueIntRepository implements EavValueIntContract{
+
 
     /**
      * @param  $id
@@ -33,9 +36,9 @@ class EloquentEavValueIntRepository implements EavValueContract{
      * @return mixed
      * @internal param $status
      */
-    public function getEavCategoryPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getEavCategoryPaginated() method.
+        // TODO: Implement Paginated() method.
     }
 
     /**
@@ -43,9 +46,9 @@ class EloquentEavValueIntRepository implements EavValueContract{
      * @param  string $sort
      * @return mixed
      */
-    public function getAllEavCategory($order_by = 'id', $sort = 'asc')
+    public function getAll($order_by = 'id', $sort = 'asc')
     {
-        // TODO: Implement getAllEavCategory() method.
+        // TODO: Implement getAll() method.
     }
 
     /**
@@ -85,5 +88,30 @@ class EloquentEavValueIntRepository implements EavValueContract{
     public function delete($id)
     {
         // TODO: Implement delete() method.
+    }
+
+    /**
+     * @param $product
+     * @param $new_string
+     * @param $value
+     * @return mixed
+     * @throws GeneralException
+     * @internal param $input
+     * @internal param $roles
+     */
+    public function createFromInput($product, $new_string, $value)
+    {
+        $int = new ProductAttributeInt();
+        $int->product_id = 1;
+        $int->product_attribute_id = $new_string[2];
+        $int->value = $value;
+        try {
+            if ($int->save()) {
+                return true;
+            }
+
+        } catch (GeneralException $e) {
+
+        }throw new GeneralException('Something went wrong Inserting Custom Int Value. Try again later!');
     }
 }

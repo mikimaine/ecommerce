@@ -8,7 +8,7 @@
  */
 
 namespace Innovate\Products\Events;
-
+use Innovate\Products\Product;
 
 
 /**
