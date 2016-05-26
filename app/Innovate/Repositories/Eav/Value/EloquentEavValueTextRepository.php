@@ -100,14 +100,13 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
     {
 
         $text = new ProductAttributeText();
-        $text->product_id = 1;
+        $text->product_id = $product->id;
         $text->product_attribute_id = $new_string[2];
         $text->value = $value;
         try {
             if ($text->save()) {
                 return true;
             }
-
         } catch (GeneralException $e) {
 
         }throw new GeneralException('Something went wrong Inserting Custom Text Value. Try again later!');

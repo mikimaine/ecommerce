@@ -10,7 +10,7 @@
 namespace Innovate\Products;
 
 
-class PostNonDownloadableProductCommand  {
+class PostDownloadableProductCommand  {
     /**
      * @var
      */

@@ -11,9 +11,8 @@ namespace Innovate\Listeners;
 
 
 use Innovate\Eventing\EventListener;
-use Innovate\Products\ProductIsAboutToBePosted;
-use Innovate\Products\ProductWasArchived;
-use Innovate\Products\ProductWasPosted;
+use Innovate\Products\Events\ProductIsAboutToBePosted;
+use Innovate\Products\Events\ProductWasArchived;
 
 /**
  * Class EmailNotifier

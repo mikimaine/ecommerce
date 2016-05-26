@@ -102,7 +102,7 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
     public function createFromInput($product, $new_string, $value)
     {
         $int = new ProductAttributeInt();
-        $int->product_id = 1;
+        $int->product_id = $product->id;
         $int->product_attribute_id = $new_string[2];
         $int->value = $value;
         try {

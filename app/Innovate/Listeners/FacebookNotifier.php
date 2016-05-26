@@ -11,9 +11,9 @@ namespace Innovate\Listeners;
 
 
 use Innovate\Eventing\EventListener;
-use Innovate\Products\ProductIsAboutToBePosted;
-use Innovate\Products\ProductWasArchived;
-use Innovate\Products\ProductWasPosted;
+use Innovate\Products\Events\ProductIsAboutToBePosted;
+use Innovate\Products\Events\ProductWasArchived;
+use Innovate\Products\Events\ProductWasPosted;
 
 /**
  * Class EmailNotifier
@@ -36,11 +36,6 @@ class FacebookNotifier extends EventListener {
 
 
 
-
-
-    /**
-     * @param ProductWasArchived $event
-     */
     public function whenProductWasArchived(ProductWasArchived $event)
     {
         var_dump('Send Congratulations Email for the customer about buying this product   :  '.$event->product->title);

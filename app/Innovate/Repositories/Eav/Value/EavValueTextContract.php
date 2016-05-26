@@ -19,8 +19,7 @@ interface EavValueTextContract extends BaseContract{
      * @param $new_string
      * @param $value
      * @return mixed
-     * @internal param $input
-     * @internal param $roles
+     *
      */
     public function createFromInput($product,$new_string,$value);
 

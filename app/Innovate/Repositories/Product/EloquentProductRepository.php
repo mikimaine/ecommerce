@@ -156,6 +156,15 @@ class EloquentProductRepository implements ProductContract
     }
 
     /**
+     * @param $input
+     * @return mixed
+     */
+    public function createDownloadable($input)
+    {
+        // TODO: Implement createDownloadable() method.
+    }
+
+    /**
      * @param  $id
      * @param  $input
      * @param  $roles
@@ -265,12 +274,13 @@ class EloquentProductRepository implements ProductContract
         $product->translateOrNew('en')->long_description = $input['long_description_en'];
 
 
-        isset($input['name_am']) ? $product->translateOrNew('en')->name = $input['name_am'] : 1;
-        isset($input['cart_description_am']) ? $product->translateOrNew('en')->cart_description = $input['cart_description_en'] : 1;
-        isset($input['short_description_am']) ? $product->translateOrNew('en')->short_description = $input['short_description_en'] : 1;
-        isset($input['long_description_am']) ? $product->translateOrNew('en')->long_description = $input['long_description_en'] : 1;
+        isset($input['name_am']) ? $product->translateOrNew('am')->name = $input['name_am'] : 1;
+        isset($input['cart_description_am']) ? $product->translateOrNew('am')->cart_description = $input['cart_description_am'] : 1;
+        isset($input['short_description_am']) ? $product->translateOrNew('am')->short_description = $input['short_description_am'] : 1;
+        isset($input['long_description_am']) ? $product->translateOrNew('am')->long_description = $input['long_description_am'] : 1;
 
         return $product;
 
     }
+
 }

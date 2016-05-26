@@ -48,9 +48,14 @@ interface ProductContract {
     /**
      * @param  $input
      * @return mixed
-     * @internal param $roles
      */
     public function create($input);
+
+    /**
+     * @param $input
+     * @return mixed
+     */
+    public function createDownloadable($input);
 
     /**
      * @param  $id

@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    {!! Form::open(['route' => 'admin.product.store.non_downloadable', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
+    {!! Form::open(['route' => 'admin.product.store.non_downloadable','files' => true, 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
     @include('backend.product.includes.partials._form_create_non_downloadable',[$pageName = 'create',$buttonText = trans('strings.save_button') ])
     {!! Form::close() !!}
 @endsection
