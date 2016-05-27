@@ -22,7 +22,7 @@ use Sofa\Eloquence\Eloquence;
  * Class Product
  * @package Innovate\Products
  */
-class Product extends Model implements ObjectFlat,SluggableInterface{
+class Product extends \Spiritix\LadaCache\Database\Model implements ObjectFlat,SluggableInterface{
 
 
     /**

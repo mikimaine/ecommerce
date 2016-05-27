@@ -10,7 +10,21 @@
 @endsection
 
 @section('content')
-    {!! Form::open(['route' => 'admin.product.store.downloadable', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
+    {!! Form::open(['route' => 'admin.product.store.downloadable','files' => true, 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
     @include('backend.product.includes.partials._form_create_downloadable',[$pageName = 'create',$buttonText = trans('strings.save_button') ])
     {!! Form::close() !!}
 @endsection
+
+@section('after-scripts-end')
+    {!! HTML::script('js/backend/plugin/ckeditor/ckeditor.js') !!}
+    <script>
+        $(function () {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+
+            CKEDITOR.replace('editor2');
+            CKEDITOR.replace('editor3');
+            CKEDITOR.replace('editor1');
+        });
+    </script>
+@stop

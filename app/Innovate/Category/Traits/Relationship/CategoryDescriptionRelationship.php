@@ -12,5 +12,13 @@ namespace Innovate\Category\Traits\Relationship;
 
 trait CategoryDescriptionRelationship {
 
+    public function category_description_translations()
+    {
+        return   $this->hasMany('Innovate\Category\CategoryDescriptionTranslation','category_description_id');
 
+       /* $this->hasManyThrough(
+            'Innovate\Category\CategoryDescriptionTranslation', 'Innovate\Category\CategoryDescription',
+            'category_id', 'category_description_id	', 'id'
+        );*/
+    }
 }

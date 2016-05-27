@@ -119,6 +119,12 @@ class EloquentCategoryDescriptionRepository implements CategoryDescriptionContra
         // TODO: Implement delete() method.
     }
 
+    public function eagerLoad($id,$order_by = 'id', $sort = 'asc')
+    {
+
+        return CategoryDescription::with('category_description_translations')->where('id','=',$id)->get();
+    }
+
 
     /**
      * returns categoryDescription Object with its data

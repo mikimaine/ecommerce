@@ -16,7 +16,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * Class User
  * @package App\Models\Access\User
  */
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class User extends \Spiritix\LadaCache\Database\Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable,
     CanResetPassword,

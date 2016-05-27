@@ -205,7 +205,8 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-		Devio\Eavquent\EavquentServiceProvider::class
+		Devio\Eavquent\EavquentServiceProvider::class,
+		Spiritix\LadaCache\LadaCacheServiceProvider::class,
 
 
 	],

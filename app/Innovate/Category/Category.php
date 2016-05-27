@@ -18,7 +18,7 @@ use Innovate\Category\Traits\Relationship\CategoryRelationship;
 * Class Category
  * @package Innovate\Category
 */
-class Category extends Model implements ObjectFlat {
+class Category extends \Spiritix\LadaCache\Database\Model implements ObjectFlat {
     use CategoryRelationship;
 
     protected $table = 'category';

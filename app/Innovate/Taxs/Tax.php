@@ -16,7 +16,7 @@ use Innovate\Taxs\Traits\Attribute\TaxAttribute;
  * Class Product
  * @package Innovate\Products
  */
-class Tax extends Model {
+class Tax extends  \Spiritix\LadaCache\Database\Model {
 
     use TaxAttribute;
 

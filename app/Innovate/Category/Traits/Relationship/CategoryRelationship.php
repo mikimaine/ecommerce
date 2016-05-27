@@ -16,4 +16,6 @@ trait CategoryRelationship {
     {
         return $this->hasOne('Innovate\Category\CategoryDescription','category_id');
     }
+
+
 }

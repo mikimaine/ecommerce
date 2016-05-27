@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Innovate\Eav\Category\Traits\Relationship\ProductAttributeCategoryRelationship;
 use Innovate\Eav\Category\Traits\Attribute\ProductAttributeCategoryAttribute;
 
-class ProductAttributeCategory extends Model {
+class ProductAttributeCategory extends \Spiritix\LadaCache\Database\Model {
 
     use ProductAttributeCategoryAttribute,ProductAttributeCategoryRelationship;
 

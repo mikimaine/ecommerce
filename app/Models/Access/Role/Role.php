@@ -11,7 +11,7 @@ use App\Models\Access\Role\Traits\Relationship\RoleRelationship;
  * Class Role
  * @package App\Models\Access\Role
  */
-class Role extends Model
+class Role extends \Spiritix\LadaCache\Database\Model
 {
     use RoleAccess, RoleAttribute, RoleRelationship;
 

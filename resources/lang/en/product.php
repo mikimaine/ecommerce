@@ -53,6 +53,7 @@ return [
     'long_description_en' => 'Long Description (EN)',
     'en' => 'Product in English',
     'am' => 'Product in Amharic',
+    'product_file' => 'Product File',
     'message' =>'Please fill the data below if you want your product available in amharic language',
 
 

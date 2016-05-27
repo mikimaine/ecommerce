@@ -12,7 +12,7 @@ namespace Innovate\Products;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductTranslation extends Model {
+class ProductTranslation extends \Spiritix\LadaCache\Database\Model {
 
 
     protected $table = 'product_translations';

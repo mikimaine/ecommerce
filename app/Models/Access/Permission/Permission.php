@@ -10,7 +10,7 @@ use App\Models\Access\Permission\Traits\Relationship\PermissionRelationship;
  * Class Permission
  * @package App\Models\Access\Permission
  */
-class Permission extends Model
+class Permission extends \Spiritix\LadaCache\Database\Model
 {
     use PermissionRelationship, PermissionAttribute;
 

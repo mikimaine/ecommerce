@@ -9,17 +9,18 @@
 
 namespace Innovate\Repositories\Product;
 
-use App\Exceptions\GeneralException;
+use DB;
 use Exception;
+use Illuminate\Support\Str;
 use Innovate\Products\Product;
+use App\Exceptions\GeneralException;
 
 use Innovate\Eventing\EventGenerator;
-use Innovate\Products\Events\ProductWasArchived;
+use Innovate\Products\ProductDownload;
 use Innovate\Products\Events\ProductWasPosted;
 use Innovate\Repositories\Eav\Value\EavValueIntContract;
 use Innovate\Repositories\Eav\Value\EavValueTextContract;
 use Innovate\Repositories\Eav\Value\EavValueVarcharContract;
-use Innovate\Repositories\Product\ProductDescriptionContract;
 
 class EloquentProductRepository implements ProductContract
 {
@@ -104,6 +105,8 @@ class EloquentProductRepository implements ProductContract
     }
 
     /**
+     * This Starts a Database Transaction and insert NON Downloadable data to there specific Entity's
+     * If any thing goes wrong every thing will be rollback
      * @param $input
      * @return mixed
      * @throws GeneralException
@@ -111,16 +114,16 @@ class EloquentProductRepository implements ProductContract
      */
     public function create($input)
     {
-
+        DB::beginTransaction();
         $product = $this->createNonDownloadableStub($input);
         try {
             if ($product->save()) {
                 // dd($input);
                 $input['product_id'] = $product->id;
-                $this->productDescription->create($input);
-                $productLocal = $this->createNonDownloadableTranslationStub($input, $product);
-
-
+                if(!$this->productDescription->create($input)){
+                    DB::rollback();
+                }
+                $productLocal = $this->createTranslationStub($input, $product);
                 if ($productLocal->save()) {
                     foreach ($input as $key => $value) {
                         $new_string = explode('-', $key);
@@ -134,34 +137,72 @@ class EloquentProductRepository implements ProductContract
 
                             $this->text->createFromInput($product, $new_string, $value);
                         }
-
                     }
+                }else{
+                    DB::rollback();
+                    throw new GeneralException('There was a problem Saving Downloadable product Local.Please try again!');
                 }
-
-
             }
-
-
             $this->raise(new ProductWasPosted($this->product));
-            // var_dump($input);
-            //return new Product();
+            DB::commit();
             return $this;
         } catch (Exception $e) {
-            //Do things with the Errors
-
-        }
-        throw new GeneralException('There was a problem creating this product. Please try again!'. $e);
-
-
+            DB::beginTransaction();    DB::beginTransaction();    DB::beginTransaction();
+        } throw new GeneralException('There was a problem creating this product. Please try again!'. $e);
     }
 
     /**
+     * This Starts a Database Transaction and insert Downloadable data to there specific Entity's
+     * If any thing goes wrong every thing will be rollback
      * @param $input
      * @return mixed
+     * @throws GeneralException
      */
     public function createDownloadable($input)
     {
-        // TODO: Implement createDownloadable() method.
+        DB::beginTransaction();
+        $product = $this->createDownloadableStub($input);
+        try {
+         // Try to save the product model
+            if ($product->save()) {
+                $input['product_id'] = $product->id;
+                $download = $this->createDownloadStub($input, $product);
+         // Try to save both download file info and Product description Model
+                if(!$download->save() || !$this->productDescription->create($input)){
+                    DB::rollback();
+                }else{
+                    throw new GeneralException('There was a problem creating Downloadable product. Please try again!');
+                }
+                $productLocal = $this->createTranslationStub($input, $product);
+         // Try to save Local information of the product
+                if ($productLocal->save()) {
+                    foreach ($input as $key => $value) {
+                        $new_string = explode('-', $key);
+                        if (in_array('productAttributeVarchar', $new_string)) {
+
+                            $this->varchar->createFromInput($product, $new_string, $value);
+                        } elseif (in_array('productAttributeText', $new_string)) {
+
+                            $this->text->createFromInput($product, $new_string, $value);
+                        } elseif (in_array('productAttributeInt', $new_string)) {
+
+                            $this->text->createFromInput($product, $new_string, $value);
+                        }
+                    }
+                }else{
+                    DB::rollback();
+                    throw new GeneralException('There was a problem Saving Downloadable product Local.Please try again!');
+                }
+            }
+
+            DB::commit();
+         // Raise a new Event that tell product was posted
+            $this->raise(new ProductWasPosted($this->product));
+            return $this;
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+        throw new GeneralException('There was a problem creating this product. Please try again!'. $e);
     }
 
     /**
@@ -202,40 +243,6 @@ class EloquentProductRepository implements ProductContract
         // TODO: Implement restore() method.
     }
 
-
-    /**
-     * @param $title
-     * @param $description
-     * @return $this
-     */
-    public function post($title, $description)
-    {
-        //$product = new Product();
-
-        $this->product->title = $title;
-        $this->product->description = $description;
-
-
-        $this->product->save();
-
-        $this->raise(new ProductWasPosted($this->product));
-
-        return $this;
-    }
-
-    /**
-     * @param $productId
-     */
-    public function archive($productId)
-    {
-
-        $product = $this->product->findOrFail($productId);
-        $product->delete();
-        $this->raise(new ProductWasArchived($product));
-
-    }
-
-
     public function eagerLoadPaginated($per_page)
     {
         // $this->raise(new ProductWasPosted(new Product()));
@@ -246,9 +253,9 @@ class EloquentProductRepository implements ProductContract
     private function createNonDownloadableStub($input)
     {
         $product = new Product();
-        $product->img_big = 'path';//trim($input['valid_image']);
-        $product->img_medium = 'path'; //trim($input['valid_image']);
-        $product->img_small = 'path';//trim($input['valid_image']);
+        $product->img_big = trim($input['valid_image']);
+        $product->img_medium = trim($input['valid_image']);
+        $product->img_small = trim($input['valid_image']);
         $product->sku = trim($input['sku']);
         $product->currency = trim($input['currency']);
         $product->price = trim($input['price']);
@@ -266,7 +273,35 @@ class EloquentProductRepository implements ProductContract
         return $product;
     }
 
-    private function createNonDownloadableTranslationStub($input, $product)
+
+    /**
+     * @param $input
+     * @return Product
+     */
+    private function createDownloadableStub($input)
+    {
+        $product = new Product();
+        $product->img_big = trim($input['valid_image']);
+        $product->img_medium = trim($input['valid_image']);
+        $product->img_small = trim($input['valid_image']);
+        $product->sku = trim($input['sku']);
+        $product->currency = trim($input['currency']);
+        $product->price = trim($input['price']);
+        $product->previous_price = trim($input['previous_price']);
+        $product->stock = NULL;
+        $product->unlimited = 1;
+        $product->location = trim($input['location']);
+        $product->tax_id = trim($input['tax_id']);
+        $product->is_downloadable = 1;
+        $product->category_id = $input['parent_category'];
+        $product->attribute_category_id = $input['product_category_id'];
+        isset($input['status']) ? $product['live'] = 1 : $product['live'] = 0;
+
+        return $product;
+    }
+
+
+    private function createTranslationStub($input, $product)
     {
         $product->translateOrNew('en')->name = $input['name_en'];
         $product->translateOrNew('en')->cart_description = $input['cart_description_en'];
@@ -282,5 +317,17 @@ class EloquentProductRepository implements ProductContract
         return $product;
 
     }
+
+    private function createDownloadStub($input, $product)
+    {
+        $download = new ProductDownload();
+        $download->product_id = $product->id;
+        $download->filename = $input['valid_file'];
+        $download->mask =  Str::random(16).sha1($input['valid_file']);
+
+        return $download;
+
+    }
+
 
 }

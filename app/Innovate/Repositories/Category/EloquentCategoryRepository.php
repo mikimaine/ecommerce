@@ -10,6 +10,7 @@
 namespace Innovate\Repositories\Category;
 
 
+use App;
 use App\Exceptions\GeneralException;
 use Exception;
 use Innovate\Category\Category;
@@ -123,8 +124,9 @@ class EloquentCategoryRepository implements CategoryContract{
     public function eagerLoad($table,$order_by = 'id', $sort = 'asc')
     {
 
-        return Category::with(['category_description' => function($query){
+        return Category::with(['category_description.category_description_translations' => function($query){
                         $query->orderBy('id', 'asc');
+                        $query->where('category_description_translations.locale', '=', App::getLocale());
                         }])->get();
     }
 

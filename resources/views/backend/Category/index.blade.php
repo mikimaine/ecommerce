@@ -28,20 +28,29 @@
                     <li class="dd-item" data-id="">
                         @if ($categorys->count())
                             @foreach($categorys as $category)
+
                                 @if($category->parent_id == NULL)
-                        <div class="dd-handle"><a href="{{route('admin.category.show',$category->id)}}"> {!! $category->category_description->name !!} </a> <span class="pull-right">{!! $category->status ? "Active" : "Not Active" !!}</span></div>
+                                    @foreach ($category->category_description->category_description_translations as $trans)
+
+                                    <div class="dd-handle"><a href="{{route('admin.category.show',$category->id)}}"> {!! $trans->name !!} </a> <span class="pull-right">{!! $category->status ? "Active" : "Not Active" !!}</span></div>
+                                    @endforeach
                                     <ol class="dd-list">
                                         @foreach($categorys as $category_h)
                                           @if($category_h->parent_id == $category->id)
-                                            <li class="dd-item" data-id="{!! $category->id !!}">
-                                                <div class="dd-handle"><a href="{{route('admin.category.show',$category_h->id)}}">{!! $category_h->category_description->name !!} </a> <span class="pull-right">{!! $category_h->status ? "Active" : "Not Active" !!} </span></div>
-                                            </li>
+                                                @foreach ($category_h->category_description->category_description_translations as $trans)
+
+                                                    <li class="dd-item" data-id="{!! $category->id !!}">
+                                                        <div class="dd-handle"><a href="{{route('admin.category.show',$category_h->id)}}">{!! $trans->name !!} </a> <span class="pull-right">{!! $category_h->status ? "Active" : "Not Active" !!} </span></div>
+                                                    </li>
+                                                @endforeach
+
                                             @endif
                                         @endforeach
                                     </ol>
 
                                  @endif
                                     @endforeach
+
 
 
                         @else

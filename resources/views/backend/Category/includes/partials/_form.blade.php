@@ -55,7 +55,10 @@
                                     <option value="">{!! trans('category.parent_category') !!}</option>
                                     @if($pageName == 'create')
                                         @foreach ($categorys as $category)
-                                            <option value="{!! $category->id !!}">{!! $category->category_description->name !!}</option>
+                                            @foreach ($category->category_description->category_description_translations as $trans)
+
+                                                <option value="{!! $category->id !!}">  {!! $trans->name  !!}</option>
+                                            @endforeach
                                         @endforeach
                                     @elseif($pageName == 'update')
                                         @foreach ($categorys as $category_in)

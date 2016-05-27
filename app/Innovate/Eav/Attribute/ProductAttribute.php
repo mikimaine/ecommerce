@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Innovate\Eav\Attribute\Traits\Attribute\ProductAttributeAttribute;
 use Innovate\Eav\Attribute\Traits\Relationship\ProductAttributeRelationship;
 
-class ProductAttribute extends Model {
+class ProductAttribute extends \Spiritix\LadaCache\Database\Model {
 
         use ProductAttributeAttribute,ProductAttributeRelationship;
 

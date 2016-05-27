@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Backend\Product;
 
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\CommandsDomainEventController;
+use Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Innovate\Image\InnovateImageUploadContract;
@@ -91,9 +92,16 @@ class ProductController extends CommandsDomainEventController
 
     public function index()
     {
+        $product = Cache::get('productAdmin');
+        //dd($product);
+        if ($product != null) {
+            return view('backend.product.index')->withProducts($product);
+       }
 
-        return view('backend.product.index')
-            ->withProducts($this->product->eagerLoadPaginated(10));
+        $product = $this->product->eagerLoadPaginated(10);
+        Cache::tags('productAdmin')->put('productAdmin',$product , 43200);
+
+        return view('backend.product.index')->withProducts($product);
         //  return view('backend.product.index')
         //  ->withProducts($this->product->getAllProducts());
 
@@ -113,7 +121,8 @@ class ProductController extends CommandsDomainEventController
     public function newProduct(Request $request)
     {
         if ($request['product_type'] == 'downloadable') {
-
+            $a = $this->category->eagerLoad('category_description');
+         //   dd($a);
             return view('backend.product.create_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
