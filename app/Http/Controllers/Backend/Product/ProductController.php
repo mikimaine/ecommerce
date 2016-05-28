@@ -92,14 +92,14 @@ class ProductController extends CommandsDomainEventController
 
     public function index()
     {
-        $product = Cache::get('productAdmin');
+       // $product = Cache::get('productAdmin');
         //dd($product);
-        if ($product != null) {
-            return view('backend.product.index')->withProducts($product);
-       }
+        //if ($product != null) {
+         //   return view('backend.product.index')->withProducts($product);
+       //}
 
         $product = $this->product->eagerLoadPaginated(10);
-        Cache::tags('productAdmin')->put('productAdmin',$product , 43200);
+        //Cache::tags('productAdmin')->put('productAdmin',$product , 43200);
 
         return view('backend.product.index')->withProducts($product);
         //  return view('backend.product.index')

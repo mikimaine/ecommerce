@@ -9,15 +9,15 @@
 
 namespace Innovate\StaticPages\BankTransferInfo;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Innovate\BaseModel;
 use Innovate\StaticPages\BankTransferInfo\Traits\Attribute\BankInfoAttribute;
 
 /**
  * Class Product
  * @package Innovate\Products
  */
-class BankTransferInfo extends Model {
+class BankTransferInfo extends BaseModel {
 
     use BankInfoAttribute,SoftDeletes;
 

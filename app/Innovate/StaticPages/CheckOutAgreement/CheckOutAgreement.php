@@ -9,16 +9,15 @@
 
 namespace Innovate\StaticPages\CheckOutAgreement;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Innovate\StaticPages\BankTransferInfo\Traits\Attribute\BankInfoAttribute;
+use Innovate\BaseModel;
 use Innovate\StaticPages\CheckOutAgreement\Traits\Attribute\CheckOutAgreementAttribute;
 
 /**
  * Class Product
  * @package Innovate\Products
  */
-class CheckOutAgreement extends Model {
+class CheckOutAgreement extends BaseModel {
 
     use CheckOutAgreementAttribute,SoftDeletes;
 

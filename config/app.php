@@ -207,6 +207,7 @@ return [
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 		Devio\Eavquent\EavquentServiceProvider::class,
 		Spiritix\LadaCache\LadaCacheServiceProvider::class,
+		RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
 
 
 	],

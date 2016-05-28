@@ -145,6 +145,7 @@ class EloquentProductRepository implements ProductContract
             }
             $this->raise(new ProductWasPosted($this->product));
             DB::commit();
+
             return $this;
         } catch (Exception $e) {
             DB::beginTransaction();    DB::beginTransaction();    DB::beginTransaction();

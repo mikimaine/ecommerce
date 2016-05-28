@@ -10,10 +10,10 @@
 namespace Innovate\Eav\Value;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use Innovate\Eav\Value\Traits\Relationship\ProductAttributeIntRelationship;
 
-class ProductAttributeInt extends Model {
+class ProductAttributeInt extends BaseModel {
 
     use ProductAttributeIntRelationship;
 

@@ -10,13 +10,14 @@
 namespace Innovate\Taxs;
 
 use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use Innovate\Taxs\Traits\Attribute\TaxAttribute;
 
 /**
  * Class Product
  * @package Innovate\Products
  */
-class Tax extends  \Spiritix\LadaCache\Database\Model {
+class Tax extends  BaseModel {
 
     use TaxAttribute;
 

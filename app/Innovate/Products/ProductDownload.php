@@ -10,9 +10,9 @@
 namespace Innovate\Products;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 
-class ProductDownload extends Model {
+class ProductDownload extends BaseModel {
 
     protected $table = 'download';
 

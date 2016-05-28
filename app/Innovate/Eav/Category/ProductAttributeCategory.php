@@ -10,11 +10,11 @@
 namespace Innovate\Eav\Category;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use Innovate\Eav\Category\Traits\Relationship\ProductAttributeCategoryRelationship;
 use Innovate\Eav\Category\Traits\Attribute\ProductAttributeCategoryAttribute;
 
-class ProductAttributeCategory extends \Spiritix\LadaCache\Database\Model {
+class ProductAttributeCategory extends BaseModel {
 
     use ProductAttributeCategoryAttribute,ProductAttributeCategoryRelationship;
 

@@ -10,15 +10,15 @@
 namespace Innovate\Category;
 
 
+use Innovate\BaseModel;
 use Innovate\SEOProvider\ObjectFlat;
-use Illuminate\Database\Eloquent\Model;
 use Innovate\Category\Traits\Relationship\CategoryRelationship;
 
 /**
 * Class Category
  * @package Innovate\Category
 */
-class Category extends \Spiritix\LadaCache\Database\Model implements ObjectFlat {
+class Category extends BaseModel implements ObjectFlat {
     use CategoryRelationship;
 
     protected $table = 'category';

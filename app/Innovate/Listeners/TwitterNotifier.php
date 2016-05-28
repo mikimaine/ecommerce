@@ -10,7 +10,9 @@
 namespace Innovate\Listeners;
 
 
+use Innovate\Api\ApiUser\ApiUser;
 use Innovate\Eventing\EventListener;
+use Innovate\Products\Events\ProductIsAboutToBePosted;
 use Innovate\Products\Events\ProductWasArchived;
 use Innovate\Products\Events\ProductWasPosted;
 
@@ -18,18 +20,28 @@ use Innovate\Products\Events\ProductWasPosted;
  * Class EmailNotifier
  * @package Innovate\Listeners
  */
-class EmailNotifier extends EventListener {
+class TwitterNotifier extends EventListener {
 
 
-   /* public function whenProductWasPosted(ProductWasPosted $event)
+    public function whenProductWasPosted(ProductWasPosted $event)
     {
-        var_dump('Send Confirmation Email about event :  '.$event->product->title);
 
-    }*/
 
-    /**
-     * @param ProductWasArchived $event
-     */
+    }
+
+    public function productDeleteWasPosted(){
+
+
+    }
+
+   public function whenProductIsAboutToBePosted(ProductIsAboutToBePosted $event)
+    {
+
+        var_dump('Send Confirmation Sms about event :  '.$event->product->title);
+    }
+
+
+
     public function whenProductWasArchived(ProductWasArchived $event)
     {
         var_dump('Send Congratulations Email for the customer about buying this product   :  '.$event->product->title);

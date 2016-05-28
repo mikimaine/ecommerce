@@ -13,6 +13,7 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use Innovate\Products\Traits\Attribute\ProductAttribute;
 use Innovate\Products\Traits\Relationship\ProductRelationship;
 use Innovate\SEOProvider\ObjectFlat;
@@ -22,7 +23,7 @@ use Sofa\Eloquence\Eloquence;
  * Class Product
  * @package Innovate\Products
  */
-class Product extends \Spiritix\LadaCache\Database\Model implements ObjectFlat,SluggableInterface{
+class Product extends BaseModel implements ObjectFlat,SluggableInterface{
 
 
     /**

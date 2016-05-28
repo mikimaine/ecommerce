@@ -10,9 +10,9 @@
 namespace Innovate\Products;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 
-class ProductTranslation extends \Spiritix\LadaCache\Database\Model {
+class ProductTranslation extends BaseModel{
 
 
     protected $table = 'product_translations';

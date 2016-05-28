@@ -10,10 +10,10 @@
 namespace Innovate\Eav\Value;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use Innovate\Eav\Value\Traits\Relationship\ProductAttributeVarcharRelationship;
 
-class ProductAttributeVarchar extends Model {
+class ProductAttributeVarchar extends BaseModel {
 
     use ProductAttributeVarcharRelationship;
 

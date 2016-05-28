@@ -1,4 +1,4 @@
-## INNOVATE Ecommerce Framework, Currently 0.0.1
+## INNOVATE Ecommerce Framework, Currently 0.1.0
 
 
 
@@ -15,6 +15,20 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 - And also For now you have to install both git and composer on your system
   You will find [Composer here](https://getcomposer.org) and
                 [Git here](https://git-scm.com/)  then follow the instructions there to install on your specific machine
+                
+### Optional
+-------------------------
+
+- If you want a better page load and overall improvement in speed , the Framework comes with redis implementation out of the box.
+  You can get Redis from [Redis Here] (http://redis.io/) follow instruction there
+  For windows users you also have Redis Desktop [redisdesktop here ] (http://redisdesktop.com/download)
+  remember you first have to install Redis to work with redis desktop
+  
+  Then you should set  CACHE_DRIVER on .env file to redis and 
+  Fill this three with your redis info in .env file
+                                  REDIS_HOST=127.0.0.1   <--- change it if you are not on localhost
+                                  REDIS_PASSWORD=
+                                  REDIS_PORT=6379
 
 
 ### Quick Installation

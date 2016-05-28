@@ -11,10 +11,10 @@ namespace Innovate\Category;
 
 
 use Dimsav\Translatable\Translatable;
-use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use Innovate\Category\Traits\Relationship\CategoryDescriptionRelationship;
 
-class CategoryDescription extends \Spiritix\LadaCache\Database\Model {
+class CategoryDescription extends BaseModel {
     use Translatable,CategoryDescriptionRelationship;
 
     protected $table = 'category_description';
