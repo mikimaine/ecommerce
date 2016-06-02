@@ -13,9 +13,17 @@ namespace Innovate;
 use Spiritix\LadaCache\Database\Model;
 use Spiritix\LadaCache\Database\QueryBuilder;
 
+/**
+ * Class BaseModel
+ * @package Innovate
+ */
 class BaseModel extends Model{
 
 
+    /**
+     *
+     * @return \Illuminate\Database\Query\Builder|QueryBuilder
+     */
     protected function newBaseQueryBuilder()
     {
         $conn = $this->getConnection();

@@ -60,8 +60,8 @@
         "phpunit/phpunit": "~5.0",
         "phpspec/phpspec": "~2.1",
         "barryvdh/laravel-debugbar": "^2.0",
-        "xethron/migrations-generator": "dev-l5",
-        "way/generators": "dev-feature/laravel-five-stable"
+        "way/generators": "dev-feature/laravel-five-stable",
+        "xethron/migrations-generator": "dev-l5"
     },
     "autoload": {
         "classmap": [

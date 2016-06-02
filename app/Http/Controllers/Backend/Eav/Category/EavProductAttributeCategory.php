@@ -45,7 +45,7 @@ class EavProductAttributeCategory extends Controller
     public function index()
     {
         return view('backend.eav.category.index')
-            ->withProductattributecategorys($this->eavProductCategory->getEavCategoryPaginated(config('access.users.default_per_page')));
+            ->withProductattributecategorys($this->eavProductCategory->getEavCategoryPaginated(30));
     }
 
     /**

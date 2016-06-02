@@ -23,7 +23,7 @@ class CreateCategoryDescriptionTranslationsTable extends Migration
             /**
              * Add Foreign/Unique/Index
              */
-            $table->foreign('description_id')->references('id')
+            $table->foreign('category_description_id','c_d_t_foreign')->references('id')
                 ->on('category_description')
                 ->onDelete('cascade');
 

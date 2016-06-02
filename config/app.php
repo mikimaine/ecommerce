@@ -208,6 +208,8 @@ return [
 		Devio\Eavquent\EavquentServiceProvider::class,
 		Spiritix\LadaCache\LadaCacheServiceProvider::class,
 		RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
+		//'Way\Generators\GeneratorsServiceProvider',
+		//'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
 
 
 	],
