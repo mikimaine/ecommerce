@@ -205,11 +205,13 @@ return [
 		Spatie\Backup\BackupServiceProvider::class,
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-		Devio\Eavquent\EavquentServiceProvider::class,
-		Spiritix\LadaCache\LadaCacheServiceProvider::class,
+		//Devio\Eavquent\EavquentServiceProvider::class,
+
+
+
 		RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
-		//'Way\Generators\GeneratorsServiceProvider',
-		//'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
+		'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
 
 
 	],

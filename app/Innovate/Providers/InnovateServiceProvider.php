@@ -10,6 +10,8 @@ use Illuminate\Support\ServiceProvider;
  */
 class InnovateServiceProvider extends ServiceProvider
 {
+
+
     /**
      * Bootstrap the application services.
      *
@@ -27,6 +29,12 @@ class InnovateServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        /**
+         * check if The user Enabled Redis cache
+         */
+        if (env('LADA_CACHE_DRIVER')) {
+            $this->app->register('\Spiritix\LadaCache\LadaCacheServiceProvider');
+        }
 
         $this->registerBinding();
 
