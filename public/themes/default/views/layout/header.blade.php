@@ -11,8 +11,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ trans('menus.language-picker.language') }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>{!! link_to('lang/en', trans('menus.language-picker.langs.en')) !!}</li>
-                            <li>{!! link_to('lang/es', trans('menus.language-picker.langs.am')) !!}</li>
-
+                            <li>{!! link_to('lang/am', trans('menus.language-picker.langs.am')) !!}</li>
                         </ul>
                     </li>
                 </div>
@@ -52,12 +51,14 @@
         <div class="row">
             <!-- follow us -->
             <div class="follow-us">
+                <a href="#" class="fa fa-contact">C</a>
                 <a href="#" class="fa fa-dribbble"></a>
                 <a href="#" class="fa fa-tumblr"></a>
                 <a href="#" class="fa fa-rss"></a>
                 <a href="#" class="fa fa-skype"></a>
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-about">A</a>
             </div>
             <!--/ follow us -->
         </div>
@@ -80,97 +81,43 @@
         <nav class="main-nav">
             <ul>
                 <li>
-                    <a href="index-2.html">Home</a>
-                    <ul>
-                        <li><a href="index-2.html">Default Style</a></li>
-                        <li><a href="index-blog.html">Blog Style</a></li>
-                        <li><a href="index-parallax.html">Parallax Style</a></li>
-                        <li><a href="index-video.html">Background Video</a></li>
-                    </ul>
+                    {!! link_to('/', trans('navs.home')) !!}
+
                 </li>
                 <li>
-                    <a href="#" class="active">Features</a>
-                    <ul>
-                        <li><a href="iOS8-inspired.html" class="active">iOS8 Inspired Design</a></li>
-                        <li><a href="woo-ready.html">Woo-Ready</a></li>
-                        <li>
-                            <a href="#">Content Elements</a>
-                            <ul>
-                                <li><a href="feature-accordion.html">Accordion</a></li>
-                                <li><a href="feature-buttons.html">Buttons</a></li>
-                                <li><a href="feature-callout.html">Callout</a></li>
-                                <li><a href="feature-chart-graph.html">Chart Graph</a></li>
-                                <li><a href="feature-chart-pie.html">Chart Pie</a></li>
-                                <li><a href="feature-chart-circle.html">Chart Circle</a></li>
-                                <li><a href="feature-columns.html">Columns</a></li>
-                                <li><a href="feature-dividers.html">Dividers</a></li>
-                                <li><a href="feature-icons.html">Icons</a></li>
-                                <li><a href="feature-lists.html">Lists</a></li>
-                                <li><a href="feature-messages.html">Messages</a></li>
-                                <li><a href="feature-milestone.html">Milestone</a></li>
-                                <li><a href="feature-pricing-table.html">Pricing Table</a></li>
-                                <li><a href="feature-progress-bar.html">Progress Bar</a></li>
-                                <li><a href="feature-services.html">Services</a></li>
-                                <li><a href="feature-tabs.html">Tabs</a></li>
-                                <li><a href="feature-team.html">Team</a></li>
-                                <li><a href="feature-testimonials.html">Testimonials</a></li>
-                                <li><a href="feature-toggle.html">Toggle</a></li>
-                                <li><a href="feature-twitter.html">Twitter</a></li>
-                                <li><a href="feature-twitter-carousel.html">Twitter Carousel</a></li>
-                                <li><a href="feature-video.html">Video</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {!! link_to('/category', trans('innovate.menus.category')) !!}
+
                 </li>
                 <li>
-                    <a href="#">Pages</a>
-                    <ul>
-                        <li><a href="page-404.html">404 page</a></li>
-                        <li><a href="page-about.html">About us</a></li>
-                        <li><a href="page-coming.html">Coming soon</a></li>
-                        <li><a href="page-faq.html">FAQ</a></li>
-                        <li><a href="page-team.html">Our team</a></li>
-                        <li><a href="page-process.html">Our process</a></li>
-                        <li><a href="page-progress.html">Our progress</a></li>
-                        <li><a href="page-services.html">Our services</a></li>
-                        <li><a href="page-sitemap.html">Sitemap</a></li>
-                        <li><a href="page-sidebar-one.html">With one sidebar</a></li>
-                        <li><a href="page-sidebar-two.html">With two sidebars</a></li>
-                        <li><a href="page-sidebar-none.html">Full width</a></li>
-                    </ul>
+                    {!! link_to('/product', trans('innovate.menus.product')) !!}
+
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
-                    <ul>
-                        <li><a href="portfolio-four.html">Four columns</a></li>
-                        <li><a href="portfolio-three.html">Three columns</a></li>
-                        <li><a href="portfolio-two.html">Two columns</a></li>
-                        <li><a href="portfolio-one.html">One column</a></li>
-                        <li><a href="portfolio-gallery.html">Gallery</a></li>
-                        <li><a href="portfolio-single.html">Single item</a></li>
-                    </ul>
+                    {!! link_to('/product/trend', trans('innovate.menus.trend_products')) !!}
                 </li>
-                <li>
-                    <a href="#">Blog</a>
-                    <ul>
-                        <li><a href="blog.html">Regular view</a></li>
-                        <li><a href="blog-three.html">Three columns</a></li>
-                        <li><a href="blog-two.html">Two columns</a></li>
-                        <li><a href="blog-one.html">One column</a></li>
-                        <li><a href="blog-single.html">Single post</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Shop</a>
-                    <ul>
-                        <li><a href="shop-catalog.html">Catalog</a></li>
-                        <li><a href="shop-product.html">Product</a></li>
-                        <li><a href="shop-cart.html">Cart</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="contacts.html">Contacts</a>
-                </li>
+
+                    @if (Auth::guest())
+                <li>{!! link_to('auth/login', trans('navs.login')) !!}</li>
+                <li>{!! link_to('auth/register', trans('navs.register')) !!}</li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>{!! link_to('dashboard', trans('navs.dashboard')) !!}</li>
+
+                            @if (access()->user()->canChangePassword())
+                                <li>{!! link_to('auth/password/change', trans('navs.change_password')) !!}</li>
+                            @endif
+
+                            @permission('view-backend')
+                            <li>{!! link_to_route('admin.dashboard', trans('navs.administration')) !!}</li>
+                            @endauth
+
+                            <li>{!! link_to('auth/logout', trans('navs.logout')) !!}</li>
+                        </ul>
+                    </li>
+                    @endif
+
             </ul>
         </nav>
         <!--/ main nav -->
@@ -273,12 +220,11 @@
 <!-- page title -->
 <div class="page-title">
     <div class="grid-row">
-        <h1><i class="fa fa-angle-right"></i>iOS8 Inspired Design</h1>
+        <h1><i class="fa fa-angle-right"></i> {{ app_name() }}</h1>
 
         <nav class="bread-crumbs">
             <a href="#">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;
-            <a href="#">Features</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;
-            <span>iOS8 Inspired Design</span>
+            <span>{{ app_name() }}</span>
         </nav>
     </div>
 </div>

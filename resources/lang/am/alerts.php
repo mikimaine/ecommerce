@@ -14,30 +14,30 @@ return [
     */
 
     'permissions' => [
-        'created' => 'Permission successfully created.',
-        'updated' => 'Permission successfully updated.',
-        'deleted' => 'Permission successfully deleted.',
+        'created' => 'ፍቃዱ ፡ በተሳካ ፡ ኹኔታ ፡ ተፈጥሯል ።',
+        'updated' => 'ፍቃዱ ፡ በተሳካ ፡ ኹኔታ ፡ ታድሷል ።',
+        'deleted' => 'ፍቃዱ ፡ በተሳካ ፡ ኹኔታ ፡ ጠፍቷል ።',
         'groups'  => [
-            'created' => 'Permission group successfully created.',
-            'updated' => 'Permission group successfully updated.',
-            'deleted' => 'Permission group successfully deleted.',
+            'created' => 'የፍቃዱ ፡ ህቡዕ ፡ በተሳካ ፡ ሁኔታ ፡ ተፈጥሯል ።',
+            'updated' => 'የፍቃዱ ፡ ህቡዕ ፡ በተሳካ ፡ ሁኔታ ፡ ታድሷል ።',
+            'deleted' => 'የፍቃዱ ፡ ህቡዕ ፡ በተሳካ ፡ ሁኔታ ፡ ጠፍቷል ።',
         ],
     ],
 
     'roles' => [
-        'created' => 'The role was successfully created.',
-        'updated' => 'The role was successfully updated.',
-        'deleted' => 'The role was successfully deleted.'
+        'created' => 'ሚናው ፡ በተሳካ ፡ ኹኔታ ፡ ተፈጥሯል ።',
+        'updated' => 'ሚናው ፡ በተሳካ ፡ ኹኔታ ፡ ታድሷል ።',
+        'deleted' => 'ሚናው ፡ በተሳካ ፡ ኹኔታ ፡ ጠፍቷል ።'
     ],
 
     'users' => [
-        'created' => 'The user was successfully created.',
-        'updated' => 'The user was successfully updated.',
-        'deleted' => 'The user was successfully deleted.',
-        'deleted_permanently' => 'The user was deleted permanently.',
-        'restored' => 'The user was successfully restored.',
-        'updated_password' => "The user's password was successfully updated.",
-        'confirmation_email' => 'A new confirmation e-mail has been sent to the address on file.'
+        'created' => 'ተጠቃሚው ፡ በተሳካ ፡ ሁኔታ ፡ ተፈጥሯል ።',
+        'updated' => 'ተጠቃሚው ፡ በተሳካ ፡ ሁኔታ ፡ ተሻሽሏል ።',
+        'deleted' => 'ተጠቃሚው ፡ በተሳካ ፡ ሁኔታ ፡ ጠፍቷል ።',
+        'deleted_permanently' => 'ተጠቃሚው ፡ በተሳካ ፡ ሁኔታ ፡ ተደምስሷል ።',
+        'restored' => 'ተጠቃሚው ፡ በተሳካ ፡ ሁኔታ ፡ ተመልሷል ።',
+        'updated_password' => "የተጠቃሚው ፡ ይለፍ ፡ ቃል ፡ በተሳካ ፡ ሁኔታ ፡ ታድሷል ።",
+        'confirmation_email' => 'ወደ ፡ ሰነድህ ፡ አዲስ ፡ የኢሜል ፡ ማረጋገጫ ፡ ተልኳል ።'
 
     ]
 

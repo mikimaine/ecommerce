@@ -36,6 +36,7 @@ return [
         'product_attribute' =>'Attributes',
         'category'=>'Category',
         'product'=>'Product',
+        'trend_products'=>'Trend Products',
         'product_category' => 'Product Category',
         'product_category_description' => 'Product Category Description',
         'setting' => 'E-commerce Settings ',

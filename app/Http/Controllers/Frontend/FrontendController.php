@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Theme;
 
 /**
  * Class FrontendController
@@ -22,7 +23,7 @@ class FrontendController extends Controller
             'test' => 'it works!',
         ]);
 
-       return view('frontend.index');
+       return Theme::view('frontend.index');
 
         //return JsonResponse::create([$this->tax->getPaginated(config('access.users.default_per_page'))]);
     }
