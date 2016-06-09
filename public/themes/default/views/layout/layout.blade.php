@@ -37,6 +37,8 @@
     @include('default::layout/header')
     <div class="grid-row">
         <br /><br />
+        @yield('body_title')
+
         <div class=" composer">
             @include('default::includes/partials/messages')
         </div>

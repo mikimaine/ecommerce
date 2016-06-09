@@ -1,5 +1,6 @@
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="message message-error">
+        <i class="fa fa-bolt"></i>
         @foreach ($errors->all() as $error)
             {!! $error !!}<br/>
         @endforeach

@@ -22,7 +22,7 @@
                 </div>
 
                 <!-- products grid -->
-                <section class="products-grid">
+                <section class="products-grid ">
                     <ul>
                         @if($products->count() )
 
@@ -30,7 +30,7 @@
                                 <li>
                                     <div>
                                         <div class="pic">
-                                            <img src="{!! config('app.url').'/app/innovate/product/'.$product->img_big !!}" alt="{!! $product->name !!}">
+                                            <img src="{!! config('app.url').'/app/innovate/product/'.$product->img_big !!}"  alt="{!! $product->name !!}">
                                             <span></span>
                                             <ul>
                                                 <li><a href="pic/catalog-grid/item-1.jpg" class="fa fa-plus fancybox"></a></li>
@@ -47,7 +47,8 @@
 
                                         <a href="#" class="button button-with-left-icon button-xsmall"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
-                                </li>
+                                </li><!--
+							-->
 
                              @endforeach
                         @endif

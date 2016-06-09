@@ -1,27 +1,35 @@
 @extends('default::layout/layout')
 
 @section('content')
-    <h1>Log In</h1>
-
-    <form method="POST" action="/auth/login">
-        {!! csrf_field() !!}
-
-        <div>
-            Email
-            <input type="email" name="email" value="{{ old('email') }}">
+    <main class="page-content-alt-2">
+        <div class="grid-row">
+            <h1>{{ trans('labels.login_box_title') }}</h1>
         </div>
 
-        <div>
-            Password
-            <input type="password" name="password" id="password">
-        </div>
+        <div class="grid-row">
+            <div class="grid-col grid-col-6">
+                <!-- feedback -->
+                <div class="feedback">
 
-        <div>
-            <input type="checkbox" name="remember"> Remember Me
-        </div>
+                    <div class="composer">
+                        <div id="email_server_responce"></div>
+                    </div>
 
-        <div>
-            <button type="submit">Login</button>
+                    <form method="POST" action="/auth/login">
+                        {!! csrf_field() !!}
+                        <label> Email: </label>
+                        <input type="email" name="email" value="{{ old('email') }}">
+                        <label> Password: </label>
+                        <input type="password" name="password" id="password">
+                        <label>{{ trans('labels.remember_me') }}</label>
+                        <input type="checkbox" name="remember">
+                        <button type="submit" class="button">{!! trans('labels.login_button') !!}</button>
+                    </form>
+
+                    <!--/ feedback -->
+                </div>
+            </div>
+
         </div>
-</form>
+    </main>
 @endsection

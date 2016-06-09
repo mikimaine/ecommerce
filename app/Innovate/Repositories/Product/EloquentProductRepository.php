@@ -64,13 +64,20 @@ class EloquentProductRepository implements ProductContract
 
 
     /**
-     * @param  $id
+     * @param $id
      * @param  bool $withRoles
      * @return mixed
+     * @throws GeneralException
      */
     public function findOrThrowException($id, $withRoles = false)
     {
-        // TODO: Implement findOrThrowException() method.
+        $product = Product::withTrashed()->find($id);
+
+        if (!is_null($product)) {
+            return $product;
+        }
+
+        //throw new GeneralException('ThatProduct does not exist.');
     }
 
     /**
@@ -218,12 +225,21 @@ class EloquentProductRepository implements ProductContract
     }
 
     /**
-     * @param  $id
+     * @param $id
      * @return mixed
+     * @throws GeneralException
      */
     public function destroy($id)
     {
-        // TODO: Implement destroy() method.
+        $product = $this->findOrThrowException($id);
+        //dd($product);
+        if ($product->delete())
+        {
+            return true;
+        }
+
+        throw new GeneralException('There was a problem deleting this Product. Please try again.');
+
     }
 
     /**

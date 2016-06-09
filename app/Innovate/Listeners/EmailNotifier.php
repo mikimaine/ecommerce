@@ -21,11 +21,11 @@ use Innovate\Products\Events\ProductWasPosted;
 class EmailNotifier extends EventListener {
 
 
-   /* public function whenProductWasPosted(ProductWasPosted $event)
+    public function whenProductWasPosted(ProductWasPosted $event)
     {
         var_dump('Send Confirmation Email about event :  '.$event->product->title);
 
-    }*/
+    }
 
     /**
      * @param ProductWasArchived $event

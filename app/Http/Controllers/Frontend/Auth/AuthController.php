@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use App\Http\Requests\Frontend\Access\LoginRequest;
 use App\Http\Requests\Frontend\Access\RegisterRequest;
 use App\Repositories\Frontend\Auth\AuthenticationContract;
+use Theme;
 
 /**
  * Class AuthController
@@ -31,7 +32,7 @@ class AuthController extends Controller
      */
     public function getRegister()
     {
-        return view('frontend.auth.register');
+        return Theme::view('auth.register');
     }
 
     /**
@@ -55,7 +56,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        return view('frontend.auth.login')
+        return Theme::view('auth.login')
             ->withSocialiteLinks($this->getSocialLinks());
     }
 

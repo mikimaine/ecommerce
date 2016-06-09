@@ -51,7 +51,6 @@
         "mpociot/laravel-test-factory-helper": "^0.1.0",
         "gloudemans/shoppingcart": "^1.3",
         "propaganistas/laravel-translatable-bootforms": "^1.3",
-        "devio/eavquent": "dev-master",
         "spatie/laravel-responsecache": "^1.1",
         "codesleeve/laravel-stapler": "^1.0"
     },

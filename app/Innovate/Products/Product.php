@@ -13,6 +13,7 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Innovate\BaseModel;
 use Innovate\Products\Traits\Attribute\ProductAttribute;
 use Innovate\Products\Traits\Relationship\ProductRelationship;
@@ -29,7 +30,7 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface{
     /**
      * This are trait definition's and a solution for the conflict inside them
      */
-    use Translatable,ProductRelationship,ProductAttribute,SluggableTrait,Eloquence{
+    use Translatable,SoftDeletes,ProductRelationship,ProductAttribute,SluggableTrait,Eloquence{
 
         Eloquence::getAttribute  as getAttributeEloquence;
         Translatable::getAttribute insteadof Eloquence;
@@ -71,6 +72,14 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface{
      * @var array
      */
  //   protected  $fillable = ['title','description'];
+
+    /**
+     * For soft deletes
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
 
     /**
      * This array holds information about

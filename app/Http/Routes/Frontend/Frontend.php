@@ -11,6 +11,12 @@ $router->get('product/trend','Product\FrontendProductController@trends')->name('
 $router->get('product',  'Product\FrontendProductController@index')->name('frontend.product');
 $router->get('macros', 'FrontendController@macros');
 
+
+$router->group(['prefix' => 'api/v1'],function()
+{
+  Route::resource('product','Api\Product\ApiProductController');
+});
+
 /**
  * These frontend controllers require the user to be logged in
  */

@@ -92,11 +92,11 @@ class ProductController extends CommandsDomainEventController
 
     public function index()
     {
-       // $product = Cache::get('productAdmin');
+        // $product = Cache::get('productAdmin');
         //dd($product);
         //if ($product != null) {
-         //   return view('backend.product.index')->withProducts($product);
-       //}
+        //   return view('backend.product.index')->withProducts($product);
+        //}
 
         $product = $this->product->eagerLoadPaginated(10);
         //Cache::tags('productAdmin')->put('productAdmin',$product , 43200);
@@ -122,7 +122,7 @@ class ProductController extends CommandsDomainEventController
     {
         if ($request['product_type'] == 'downloadable') {
             $a = $this->category->eagerLoad('category_description');
-         //   dd($a);
+            //   dd($a);
             return view('backend.product.create_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
@@ -148,7 +148,7 @@ class ProductController extends CommandsDomainEventController
      * @param CommandBus $commandBus
      * @throws GeneralException
      */
-    public function storeDownloadable(Request $request,CommandBus $commandBus)
+    public function storeDownloadable(Request $request, CommandBus $commandBus)
     {
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -208,13 +208,47 @@ class ProductController extends CommandsDomainEventController
     }
 
     /**
-     * @param $productId
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return Response
      */
-    public function delete($productId)
+    public function destroy($id)
     {
-        dd($productId);
-        $command = new ProductSoldCommand($productId);
-        $this->commandBus->execute($command);
+        $this->product->destroy($id);
+        return redirect()->back()->withFlashSuccess(trans('product.alerts.deleted'));
+    }
+
+    /**
+     * Returns products that are deleted
+     *
+     */
+    public function deleted()
+    {
+        return view('backend.staticPage.bank_transfer.deleted')
+            ->withProducts($this->product->getDeletedPaginated(25));
+    }
+
+    /**
+     * restore products from deleted box
+     * @param $id
+     * @return mixed
+     */
+    public function restore($id)
+    {
+        $this->product->restore($id);
+        return redirect()->back()->withFlashSuccess(trans('alerts.users.restored'));
+    }
+
+    /**
+     * Delete product beyond recovery
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        $this->product->delete($id);
+        return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted_permanently'));
     }
 
 }

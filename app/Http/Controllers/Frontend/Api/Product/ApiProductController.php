@@ -7,13 +7,14 @@
  * Time: 10:50 PM
  */
 
-namespace App\Http\Controllers\Frontend\Product;
+namespace App\Http\Controllers\Frontend\Api\Product;
 
 use App\Exceptions\GeneralException;
-use App\Http\Controllers\CommandsDomainEventController;
-use Cache;
+use App\Http\ApiController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
+use Innovate\Api\Transformers\ProductTransformer;
 use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Commanding\CommandBus;
 use Innovate\Products\PostDownloadableProductCommand;
@@ -25,44 +26,48 @@ use Innovate\Repositories\Eav\Category\EavCategoryContract;
 use Innovate\Repositories\Product\ProductContract;
 use Innovate\Repositories\Tax\TaxContract;
 use Innovate\Requests\product\StoreProductRequest;
-use Theme;
 
 /**
  * Class ProductController
  * @package app\Http\Controllers\Product\Backend
  */
-class FrontendProductController extends CommandsDomainEventController
+class ApiProductController extends ApiController
 {
 
     /**
      * @var ProductContract
      */
-    private $product;
+    protected $product;
 
     /**
      * @var CategoryContract
      */
-    private $category;
+    protected $category;
 
     /**
      * @var EavCategoryContract
      */
-    private $eavAttributeCategory;
+    protected $eavAttributeCategory;
 
     /**
      * @var EavAttributeContract
      */
-    private $eavAttribute;
+    protected $eavAttribute;
 
     /**
      * @var TaxContract
      */
-    private $tax;
+    protected $tax;
 
     /**
      * @var InnovateImageUploadContract
      */
-    public $imageDriver;
+    protected $imageDriver;
+
+    /**
+     * @var Innovate\Api\Transformers\ProductTransformer
+     */
+    protected $productTransformer;
 
     /**
      * @param ProductContract $productContract
@@ -71,10 +76,11 @@ class FrontendProductController extends CommandsDomainEventController
      * @param EavAttributeContract $attributeContract
      * @param TaxContract $taxContract
      * @param InnovateImageUploadContract $image
+     * @param ProductTransformer $productTransformer
      */
     public function __construct(ProductContract $productContract, CategoryContract $categoryContract,
                                 EavCategoryContract $eavCategoryContract, EavAttributeContract $attributeContract,
-                                TaxContract $taxContract, InnovateImageUploadContract $image)
+                                TaxContract $taxContract, InnovateImageUploadContract $image, ProductTransformer $productTransformer)
     {
 
         $this->product = $productContract;
@@ -89,16 +95,39 @@ class FrontendProductController extends CommandsDomainEventController
 
         $this->imageDriver = $image;
 
+        $this->productTransformer = $productTransformer;
+
+        //  $this->beforeFilter('auth.basic');
     }
 
     public function index()
     {
-        return Theme::view('frontend.product.index')
-               ->withProducts($this->product->eagerLoadPaginated(10));
-        //  return view('backend.product.index')
-        //  ->withProducts($this->product->getAllProducts());
+        $products = $this->product->eagerLoadPaginated(10);
+      //  dd($products);
+        if (!$products) {
+            return $this->respondNotFound('No Product Found');
+
+        }
+
+        return $this->respondWithPagination($products,['data' => $this->productTransformer->transformCollection($products->toArray())]);
 
     }
+
+    public function show($id)
+    {
+        $products = $this->product->findOrThrowException($id);
+        // dd($products);
+        if (!$products) {
+            return $this->respondNotFound('This Product Not Found');
+        } else {
+            return $this->respond([
+                'data' => $this->productTransformer->transform($products->toArray())
+            ]);
+        }
+
+
+    }
+
 
     public function create()
     {
@@ -115,7 +144,7 @@ class FrontendProductController extends CommandsDomainEventController
     {
         if ($request['product_type'] == 'downloadable') {
             $a = $this->category->eagerLoad('category_description');
-         //   dd($a);
+            //   dd($a);
             return view('backend.product.create_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
@@ -141,7 +170,7 @@ class FrontendProductController extends CommandsDomainEventController
      * @param CommandBus $commandBus
      * @throws GeneralException
      */
-    public function storeDownloadable(Request $request,CommandBus $commandBus)
+    public function storeDownloadable(Request $request, CommandBus $commandBus)
     {
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -209,8 +238,6 @@ class FrontendProductController extends CommandsDomainEventController
         $command = new ProductSoldCommand($productId);
         $this->commandBus->execute($command);
     }
-
-
 
 
 }
