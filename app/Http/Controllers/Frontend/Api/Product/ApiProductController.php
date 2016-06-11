@@ -64,8 +64,9 @@ class ApiProductController extends ApiController
      */
     protected $imageDriver;
 
+
     /**
-     * @var Innovate\Api\Transformers\ProductTransformer
+     * @var ProductTransformer
      */
     protected $productTransformer;
 
@@ -103,7 +104,7 @@ class ApiProductController extends ApiController
     public function index()
     {
         $products = $this->product->eagerLoadPaginated(10);
-      //  dd($products);
+
         if (!$products) {
             return $this->respondNotFound('No Product Found');
 
@@ -116,14 +117,14 @@ class ApiProductController extends ApiController
     public function show($id)
     {
         $products = $this->product->findOrThrowException($id);
-        // dd($products);
+
         if (!$products) {
             return $this->respondNotFound('This Product Not Found');
-        } else {
+        }
             return $this->respond([
                 'data' => $this->productTransformer->transform($products->toArray())
             ]);
-        }
+
 
 
     }
