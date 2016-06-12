@@ -13,15 +13,15 @@ return [
     |
     */
 
-    'my_information' => 'የኔ መረጃ',
+    'my_information'  => 'የኔ መረጃ',
     'change_password' => 'የይለፍ ቃል ቀይር',
-    'administration' => 'አስተዳደር',
-    'dashboard' => 'Dashboard',
-    'home' => 'Home',
-    'login' => 'ግባ',
-    'logout' => 'ዉጣ',
-    'macros' => 'Macros',
-    'register' => 'ተመዝገብ',
-    'button' => 'Button',
+    'administration'  => 'አስተዳደር',
+    'dashboard'       => 'Dashboard',
+    'home'            => 'Home',
+    'login'           => 'ግባ',
+    'logout'          => 'ዉጣ',
+    'macros'          => 'Macros',
+    'register'        => 'ተመዝገብ',
+    'button'          => 'Button',
 
 ];

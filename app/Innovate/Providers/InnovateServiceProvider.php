@@ -5,13 +5,10 @@ namespace Innovate\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class InnovateServiceProvider
- * @package App\Providers
+ * Class InnovateServiceProvider.
  */
 class InnovateServiceProvider extends ServiceProvider
 {
-
-
     /**
      * Bootstrap the application services.
      *
@@ -29,7 +26,7 @@ class InnovateServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        /**
+        /*
          * check if The user Enabled Redis cache
          */
         if (env('LADA_CACHE_DRIVER')) {
@@ -37,23 +34,22 @@ class InnovateServiceProvider extends ServiceProvider
         }
 
         $this->registerBinding();
-
     }
 
     /**
      *  Bind all innovate module repository to there implementation
-     *  which do not have there own service provider
+     *  which do not have there own service provider.
      */
     private function registerBinding()
     {
-        /**
+        /*
          * bind Tax Repository to its Eloquent implementation
          */
         $this->app->bind(
             \Innovate\Repositories\Tax\TaxContract::class,
             \Innovate\Repositories\Tax\EloquentTaxRepository::class
         );
-        /**
+        /*
          * bind BankTransferInfoContract to its elquent implementation EloquentBankTransferInfoRepository
          */
         $this->app->bind(
@@ -61,7 +57,7 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\StaticPages\BankTransferInfo\EloquentBankTransferInfoRepository::class
         );
 
-        /**
+        /*
          *
          */
         $this->app->bind(
@@ -69,8 +65,8 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\StaticPages\CheckOutAgreement\EloquentCheckOutAgreementRepository::class
         );
 
-       $this->eavAttributeBindings();
-       $this->eavAttributeCategoryBindings();
+        $this->eavAttributeBindings();
+        $this->eavAttributeCategoryBindings();
 
         $this->CategoryBindings();
         $this->CategoryDescriptionBindings();
@@ -85,61 +81,66 @@ class InnovateServiceProvider extends ServiceProvider
     }
 
     /**
-     * Binds the Eav Attribute Contracts with its concrete class
+     * Binds the Eav Attribute Contracts with its concrete class.
      */
-    private function eavAttributeBindings(){
-
+    private function eavAttributeBindings()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Eav\Attribute\EavAttributeContract::class,
             \Innovate\Repositories\Eav\Attribute\EloquentEavAttributeRepository::class
         );
     }
-    private function eavAttributeCategoryBindings(){
 
+    private function eavAttributeCategoryBindings()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Eav\Category\EavCategoryContract::class,
             \Innovate\Repositories\Eav\Category\EloquentEavCategoryRepository::class
         );
     }
 
-    private function CategoryBindings(){
-
+    private function CategoryBindings()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Category\CategoryContract::class,
             \Innovate\Repositories\Category\EloquentCategoryRepository::class
         );
     }
-    private function CategoryDescriptionBindings(){
 
+    private function CategoryDescriptionBindings()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Category\CategoryDescriptionContract::class,
             \Innovate\Repositories\Category\EloquentCategoryDescriptionRepository::class
         );
     }
-    private function eavIntValueBinding(){
 
+    private function eavIntValueBinding()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Eav\Value\EavValueIntContract::class,
             \Innovate\Repositories\Eav\Value\EloquentEavValueIntRepository::class
         );
     }
-    private function eavTextValueBinding(){
 
+    private function eavTextValueBinding()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Eav\Value\EavValueTextContract::class,
             \Innovate\Repositories\Eav\Value\EloquentEavValueTextRepository::class
         );
     }
-    private function eavVarcharValueBinding(){
 
+    private function eavVarcharValueBinding()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Eav\Value\EavValueVarcharContract::class,
             \Innovate\Repositories\Eav\Value\EloquentEavValueVarcharRepository::class
         );
     }
 
-    private function ProductDescripionBinding(){
-
+    private function ProductDescripionBinding()
+    {
         return $this->app->bind(
             \Innovate\Repositories\Product\ProductDescriptionContract::class,
             \Innovate\Repositories\Product\EloquentProductDescriptionRepository::class
@@ -147,7 +148,7 @@ class InnovateServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bind the appropriate image driver to use
+     * Bind the appropriate image driver to use.
      */
     private function ImageDriverBinding()
     {
@@ -155,6 +156,5 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Image\InnovateImageUploadContract::class,
             \Innovate\Image\InnovateImageUpload::class
         );
-
     }
 }

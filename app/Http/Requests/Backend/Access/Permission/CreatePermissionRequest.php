@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission;
 use App\Http\Requests\Request;
 
 /**
- * Class CreatePermissionRequest
- * @package App\Http\Requests\Backend\Access\Permission
+ * Class CreatePermissionRequest.
  */
 class CreatePermissionRequest extends Request
 {

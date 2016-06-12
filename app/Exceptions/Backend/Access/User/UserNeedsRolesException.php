@@ -3,8 +3,7 @@
 namespace App\Exceptions\Backend\Access\User;
 
 /**
- * Class UserNeedsRolesException
- * @package App\Exceptions\Access
+ * Class UserNeedsRolesException.
  */
 class UserNeedsRolesException extends \Exception
 {

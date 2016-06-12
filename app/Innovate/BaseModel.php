@@ -4,24 +4,19 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 5/27/2016
- * Time: 2:25 PM
+ * Time: 2:25 PM.
  */
-
 namespace Innovate;
-
 
 use Spiritix\LadaCache\Database\Model;
 use Spiritix\LadaCache\Database\QueryBuilder;
 
 /**
- * Class BaseModel
- * @package Innovate
+ * Class BaseModel.
  */
-class BaseModel extends Model{
-
-
+class BaseModel extends Model
+{
     /**
-     *
      * @return \Illuminate\Database\Query\Builder|QueryBuilder
      */
     protected function newBaseQueryBuilder()
@@ -31,16 +26,16 @@ class BaseModel extends Model{
 
 
         if (env('LADA_CACHE_DRIVER')) {
-           $query = new QueryBuilder(
+            $query = new QueryBuilder(
                 $conn,
                 $grammar,
                 $conn->getPostProcessor(),
                 app()->make('lada.handler')
             );
+
             return $query;
         } else {
             return parent::newBaseQueryBuilder();
         }
     }
-
 }

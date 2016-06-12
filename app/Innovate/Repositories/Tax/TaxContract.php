@@ -4,17 +4,15 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/20/2016
- * Time: 4:58 PM
+ * Time: 4:58 PM.
  */
-
 namespace Innovate\Repositories\Tax;
+
 use Innovate\Repositories\BaseContract;
 
-
 /**
- * Interface TaxContract
- * @package Innovate\Repositories\Tax
+ * Interface TaxContract.
  */
-interface TaxContract extends BaseContract {
-
+interface TaxContract extends BaseContract
+{
 }

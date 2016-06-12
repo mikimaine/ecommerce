@@ -4,22 +4,19 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 5/24/2016
- * Time: 9:38 AM
+ * Time: 9:38 AM.
  */
-
 namespace Innovate\Products;
 
-
-class PostNonDownloadableProductCommand  {
+class PostNonDownloadableProductCommand
+{
     /**
      * @var
      */
-    public  $input ;
-
+    public $input;
 
     /**
      * @param $inputs
-     *
      */
     public function __construct($inputs)
     {

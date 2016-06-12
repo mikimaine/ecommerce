@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProductsTable extends Migration
 {
@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('sku');
             $table->integer('category_id')->unsigned();
             $table->integer('tax_id')->unsigned();
-            $table->float('price',8,3);
-            $table->float('previous_price',8,3);
+            $table->float('price', 8, 3);
+            $table->float('previous_price', 8, 3);
             $table->string('currency');
             $table->string('img_big');
             $table->string('img_medium');
@@ -32,7 +32,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('category_id')->references('id')
@@ -42,7 +42,6 @@ class CreateProductsTable extends Migration
             $table->foreign('tax_id')->references('id')
                 ->on('tax')
                 ->onDelete('cascade');
-
         });
     }
 

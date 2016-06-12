@@ -4,9 +4,8 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 1:33 PM
+ * Time: 1:33 PM.
  */
-
 namespace Innovate\StaticPages\CheckOutAgreement;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,11 +13,10 @@ use Innovate\BaseModel;
 use Innovate\StaticPages\CheckOutAgreement\Traits\Attribute\CheckOutAgreementAttribute;
 
 /**
- * Class Product
- * @package Innovate\Products
+ * Class Product.
  */
-class CheckOutAgreement extends BaseModel {
-
+class CheckOutAgreement extends BaseModel
+{
     use CheckOutAgreementAttribute,SoftDeletes;
 
 
@@ -32,14 +30,13 @@ class CheckOutAgreement extends BaseModel {
     /**
      * @var array
      */
-    protected  $fillable = ['name','content','is_active'];
+    protected $fillable = ['name', 'content', 'is_active'];
 
 
     /**
-     * For soft deletes
+     * For soft deletes.
      *
      * @var array
      */
     protected $dates = ['deleted_at'];
-
 }

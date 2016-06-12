@@ -46,13 +46,13 @@ return [
     |
     */
     'beforeHandler' => null,
-    
+
     /*
     |--------------------------------------------------------------------------
     | The class name for the related user model
     |--------------------------------------------------------------------------
     |
-    | This can be a class name or null. If null the model will be determined 
+    | This can be a class name or null. If null the model will be determined
     | from Laravel's auth configuration.
     |
     */

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateWishListTable extends Migration
 {
@@ -20,7 +20,7 @@ class CreateWishListTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('customer_id')->references('id')
@@ -29,13 +29,6 @@ class CreateWishListTable extends Migration
             $table->foreign('product_id')->references('id')
                 ->on('products')
                 ->onDelete('cascade');
-
-
-
-
-
-
-
         });
     }
 

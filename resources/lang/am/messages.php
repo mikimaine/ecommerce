@@ -2,16 +2,16 @@
 
 return [
 
-    /**
+    /*
      *
      * Shared translations.
      *
      */
     'title' => 'የፈጠራ ፡ መጫኛ ።',
-    'next' => 'ቀጣይ ፡ ደረጃ ።',
+    'next'  => 'ቀጣይ ፡ ደረጃ ።',
 
 
-    /**
+    /*
      *
      * Home page translations.
      *
@@ -22,7 +22,7 @@ return [
     ],
 
 
-    /**
+    /*
      *
      * Requirements page translations.
      *
@@ -32,7 +32,7 @@ return [
     ],
 
 
-    /**
+    /*
      *
      * Permissions page translations.
      *
@@ -42,27 +42,27 @@ return [
     ],
 
 
-    /**
+    /*
      *
      * Environment page translations.
      *
      */
     'environment' => [
-        'title' => 'የምልከታ ፡ መቼት ።',
-        'save' => 'ምልከታውን ፡ አስቀምጥ ።',
+        'title'   => 'የምልከታ ፡ መቼት ።',
+        'save'    => 'ምልከታውን ፡ አስቀምጥ ።',
         'success' => 'የምልከታዎ ፡ ሰነድ ፡ መቼት ፡ ተቀምጧል ።',
-        'errors' => 'የምልከታውን ፡ ሰነድ ፡ ሊያስቀምጠው ፡ አልቻለም ፣ እባኮ ፡ እራስዎ ፡ ይፍጠሩ ።',
+        'errors'  => 'የምልከታውን ፡ ሰነድ ፡ ሊያስቀምጠው ፡ አልቻለም ፣ እባኮ ፡ እራስዎ ፡ ይፍጠሩ ።',
     ],
 
 
-    /**
+    /*
      *
      * Final page translations.
      *
      */
     'final' => [
-        'title' => 'ተጠናቋል ።',
+        'title'    => 'ተጠናቋል ።',
         'finished' => 'አፕሊኬሽኑ ፡ በተሳካ ፡ ኹኔታ ፡ ተጭኗል ።',
-        'exit' => 'ለማቋረጥ ፡ እዚህ ፡ ጋር ፡ ይጫኑ ።',
+        'exit'     => 'ለማቋረጥ ፡ እዚህ ፡ ጋር ፡ ይጫኑ ።',
     ],
 ];

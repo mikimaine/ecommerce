@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\User;
 use App\Http\Requests\Request;
 
 /**
- * Class CreateUserRequest
- * @package App\Http\Requests\Backend\Access\User
+ * Class CreateUserRequest.
  */
 class CreateUserRequest extends Request
 {

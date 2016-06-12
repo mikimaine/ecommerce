@@ -4,16 +4,13 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/20/2016
- * Time: 9:46 AM
+ * Time: 9:46 AM.
  */
-
 namespace Innovate\SEOProvider;
 
-
-
-interface SEOProviderContract {
-
+interface SEOProviderContract
+{
     public function set(ObjectFlat $objectFlat);
-    public function fire();
 
+    public function fire();
 }

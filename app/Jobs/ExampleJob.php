@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-/**
+/*
  * This is an example job created with the command `php artisan make:job ExampleJob --queued`
  * You may leave off the --queued flag for a synchronous job
  * You may be asking yourself, when is a good time to use an event/listener pattern over a job?
@@ -42,8 +42,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class ExampleJob
- * @package App\Jobs
+ * Class ExampleJob.
  */
 class ExampleJob extends Job implements SelfHandling, ShouldQueue
 {

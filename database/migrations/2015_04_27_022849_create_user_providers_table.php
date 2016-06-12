@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateUserProvidersTable extends Migration
 {
@@ -20,7 +20,7 @@ class CreateUserProvidersTable extends Migration
             $table->string('avatar')->nullable();
             $table->timestamps();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('user_id')->references('id')
@@ -36,7 +36,7 @@ class CreateUserProvidersTable extends Migration
      */
     public function down()
     {
-        /**
+        /*
          * Remove Foreign/Unique/Index
          */
         Schema::table('user_providers', function (Blueprint $table) {
@@ -45,5 +45,4 @@ class CreateUserProvidersTable extends Migration
 
         Schema::drop('user_providers');
     }
-
 }

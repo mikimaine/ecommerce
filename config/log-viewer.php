@@ -18,7 +18,7 @@ return [
      |  Route
      | ------------------------------------------------------------------------------------------------
      */
-    /**
+    /*
      * Do not change this, log viewer routes for this application are overwritten in
      * app/Http/Routes/Backend/LogViewer
      */
@@ -61,8 +61,8 @@ return [
      |  Icons
      | ------------------------------------------------------------------------------------------------
      */
-    'icons' =>  [
-        /**
+    'icons' => [
+        /*
          * Font awesome >= 4.3
          * http://fontawesome.io/icons/
          */
@@ -81,7 +81,7 @@ return [
      |  Colors
      | ------------------------------------------------------------------------------------------------
      */
-    'colors' =>  [
+    'colors' => [
         'levels'    => [
             'empty'     => '#D1D1D1',
             'all'       => '#8A8A8A',

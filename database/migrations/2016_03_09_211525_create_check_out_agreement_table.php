@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateCheckOutAgreementTable extends Migration
 {
@@ -22,7 +22,7 @@ class CreateCheckOutAgreementTable extends Migration
             $table->softDeletes();
 
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->unique('name');
@@ -36,7 +36,7 @@ class CreateCheckOutAgreementTable extends Migration
      */
     public function down()
     {
-        /**
+        /*
          * Remove Foreign/Unique/Index
          */
         Schema::table('check_out_agreement', function (Blueprint $table) {

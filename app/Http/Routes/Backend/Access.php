@@ -5,7 +5,7 @@ $router->group([
     'namespace'  => 'Access',
     'middleware' => 'access.routeNeedsPermission:view-access-management',
 ], function () use ($router) {
-    /**
+    /*
      * User Management
      */
     $router->group(['namespace' => 'User'], function () use ($router) {
@@ -16,7 +16,7 @@ $router->group([
         $router->get('users/deleted', 'UserController@deleted')->name('admin.access.users.deleted');
         $router->get('account/confirm/resend/{user_id}', 'UserController@resendConfirmationEmail')->name('admin.account.confirm.resend');
 
-        /**
+        /*
          * Specific User
          */
         $router->group(['prefix' => 'user/{id}', 'where' => ['id' => '[0-9]+']], function () use ($router) {
@@ -28,14 +28,14 @@ $router->group([
         });
     });
 
-    /**
+    /*
      * Role Management
      */
     $router->group(['namespace' => 'Role'], function () use ($router) {
         $router->resource('roles', 'RoleController', ['except' => ['show']]);
     });
 
-    /**
+    /*
      * Permission Management
      */
     $router->group(['prefix' => 'roles', 'namespace' => 'Permission'], function () use ($router) {

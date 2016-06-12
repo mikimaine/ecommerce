@@ -4,40 +4,34 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 1:04 PM
+ * Time: 1:04 PM.
  */
-
 namespace Innovate\Commanding;
-
 
 use Exception;
 
 /**
- * Class CommandTranslator
- * @package Innovate\Commanding
+ * Class CommandTranslator.
  */
-class CommandTranslator {
-
+class CommandTranslator
+{
     /**
      * @param $command
-     * @return mixed
+     *
      * @throws Exception
+     *
+     * @return mixed
      */
-    public function  toCommandHandler($command)
+    public function toCommandHandler($command)
     {
+        $handler = str_replace('Command', 'CommandHandler', get_class($command));
 
-        $handler = str_replace('Command','CommandHandler',get_class($command));
-
-        if(!class_exists($handler))
-        {
-             $message = "Command handler [$handler] does not exist.";
+        if (!class_exists($handler)) {
+            $message = "Command handler [$handler] does not exist.";
 
             throw new Exception($message);
         }
 
         return $handler;
     }
-
-
-
 }

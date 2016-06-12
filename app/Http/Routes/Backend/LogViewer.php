@@ -2,7 +2,7 @@
 
 /**
  * This overwrites the Log Viewer Package routes so we can use middleware to protect it the way we want
- * You shouldn't have to change anything
+ * You shouldn't have to change anything.
  */
 $router->group([
     'prefix'     => 'log-viewer',

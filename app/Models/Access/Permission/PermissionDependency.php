@@ -2,12 +2,11 @@
 
 namespace App\Models\Access\Permission;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Access\Permission\Traits\Relationship\PermissionDependencyRelationship;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class PermissionDependency
- * @package App\Models\Access\Permission
+ * Class PermissionDependency.
  */
 class PermissionDependency extends Model
 {
@@ -27,9 +26,7 @@ class PermissionDependency extends Model
      */
     protected $guarded = ['id'];
 
-    /**
-     *
-     */
+
     public function __construct()
     {
         $this->table = config('access.permission_dependencies_table');

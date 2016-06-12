@@ -7,8 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
 /**
- * Class UserLoggedInHandler
- * @package App\Listeners\Frontend\Auth
+ * Class UserLoggedInHandler.
  */
 class UserLoggedInHandler implements ShouldQueue
 {
@@ -27,11 +26,12 @@ class UserLoggedInHandler implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  UserLoggedIn $event
+     * @param UserLoggedIn $event
+     *
      * @return void
      */
     public function handle(UserLoggedIn $event)
     {
-        \Log::info('User Logged In: ' . $event->user->name);
+        \Log::info('User Logged In: '.$event->user->name);
     }
 }
