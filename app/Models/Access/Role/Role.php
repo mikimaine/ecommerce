@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Access\Role\Traits\RoleAccess;
 use App\Models\Access\Role\Traits\Attribute\RoleAttribute;
 use App\Models\Access\Role\Traits\Relationship\RoleRelationship;
+use Innovate\BaseModel;
 
 /**
  * Class Role
  * @package App\Models\Access\Role
  */
-class Role extends \Spiritix\LadaCache\Database\Model
+class Role extends BaseModel
 {
     use RoleAccess, RoleAttribute, RoleRelationship;
 

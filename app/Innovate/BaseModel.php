@@ -30,7 +30,7 @@ class BaseModel extends Model{
         $grammar = $conn->getQueryGrammar();
 
 
-        if (env('LADA_CACHE_DRIVER')) {
+        if (true) {
            $query = new QueryBuilder(
                 $conn,
                 $grammar,

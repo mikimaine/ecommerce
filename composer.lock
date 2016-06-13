@@ -4,93 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0329a3f83a0c5627efa6dacd024146a5",
-    "content-hash": "e58fef5c9721eb3c6d5af8b2658b1327",
+    "hash": "4f0dc7cd466c9fdb6d58e03814327e42",
+    "content-hash": "7d56a069d35242153bbf310d07edac24",
     "packages": [
-        {
-            "name": "adamwathan/bootforms",
-            "version": "v0.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adamwathan/bootforms.git",
-                "reference": "20ce41da79e3e35488d559f7ef5ab3dba6ef92ba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adamwathan/bootforms/zipball/20ce41da79e3e35488d559f7ef5ab3dba6ef92ba",
-                "reference": "20ce41da79e3e35488d559f7ef5ab3dba6ef92ba",
-                "shasum": ""
-            },
-            "require": {
-                "adamwathan/form": "^0.8",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "3.7.*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "AdamWathan\\BootForms": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Wathan",
-                    "email": "adam.wathan@gmail.com"
-                }
-            ],
-            "description": "Just a Formbuilder with some Bootstrap specific conveniences. Remembers old input, retrieves error messages and handles all your boilerplate Bootstrap markup automatically.",
-            "time": "2016-02-11 20:17:34"
-        },
-        {
-            "name": "adamwathan/form",
-            "version": "v0.8.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adamwathan/form.git",
-                "reference": "942f10721bedd6c8d52da9fdfa5633ddf272548e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adamwathan/form/zipball/942f10721bedd6c8d52da9fdfa5633ddf272548e",
-                "reference": "942f10721bedd6c8d52da9fdfa5633ddf272548e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "illuminate/support": "4.*",
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "3.7.*",
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "AdamWathan\\Form": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Wathan",
-                    "email": "adam.wathan@gmail.com"
-                }
-            ],
-            "description": "A basic framework agnostic form building package with a few extra niceties like remembering old input and retrieving error messages.",
-            "time": "2016-04-02 13:31:11"
-        },
         {
             "name": "arcanedev/log-viewer",
             "version": "3.7.9",
@@ -2701,46 +2617,6 @@
             "time": "2016-04-12 18:29:35"
         },
         {
-            "name": "mpociot/laravel-test-factory-helper",
-            "version": "0.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mpociot/laravel-test-factory-helper.git",
-                "reference": "156f4d973214614fd6938fbf1700229e4c339cfd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/laravel-test-factory-helper/zipball/156f4d973214614fd6938fbf1700229e4c339cfd",
-                "reference": "156f4d973214614fd6938fbf1700229e4c339cfd",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "~2.3",
-                "illuminate/console": "5.0.x|5.1.x|5.2.x",
-                "illuminate/filesystem": "5.0.x|5.1.x|5.2.x",
-                "illuminate/support": "5.0.x|5.1.x|5.2.x",
-                "php": ">=5.4.0",
-                "symfony/class-loader": "~2.3|~3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mpociot\\LaravelTestFactoryHelper\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Generate Laravel test factories from your existing models",
-            "keywords": [
-                "factory",
-                "laravel",
-                "tests"
-            ],
-            "time": "2016-04-02 19:40:15"
-        },
-        {
             "name": "mtdowling/cron-expression",
             "version": "v1.1.0",
             "source": {
@@ -3120,56 +2996,6 @@
             "time": "2015-05-01 07:00:55"
         },
         {
-            "name": "propaganistas/laravel-translatable-bootforms",
-            "version": "1.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Propaganistas/Laravel-Translatable-Bootforms.git",
-                "reference": "2fe7227aa5d5e3a59a7aafa55be897df84758949"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Propaganistas/Laravel-Translatable-Bootforms/zipball/2fe7227aa5d5e3a59a7aafa55be897df84758949",
-                "reference": "2fe7227aa5d5e3a59a7aafa55be897df84758949",
-                "shasum": ""
-            },
-            "require": {
-                "adamwathan/bootforms": "^0.8",
-                "dimsav/laravel-translatable": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~4.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Propaganistas\\LaravelTranslatableBootForms\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Propaganistas",
-                    "email": "Propaganistas@users.noreply.github.com"
-                }
-            ],
-            "description": "Empowers adamwathan/bootforms with dimsav/laravel-translatable.",
-            "keywords": [
-                "bootforms",
-                "form",
-                "i18n",
-                "laravel",
-                "translatable"
-            ],
-            "time": "2016-04-01 16:37:51"
-        },
-        {
             "name": "psr/http-message",
             "version": "1.0",
             "source": {
@@ -3334,12 +3160,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jarektkaczyk/eloquence.git",
-                "reference": "0329e4a2902bbeae3c11cf0624027508c9c99dce"
+                "reference": "b8786ebdcff682cc38ea8629eba152e207149fd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/0329e4a2902bbeae3c11cf0624027508c9c99dce",
-                "reference": "0329e4a2902bbeae3c11cf0624027508c9c99dce",
+                "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/b8786ebdcff682cc38ea8629eba152e207149fd8",
+                "reference": "b8786ebdcff682cc38ea8629eba152e207149fd8",
                 "shasum": ""
             },
             "require": {
@@ -3653,53 +3479,6 @@
             "time": "2015-08-28 12:30:37"
         },
         {
-            "name": "spatie/laravel-tail",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-tail.git",
-                "reference": "b520449b8f3a184f878c0f7c7f613505a5be114e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-tail/zipball/b520449b8f3a184f878c0f7c7f613505a5be114e",
-                "reference": "b520449b8f3a184f878c0f7c7f613505a5be114e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Tail\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://murze.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The missing tail command for Laravel 5",
-            "homepage": "https://github.com/spatie/laravel-tail",
-            "keywords": [
-                "laravel 5",
-                "laravel-tail",
-                "log",
-                "tail"
-            ],
-            "time": "2015-10-11 09:45:38"
-        },
-        {
             "name": "spatie/laravel-url-signer",
             "version": "1.1.2",
             "source": {
@@ -3920,16 +3699,16 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "v3.0.4",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
-                "reference": "cbb7e6a9c0213a0cffa5d9065ee8214ca4e83877"
+                "reference": "6ebc60f69a6df4b3cf5ad6f260ba4edf5957ea05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/cbb7e6a9c0213a0cffa5d9065ee8214ca4e83877",
-                "reference": "cbb7e6a9c0213a0cffa5d9065ee8214ca4e83877",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/6ebc60f69a6df4b3cf5ad6f260ba4edf5957ea05",
+                "reference": "6ebc60f69a6df4b3cf5ad6f260ba4edf5957ea05",
                 "shasum": ""
             },
             "require": {
@@ -3945,7 +3724,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -3972,7 +3751,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-30 10:41:14"
+            "time": "2016-03-30 10:41:47"
         },
         {
             "name": "symfony/console",
@@ -6729,66 +6508,13 @@
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
             "time": "2015-02-17 06:26:25"
-        },
-        {
-            "name": "xethron/migrations-generator",
-            "version": "dev-l5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Xethron/migrations-generator.git",
-                "reference": "e5e86efb5731e6859ea0d96a806159f9f2c26ce1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Xethron/migrations-generator/zipball/e5e86efb5731e6859ea0d96a806159f9f2c26ce1",
-                "reference": "e5e86efb5731e6859ea0d96a806159f9f2c26ce1",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "~2.4",
-                "illuminate/support": ">=4.1",
-                "php": ">=5.4.0",
-                "way/generators": "dev-feature/laravel-five-stable"
-            },
-            "require-dev": {
-                "illuminate/cache": ">=4.1.0",
-                "illuminate/console": ">=4.1.0",
-                "mockery/mockery": ">=0.9.0",
-                "phpunit/phpunit": ">=4.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Xethron\\MigrationsGenerator": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Breytenbach",
-                    "email": "bernhard@coffeecode.co.za"
-                }
-            ],
-            "description": "Generates Laravel Migrations from an existing database",
-            "keywords": [
-                "artisan",
-                "generator",
-                "laravel",
-                "migration",
-                "migrations"
-            ],
-            "time": "2015-02-23 05:43:08"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "sofa/eloquence": 20,
-        "way/generators": 20,
-        "xethron/migrations-generator": 20
+        "way/generators": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

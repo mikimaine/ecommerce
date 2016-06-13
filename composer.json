@@ -48,9 +48,7 @@
         "intervention/image": "^2.3",
         "intervention/imagecache": "^2.3",
         "spatie/laravel-backup": "^3.2",
-        "mpociot/laravel-test-factory-helper": "^0.1.0",
         "gloudemans/shoppingcart": "^1.3",
-        "propaganistas/laravel-translatable-bootforms": "^1.3",
         "spatie/laravel-responsecache": "^1.1",
         "codesleeve/laravel-stapler": "^1.0"
     },
@@ -61,8 +59,7 @@
         "phpunit/phpunit": "~5.0",
         "phpspec/phpspec": "~2.1",
         "barryvdh/laravel-debugbar": "^2.0",
-        "way/generators": "dev-feature/laravel-five-stable",
-        "xethron/migrations-generator": "dev-l5"
+        "way/generators": "dev-feature/laravel-five-stable"
     },
     "autoload": {
         "classmap": [

@@ -3,6 +3,7 @@
 namespace App\Models\Access\Permission;
 
 use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 use App\Models\Access\Permission\Traits\Attribute\PermissionAttribute;
 use App\Models\Access\Permission\Traits\Relationship\PermissionRelationship;
 
@@ -10,7 +11,7 @@ use App\Models\Access\Permission\Traits\Relationship\PermissionRelationship;
  * Class Permission
  * @package App\Models\Access\Permission
  */
-class Permission extends \Spiritix\LadaCache\Database\Model
+class Permission extends BaseModel
 {
     use PermissionRelationship, PermissionAttribute;
 

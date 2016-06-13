@@ -182,36 +182,35 @@ return [
 		Laravel\Socialite\SocialiteServiceProvider::class,
 		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-		Spatie\Tail\TailServiceProvider::class,
 		Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 		Orangehill\Iseed\IseedServiceProvider::class,
 		Yajra\Datatables\DatatablesServiceProvider::class,
 		Sofa\Eloquence\ServiceProvider::class,
 		Spatie\Activitylog\ActivitylogServiceProvider::class,
 		Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
-		//Spatie\Feed\FeedServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
-		AdamWathan\BootForms\BootFormsServiceProvider::class,
-		Dimsav\Translatable\TranslatableServiceProvider::class,
-        Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
-		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
-
-		
-		//Mikimaine\Demo\DemoServiceProvider::class,
 		Caffeinated\Themes\ThemesServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
+		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+		Spiritix\LadaCache\LadaCacheServiceProvider::class,
+		Spatie\ResponseCache\ResponseCacheServiceProvider::class,
+		RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
+
 		Innovate\Eventing\EventingServiceProvider::class,
 		Innovate\Providers\ProductServiceProvider::class,
 		Innovate\Providers\InnovateServiceProvider::class,
-		Spatie\Backup\BackupServiceProvider::class,
+
+		//'Way\Generators\GeneratorsServiceProvider',
+		//'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
+		//AdamWathan\BootForms\BootFormsServiceProvider::class,
+		//Dimsav\Translatable\TranslatableServiceProvider::class,
+		// Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
 		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
-		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+		//Mikimaine\Demo\DemoServiceProvider::class,
+		//Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
+		//Spatie\Feed\FeedServiceProvider::class,
+		//	Spatie\Tail\TailServiceProvider::class,
 		//Devio\Eavquent\EavquentServiceProvider::class,
-
-
-
-		RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
-		'Way\Generators\GeneratorsServiceProvider',
-		'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
 
 
 	],
@@ -282,7 +281,7 @@ return [
 		//'Demo' 		=> Mikimaine\Demo\DemoFacade::class,
 		'Theme' 	=> Caffeinated\Themes\Facades\Theme::class,
         'Component' => Caffeinated\Themes\Facades\Component::class,
-		'TranslatableBootForm' => Propaganistas\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
-		'BootForm' => AdamWathan\BootForms\Facades\BootForm::class,
+
+		'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
 	],
 ];
