@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission;
 use App\Http\Requests\Request;
 
 /**
- * Class StorePermissionRequest
- * @package App\Http\Requests\Backend\Access\Permission
+ * Class StorePermissionRequest.
  */
 class StorePermissionRequest extends Request
 {

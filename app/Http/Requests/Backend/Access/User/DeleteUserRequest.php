@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\User;
 use App\Http\Requests\Request;
 
 /**
- * Class DeleteUserRequest
- * @package App\Http\Requests\Backend\Access\User
+ * Class DeleteUserRequest.
  */
 class DeleteUserRequest extends Request
 {

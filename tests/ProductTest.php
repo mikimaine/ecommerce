@@ -4,11 +4,10 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/19/2016
- * Time: 10:13 AM
+ * Time: 10:13 AM.
  */
-
-class ProductTest extends TestCase {
-
+class ProductTest extends TestCase
+{
     /** @test */
     public function it_fetches_lessons()
     {
@@ -23,18 +22,14 @@ class ProductTest extends TestCase {
 
         // assert
         $this->assertResponseOk();
-
     }
 
     private function makeProduct()
     {
-
     }
 
     private function getResponse($string)
     {
-
-       return $this->call('GET',$string)->getContent();
+        return $this->call('GET', $string)->getContent();
     }
-
 }

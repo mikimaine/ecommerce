@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\User;
 use App\Http\Requests\Request;
 
 /**
- * Class StoreUserRequest
- * @package App\Http\Requests\Backend\Access\User
+ * Class StoreUserRequest.
  */
 class StoreUserRequest extends Request
 {

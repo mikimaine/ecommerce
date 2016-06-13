@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission\Group;
 use App\Http\Requests\Request;
 
 /**
- * Class UpdatePermissionGroupRequest
- * @package App\Http\Requests\Backend\Access\Permission\Group
+ * Class UpdatePermissionGroupRequest.
  */
 class UpdatePermissionGroupRequest extends Request
 {

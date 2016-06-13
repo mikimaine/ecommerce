@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Role;
 use App\Http\Requests\Request;
 
 /**
- * Class DeleteRoleRequest
- * @package App\Http\Requests\Backend\Access\Role
+ * Class DeleteRoleRequest.
  */
 class DeleteRoleRequest extends Request
 {

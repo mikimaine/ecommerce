@@ -5,15 +5,15 @@ namespace App\Http\Middleware;
 use Closure;
 
 /**
- * Class RouteNeedsRole
- * @package App\Http\Middleware
+ * Class RouteNeedsRole.
  */
 class RouteNeedsPermission
 {
     /**
      * @param  $request
-     * @param  callable      $next
+     * @param callable $next
      * @param  $permission
+     *
      * @return mixed
      */
     public function handle($request, Closure $next, $permission)

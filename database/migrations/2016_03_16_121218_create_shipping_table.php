@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateShippingTable extends Migration
 {
@@ -24,15 +24,12 @@ class CreateShippingTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('customer_id')->references('id')
                 ->on('customer_detail')
                 ->onDelete('cascade');
-
-
-
         });
     }
 

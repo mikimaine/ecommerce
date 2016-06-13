@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProductAttributeTable extends Migration
 {
@@ -21,13 +21,12 @@ class CreateProductAttributeTable extends Migration
             $table->string('datatype');
             $table->timestamps();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('product_category_id')->references('id')
                 ->on('product_attribute_category')
                 ->onDelete('cascade');
-
         });
     }
 

@@ -5,8 +5,7 @@ namespace App\Http\Requests\Frontend\Access;
 use App\Http\Requests\Request;
 
 /**
- * Class ResetPasswordEmailRequest
- * @package App\Http\Requests\Frontend\Access
+ * Class ResetPasswordEmailRequest.
  */
 class ResetPasswordEmailRequest extends Request
 {

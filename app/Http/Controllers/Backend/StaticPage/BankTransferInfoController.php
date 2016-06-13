@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Backend\StaticPage;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Innovate\Repositories\StaticPages\BankTransferInfo\BankTransferInfoContract;
 use Innovate\Requests\StaticPage\StoreBankTransferInfoRequest;
@@ -13,18 +11,15 @@ use Innovate\Requests\StaticPage\UpdateBankTransferInfoRequest;
 
 class BankTransferInfoController extends Controller
 {
-
     public $bankTransferInfo;
-
 
     /**
      * @param BankTransferInfoContract $bankTransferInfoContract
      */
-    function __construct(BankTransferInfoContract $bankTransferInfoContract)
+    public function __construct(BankTransferInfoContract $bankTransferInfoContract)
     {
         $this->bankTransferInfo = $bankTransferInfoContract;
     }
-
 
     /**
      * Display a listing of the resource.
@@ -51,18 +46,21 @@ class BankTransferInfoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request|StoreBankTransferInfoRequest $request
+     *
      * @return Response
      */
     public function store(StoreBankTransferInfoRequest $request)
     {
         $this->bankTransferInfo->create($request->all());
+
         return redirect()->route('admin.bank_transfer_info.index')->withFlashSuccess(trans('tax.alerts.created'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -73,13 +71,16 @@ class BankTransferInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
+     *
      * @internal param UpdateBankTransferInfoRequest $request
      */
     public function edit($id)
     {
         $bank = $this->bankTransferInfo->findOrThrowException($id, true);
+
         return view('backend.staticPage.bank_transfer.edit')
             ->withBank($bank);
     }
@@ -88,10 +89,11 @@ class BankTransferInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request|UpdateBankTransferInfoRequest $request
-     * @param  int $id
+     * @param int                                   $id
+     *
      * @return Response
      */
-    public function update(UpdateBankTransferInfoRequest $request ,$id)
+    public function update(UpdateBankTransferInfoRequest $request, $id)
     {
         //
     }
@@ -99,18 +101,18 @@ class BankTransferInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)
     {
         $this->bankTransferInfo->destroy($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted'));
     }
 
-    /**
-     *
-     */
+
     public function deleted()
     {
         return view('backend.staticPage.bank_transfer.deleted')
@@ -119,22 +121,25 @@ class BankTransferInfoController extends Controller
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function restore($id)
     {
         $this->bankTransferInfo->restore($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.restored'));
     }
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function delete($id)
     {
         $this->bankTransferInfo->delete($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted_permanently'));
     }
-
 }

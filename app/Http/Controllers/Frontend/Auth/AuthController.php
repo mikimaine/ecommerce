@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Frontend\Auth;
 
-use Illuminate\Http\Request;
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use App\Http\Requests\Frontend\Access\LoginRequest;
 use App\Http\Requests\Frontend\Access\RegisterRequest;
 use App\Repositories\Frontend\Auth\AuthenticationContract;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
 use Theme;
 
 /**
- * Class AuthController
- * @package App\Http\Controllers\Frontend\Auth
+ * Class AuthController.
  */
 class AuthController extends Controller
 {
@@ -36,17 +35,20 @@ class AuthController extends Controller
     }
 
     /**
-     * @param  RegisterRequest                     $request
+     * @param RegisterRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postRegister(RegisterRequest $request)
     {
         if (config('access.users.confirm_email')) {
             $this->auth->create($request->all());
+
             return redirect()->route('home')->withFlashSuccess('Your account was successfully created. We have sent you an e-mail to confirm your account.');
         } else {
             //Use native auth login because do not need to check status when registering
             auth()->login($this->auth->create($request->all()));
+
             return redirect()->route('frontend.dashboard');
         }
     }
@@ -61,7 +63,8 @@ class AuthController extends Controller
     }
 
     /**
-     * @param  LoginRequest                        $request
+     * @param LoginRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postLogin(LoginRequest $request)
@@ -97,8 +100,9 @@ class AuthController extends Controller
     }
 
     /**
-     * @param  Request     $request
+     * @param Request $request
      * @param  $provider
+     *
      * @return mixed
      */
     public function loginThirdParty(Request $request, $provider)
@@ -113,7 +117,7 @@ class AuthController extends Controller
     {
         $this->auth->logout();
 
-        /**
+        /*
          * Remove the socialite session variable if exists
          */
         if (app('session')->has(config('access.socialite_session_name'))) {
@@ -125,7 +129,9 @@ class AuthController extends Controller
 
     /**
      * @param  $token
+     *
      * @throws \App\Exceptions\GeneralException
+     *
      * @return mixed
      */
     public function confirmAccount($token)
@@ -142,6 +148,7 @@ class AuthController extends Controller
 
     /**
      * @param  $user_id
+     *
      * @return mixed
      */
     public function resendConfirmationEmail($user_id)
@@ -149,6 +156,7 @@ class AuthController extends Controller
         //Don't know why the exception handler is not catching this
         try {
             $this->auth->resendConfirmationEmail($user_id);
+
             return redirect()->route('home')->withFlashSuccess('A new confirmation e-mail has been sent to the address on file.');
         } catch (GeneralException $e) {
             return redirect()->back()->withInput()->withFlashDanger($e->getMessage());
@@ -156,7 +164,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Helper methods to get laravel's ThrottleLogin class to work with this package
+     * Helper methods to get laravel's ThrottleLogin class to work with this package.
      */
 
     /**
@@ -192,13 +200,14 @@ class AuthController extends Controller
     }
 
     /**
-     * Generates social login links based on what is enabled
+     * Generates social login links based on what is enabled.
+     *
      * @return string
      */
     protected function getSocialLinks()
     {
         $socialite_enable = [];
-        $socialite_links  = '';
+        $socialite_links = '';
 
         if (getenv('BITBUCKET_CLIENT_ID') != '') {
             $socialite_enable[] = link_to_route('auth.provider', trans('labels.login_with', ['social_media' => 'Bit Bucket']), 'bitbucket');
@@ -225,7 +234,7 @@ class AuthController extends Controller
         }
 
         for ($i = 0; $i < count($socialite_enable); $i++) {
-            $socialite_links .= ($socialite_links != '' ? '&nbsp;|&nbsp;' : '') . $socialite_enable[$i];
+            $socialite_links .= ($socialite_links != '' ? '&nbsp;|&nbsp;' : '').$socialite_enable[$i];
         }
 
         return $socialite_links;

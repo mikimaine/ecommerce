@@ -6,13 +6,13 @@ use App\Exceptions\GeneralException;
 use App\Models\Access\Permission\PermissionGroup;
 
 /**
- * Class EloquentPermissionGroupRepository
- * @package App\Repositories\Backend\Permission\Group
+ * Class EloquentPermissionGroupRepository.
  */
 class EloquentPermissionGroupRepository implements PermissionGroupRepositoryContract
 {
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -21,7 +21,8 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
     }
 
     /**
-     * @param  int     $limit
+     * @param int $limit
+     *
      * @return mixed
      */
     public function getGroupsPaginated($limit = 50)
@@ -32,7 +33,8 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
     }
 
     /**
-     * @param  bool    $withChildren
+     * @param bool $withChildren
+     *
      * @return mixed
      */
     public function getAllGroups($withChildren = false)
@@ -49,19 +51,23 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
 
     /**
      * @param  $input
+     *
      * @return static
      */
     public function store($input)
     {
-        $group       = new PermissionGroup;
+        $group = new PermissionGroup();
         $group->name = $input['name'];
+
         return $group->save();
     }
 
     /**
      * @param  $id
      * @param  $input
+     *
      * @throws GeneralException
+     *
      * @return mixed
      */
     public function update($id, $input)
@@ -80,7 +86,9 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
+     *
      * @return mixed
      */
     public function destroy($id)
@@ -100,12 +108,13 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
 
     /**
      * @param  $hierarchy
+     *
      * @return bool
      */
     public function updateSort($hierarchy)
     {
         $parent_sort = 1;
-        $child_sort  = 1;
+        $child_sort = 1;
 
         foreach ($hierarchy as $group) {
             $this->find((int) $group['id'])->update([

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProductAttributeIntTable extends Migration
 {
@@ -20,7 +20,7 @@ class CreateProductAttributeIntTable extends Migration
             $table->integer('value');
             $table->timestamps();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('product_id')->references('id')
@@ -29,7 +29,6 @@ class CreateProductAttributeIntTable extends Migration
             $table->foreign('product_attribute_id')->references('id')
                 ->on('product_attribute')
                 ->onDelete('cascade');
-
         });
     }
 

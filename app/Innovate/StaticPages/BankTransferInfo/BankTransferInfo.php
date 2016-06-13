@@ -4,9 +4,8 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 1:33 PM
+ * Time: 1:33 PM.
  */
-
 namespace Innovate\StaticPages\BankTransferInfo;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,11 +13,10 @@ use Innovate\BaseModel;
 use Innovate\StaticPages\BankTransferInfo\Traits\Attribute\BankInfoAttribute;
 
 /**
- * Class Product
- * @package Innovate\Products
+ * Class Product.
  */
-class BankTransferInfo extends BaseModel {
-
+class BankTransferInfo extends BaseModel
+{
     use BankInfoAttribute,SoftDeletes;
 
 
@@ -32,14 +30,13 @@ class BankTransferInfo extends BaseModel {
     /**
      * @var array
      */
-    protected  $fillable = ['bank_name','bank_account_no','support_phone','description'];
+    protected $fillable = ['bank_name', 'bank_account_no', 'support_phone', 'description'];
 
 
     /**
-     * For soft deletes
+     * For soft deletes.
      *
      * @var array
      */
     protected $dates = ['deleted_at'];
-
 }

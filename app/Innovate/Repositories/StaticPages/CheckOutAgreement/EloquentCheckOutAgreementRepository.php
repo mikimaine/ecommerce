@@ -4,26 +4,25 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/20/2016
- * Time: 4:59 PM
+ * Time: 4:59 PM.
  */
-
 namespace Innovate\Repositories\StaticPages\CheckOutAgreement;
-
 
 use App\Exceptions\GeneralException;
 use Innovate\StaticPages\CheckOutAgreement\CheckOutAgreement;
 
-
 /**
- * Class EloquentCheckOutAgreementRepository
- * @package Innovate\Repositories\StaticPages\BankTransferInfo
+ * Class EloquentCheckOutAgreementRepository.
  */
-class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
-
+class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract
+{
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
@@ -39,9 +38,11 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
 
     /**
      * @param $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -53,6 +54,7 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
      * @param $per_page
      * @param string $order_by
      * @param string $sort
+     *
      * @return mixed
      */
     public function getDeletedPaginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -61,8 +63,9 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc')
@@ -72,36 +75,39 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
 
     /**
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
     {
         $checkout = $this->createBankTransferInfoStub($input);
 
-        if($checkout->save())
-        {
+        if ($checkout->save()) {
             return true;
         }
 
         throw new GeneralException('There was a problem creating this Bank Information. Please try again!');
-
     }
 
     /**
      * @param $id
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input)
     {
         $checkout = $this->findOrThrowException($id);
 
-        if($checkout->update($input))
-        {
+        if ($checkout->update($input)) {
             return true;
         }
         throw new GeneralException('There was a problem updating this Bank Information. Please try again.');
@@ -109,25 +115,27 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
 
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function destroy($id)
     {
         $checkout = $this->findOrThrowException($id);
-        if ($checkout->delete())
-        {
-        return true;
+        if ($checkout->delete()) {
+            return true;
         }
 
         throw new GeneralException('There was a problem deleting this Bank Information.. Please try again.');
-
     }
 
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function delete($id)
     {
@@ -140,11 +148,12 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
         }
     }
 
-
     /**
      * @param $id
-     * @return bool
+     *
      * @throws GeneralException
+     *
+     * @return bool
      */
     public function restore($id)
     {
@@ -155,21 +164,20 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract {
         }
 
         throw new GeneralException('There was a problem restoring this Bank Information. Please try again.');
-
     }
+
     /**
      * @param $input
+     *
      * @return Tax
      */
     private function createBankTransferInfoStub($input)
     {
-            $checkoutagreement = new CheckOutAgreement();
-            $checkoutagreement->name       = $input['	name'];
-            $checkoutagreement->content    = $input['bank_account_no'];
-            $checkoutagreement->is_active   = $input['is_active'];
+        $checkoutagreement = new CheckOutAgreement();
+        $checkoutagreement->name = $input['	name'];
+        $checkoutagreement->content = $input['bank_account_no'];
+        $checkoutagreement->is_active = $input['is_active'];
 
-            return $checkoutagreement;
+        return $checkoutagreement;
     }
-
-
 }

@@ -6,8 +6,7 @@ use App\Models\Access\Permission\Permission;
 use App\Models\Access\Permission\PermissionGroup;
 
 /**
- * Class PermissionGroupRelationship
- * @package App\Models\Access\Permission\Traits\Relationship
+ * Class PermissionGroupRelationship.
  */
 trait PermissionGroupRelationship
 {

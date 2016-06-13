@@ -4,13 +4,11 @@ namespace App\Repositories\Backend\Permission;
 
 use App\Exceptions\GeneralException;
 use App\Models\Access\Permission\Permission;
-use App\Models\Access\Permission\PermissionDependency;
-use App\Repositories\Backend\Role\RoleRepositoryContract;
 use App\Repositories\Backend\Permission\Dependency\PermissionDependencyRepositoryContract;
+use App\Repositories\Backend\Role\RoleRepositoryContract;
 
 /**
- * Class EloquentPermissionRepository
- * @package App\Repositories\Permission
+ * Class EloquentPermissionRepository.
  */
 class EloquentPermissionRepository implements PermissionRepositoryContract
 {
@@ -30,14 +28,16 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
      */
     public function __construct(RoleRepositoryContract $roles, PermissionDependencyRepositoryContract $dependencies)
     {
-        $this->roles        = $roles;
+        $this->roles = $roles;
         $this->dependencies = $dependencies;
     }
 
     /**
      * @param  $id
-     * @param  bool                                                                             $withRoles
+     * @param bool $withRoles
+     *
      * @throws GeneralException
+     *
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Collection|null|static
      */
     public function findOrThrowException($id, $withRoles = false)
@@ -55,8 +55,9 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
 
     /**
      * @param  $per_page
-     * @param  string      $order_by
-     * @param  string      $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getPermissionsPaginated($per_page, $order_by = 'display_name', $sort = 'asc')
@@ -65,9 +66,10 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
     }
 
     /**
-     * @param  string  $order_by
-     * @param  string  $sort
-     * @param  bool    $withRoles
+     * @param string $order_by
+     * @param string $sort
+     * @param bool   $withRoles
+     *
      * @return mixed
      */
     public function getAllPermissions($order_by = 'display_name', $sort = 'asc', $withRoles = true)
@@ -92,17 +94,19 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
     /**
      * @param  $input
      * @param  $roles
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function create($input, $roles)
     {
-        $permission               = new Permission;
-        $permission->name         = $input['name'];
+        $permission = new Permission();
+        $permission->name = $input['name'];
         $permission->display_name = $input['display_name'];
-        $permission->system       = isset($input['system']) ? 1 : 0;
-        $permission->group_id     = isset($input['group']) && strlen($input['group']) > 0 ? (int) $input['group'] : null;
-        $permission->sort         = isset($input['sort']) ? (int) $input['sort'] : 0;
+        $permission->system = isset($input['system']) ? 1 : 0;
+        $permission->group_id = isset($input['group']) && strlen($input['group']) > 0 ? (int) $input['group'] : null;
+        $permission->sort = isset($input['sort']) ? (int) $input['sort'] : 0;
 
         if ($permission->save()) {
             //For each role, load role, collect perms, add perm to perms, flush perms, read perms
@@ -121,7 +125,7 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
                         array_push($role_permissions, $permission->id);
 
                         //For some reason the lists() casts as a string, convert all to int
-                        $role_permissions_temp = array();
+                        $role_permissions_temp = [];
                         foreach ($role_permissions as $rp) {
                             array_push($role_permissions_temp, (int) $rp);
                         }
@@ -153,17 +157,19 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
      * @param  $id
      * @param  $input
      * @param  $roles
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function update($id, $input, $roles)
     {
-        $permission               = $this->findOrThrowException($id);
-        $permission->name         = $input['name'];
+        $permission = $this->findOrThrowException($id);
+        $permission->name = $input['name'];
         $permission->display_name = $input['display_name'];
-        $permission->system       = isset($input['system']) ? 1 : 0;
-        $permission->group_id     = isset($input['group']) && strlen($input['group']) > 0 ? (int) $input['group'] : null;
-        $permission->sort         = isset($input['sort']) ? (int) $input['sort'] : 0;
+        $permission->system = isset($input['system']) ? 1 : 0;
+        $permission->group_id = isset($input['group']) && strlen($input['group']) > 0 ? (int) $input['group'] : null;
+        $permission->sort = isset($input['sort']) ? (int) $input['sort'] : 0;
 
         //See if this permission is tied directly to a user first
         if (count($permission->users) > 0) {
@@ -193,7 +199,7 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
                         array_push($role_permissions, $permission->id);
 
                         //For some reason the lists() casts as a string, convert all to int
-                        $role_permissions_temp = array();
+                        $role_permissions_temp = [];
                         foreach ($role_permissions as $rp) {
                             array_push($role_permissions_temp, (int) $rp);
                         }
@@ -217,10 +223,8 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
                 foreach ($input['dependencies'] as $dependency_id) {
                     $this->dependencies->create($permission->id, $dependency_id);
                 }
-
-            } else
-            //None checked, remove any if they were there prior
-            {
+            } else {
+                //None checked, remove any if they were there prior
                 $this->dependencies->clear($permission->id);
             }
 
@@ -232,7 +236,9 @@ class EloquentPermissionRepository implements PermissionRepositoryContract
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function destroy($id)

@@ -4,20 +4,15 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/20/2016
- * Time: 4:58 PM
+ * Time: 4:58 PM.
  */
-
 namespace Innovate\Repositories\StaticPages\CheckOutAgreement;
 
 use Innovate\Repositories\BaseContract;
+
 /**
- * Interface CheckOutAgreementContract
- * @package Innovate\Repositories\StaticPages\BankTransferInfo
+ * Interface CheckOutAgreementContract.
  */
-interface CheckOutAgreementContract  extends BaseContract {
-
-
-
-
-
+interface CheckOutAgreementContract extends BaseContract
+{
 }

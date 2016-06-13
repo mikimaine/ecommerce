@@ -4,21 +4,19 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 1:17 PM
+ * Time: 1:17 PM.
  */
-
 namespace Innovate\Products;
-
 
 use Innovate\Commanding\CommandHandler;
 use Innovate\Eventing\EventDispatcher;
 use Innovate\Repositories\Product\ProductContract;
 
 /**
- * Class PostProductCommandHandler
- * @package Innovate\Products
+ * Class PostProductCommandHandler.
  */
-class PostProductCommandHandler implements CommandHandler {
+class PostProductCommandHandler implements CommandHandler
+{
     /**
      * @var Product
      */
@@ -31,20 +29,20 @@ class PostProductCommandHandler implements CommandHandler {
 
     /**
      * @param Product|ProductContract $product
-     * @param EventDispatcher $dispatcher
+     * @param EventDispatcher         $dispatcher
      */
-    function __construct(ProductContract $product,EventDispatcher $dispatcher )
+    public function __construct(ProductContract $product, EventDispatcher $dispatcher)
     {
         $this->product = $product;
 
         $this->dispatcher = $dispatcher;
     }
 
-
     /**
+     * Handle the command.
      *
-     * Handle the command
      * @param $command
+     *
      * @return mixed
      */
     public function handle($command)
@@ -54,6 +52,5 @@ class PostProductCommandHandler implements CommandHandler {
             $command->description
         );
         $this->dispatcher->dispatch($product->releaseEvents());
-
     }
 }

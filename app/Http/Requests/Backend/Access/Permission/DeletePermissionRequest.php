@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission;
 use App\Http\Requests\Request;
 
 /**
- * Class DeletePermissionRequest
- * @package App\Http\Requests\Backend\Access\Permission
+ * Class DeletePermissionRequest.
  */
 class DeletePermissionRequest extends Request
 {

@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Innovate\Commanding\CommandBus;
 
 /**
- * Class Controller
- * @package App\Http\Controllers
+ * Class Controller.
  */
 abstract class Controller extends BaseController
 {
     use DispatchesJobs, ValidatesRequests;
 
 
-    protected  $commandBus;
+    protected $commandBus;
 
     /**
      * @param $commandBus

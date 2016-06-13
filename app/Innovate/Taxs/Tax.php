@@ -4,9 +4,8 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 1:33 PM
+ * Time: 1:33 PM.
  */
-
 namespace Innovate\Taxs;
 
 use Illuminate\Database\Eloquent\Model;
@@ -14,11 +13,10 @@ use Innovate\BaseModel;
 use Innovate\Taxs\Traits\Attribute\TaxAttribute;
 
 /**
- * Class Product
- * @package Innovate\Products
+ * Class Product.
  */
-class Tax extends  BaseModel {
-
+class Tax extends BaseModel
+{
     use TaxAttribute;
 
     /**
@@ -31,9 +29,5 @@ class Tax extends  BaseModel {
     /**
      * @var array
      */
-    protected  $fillable = ['name','rate'];
-
-
-
-
+    protected $fillable = ['name', 'rate'];
 }

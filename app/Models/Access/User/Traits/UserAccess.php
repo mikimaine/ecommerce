@@ -3,15 +3,15 @@
 namespace App\Models\Access\User\Traits;
 
 /**
- * Class UserAccess
- * @package App\Models\Access\User\Traits
+ * Class UserAccess.
  */
 trait UserAccess
 {
     /**
      * Checks if the user has a Role by its name or id.
      *
-     * @param  string $nameOrId Role name or id.
+     * @param string $nameOrId Role name or id.
+     *
      * @return bool
      */
     public function hasRole($nameOrId)
@@ -28,7 +28,6 @@ trait UserAccess
             if ($role->name == $nameOrId) {
                 return true;
             }
-
         }
 
         return false;
@@ -36,9 +35,11 @@ trait UserAccess
 
     /**
      * Checks to see if user has array of roles
-     * All must return true
+     * All must return true.
+     *
      * @param  $roles
      * @param  $needsAll
+     *
      * @return bool
      */
     public function hasRoles($roles, $needsAll)
@@ -52,7 +53,6 @@ trait UserAccess
                 if ($this->hasRole($role)) {
                     $hasRoles++;
                 }
-
             }
 
             return $numRoles == $hasRoles;
@@ -64,7 +64,6 @@ trait UserAccess
             if ($this->hasRole($role)) {
                 $hasRoles++;
             }
-
         }
 
         return $hasRoles > 0;
@@ -73,7 +72,8 @@ trait UserAccess
     /**
      * Check if user has a permission by its name or id.
      *
-     * @param  string $nameOrId Permission name or id.
+     * @param string $nameOrId Permission name or id.
+     *
      * @return bool
      */
     public function can($nameOrId)
@@ -98,7 +98,6 @@ trait UserAccess
                 if ($perm->name == $nameOrId) {
                     return true;
                 }
-
             }
         }
 
@@ -116,16 +115,17 @@ trait UserAccess
             if ($perm->name == $nameOrId) {
                 return true;
             }
-
         }
 
         return false;
     }
 
     /**
-     * Check an array of permissions and whether or not all are required to continue
+     * Check an array of permissions and whether or not all are required to continue.
+     *
      * @param  $permissions
      * @param  $needsAll
+     *
      * @return bool
      */
     public function canMultiple($permissions, $needsAll = false)
@@ -150,7 +150,6 @@ trait UserAccess
             if ($this->can($perm)) {
                 $hasPermissions++;
             }
-
         }
 
         return $hasPermissions > 0;
@@ -158,6 +157,7 @@ trait UserAccess
 
     /**
      * @param  $nameOrId
+     *
      * @return bool
      */
     public function hasPermission($nameOrId)
@@ -167,7 +167,8 @@ trait UserAccess
 
     /**
      * @param  $permissions
-     * @param  bool           $needsAll
+     * @param bool $needsAll
+     *
      * @return bool
      */
     public function hasPermissions($permissions, $needsAll = false)
@@ -178,7 +179,8 @@ trait UserAccess
     /**
      * Alias to eloquent many-to-many relation's attach() method.
      *
-     * @param  mixed  $role
+     * @param mixed $role
+     *
      * @return void
      */
     public function attachRole($role)
@@ -197,7 +199,8 @@ trait UserAccess
     /**
      * Alias to eloquent many-to-many relation's detach() method.
      *
-     * @param  mixed  $role
+     * @param mixed $role
+     *
      * @return void
      */
     public function detachRole($role)
@@ -214,9 +217,10 @@ trait UserAccess
     }
 
     /**
-     * Attach multiple roles to a user
+     * Attach multiple roles to a user.
      *
-     * @param  mixed  $roles
+     * @param mixed $roles
+     *
      * @return void
      */
     public function attachRoles($roles)
@@ -227,9 +231,10 @@ trait UserAccess
     }
 
     /**
-     * Detach multiple roles from a user
+     * Detach multiple roles from a user.
      *
-     * @param  mixed  $roles
+     * @param mixed $roles
+     *
      * @return void
      */
     public function detachRoles($roles)
@@ -240,7 +245,7 @@ trait UserAccess
     }
 
     /**
-     * Attach one permission not associated with a role directly to a user
+     * Attach one permission not associated with a role directly to a user.
      *
      * @param $permission
      */
@@ -258,7 +263,7 @@ trait UserAccess
     }
 
     /**
-     * Attach other permissions not associated with a role directly to a user
+     * Attach other permissions not associated with a role directly to a user.
      *
      * @param $permissions
      */
@@ -272,7 +277,7 @@ trait UserAccess
     }
 
     /**
-     * Detach one permission not associated with a role directly to a user
+     * Detach one permission not associated with a role directly to a user.
      *
      * @param $permission
      */
@@ -290,7 +295,7 @@ trait UserAccess
     }
 
     /**
-     * Detach other permissions not associated with a role directly to a user
+     * Detach other permissions not associated with a role directly to a user.
      *
      * @param $permissions
      */

@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission\Group;
 use App\Http\Requests\Request;
 
 /**
- * Class StorePermissionGroupRequest
- * @package App\Http\Requests\Backend\Access\Permission\Group
+ * Class StorePermissionGroupRequest.
  */
 class StorePermissionGroupRequest extends Request
 {

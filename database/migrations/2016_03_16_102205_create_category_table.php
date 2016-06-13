@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateCategoryTable extends Migration
 {
@@ -21,13 +21,12 @@ class CreateCategoryTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('parent_id')->references('id')
                 ->on('category')
                 ->onDelete('cascade');
-
         });
     }
 

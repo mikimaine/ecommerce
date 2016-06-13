@@ -4,27 +4,21 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/19/2016
- * Time: 11:41 AM
+ * Time: 11:41 AM.
  */
-
 namespace Innovate\Services\Product;
 
-
 /**
- * Class Product
- * @package Innovate\Services\Product
+ * Class Product.
  */
-class Product {
-
-
-
+class Product
+{
     /**
-     * Laravel application
+     * Laravel application.
      *
      * @var \Illuminate\Foundation\Application
      */
     public $app;
-
 
     /**
      * Create a new confide instance.
@@ -36,9 +30,8 @@ class Product {
         $this->app = $app;
     }
 
-    public function Product(){
-
+    public function Product()
+    {
         return \Innovate\Products\Product::all();
     }
-
 }

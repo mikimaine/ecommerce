@@ -4,33 +4,31 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/14/2016
- * Time: 10:08 PM
+ * Time: 10:08 PM.
  */
-
 namespace Innovate\Image;
-
 
 use Intervention\Image\Filters\FilterInterface;
 use Intervention\Image\Image;
 
-class InnovateImageFilter implements FilterInterface {
-
+class InnovateImageFilter implements FilterInterface
+{
     /**
-     * Default size of filter effects
+     * Default size of filter effects.
      */
     const DEFAULT_SIZE = 10;
 
     /**
-     * Size of filter effects
+     * Size of filter effects.
      *
-     * @var integer
+     * @var int
      */
     private $size;
 
     /**
-     * Creates new instance of filter
+     * Creates new instance of filter.
      *
-     * @param integer $size
+     * @param int $size
      */
     public function __construct($size = null)
     {
@@ -38,9 +36,10 @@ class InnovateImageFilter implements FilterInterface {
     }
 
     /**
-     * Applies filter to given image
+     * Applies filter to given image.
      *
-     * @param  Image $image
+     * @param Image $image
+     *
      * @return Image
      */
     public function applyFilter(Image $image)

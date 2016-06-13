@@ -2,15 +2,14 @@
 
 namespace App\Repositories\Backend\User;
 
-use App\Models\Access\User\User;
+use App\Exceptions\Backend\Access\User\UserNeedsRolesException;
 use App\Exceptions\GeneralException;
+use App\Models\Access\User\User;
 use App\Repositories\Backend\Role\RoleRepositoryContract;
 use App\Repositories\Frontend\Auth\AuthenticationContract;
-use App\Exceptions\Backend\Access\User\UserNeedsRolesException;
 
 /**
- * Class EloquentUserRepository
- * @package App\Repositories\User
+ * Class EloquentUserRepository.
  */
 class EloquentUserRepository implements UserContract
 {
@@ -36,8 +35,10 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $id
-     * @param  bool               $withRoles
+     * @param bool $withRoles
+     *
      * @throws GeneralException
+     *
      * @return mixed
      */
     public function findOrThrowException($id, $withRoles = false)
@@ -57,9 +58,10 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $per_page
-     * @param  string      $order_by
-     * @param  string      $sort
-     * @param  int         $status
+     * @param string $order_by
+     * @param string $sort
+     * @param int    $status
+     *
      * @return mixed
      */
     public function getUsersPaginated($per_page, $status = 1, $order_by = 'id', $sort = 'asc')
@@ -69,6 +71,7 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $per_page
+     *
      * @return \Illuminate\Pagination\Paginator
      */
     public function getDeletedUsersPaginated($per_page)
@@ -77,8 +80,9 @@ class EloquentUserRepository implements UserContract
     }
 
     /**
-     * @param  string  $order_by
-     * @param  string  $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAllUsers($order_by = 'id', $sort = 'asc')
@@ -90,8 +94,10 @@ class EloquentUserRepository implements UserContract
      * @param  $input
      * @param  $roles
      * @param  $permissions
+     *
      * @throws GeneralException
      * @throws UserNeedsRolesException
+     *
      * @return bool
      */
     public function create($input, $roles, $permissions)
@@ -123,7 +129,9 @@ class EloquentUserRepository implements UserContract
      * @param  $id
      * @param  $input
      * @param  $roles
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function update($id, $input, $roles, $permissions)
@@ -133,7 +141,7 @@ class EloquentUserRepository implements UserContract
 
         if ($user->update($input)) {
             //For whatever reason this just wont work in the above call, so a second is needed for now
-            $user->status    = isset($input['status']) ? 1 : 0;
+            $user->status = isset($input['status']) ? 1 : 0;
             $user->confirmed = isset($input['confirmed']) ? 1 : 0;
             $user->save();
 
@@ -150,7 +158,9 @@ class EloquentUserRepository implements UserContract
     /**
      * @param  $id
      * @param  $input
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function updatePassword($id, $input)
@@ -168,7 +178,9 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function destroy($id)
@@ -187,8 +199,10 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
-     * @return boolean|null
+     *
+     * @return bool|null
      */
     public function delete($id)
     {
@@ -207,7 +221,9 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function restore($id)
@@ -224,7 +240,9 @@ class EloquentUserRepository implements UserContract
     /**
      * @param  $id
      * @param  $status
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function mark($id, $status)
@@ -233,7 +251,7 @@ class EloquentUserRepository implements UserContract
             throw new GeneralException('You can not do that to yourself.');
         }
 
-        $user         = $this->findOrThrowException($id);
+        $user = $this->findOrThrowException($id);
         $user->status = $status;
 
         if ($user->save()) {
@@ -244,9 +262,11 @@ class EloquentUserRepository implements UserContract
     }
 
     /**
-     * Check to make sure at lease one role is being applied or deactivate user
+     * Check to make sure at lease one role is being applied or deactivate user.
+     *
      * @param  $user
      * @param  $roles
+     *
      * @throws UserNeedsRolesException
      */
     private function validateRoleAmount($user, $roles)
@@ -271,6 +291,7 @@ class EloquentUserRepository implements UserContract
     /**
      * @param  $input
      * @param  $user
+     *
      * @throws GeneralException
      */
     private function checkUserByEmail($input, $user)
@@ -281,7 +302,6 @@ class EloquentUserRepository implements UserContract
             if (User::where('email', '=', $input['email'])->first()) {
                 throw new GeneralException('That email address belongs to a different user.');
             }
-
         }
     }
 
@@ -307,11 +327,11 @@ class EloquentUserRepository implements UserContract
         if (count($permissions['permission_user']) > 0) {
             $user->attachPermissions($permissions['permission_user']);
         }
-
     }
 
     /**
      * @param  $roles
+     *
      * @throws GeneralException
      */
     private function checkUserRolesCount($roles)
@@ -321,22 +341,23 @@ class EloquentUserRepository implements UserContract
         if (count($roles['assignees_roles']) == 0) {
             throw new GeneralException('You must choose at least one role.');
         }
-
     }
 
     /**
      * @param  $input
+     *
      * @return mixed
      */
     private function createUserStub($input)
     {
-        $user                    = new User;
-        $user->name              = $input['name'];
-        $user->email             = $input['email'];
-        $user->password          = $input['password'];
-        $user->status            = isset($input['status']) ? 1 : 0;
+        $user = new User();
+        $user->name = $input['name'];
+        $user->email = $input['email'];
+        $user->password = $input['password'];
+        $user->status = isset($input['status']) ? 1 : 0;
         $user->confirmation_code = md5(uniqid(mt_rand(), true));
-        $user->confirmed         = isset($input['confirmed']) ? 1 : 0;
+        $user->confirmed = isset($input['confirmed']) ? 1 : 0;
+
         return $user;
     }
 }

@@ -13,51 +13,51 @@ return [
     |
     */
 
-    'active_users' => 'Active Users',
-    'banned_users' => 'Banned Users',
-    'create_permission' => 'Create Permission',
+    'active_users'            => 'Active Users',
+    'banned_users'            => 'Banned Users',
+    'create_permission'       => 'Create Permission',
     'create_permission_group' => 'Create Group',
-    'create_role' => 'Create Role',
-    'create_user' => 'Create User',
-    'dashboard' => 'Dashboard',
-    'deactivated_users' => 'Deactivated Users',
-    'deleted_users' => 'Deleted Users',
-    'edit_permission' => 'Edit Permission',
-    'edit_permission_group' => 'Edit Group',
-    'edit_role' => 'Edit Role',
-    'edit_user' => 'Edit User',
-    'general' => 'General',
-    'header_buttons' => [
+    'create_role'             => 'Create Role',
+    'create_user'             => 'Create User',
+    'dashboard'               => 'Dashboard',
+    'deactivated_users'       => 'Deactivated Users',
+    'deleted_users'           => 'Deleted Users',
+    'edit_permission'         => 'Edit Permission',
+    'edit_permission_group'   => 'Edit Group',
+    'edit_role'               => 'Edit Role',
+    'edit_user'               => 'Edit User',
+    'general'                 => 'General',
+    'header_buttons'          => [
         'permissions' => [
-            'all' => 'All Permissions',
+            'all'    => 'All Permissions',
             'button' => 'Permissions',
 
             'groups' => [
-                'all' => 'All Groups',
+                'all'    => 'All Groups',
                 'button' => 'Groups',
             ],
         ],
         'roles' => [
-            'all' => 'All Roles',
+            'all'    => 'All Roles',
             'button' => 'Roles',
         ],
         'users' => [
-            'all' => 'All Users',
+            'all'    => 'All Users',
             'button' => 'Users',
         ],
     ],
     'log-viewer' => [
-        'main' => 'Log Viewer',
+        'main'      => 'Log Viewer',
         'dashboard' => 'Dashboard',
-        'logs' => 'Logs',
+        'logs'      => 'Logs',
     ],
     'permission_management' => 'Permission Management',
-    'role_management' => 'Role Management',
-    'user_management' => 'User Management',
-    'access_management' => 'Access Management',
-    'language-picker' => [
+    'role_management'       => 'Role Management',
+    'user_management'       => 'User Management',
+    'access_management'     => 'Access Management',
+    'language-picker'       => [
         'language' => 'Language',
-        'langs' => [
+        'langs'    => [
             'en' => 'English',
             'am' => 'Amharic',
 

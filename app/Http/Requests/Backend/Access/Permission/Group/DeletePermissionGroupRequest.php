@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission\Group;
 use App\Http\Requests\Request;
 
 /**
- * Class DeletePermissionGroupRequest
- * @package App\Http\Requests\Backend\Access\Permission\Group
+ * Class DeletePermissionGroupRequest.
  */
 class DeletePermissionGroupRequest extends Request
 {
