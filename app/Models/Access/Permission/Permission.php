@@ -2,14 +2,13 @@
 
 namespace App\Models\Access\Permission;
 
-use Illuminate\Database\Eloquent\Model;
-use Innovate\BaseModel;
 use App\Models\Access\Permission\Traits\Attribute\PermissionAttribute;
 use App\Models\Access\Permission\Traits\Relationship\PermissionRelationship;
+use Illuminate\Database\Eloquent\Model;
+use Innovate\BaseModel;
 
 /**
- * Class Permission
- * @package App\Models\Access\Permission
+ * Class Permission.
  */
 class Permission extends BaseModel
 {
@@ -29,9 +28,7 @@ class Permission extends BaseModel
      */
     protected $guarded = ['id'];
 
-    /**
-     *
-     */
+
     public function __construct()
     {
         $this->table = config('access.permissions_table');

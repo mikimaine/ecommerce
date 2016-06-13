@@ -15,10 +15,10 @@ class UserTableSeeder extends Seeder
         if (env('DB_DRIVER') == 'mysql') {
             DB::table(config('access.users_table'))->truncate();
         } elseif (env('DB_DRIVER') == 'sqlite') {
-            DB::statement('DELETE FROM ' . config('access.users_table'));
+            DB::statement('DELETE FROM '.config('access.users_table'));
         } else {
             //For PostgreSQL or anything else
-            DB::statement('TRUNCATE TABLE ' . config('access.users_table') . ' CASCADE');
+            DB::statement('TRUNCATE TABLE '.config('access.users_table').' CASCADE');
         }
 
         //Add the master administrator, user id of 1

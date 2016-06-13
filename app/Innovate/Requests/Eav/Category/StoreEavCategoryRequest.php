@@ -4,15 +4,14 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/31/2016
- * Time: 3:49 PM
+ * Time: 3:49 PM.
  */
-
 namespace Innovate\Requests\Eav\Category;
 
 use App\Http\Requests\Request;
 
-class StoreEavCategoryRequest extends Request {
-
+class StoreEavCategoryRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,7 +30,7 @@ class StoreEavCategoryRequest extends Request {
     public function rules()
     {
         return [
-            'attribute_set_name'    => 'required|min:3|unique:product_attribute_category'
+            'attribute_set_name'    => 'required|min:3|unique:product_attribute_category',
         ];
     }
 }

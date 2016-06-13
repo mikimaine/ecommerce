@@ -2,12 +2,11 @@
 
 namespace App\Models\Access\Permission\Traits\Relationship;
 
-use App\Models\Access\Permission\PermissionGroup;
 use App\Models\Access\Permission\PermissionDependency;
+use App\Models\Access\Permission\PermissionGroup;
 
 /**
- * Class PermissionRelationship
- * @package App\Models\Access\Permission\Traits\Relationship
+ * Class PermissionRelationship.
  */
 trait PermissionRelationship
 {

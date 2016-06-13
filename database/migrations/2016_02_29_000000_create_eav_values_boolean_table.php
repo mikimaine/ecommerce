@@ -19,6 +19,7 @@ class CreateEavValuesBooleanTable extends Migration
      *
      * @param \Illuminate\Database\Schema\Blueprint $table
      * @param $name
+     *
      * @return void
      */
     protected function contentColumn(\Illuminate\Database\Schema\Blueprint $table, $name)

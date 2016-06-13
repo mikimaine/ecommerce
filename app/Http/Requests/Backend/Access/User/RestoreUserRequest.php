@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\User;
 use App\Http\Requests\Request;
 
 /**
- * Class RestoreUserRequest
- * @package App\Http\Requests\Backend\Access\User
+ * Class RestoreUserRequest.
  */
 class RestoreUserRequest extends Request
 {

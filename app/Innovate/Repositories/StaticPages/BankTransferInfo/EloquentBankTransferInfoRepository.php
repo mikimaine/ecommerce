@@ -4,25 +4,25 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/20/2016
- * Time: 4:59 PM
+ * Time: 4:59 PM.
  */
-
 namespace Innovate\Repositories\StaticPages\BankTransferInfo;
-
 
 use App\Exceptions\GeneralException;
 use Innovate\StaticPages\BankTransferInfo\BankTransferInfo;
 
 /**
- * Class EloquentBankTransferInfoRepository
- * @package Innovate\Repositories\Tax
+ * Class EloquentBankTransferInfoRepository.
  */
-class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
-
+class EloquentBankTransferInfoRepository implements BankTransferInfoContract
+{
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
@@ -38,9 +38,11 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
 
     /**
      * @param $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -52,6 +54,7 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
      * @param $per_page
      * @param string $order_by
      * @param string $sort
+     *
      * @return mixed
      */
     public function getDeletedPaginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -60,8 +63,9 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc')
@@ -71,36 +75,39 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
 
     /**
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
     {
         $bankinfo = $this->createBankTransferInfoStub($input);
 
-        if($bankinfo->save())
-        {
+        if ($bankinfo->save()) {
             return true;
         }
 
         throw new GeneralException('There was a problem creating this Bank Information. Please try again!');
-
     }
 
     /**
      * @param $id
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input)
     {
         $bankinfo = $this->findOrThrowException($id);
 
-        if($bankinfo->update($input))
-        {
+        if ($bankinfo->update($input)) {
             return true;
         }
         throw new GeneralException('There was a problem updating this Bank Information. Please try again.');
@@ -108,25 +115,27 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
 
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function destroy($id)
     {
         $bankinfo = $this->findOrThrowException($id);
-        if ($bankinfo->delete())
-        {
-        return true;
+        if ($bankinfo->delete()) {
+            return true;
         }
 
         throw new GeneralException('There was a problem deleting this Bank Information.. Please try again.');
-
     }
 
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function delete($id)
     {
@@ -139,11 +148,12 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
         }
     }
 
-
     /**
      * @param $id
-     * @return bool
+     *
      * @throws GeneralException
+     *
+     * @return bool
      */
     public function restore($id)
     {
@@ -154,20 +164,21 @@ class EloquentBankTransferInfoRepository implements BankTransferInfoContract {
         }
 
         throw new GeneralException('There was a problem restoring this Bank Information. Please try again.');
-
     }
+
     /**
      * @param $input
+     *
      * @return Tax
      */
     private function createBankTransferInfoStub($input)
     {
-            $bankinfo = new BankTransferInfo();
-            $bankinfo->bank_name       = $input['bank_name'];
-            $bankinfo->bank_account_no = $input['bank_account_no'];
-            $bankinfo->support_phone   = $input['support_phone'];
-            $bankinfo->description     = $input['description'];
+        $bankinfo = new BankTransferInfo();
+        $bankinfo->bank_name = $input['bank_name'];
+        $bankinfo->bank_account_no = $input['bank_account_no'];
+        $bankinfo->support_phone = $input['support_phone'];
+        $bankinfo->description = $input['description'];
 
-            return $bankinfo;
+        return $bankinfo;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Carbon\Carbon as Carbon;
+use Illuminate\Database\Seeder;
 
 class CheckOutAgreementTable extends Seeder
 {
@@ -23,18 +23,18 @@ class CheckOutAgreementTable extends Seeder
 
         $data = [
             [
-                'name'              => 'Sample 1 Check Out Agreement',
+                'name'                => 'Sample 1 Check Out Agreement',
                 'content'             => 'This is a sample 1 checkout agreement content ',
-                'is_active'         => true,
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now(),
+                'is_active'           => true,
+                'created_at'          => Carbon::now(),
+                'updated_at'          => Carbon::now(),
             ],
             [
-                'name'              => 'Sample 2 Check Out Agreement',
+                'name'                => 'Sample 2 Check Out Agreement',
                 'content'             => 'This is a sample 2 checkout agreement content',
-                'is_active'         => true,
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now(),
+                'is_active'           => true,
+                'created_at'          => Carbon::now(),
+                'updated_at'          => Carbon::now(),
             ],
         ];
 

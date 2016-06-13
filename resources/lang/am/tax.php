@@ -4,7 +4,7 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/20/2016
- * Time: 5:41 PM
+ * Time: 5:41 PM.
  */
 
 
@@ -22,37 +22,37 @@ return [
     */
 
     'tax_management' => 'የግብር ፡ አስተዳደር ።',
-    'active_tax' => 'ግብሩን ፡ ተግብር ።',
-    'tax_id' => 'የግብር ፡ መለያ ።',
-    'tax_name' => 'የግብር ፡ ስም ፡',
-    'tax_rate' => 'የግብር ፡ ማስሊያ ።',
-    'tax_created' => 'የተፈጠረው ፡ በ ፡',
-    'tax_updated' => 'የተሻሻለው ፡ በ ፡',
-    'tax_deleted' => 'የጠፋው ፡ በ ፡',
-    'tax_name'    =>  'የግብሩ ፡ ስም ።',
-    'create_tax' => 'ግብር ፡ ፍጠር ።',
-    'update_tax' => 'ግብር ፡ አሻሽል ።',
-    'tax_rate' => 'የግብሩ ፡ ማስሊያ ።',
-    'no_tax' => 'ምንም ፡ የግብር ፡ መረጃ ፡ አልተገኘም ።',
-    'tax_total' => 'አጠቃላይ ፡ ግብር ።',
+    'active_tax'     => 'ግብሩን ፡ ተግብር ።',
+    'tax_id'         => 'የግብር ፡ መለያ ።',
+    'tax_name'       => 'የግብር ፡ ስም ፡',
+    'tax_rate'       => 'የግብር ፡ ማስሊያ ።',
+    'tax_created'    => 'የተፈጠረው ፡ በ ፡',
+    'tax_updated'    => 'የተሻሻለው ፡ በ ፡',
+    'tax_deleted'    => 'የጠፋው ፡ በ ፡',
+    'tax_name'       => 'የግብሩ ፡ ስም ።',
+    'create_tax'     => 'ግብር ፡ ፍጠር ።',
+    'update_tax'     => 'ግብር ፡ አሻሽል ።',
+    'tax_rate'       => 'የግብሩ ፡ ማስሊያ ።',
+    'no_tax'         => 'ምንም ፡ የግብር ፡ መረጃ ፡ አልተገኘም ።',
+    'tax_total'      => 'አጠቃላይ ፡ ግብር ።',
 
-    'alerts'=>[
-     'created' =>'ግብሩ ፡ በተሳካ ፡ ኹኔታ ፡ ተፈጥሯል ።',
-     'updated' =>'ግብሩ ፡ በተሳካ ፡ ኹኔታ ፡ ታድሷል ።',
-     'deleted' =>'ግብሩ ፡ በተሳካ ፡ ኹኔታ ፡ ጠፍቷል ።'
+    'alerts' => [
+     'created' => 'ግብሩ ፡ በተሳካ ፡ ኹኔታ ፡ ተፈጥሯል ።',
+     'updated' => 'ግብሩ ፡ በተሳካ ፡ ኹኔታ ፡ ታድሷል ።',
+     'deleted' => 'ግብሩ ፡ በተሳካ ፡ ኹኔታ ፡ ጠፍቷል ።',
     ],
 
     'menus' => [
-        'tax' => 'ግብር ።',
-        'button' => 'ሚናዎች ።',
-        'header_buttons' =>[
-            'tax' =>[
-                'button' => 'ግብር ።',
-                'all' => 'ኹሉም ፡ ግብር ።',
+        'tax'            => 'ግብር ።',
+        'button'         => 'ሚናዎች ።',
+        'header_buttons' => [
+            'tax' => [
+                'button'     => 'ግብር ።',
+                'all'        => 'ኹሉም ፡ ግብር ።',
                 'create_tax' => 'ግብር ፡ ፍጠር ።',
 
-            ]
-        ]
+            ],
+        ],
     ],
 
 ];

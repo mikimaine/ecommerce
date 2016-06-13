@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Theme;
 
 /**
- * Class DashboardController
- * @package App\Http\Controllers\Frontend
+ * Class DashboardController.
  */
 class DashboardController extends Controller
 {

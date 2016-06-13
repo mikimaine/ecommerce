@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProductAttributeCategoryTable extends Migration
 {
@@ -9,7 +9,8 @@ class CreateProductAttributeCategoryTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */#
+     *///
+
     public function up()
     {
         //
@@ -18,12 +19,10 @@ class CreateProductAttributeCategoryTable extends Migration
             $table->string('attribute_set_name');
             $table->timestamps();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
-
         });
-
     }
 
     /**
@@ -35,6 +34,5 @@ class CreateProductAttributeCategoryTable extends Migration
     {
         //
         Schema::drop('product_attribute_category');
-
     }
 }

@@ -7,8 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
 /**
- * Class UserLoggedOutHandler
- * @package App\Listeners\Frontend\Auth
+ * Class UserLoggedOutHandler.
  */
 class UserLoggedOutHandler implements ShouldQueue
 {
@@ -16,7 +15,6 @@ class UserLoggedOutHandler implements ShouldQueue
 
     /**
      * Create the event handler.
-     *
      */
     public function __construct()
     {
@@ -26,11 +24,12 @@ class UserLoggedOutHandler implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  UserLoggedOut $event
+     * @param UserLoggedOut $event
+     *
      * @return void
      */
     public function handle(UserLoggedOut $event)
     {
-        \Log::info('User Logged Out: ' . $event->user->name);
+        \Log::info('User Logged Out: '.$event->user->name);
     }
 }

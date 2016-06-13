@@ -4,9 +4,8 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 1:33 PM
+ * Time: 1:33 PM.
  */
-
 namespace Innovate\Products;
 
 use Cviebrock\EloquentSluggable\SluggableInterface;
@@ -21,13 +20,11 @@ use Innovate\SEOProvider\ObjectFlat;
 use Sofa\Eloquence\Eloquence;
 
 /**
- * Class Product
- * @package Innovate\Products
+ * Class Product.
  */
-class Product extends BaseModel implements ObjectFlat,SluggableInterface{
-
-
-    /**
+class Product extends BaseModel implements ObjectFlat,SluggableInterface
+{
+    /*
      * This are trait definition's and a solution for the conflict inside them
      */
     use Translatable,SoftDeletes,ProductRelationship,ProductAttribute,SluggableTrait,Eloquence{
@@ -49,17 +46,19 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface{
      }
 
     /**
-     * The translation model for product
+     * The translation model for product.
+     *
      * @var string
      */
     public $translationModel = 'Innovate\Products\ProductTranslation';
 
 
     /**
-     * The translated attributes in this model
+     * The translated attributes in this model.
+     *
      * @var array
      */
-    public $translatedAttributes = ['name', 'cart_description','short_description','long_description'];
+    public $translatedAttributes = ['name', 'cart_description', 'short_description', 'long_description'];
 
     /**
      * The database table used by the model.
@@ -74,7 +73,7 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface{
  //   protected  $fillable = ['title','description'];
 
     /**
-     * For soft deletes
+     * For soft deletes.
      *
      * @var array
      */
@@ -82,28 +81,26 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface{
 
 
     /**
-     * This array holds information about
+     * This array holds information about.
+     *
      * @var array
      */
-    protected $sluggable =[
-        'build_from' =>'sku',
-        'save_to' => 'slug',
+    protected $sluggable = [
+        'build_from' => 'sku',
+        'save_to'    => 'slug',
     ];
 
     /**
-     * The searchable attributes on the model with there relevance
+     * The searchable attributes on the model with there relevance.
      *
      * The numbers on the value of the array are the relevance of that column from 1-100 when searching
+     *
      * @var array
      */
     protected $searchableColumns = [
-        'sku' => 10,
-        'location' => 10,
-        'slug' =>10,
-        'product_translations.name' =>15,
+        'sku'                       => 10,
+        'location'                  => 10,
+        'slug'                      => 10,
+        'product_translations.name' => 15,
     ];
-
-
-
-
 }

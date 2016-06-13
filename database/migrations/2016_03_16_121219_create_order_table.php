@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateOrderTable extends Migration
 {
@@ -30,7 +30,7 @@ class CreateOrderTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('product_id')->references('id')
@@ -48,9 +48,6 @@ class CreateOrderTable extends Migration
           /* $table->foreign('download_link_id')->references('id')
                 ->on('downloadable_link')
                 ->onDelete('cascade');*/
-
-
-
         });
     }
 

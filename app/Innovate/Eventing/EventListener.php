@@ -4,23 +4,20 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 6:31 PM
+ * Time: 6:31 PM.
  */
-
 namespace Innovate\Eventing;
-
 
 use ReflectionClass;
 
 /**
- * Class EventListener
- * @package Innovate\Eventing
+ * Class EventListener.
  */
-class EventListener {
-
-
+class EventListener
+{
     /**
      * @param $event
+     *
      * @return mixed
      */
     public function handle($event)
@@ -30,27 +27,30 @@ class EventListener {
         // call that user function in the registered
         $eventName = $this->getEventName($event);
 
-        if($this->listenerIsRegistered($eventName)){
-            return call_user_func([$this,'when'.$eventName],$event);
+        if ($this->listenerIsRegistered($eventName)) {
+            return call_user_func([$this, 'when'.$eventName], $event);
         }
-
     }
 
     /**
-     * get name of the event from the class namespace
+     * get name of the event from the class namespace.
+     *
      * @param $event
+     *
      * @return string
      */
     protected function getEventName($event)
     {
         $eventName = (new ReflectionClass($event))->getShortName();
+
         return $eventName;
     }
 
     /**
+     * Check if the event method really exist.
      *
-     * Check if the event method really exist
      * @param $eventName
+     *
      * @return bool
      */
     protected function listenerIsRegistered($eventName)
@@ -59,9 +59,7 @@ class EventListener {
         // check if a method with that name exist
         // return true(if found ) or false
             $method = "when{$eventName}";
-            return method_exists($this,$method);
+
+        return method_exists($this, $method);
     }
-
-
-
 }

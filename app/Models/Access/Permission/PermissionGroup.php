@@ -2,13 +2,12 @@
 
 namespace App\Models\Access\Permission;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Access\Permission\Traits\Attribute\PermissionGroupAttribute;
 use App\Models\Access\Permission\Traits\Relationship\PermissionGroupRelationship;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class PermissionGroup
- * @package App\Models\Access\Permission
+ * Class PermissionGroup.
  */
 class PermissionGroup extends Model
 {
@@ -28,9 +27,7 @@ class PermissionGroup extends Model
      */
     protected $guarded = ['id'];
 
-    /**
-     *
-     */
+
     public function __construct()
     {
         $this->table = config('access.permission_group_table');

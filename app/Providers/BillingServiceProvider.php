@@ -5,22 +5,16 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class BillingServiceProvider
- * @package App\Providers
+ * Class BillingServiceProvider.
  */
 class BillingServiceProvider extends ServiceProvider
 {
-    /**
-     *
-     */
     public function boot()
     {
         //
     }
 
-    /**
-     *
-     */
+
     public function register()
     {
         $this->app->bind(

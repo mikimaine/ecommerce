@@ -4,11 +4,9 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/20/2016
- * Time: 9:48 AM
+ * Time: 9:48 AM.
  */
-
 namespace Innovate\Category\SEOProvider;
-
 
 use Innovate\Category\Category;
 use Innovate\SEOProvider\ObjectFlat;
@@ -17,30 +15,25 @@ use OpenGraph;
 use SEOMeta;
 use Twitter;
 
-
 /**
- * Class CategorySEOGenerator
- * @package Innovate\Category\SEOProvider
+ * Class CategorySEOGenerator.
  */
-class CategorySEOGenerator implements SEOProviderContract {
-
-
+class CategorySEOGenerator implements SEOProviderContract
+{
     /**
      * @param Category|ObjectFlat $category
      */
     public function set(ObjectFlat $category)
     {
-      $this->SEOMeta($category);
-      $this->OpenGraph($category);
-      $this->Twitter($category);
+        $this->SEOMeta($category);
+        $this->OpenGraph($category);
+        $this->Twitter($category);
     }
 
-    /**
-     *
-     */
+
     public function fire()
     {
-         // TODO: Implement fire() method.
+        // TODO: Implement fire() method.
     }
 
     /**
@@ -58,7 +51,6 @@ class CategorySEOGenerator implements SEOProviderContract {
      */
     public function OpenGraph(Category $category)
     {
-
         OpenGraph::setDescription($category->category_description->meta_description);
         OpenGraph::setTitle($category->category_description->meta_title);
         OpenGraph::setUrl(config('app.url'));
@@ -74,7 +66,6 @@ class CategorySEOGenerator implements SEOProviderContract {
      */
     public function Twitter(Category $category)
     {
-
         Twitter::setTitle($category->category_description->name);
         Twitter::setSite('@InnovateEcommerce');
     }

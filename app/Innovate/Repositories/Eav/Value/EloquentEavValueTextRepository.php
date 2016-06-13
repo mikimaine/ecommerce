@@ -4,21 +4,20 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/22/2016
- * Time: 3:59 PM
+ * Time: 3:59 PM.
  */
-
 namespace Innovate\Repositories\Eav\Value;
-
 
 use App\Exceptions\GeneralException;
 use Innovate\Eav\Value\ProductAttributeText;
 
-class EloquentEavValueTextRepository implements EavValueTextContract{
-
-
+class EloquentEavValueTextRepository implements EavValueTextContract
+{
     /**
      * @param  $id
+     *
      * @return mixed
+     *
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
@@ -28,9 +27,11 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
 
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -39,8 +40,9 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc')
@@ -50,7 +52,9 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
 
     /**
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
@@ -61,7 +65,9 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
     /**
      * @param  $id
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input)
@@ -71,6 +77,7 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function destroy($id)
@@ -80,6 +87,7 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -91,14 +99,16 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
      * @param $product
      * @param $new_string
      * @param $value
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $input
      * @internal param $roles
      */
     public function createFromInput($product, $new_string, $value)
     {
-
         $text = new ProductAttributeText();
         $text->product_id = $product->id;
         $text->product_attribute_id = $new_string[2];
@@ -108,7 +118,7 @@ class EloquentEavValueTextRepository implements EavValueTextContract{
                 return true;
             }
         } catch (GeneralException $e) {
-
-        }throw new GeneralException('Something went wrong Inserting Custom Text Value. Try again later!');
+        }
+        throw new GeneralException('Something went wrong Inserting Custom Text Value. Try again later!');
     }
 }

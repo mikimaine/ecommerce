@@ -4,11 +4,9 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/22/2016
- * Time: 5:50 PM
+ * Time: 5:50 PM.
  */
-
 namespace Innovate\Products\SEOProvider;
-
 
 use Innovate\Category\Category;
 use Innovate\SEOProvider\ObjectFlat;
@@ -16,9 +14,9 @@ use Innovate\SEOProvider\SEOProviderContract;
 use OpenGraph;
 use SEOMeta;
 use Twitter;
-class ProductSEOGenerator implements SEOProviderContract {
 
-
+class ProductSEOGenerator implements SEOProviderContract
+{
     public function set(ObjectFlat $category)
     {
         // TODO: Implement set() method.
@@ -44,7 +42,6 @@ class ProductSEOGenerator implements SEOProviderContract {
      */
     public function OpenGraph(Category $category)
     {
-
         OpenGraph::setDescription($category->category_description->meta_description);
         OpenGraph::setTitle($category->category_description->meta_title);
         OpenGraph::setUrl(config('app.url'));
@@ -60,7 +57,6 @@ class ProductSEOGenerator implements SEOProviderContract {
      */
     public function Twitter(Category $category)
     {
-
         Twitter::setTitle($category->category_description->name);
         Twitter::setSite('@InnovateEcommerce');
     }

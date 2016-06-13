@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Permission\Group;
 use App\Http\Requests\Request;
 
 /**
- * Class SortPermissionGroupRequest
- * @package App\Http\Requests\Backend\Access\Permission\Group
+ * Class SortPermissionGroupRequest.
  */
 class SortPermissionGroupRequest extends Request
 {

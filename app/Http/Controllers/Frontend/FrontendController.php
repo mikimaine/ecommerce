@@ -6,14 +6,10 @@ use App\Http\Controllers\Controller;
 use Theme;
 
 /**
- * Class FrontendController
- * @package App\Http\Controllers
+ * Class FrontendController.
  */
 class FrontendController extends Controller
 {
-
-
-
     /**
      * @return \Illuminate\View\View
      */
@@ -23,7 +19,7 @@ class FrontendController extends Controller
             'test' => 'it works!',
         ]);
 
-       return Theme::view('frontend.index');
+        return Theme::view('frontend.index');
 
         //return JsonResponse::create([$this->tax->getPaginated(config('access.users.default_per_page'))]);
     }

@@ -2,15 +2,14 @@
 
 namespace App\Models\Access\Role;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Access\Role\Traits\RoleAccess;
 use App\Models\Access\Role\Traits\Attribute\RoleAttribute;
 use App\Models\Access\Role\Traits\Relationship\RoleRelationship;
+use App\Models\Access\Role\Traits\RoleAccess;
+use Illuminate\Database\Eloquent\Model;
 use Innovate\BaseModel;
 
 /**
- * Class Role
- * @package App\Models\Access\Role
+ * Class Role.
  */
 class Role extends BaseModel
 {
@@ -30,9 +29,7 @@ class Role extends BaseModel
      */
     protected $guarded = ['id'];
 
-    /**
-     *
-     */
+
     public function __construct()
     {
         $this->table = config('access.roles_table');

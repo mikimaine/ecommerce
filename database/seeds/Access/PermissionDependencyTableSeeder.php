@@ -5,13 +5,10 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Class PermissionDependencyTableSeeder
+ * Class PermissionDependencyTableSeeder.
  */
 class PermissionDependencyTableSeeder extends Seeder
 {
-    /**
-     *
-     */
     public function run()
     {
         if (env('DB_DRIVER') == 'mysql') {
@@ -21,13 +18,13 @@ class PermissionDependencyTableSeeder extends Seeder
         if (env('DB_DRIVER') == 'mysql') {
             DB::table(config('access.permission_dependencies_table'))->truncate();
         } elseif (env('DB_DRIVER') == 'sqlite') {
-            DB::statement('DELETE FROM ' . config('access.permission_dependencies_table'));
+            DB::statement('DELETE FROM '.config('access.permission_dependencies_table'));
         } else {
             //For PostgreSQL or anything else
-            DB::statement('TRUNCATE TABLE ' . config('access.permission_dependencies_table') . ' CASCADE');
+            DB::statement('TRUNCATE TABLE '.config('access.permission_dependencies_table').' CASCADE');
         }
 
-        /**
+        /*
          * View access management needs view backend
          */
         DB::table(config('access.permission_dependencies_table'))->insert([
@@ -37,7 +34,7 @@ class PermissionDependencyTableSeeder extends Seeder
             'updated_at'    => Carbon::now(),
         ]);
 
-        /**
+        /*
          * All of the access permissions need view access management and view backend
          * Starts at id = 3 to skip view-backend, view-access-management
          */
@@ -57,12 +54,12 @@ class PermissionDependencyTableSeeder extends Seeder
             ]);
         }
 
-        /**
+        /*
          * Other dependencies here, follow above structure
          * If you have many it would be a good idea to break this up into different files and require them here
          */
 
-        /**
+        /*
          * End other dependencies
          */
 

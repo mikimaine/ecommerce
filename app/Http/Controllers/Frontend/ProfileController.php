@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Frontend\User\UserContract;
 use App\Http\Requests\Frontend\User\UpdateProfileRequest;
+use App\Repositories\Frontend\User\UserContract;
 
 /**
- * Class ProfileController
- * @package App\Http\Controllers\Frontend
+ * Class ProfileController.
  */
 class ProfileController extends Controller
 {
@@ -22,13 +21,15 @@ class ProfileController extends Controller
     }
 
     /**
-     * @param  UserContract         $user
-     * @param  UpdateProfileRequest $request
+     * @param UserContract         $user
+     * @param UpdateProfileRequest $request
+     *
      * @return mixed
      */
     public function update(UserContract $user, UpdateProfileRequest $request)
     {
         $user->updateProfile($request->all());
+
         return redirect()->route('frontend.dashboard')->withFlashSuccess(trans('strings.profile_successfully_updated'));
     }
 }

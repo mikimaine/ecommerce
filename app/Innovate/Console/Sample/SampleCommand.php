@@ -4,17 +4,15 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/24/2016
- * Time: 11:28 AM
+ * Time: 11:28 AM.
  */
-
 namespace Innovate\Console\Sample;
-
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 
-class SampleCommand extends Command {
-
+class SampleCommand extends Command
+{
     use ConfirmableTrait;
 
 
@@ -34,11 +32,9 @@ class SampleCommand extends Command {
      */
     protected $description = 'Out puts the version of Innovate e-commerce framework';
 
-
-   public function fire()
+    public function fire()
     {
-
-       echo "Innovate V 0.0.1";
+        echo 'Innovate V 0.0.1';
     }
 
    /* public function handle()
@@ -46,6 +42,4 @@ class SampleCommand extends Command {
 
         $this->comment(PHP_EOL . 'hello from sample'. PHP_EOL);
     }*/
-
-
 }

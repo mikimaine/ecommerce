@@ -5,8 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 
 /**
- * Class LocaleMiddleware
- * @package App\Http\Middleware
+ * Class LocaleMiddleware.
  */
 class LocaleMiddleware
 {
@@ -18,8 +17,9 @@ class LocaleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)

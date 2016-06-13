@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateCategoryDescriptionTranslationsTable extends Migration
 {
@@ -20,13 +20,12 @@ class CreateCategoryDescriptionTranslationsTable extends Migration
             $table->string('description');
             $table->timestamps();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
-            $table->foreign('category_description_id','c_d_t_foreign')->references('id')
+            $table->foreign('category_description_id', 'c_d_t_foreign')->references('id')
                 ->on('category_description')
                 ->onDelete('cascade');
-
         });
     }
 
@@ -39,6 +38,5 @@ class CreateCategoryDescriptionTranslationsTable extends Migration
     {
         //
         Schema::drop('category_description_translations');
-
     }
 }

@@ -15,6 +15,6 @@ return [
 
     'web_developer' => 'Web Developer',
     'administrator' => 'ተቆጣጣሪ',
-    'user' => 'ተጠቃሚ',
+    'user'          => 'ተጠቃሚ',
 
 ];

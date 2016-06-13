@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\User;
 use App\Http\Requests\Request;
 
 /**
- * Class ResendConfirmationEmailRequest
- * @package App\Http\Requests\Backend\Access\User
+ * Class ResendConfirmationEmailRequest.
  */
 class ResendConfirmationEmailRequest extends Request
 {

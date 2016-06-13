@@ -2,16 +2,16 @@
 
 return [
 
-    /**
+    /*
      *
      * Shared translations.
      *
      */
     'title' => 'INNOVATE INSTALLER',
-    'next' => 'Next Step',
+    'next'  => 'Next Step',
 
 
-    /**
+    /*
      *
      * Home page translations.
      *
@@ -23,7 +23,7 @@ return [
     ],
 
 
-    /**
+    /*
      *
      * Requirements page translations.
      *
@@ -33,7 +33,7 @@ return [
     ],
 
 
-    /**
+    /*
      *
      * Permissions page translations.
      *
@@ -43,27 +43,27 @@ return [
     ],
 
 
-    /**
+    /*
      *
      * Environment page translations.
      *
      */
     'environment' => [
-        'title' => 'Environment Settings',
-        'save' => 'Save .env',
+        'title'   => 'Environment Settings',
+        'save'    => 'Save .env',
         'success' => 'Your .env file settings have been saved.',
-        'errors' => 'Unable to save the .env file, Please create it manually.',
+        'errors'  => 'Unable to save the .env file, Please create it manually.',
     ],
 
 
-    /**
+    /*
      *
      * Final page translations.
      *
      */
     'final' => [
-        'title' => 'Finished',
+        'title'    => 'Finished',
         'finished' => 'Application has been successfully installed.',
-        'exit' => 'Click here to exit',
+        'exit'     => 'Click here to exit',
     ],
 ];
