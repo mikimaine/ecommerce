@@ -25,6 +25,11 @@ trait ProductRelationship {
         return $this->hasOne('Innovate\Products\ProductDescription','product_id');
     }
 
+    public function product_translations()
+    {
+       return   $this->hasMany('Innovate\Products\ProductTranslation','product_id');
+
+    }
     /**
      * Gets attributes for the specified product_attribute_set
      * @return mixed

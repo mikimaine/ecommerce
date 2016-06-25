@@ -21,12 +21,12 @@ class InnovateImageUpload implements InnovateImageUploadContract {
     /**
      * Default horizontal size of filter effects
      */
-    const DEFAULT_HORIZONTAL_SIZE = 300;
+    const DEFAULT_HORIZONTAL_SIZE = 250;
 
     /**
      * Default vertical size of filter effects
      */
-    const DEFAULT_VERTICAL_SIZE = 200;
+    const DEFAULT_VERTICAL_SIZE = 250;
 
     /**
      * The default watermark image

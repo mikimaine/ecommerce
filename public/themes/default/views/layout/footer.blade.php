@@ -4,11 +4,11 @@
         <div class="grid-col grid-col-3">
             <!-- about -->
             <div class="widget-alt widget-alt-about">
-                <div class="head">Why Choose "the 8"</div>
+                <div class="head">Why Choose INNOVATE Ecommerce Framework</div>
                 <div class="cont">
                     <ul>
-                        <li>Ut tincidunt nisl sapien, eget gravida quam vestibulum vitae. Ut ultrices purus quis tincidunt rutrum. Integer volutpat pretium tellus venenatis ornare. Proin commodo ipsum.</li>
-                        <li>Vestibulum vitae nisl quis elit tristique egestas eget sed nisi. Etiam mi sapien, luctus ac tempor quis, varius eu neque. Nullam vel ipsum mollis mauris porttitor.</li>
+                        <li> Highly scalable Laravel Based E-commerce framework</li>
+                        <li> Free, Secure, Open Source,Blazing Fast,Small, Highly customizable and easy to setup E-commerce Framework  </li>
                     </ul>
                 </div>
             </div>
@@ -20,14 +20,14 @@
             <div class="widget-alt widget-alt-contacts">
                 <div class="head">Contact Info</div>
                 <div class="cont">
-                    <address><i class="fa fa-map-marker"></i>250 Biscayne Blvd. (North) 11st Floor New World Tower Miami, Florida&nbsp;33148</address>
+                    <address><i class="fa fa-map-marker"></i>Bole International Airport,Addis Ababa Ethiopia </address>
                     <ul>
-                        <li><i class="fa fa-mobile"></i>(305) 333-5522</li>
-                        <li><i class="fa fa-mobile"></i>(305) 333-5566</li>
+                        <li><i class="fa fa-mobile"></i>(+251)923780688 </li>
+                        <li><i class="fa fa-mobile"></i>(+251) 913854712 3</li>
                     </ul>
                     <ul>
-                        <li><i class="fa fa-envelope-o"></i><a href="#">spam@7news.com</a></li>
-                        <li><i class="fa fa-link"></i><a href="#">www.7news.com</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="#">mail@tmgproduction.com</a></li>
+                        <li><i class="fa fa-link"></i><a href="#">www.tmgproduction.com</a></li>
                     </ul>
                     <ol>
                         <li><a href="#" class="fa fa-twitter"></a></li><!--
@@ -93,13 +93,11 @@
         <!-- secondary nav -->
         <nav class="secondary-nav">
             <ul>
-                <li><a href="#">Home</a></li><!--
-							--><li><a href="#">Features</a></li><!--
-							--><li><a href="#">Pages</a></li><!--
-							--><li><a href="#">Portfolio</a></li><!--
-							--><li><a href="#">Blog</a></li><!--
-							--><li><a href="#">Shop</a></li><!--
-							--><li><a href="#">Contacts</a></li>
+                             <li>{!! link_to('/', trans('navs.home')) !!}</li><!--
+							--><li>{!! link_to('/category', trans('innovate.menus.category')) !!}</li><!--
+							--><li>{!! link_to('/product', trans('innovate.menus.product')) !!}</li><!--
+							--><li>{!! link_to('/product/trend', trans('innovate.menus.trend_products')) !!}</li>
+
             </ul>
         </nav>
         <!--/ secondary nav -->

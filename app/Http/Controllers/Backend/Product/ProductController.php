@@ -18,7 +18,6 @@ use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Commanding\CommandBus;
 use Innovate\Products\PostDownloadableProductCommand;
 use Innovate\Products\PostNonDownloadableProductCommand;
-use Innovate\Products\ProductSoldCommand;
 use Innovate\Repositories\Category\CategoryContract;
 use Innovate\Repositories\Eav\Attribute\EavAttributeContract;
 use Innovate\Repositories\Eav\Category\EavCategoryContract;

@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
@@ -15,7 +16,7 @@ class CreateCategoryTable extends Migration
         //
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('parent_id')->unsigned();
+            $table->integer('parent_id')->nullable();
             $table->string('image');
             $table->boolean('status');
             $table->timestamps();

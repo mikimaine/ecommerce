@@ -11,7 +11,7 @@ namespace App\Http\Controllers\Frontend\Product;
 
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\CommandsDomainEventController;
-use Cache;
+use Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Innovate\Image\InnovateImageUploadContract;
@@ -103,112 +103,19 @@ class FrontendProductController extends CommandsDomainEventController
     public function create()
     {
         return view('backend.product.create')
-            ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory());
+            ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())  ;
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws GeneralException
-     */
-    public function newProduct(Request $request)
+    public function show($id)
     {
-        if ($request['product_type'] == 'downloadable') {
-            $a = $this->category->eagerLoad('category_description');
-         //   dd($a);
-            return view('backend.product.create_downloadable')
-                ->withCategory($request['product_category_id'])
-                ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
-                ->withAttributes($this->eavAttribute->getWhereCategory($request['product_category_id']))
-                ->withCategorys($this->category->eagerLoad('category_description'))
-                ->withTaxs($this->tax->getAll());
-
-        } elseif ($request['product_type'] == 'non-downloadable') {
-
-            return view('backend.product.create_non_downloadable')
-                ->withCategory($request['product_category_id'])
-                ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
-                ->withAttributes($this->eavAttribute->getWhereCategory($request['product_category_id']))
-                ->withCategorys($this->category->eagerLoad('category_description'))
-                ->withTaxs($this->tax->getAll());
-        }
-
-        throw new GeneralException('Select proper Product Type and Try again!');
+        //dd($this->product->eagerLoadWhere('',$id));
+        return Theme::view('frontend.product.show')
+            ->withProduct($this->product->eagerLoadWhere('',$id))
+            ->withProducts($this->product->eagerLoadPaginated(10));
     }
 
-    /**
-     * @param Request $request
-     * @param CommandBus $commandBus
-     * @throws GeneralException
-     */
-    public function storeDownloadable(Request $request,CommandBus $commandBus)
-    {
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            //check if the image file is valid
-            if (!$file->isValid()) {
-                throw new GeneralException('There is error in your image file.');
-            }
-            //pass the image along with the path to the upload to the imageDriver for further processing
-            $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
-            $all = $request->all();
-            $all['valid_image'] = $im->basename;
-
-            //Fire the command
-            $command = new PostDownloadableProductCommand($all);
-            $commandBus->execute($command);
-        }
-        throw new GeneralException('Fatal Error: 42  Innovate E-commerce encountered unknown error.Please  Try again!');
-    }
-
-    /**
-     * @param StoreProductRequest $request
-     * @param CommandBus $commandBus
-     * @throws GeneralException
-     */
-    public function storeNonDownloadable(StoreProductRequest $request, CommandBus $commandBus)
-    {
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            //check if the image file valid
-            if (!$file->isValid()) {
-                throw new GeneralException('There is error in your image file.');
-            }
-            //pass the image along with the path to the upload to the imageDriver for further processing
-            $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
-            $all = $request->all();
-            $all['valid_image'] = $im->basename;
-
-            //Fire the command
-            $command = new PostNonDownloadableProductCommand($all);
-            $commandBus->execute($command);
-        }
-
-    }
-
-    /**
-     * @param Request|StoreProductRequest $request
-     */
-    public function store(StoreProductRequest $request)
-    {
 
 
-        /*  $input = Input::only('title','description');
-          $command = new PostProductCommand($input['title'],$input['description']);
-          $this->commandBus->execute($command);
- */
-
-    }
-
-    /**
-     * @param $productId
-     */
-    public function delete($productId)
-    {
-        dd($productId);
-        $command = new ProductSoldCommand($productId);
-        $this->commandBus->execute($command);
-    }
 
 
 

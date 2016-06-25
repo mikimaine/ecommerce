@@ -121,13 +121,13 @@ class EloquentCategoryRepository implements CategoryContract{
     }
 
 
-    public function eagerLoad($table,$order_by = 'id', $sort = 'asc')
+    public function eagerLoad($table,$per_page = 10, $sort = 'asc')
     {
 
         return Category::with(['category_description.category_description_translations' => function($query){
                         $query->orderBy('id', 'asc');
                         $query->where('category_description_translations.locale', '=', App::getLocale());
-                        }])->get();
+                        }])->paginate($per_page);
     }
 
     private function createCategoryStub($input)
@@ -136,7 +136,7 @@ class EloquentCategoryRepository implements CategoryContract{
         $category->image = trim($input['valid_image']);
         $category->parent_id = $input['parent_category'];
         isset($input['status']) ?  $category['status']= 1 : $category['status']= 0;
-        isset($input['parent_category']) ?  $category->parent_id= $input['parent_category'] : $category->parent_id= NULL;
+       // isset($input['parent_category']) ?  $category->parent_id= $input['parent_category'] : $category->parent_id= NULL;
 
         return $category;
     }

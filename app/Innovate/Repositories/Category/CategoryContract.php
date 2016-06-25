@@ -63,5 +63,5 @@ interface CategoryContract {
      */
     public function delete($id);
 
-    public function eagerLoad($table,$order_by = 'id', $sort = 'asc');
+    public function eagerLoad($table,$per_page = 10, $sort = 'asc');
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Activity;
 use App\Http\Controllers\Controller;
 use Theme;
 
@@ -19,13 +20,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        javascript()->put([
-            'test' => 'it works!',
-        ]);
-
+       Activity::log('User Arrived At the home page');
        return Theme::view('frontend.index');
-
-        //return JsonResponse::create([$this->tax->getPaginated(config('access.users.default_per_page'))]);
     }
 
     /**

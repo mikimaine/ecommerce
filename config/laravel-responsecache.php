@@ -5,7 +5,7 @@ return [
      *  This is the master switch to enable of disable the response cache. If set to
      *  false no responses will be cached.
      */
-    'enabled' => env('RESPONSE_CACHE_ENABLED', true),
+    'enabled' => env('RESPONSE_CACHE_ENABLED', false),
 
     /**
      *  The given class will determinate if a request should be cached. The
@@ -34,5 +34,5 @@ return [
      * requests. This can be the name of any store that is
      * configured in app/config/cache.php
      */
-    'cacheStore' => env('RESPONSE_CACHE_DRIVER', 'redis'),
+    'cacheStore' => env('RESPONSE_CACHE_DRIVER', 'file'),
 ];

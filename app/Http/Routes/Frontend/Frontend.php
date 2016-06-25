@@ -5,11 +5,15 @@
  */
 
 $router->get('/', 'FrontendController@index')->name('home');
-$router->get('/category','FrontendCategoryController@index')->name('frontend.category');
+$router->get('/category','Category\FrontendCategoryController@index')->name('frontend.category');
 
 $router->get('product/trend','Product\FrontendProductController@trends')->name('frontend.product.trends');
-$router->get('product',  'Product\FrontendProductController@index')->name('frontend.product');
-$router->get('macros', 'FrontendController@macros');
+//$router->get('product',  'Product\FrontendProductController@index')->name('frontend.product');
+$router->resource('product',  'Product\FrontendProductController');
+
+
+$router->get('cart/createInstance',  'Cart\CartController@instance')->name('frontend.cart.instance');
+$router->resource('cart',  'Cart\CartController');
 
 
 $router->group(['prefix' => 'api/v1'],function()

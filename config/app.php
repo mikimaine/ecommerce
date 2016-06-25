@@ -192,8 +192,8 @@ return [
 		Caffeinated\Themes\ThemesServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-		Spiritix\LadaCache\LadaCacheServiceProvider::class,
-		Spatie\ResponseCache\ResponseCacheServiceProvider::class,
+		//Spiritix\LadaCache\LadaCacheServiceProvider::class,
+		//Spatie\ResponseCache\ResponseCacheServiceProvider::class,
 		RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
 
 		Innovate\Eventing\EventingServiceProvider::class,

@@ -29,7 +29,7 @@ print('INNOVATE E-COMMERCE CONSOLE  V0.1   '). PHP_EOL;
 
 /*
 |--------------------------------------------------------------------------
-| Run The INNOVATE Application
+| Run The INNOVATE LARAVEL Application
 |--------------------------------------------------------------------------
 |
 | When we run the console application, the current CLI command will be

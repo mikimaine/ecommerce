@@ -55,7 +55,7 @@ class CategoryController  extends Controller{
     public function index()
     {
         return view('backend.category.index')
-            ->withCategorys($this->category->eagerLoad('category_description'));
+            ->withCategorys($this->category->eagerLoad('category_description',9));
     }
 
     /**

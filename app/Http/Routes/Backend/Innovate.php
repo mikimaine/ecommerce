@@ -61,3 +61,8 @@ $router->get('product/newproduct','Product\ProductController@create')->name('adm
 $router->get('product/delete*','Product\ProductController@delete')->name('admin.product.newProduct.delete');
 $router->resource('product',  'Product\ProductController');
 
+/**
+ * Activity Log Module Routes
+ */
+$router->get('activity_log/flush','Activity\ActivityController@flush')->name('admin.activity_log.flush');
+$router->resource('activity_log',  'Activity\ActivityController');

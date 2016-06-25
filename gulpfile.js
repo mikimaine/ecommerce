@@ -1,6 +1,9 @@
 var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
+    var active_theme_name =  'default';
+    var theme_path = 'public/themes/'+active_theme_name;
+
     mix
         //.phpUnit()
 
@@ -16,9 +19,48 @@ elixir(function(mix) {
                 'frontend/main.css'
             ], 'public/css/frontend.css')
         .scripts([ // Combine front-end scripts
-                'plugins.js',
-                'frontend/main.js'
-            ], 'public/js/frontend.js')
+            'plugins.js',
+            'frontend/main.js'
+        ], 'public/js/frontend.js')
+        /**
+         * Combine Themes files
+         * */
+        .styles([
+            'frontend/themes/'+active_theme_name+'/animate.css',
+            'frontend/themes/'+active_theme_name+'/font-awesome.css',
+            'frontend/themes/'+active_theme_name+'/owl.carousel.css',
+            'frontend/themes/'+active_theme_name+'/jquery.fancybox.css',
+            'frontend/themes/'+active_theme_name+'/layerslider/css/layerslider.css',
+            'frontend/themes/'+active_theme_name+'/styles.css',
+            'frontend/themes/'+active_theme_name+'/tuner/css/styles.css',
+            'frontend/themes/'+active_theme_name+'/tuner/css/colorpicker.css',
+
+        ],theme_path+'/assets/css/frontend.css')
+
+        .scripts([ // Combine front-end theme scripts
+            'frontend/themes/'+active_theme_name+'/jquery.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery-ui.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.migrate.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.isotope.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.form.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.validate.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.countdown.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.fancybox.pack.js',
+            'frontend/themes/'+active_theme_name+'/jquery.fancybox-media.js',
+            'frontend/themes/'+active_theme_name+'/retina.min.js',
+            'frontend/themes/'+active_theme_name+'/SmoothScroll.js',
+            'frontend/themes/'+active_theme_name+'/owl.carousel.min.js',
+            'frontend/themes/'+active_theme_name+'/jquery.tweet.js',
+            'frontend/themes/'+active_theme_name+'/wow.min.js',
+            'frontend/themes/'+active_theme_name+'/flot/jquery.flot.js',
+            'frontend/themes/'+active_theme_name+'/flot/jquery.flot.pie.js',
+            'frontend/themes/'+active_theme_name+'/flot/jquery.flot.categories.js',
+            'frontend/themes/'+active_theme_name+'/layerslider/js/greensock.js',
+            'frontend/themes/'+active_theme_name+'/layerslider/js/layerslider.transitions.js',
+            'frontend/themes/'+active_theme_name+'/layerslider/js/layerslider.kreaturamedia.jquery.js',
+            'frontend/themes/'+active_theme_name+'/scripts.js',
+
+        ], theme_path+'/assets/js/frontend.js')
 
         .sass([ // Process back-end stylesheets
             'backend/main.scss',

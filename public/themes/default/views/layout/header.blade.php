@@ -21,30 +21,7 @@
 
         <div class="row">
             <!-- cart summary -->
-            <div class="cart-summary">
-                <i class="fa fa-shopping-cart"></i>
-                <span>My cart:</span>
-                <div>
-                    <a href="#">0 items<i class="fa fa-angle-down"></i></a>
-                    <ul>
-                        <li>
-                            <a href="#"><img src="{{ Theme::asset('default::pic/catalog-grid/item-2.jpg') }}" width="54" height="54" alt=""></a>
-                            <h4><a href="#">Fujifilm Finepix xp50</a></h4>
-                            <p>1 × $900</p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="{{ Theme::asset('default::pic/catalog-grid/item-6.jpg') }} " width="54" height="54" alt=""></a>
-                            <h4><a href="#">Motorola Triumph</a></h4>
-                            <p>1 × $5500</p>
-                        </li>
-                        <li class="subtotal">Subtotal: $6400.00</li>
-                        <li class="total">
-                            <a href="#"><i class="fa fa-shopping-cart"></i>&nbsp; View Cart</a>
-                            <a href="#">Checkout &nbsp;<i class="fa fa-share"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+               @component_cart_summary()
             <!--/ cart summary -->
         </div>
 
@@ -103,7 +80,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>{!! link_to('dashboard', trans('navs.dashboard')) !!}</li>
+                            <li>{!! link_to('activity_logs', trans('activity.navs.activity_log')) !!}</li>
 
                             @if (access()->user()->canChangePassword())
                                 <li>{!! link_to('auth/password/change', trans('navs.change_password')) !!}</li>

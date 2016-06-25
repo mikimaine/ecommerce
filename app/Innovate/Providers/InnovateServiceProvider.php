@@ -69,8 +69,8 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\StaticPages\CheckOutAgreement\EloquentCheckOutAgreementRepository::class
         );
 
-       $this->eavAttributeBindings();
-       $this->eavAttributeCategoryBindings();
+        $this->eavAttributeBindings();
+        $this->eavAttributeCategoryBindings();
 
         $this->CategoryBindings();
         $this->CategoryDescriptionBindings();
@@ -82,6 +82,8 @@ class InnovateServiceProvider extends ServiceProvider
         $this->ProductDescripionBinding();
 
         $this->ImageDriverBinding();
+        $this->ActivityLogBinding();
+        $this->CartBinding();
     }
 
     /**
@@ -154,6 +156,31 @@ class InnovateServiceProvider extends ServiceProvider
         return $this->app->bind(
             \Innovate\Image\InnovateImageUploadContract::class,
             \Innovate\Image\InnovateImageUpload::class
+        );
+
+    }
+
+    /**
+     * Bind the appropriate Activity Log for use
+     */
+    private function ActivityLogBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\Activity\ActivityContract::class,
+            \Innovate\Repositories\Activity\EloquentActivityRepository::class
+        );
+
+    }
+
+
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function CartBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Cart\CartContract::class,
+            \Innovate\Cart\CartModel::class
         );
 
     }
