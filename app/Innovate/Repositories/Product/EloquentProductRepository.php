@@ -179,8 +179,6 @@ class EloquentProductRepository implements ProductContract
          // Try to save both download file info and Product description Model
                 if(!$download->save() || !$this->productDescription->create($input)){
                     DB::rollback();
-                }else{
-                    throw new GeneralException('There was a problem creating Downloadable product. Please try again!');
                 }
                 $productLocal = $this->createTranslationStub($input, $product);
          // Try to save Local information of the product
@@ -204,9 +202,12 @@ class EloquentProductRepository implements ProductContract
                 }
             }
 
+
+            $this->raise(new ProductWasPosted($this->product));
+
             DB::commit();
          // Raise a new Event that tell product was posted
-            $this->raise(new ProductWasPosted($this->product));
+
             return $this;
         } catch (Exception $e) {
             DB::rollback();
@@ -214,6 +215,10 @@ class EloquentProductRepository implements ProductContract
         throw new GeneralException('There was a problem creating this product. Please try again!'. $e);
     }
 
+    public function search($search_term)
+    {
+        return Product::search($search_term)->get();
+    }
     /**
      * @param  $id
      * @param  $input

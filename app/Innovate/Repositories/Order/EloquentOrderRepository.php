@@ -18,7 +18,16 @@ class EloquentOrderRepository extends BaseRepository implements OrderContract
 
 
     protected $modelName = 'Innovate\Order\Order';
-
+    /**
+     * @param $per_page
+     * @param string $order_by
+     * @param string $sort
+     * @return mixed
+     */
+    public function getDeletedPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    {
+        return Order::onlyTrashed()->paginate($per_page);
+    }
     /**
      * @param $input
      * @return Tax
@@ -26,10 +35,11 @@ class EloquentOrderRepository extends BaseRepository implements OrderContract
     protected function createStub($input)
     {
         $order = new Order();
-        $order->product_id = $input['country_id'];
+
+        $order->product_id = $input['product_id'];
         $order->customer_id = $input['customer_id'];
         $order->shipping_id = $input['shipping_id'];
-        $order->download_link = $input['download_link'];
+        $order->download_link_id = $input['download_link'];
         $order->no_of_product = $input['no_of_product'];
         $order->firstname = $input['firstname'];
         $order->lastname = $input['lastname'];
@@ -37,7 +47,7 @@ class EloquentOrderRepository extends BaseRepository implements OrderContract
         $order->telephone = $input['telephone'];
         $order->total_price = $input['total_price'];
         $order->status = $input['status'];
-        $order->custom_fileds = $input['custom_fileds'];
+        $order->custom_fields = 'Some data';
 
         return $order;
     }

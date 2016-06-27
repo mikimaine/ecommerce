@@ -26,7 +26,7 @@ return [
     'menus' => [
         'innovate' => 'Innovate',
         'ecommerce' => 'E-commerce',
-        'product'  => 'Products',
+        'products'  => 'Products',
         'tax'      => 'Tax Manager',
         'static_pages' => 'Static Pages',
         'sales' => 'Sales',
@@ -41,7 +41,9 @@ return [
         'product_category_description' => 'Product Category Description',
         'setting' => 'E-commerce Settings ',
         'bank_info' => 'Bank Transfer Info',
-        'check_out_agreement' => 'Check out Agreement'
+        'check_out_agreement' => 'Check out Agreement',
+        'order' => 'Order\'s',
+        'stock' => 'Stock'
 
     ],
     'static_page' => [

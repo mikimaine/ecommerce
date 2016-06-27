@@ -11,6 +11,8 @@ namespace app\Http\Controllers\Frontend\Search;
 
 
 use App\Http\Controllers\Controller;
+use Caffeinated\Themes\Facades\Theme;
+use Innovate\Repositories\Product\ProductContract;
 
 /**
  * Class SearchController
@@ -24,7 +26,10 @@ class SearchController extends Controller {
      */
     private $products ;
 
-    function __construct($products)
+    /**
+     * @param ProductContract $products
+     */
+    function __construct(ProductContract $products)
     {
         $this->products = $products;
     }
@@ -34,7 +39,13 @@ class SearchController extends Controller {
      */
     public function index()
     {
-
+        $search_term = \Input::get('q');
+      //  if($search_term == ''){
+           // return redirect()->back()->with('flash_error', 'No search input');
+      //  }
+        return Theme::view('frontend.search.search_result')
+            ->withResults($this->products->search($search_term));
     }
+
 
 }

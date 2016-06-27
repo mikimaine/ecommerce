@@ -24,10 +24,11 @@ class CreateCategoryTable extends Migration
 
             /**
              * Add Foreign/Unique/Index
-             */
+
             $table->foreign('parent_id')->references('id')
                 ->on('category')
                 ->onDelete('cascade');
+             **/
 
         });
     }

@@ -84,6 +84,16 @@ class InnovateServiceProvider extends ServiceProvider
         $this->ImageDriverBinding();
         $this->ActivityLogBinding();
         $this->CartBinding();
+
+
+        $this->WishListBinding();
+        $this->CustomerBinding();
+        $this->CustomerTransactionBinding();
+        $this->OrderBinding();
+        $this->ShippingBinding();
+        $this->DownloadLinkBinding();
+
+
     }
 
     /**
@@ -184,4 +194,75 @@ class InnovateServiceProvider extends ServiceProvider
         );
 
     }
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function WishListBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\WishList\WishListContract::class,
+            \Innovate\Repositories\WishList\EloquentWishList::class
+        );
+
+    }
+
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function CustomerBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\Customer\CustomerContract::class,
+            \Innovate\Repositories\Customer\EloquentCustomerRepository::class
+        );
+
+    }
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function CustomerTransactionBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\Customer\CustomerTransactionContract::class,
+            \Innovate\Repositories\Customer\EloquentCustomerTransactionRepository::class
+        );
+
+    }
+
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function OrderBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\Order\OrderContract::class,
+            \Innovate\Repositories\Order\EloquentOrderRepository::class
+        );
+
+    }
+
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function ShippingBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\Shipping\ShippingContract::class,
+            \Innovate\Repositories\Shipping\EloquentShippingRepository::class
+        );
+
+    }
+
+    /**
+     * Bind the appropriate Cart for use
+     */
+    private function DownloadLinkBinding()
+    {
+        return $this->app->bind(
+            \Innovate\Repositories\Order\DownloadableLinkContract::class,
+            \Innovate\Repositories\Order\EloquentDownloadableLinkRepository::class
+        );
+
+    }
+
 }

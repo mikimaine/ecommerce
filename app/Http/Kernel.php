@@ -43,5 +43,10 @@ class Kernel extends HttpKernel
 		 */
 		'access.routeNeedsRole' => \App\Http\Middleware\RouteNeedsRole::class,
 		'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
+
+		/**
+		 * Innovate Ecommerce
+		 */
+		'checkout'=> \App\Http\Middleware\CheckOutCheck::class,
 	];
 }

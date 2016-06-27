@@ -3,19 +3,17 @@
     <div class="head"><i class="green fa fa-shopping-cart"></i>Shopping cart</div>
     <div class="cont">
         <ul>
-            <li>
-                <a href="#"><img src="pic/catalog-grid/item-2.jpg" width="54" height="54" alt=""></a>
-                <h4><a href="#">Fujifilm Finepix xp50</a></h4>
-                <p>1 × $900</p>
-            </li>
-            <li>
-                <a href="#"><img src="pic/catalog-grid/item-6.jpg" width="54" height="54" alt=""></a>
-                <h4><a href="#">Motorola Triumph</a></h4>
-                <p>1 × $5500</p>
-            </li>
+            @foreach ( Cart::content() as $cart)
+                <li>
+                    <a href="#"><img src="{!! config('app.url').'/app/innovate/product/'.$cart->options->img !!}" width="54" height="54" alt="{{ $cart->name }}"></a>
+                    <h4><a href="#">{{ $cart->name }}</a></h4>
+                    <p>{{ $cart->qty }} *  {{ $cart->price }}</p>
+                </li>
+            @endforeach
+
         </ul>
-        <a href="#" class="fa fa-share"></a>
-        <div class="total">Subtotal: £2000.00</div>
+        <a href="{{ route('cart.checkout') }}" class="fa fa-share"></a>
+        <div class="total">Subtotal:  {{ Cart::total()  }} ETB</div>
     </div>
 </div>
 <!--/ widget cart -->

@@ -11,17 +11,29 @@ namespace app\Http\Controllers\Frontend\Cart;
 
 
 use App\Http\Controllers\Controller;
+use Auth;
+use Gloudemans\Shoppingcart\Exceptions\ShoppingcartInvalidRowIDException;
+use Illuminate\Http\Request;
 use Innovate\Cart\CartContract;
+use Innovate\Repositories\Customer\CustomerContract;
+use Innovate\Repositories\Customer\CustomerTransactionContract;
+use Innovate\Repositories\Order\OrderContract;
 use Innovate\Repositories\Product\ProductContract;
 use Cart;
+use Theme;
 
 /**
  * Class CartController
  * @package app\Http\Controllers\Frontend\Cart
  */
-class CartController  extends Controller {
+class CartController extends Controller
+{
 
 
+    /**
+     *
+     * @var ProductContract
+     */
     private $product;
 
     /**
@@ -30,12 +42,24 @@ class CartController  extends Controller {
     private $cart;
 
     /**
-     * @param ProductContract $product
-     * @internal param CartContract $cart
+     * @var
      */
-    function __construct(ProductContract $product)
+    private $customer;
+
+
+    private $order;
+
+
+    /**
+     * @param ProductContract $product
+     * @param CustomerContract $customer
+     */
+    function __construct(ProductContract $product, CustomerContract $customer, OrderContract $order)
     {
         $this->product = $product;
+        $this->customer = $customer;
+
+        $this->order = $order;
     }
 
 
@@ -44,10 +68,8 @@ class CartController  extends Controller {
      */
     public function  index()
     {
-
-        var_dump(Cart::content());
-       // dd($this->cart->count());
-           //$this->cart->add(4);
+        // var_dump(Cart::content());
+        return Theme::view('frontend.product.cart');
     }
 
     /**
@@ -60,20 +82,99 @@ class CartController  extends Controller {
         $this->cart->add($id);
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function instance()
     {
-        $product = $this->product->eagerLoadWhere('product_translations',\Input::get('id'));
+        $product = $this->product->eagerLoadWhere('product_translations', \Input::get('id'));
 
-        Cart::add(['id'=>\Input::get('id'),'name'=> $product->product_translations[0]->name,'qty'=>1,'price'=>$product->price]);
+        Cart::add(['id' => \Input::get('id'),
+            'name' => $product->product_translations[0]->name,
+            'qty' => 1,
+            'price' => $product->price,
+            'options' => ['img' => $product->img_big, 'sku' => $product->sku, 'currency' => $product->currency]
+        ]);
 
 
-        return redirect()->back()->with('message', 'Product is added to the cart');
+        return redirect()->back()->with('flash_success', 'Product is added to the cart');
     }
 
-    public function show($id)
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
     {
-        dd($id);
-        $this->cart->add($id);
+        try {
+
+            $row_id = $id;
+            //remove
+            Cart::remove($row_id);
+            $message = "item removed from the cart";
+        } catch (ShoppingcartInvalidRowIDException $e) {
+            $message = "Failed to remove item";
+        }
+
+        return redirect()->back()->with('flash_success', $message);
+    }
+
+    /**
+     * @return \Caffeinated\Themes\View
+     */
+    public function checkout()
+    {
+        if (Auth::guest()) {
+
+            return Theme::view('frontend.product.checkout');
+        } else {
+
+            return Theme::view('frontend.product.checkout')
+                ->withCustomer($this->customer->getByUser(Auth::user()->id));
+
+        }
+
+    }
+
+
+    public function guestCheckout()
+    {
+        return Theme::view('frontend.product.guest');
+    }
+
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function guestRegister(Request $request)
+    {
+        $all = $request->all();
+        $customer = $this->customer->create($all);
+
+
+        foreach (Cart::content() as $cart) {
+
+            $order = array(
+                'product_id' => $cart->id,
+                'customer_id' => $customer->id,
+                'shipping_id' => NULL,
+                'download_link' => NULL,
+                'no_of_product' => $cart->qty,
+                'firstname' => $all['firstname'],
+                'lastname' => $all['lastname'],
+                'email' => $all['secondary_email'],
+                'telephone' => $all['telephone'],
+                'total_price' => $cart->price,
+                'status' => 0,
+                'custom_fileds' => 'sample fields'
+            );
+
+            $this->order->create($order);
+        }
+
+        Cart::destroy();
+        return redirect()->route('product.index')->withFlashSuccess(trans('cart.message.guest_susses'));
     }
 
 }

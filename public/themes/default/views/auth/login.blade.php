@@ -15,7 +15,7 @@
                         <div id="email_server_responce"></div>
                     </div>
 
-                    <form method="POST" action="/auth/login">
+                    <form method="POST" action="{!! config('app.url').'/auth/login' !!}">
                         {!! csrf_field() !!}
                         <label> Email: </label>
                         <input type="email" name="email" value="{{ old('email') }}">

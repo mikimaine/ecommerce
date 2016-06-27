@@ -103,8 +103,9 @@ class BaseRepository implements BaseContract{
         $preparedData = $this->createStub($input);
 
         try {
+
             if ($preparedData->save()) {
-                return true;
+                return $preparedData;
             }
         }catch (Exception $e){
          //Do things with the Error

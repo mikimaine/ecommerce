@@ -9,13 +9,19 @@
 
 namespace Innovate\Repositories\Customer;
 
-
 use Innovate\Customer\Customer;
 use Innovate\Repositories\BaseRepository;
 
 class EloquentCustomerRepository extends BaseRepository implements CustomerContract {
 
     protected $modelName = 'Innovate\Customer\Customer';
+
+
+    public function getByUser($id)
+    {
+        $customer = Customer::where('user_id','=', $id);
+        return $customer;
+    }
 
     /**
      * @param $input
@@ -24,14 +30,13 @@ class EloquentCustomerRepository extends BaseRepository implements CustomerContr
     protected function createStub($input)
     {
         $customer = new Customer();
-        $customer->user_id = $input['user_id'];
-        $customer->firstname = $input['order_id'];
+        $customer->user_id = NULL;
+        $customer->firstname = $input['firstname'];
         $customer->lastname = $input['lastname'];
         $customer->secondary_email = $input['secondary_email'];
         $customer->telephone = $input['telephone'];
         $customer->fax = $input['fax'];
         $customer->phone = $input['phone'];
-
 
         return $customer;
     }

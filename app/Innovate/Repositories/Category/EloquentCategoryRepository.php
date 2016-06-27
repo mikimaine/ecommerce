@@ -103,12 +103,23 @@ class EloquentCategoryRepository implements CategoryContract{
     }
 
     /**
-     * @param  $id
+     * @param $id
      * @return mixed
+     * @throws GeneralException
      */
     public function destroy($id)
     {
-        // TODO: Implement destroy() method.
+        $category = $this->findOrThrowException($id);
+        try{
+            if ($category->delete())
+            {
+                return true;
+            }
+        }catch (Exception $e){
+            //Do things with the Error
+
+        } throw new GeneralException('There was a problem deleting this Attribute set. Please try again.');
+
     }
 
     /**

@@ -63,7 +63,7 @@
                                 <p>Quantity:</p>
                                 <a href="#" class="minus"></a><input name="quantity" type="number" value="1"><a href="#" class="plus"></a>
                             </div>
-                            <a href="#" class="button button-with-left-icon"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a href="{!! route('frontend.cart.instance', ['id' =>$product->id] ) !!}" class="button button-with-left-icon"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                             <div class="categories">Categories: <a href="#">Default</a></div>
                         </div>
                     </div>
@@ -75,13 +75,13 @@
                     <input type="radio" name="product-tabs" checked id="product-tab1" class="product-tab-content"><!--
 							--><label for="product-tab1" class="first">Description</label><!--
 							-->
-							--><input type="radio" name="product-tabs" id="product-tab2" class="product-tab-content3"><!--
+							<input type="radio" name="product-tabs" id="product-tab2" class="product-tab-content2"><!--
 							--><label for="product-tab3" class="last">Reviews (3)</label>
                     <div id="product-tab-content1" class="description">
 
                         {!! $product->product_translations[0]->long_description !!}
                     </div>
-                    <div id="product-tab-content3">
+                    <div id="product-tab-content2">
                         <div class="comments">
                             <ul>
 

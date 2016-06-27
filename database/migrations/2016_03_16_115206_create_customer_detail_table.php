@@ -15,7 +15,7 @@ class CreateCustomerDetailTable extends Migration
         //
         Schema::create('customer_detail', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->nullable();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('secondary_email');
@@ -27,10 +27,11 @@ class CreateCustomerDetailTable extends Migration
 
             /**
              * Add Foreign/Unique/Index
-             */
+
             $table->foreign('user_id')->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+             * */
 
 
         });

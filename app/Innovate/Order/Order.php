@@ -12,10 +12,12 @@ namespace Innovate\Order;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innovate\BaseModel;
+use Innovate\Order\Traits\Attribute\OrderAttribute;
+use Innovate\Order\Traits\Relationship\OrderRelationship;
 
 class Order extends BaseModel{
 
-    use SoftDeletes;
+    use SoftDeletes,OrderAttribute,OrderRelationship;
 
     protected $table = 'order';
 

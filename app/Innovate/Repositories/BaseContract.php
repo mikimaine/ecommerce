@@ -16,7 +16,6 @@ interface BaseContract {
     /**
      * @param  $id
      * @return mixed
-     * @internal param bool $withRoles
      */
     public function findOrThrowException($id);
 

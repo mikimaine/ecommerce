@@ -41,19 +41,19 @@
                   </a>
 
 
-                  <ul class="treeview-menu {{ Active::pattern('admin/tax*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/tax*', 'display: block;') }}">
+                  <ul class="treeview-menu {{ Active::pattern('admin/sale*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/tax*', 'display: block;') }}">
                       <!--  Sales -->
-                      <li class="{{ Active::pattern('admin/eav*') }} treeview">
+                      <li class="{{ Active::pattern('admin/esale*') }} treeview">
                           <a href="#">
                               <span>{{ trans('innovate.menus.sales') }}</span>
                               <i class="fa fa-angle-left pull-right"></i>
                           </a>
-                          <ul class="treeview-menu {{ Active::pattern('admin/check_out_agreement*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
-                              <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
-                                  <a href="{!! url('admin/bank_transfer_info') !!}">{{ trans('innovate.menus.product_attribute_category') }}</a>
+                          <ul class="treeview-menu {{ Active::pattern('admin/sale*', 'menu-open') }}" style="display: none; {{ Active::pattern('admin/check_out_agreement*', 'display: block;') }}">
+                              <li class="{{ Active::pattern('admin/sale') }}">
+                                  <a href="{!! url('admin/order') !!}">{{ trans('innovate.menus.order') }}</a>
                               </li>
                               <li class="{{ Active::pattern('admin/bank_transfer_info') }}">
-                                  <a href="{!! url('admin/check_out_agreement') !!}">{{ trans('innovate.menus.product_attribute') }}</a>
+                                  <a href="{!! url('admin/stock') !!}">{{ trans('innovate.menus.stock') }}</a>
                               </li>
                           </ul>
                       </li>

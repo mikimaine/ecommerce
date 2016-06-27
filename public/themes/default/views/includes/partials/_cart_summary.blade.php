@@ -5,23 +5,19 @@
         <a href="#">{{ Cart::content()->count() }} items<i class="fa fa-angle-down"></i></a>
         <ul>
 
-            @foreach ( Cart::content() as $row)
+            @foreach ( Cart::content() as $cart)
             <li>
-                <a href="#"><img src="{{ Theme::asset('default::pic/catalog-grid/item-2.jpg') }}" width="54" height="54" alt=""></a>
-                <h4><a href="#">Fujifilm Finepix xp50</a></h4>
-                <p>1 × $900</p>
-            </li>
-            <li>
-                <a href="#"><img src="{{ Theme::asset('default::pic/catalog-grid/item-6.jpg') }} " width="54" height="54" alt=""></a>
-                <h4><a href="#">Motorola Triumph</a></h4>
-                <p>1 × $5500</p>
-            </li>
-            <li class="subtotal">Subtotal: $6400.00</li>
-            <li class="total">
-                <a href="#"><i class="fa fa-shopping-cart"></i>&nbsp; View Cart</a>
-                <a href="#">Checkout &nbsp;<i class="fa fa-share"></i></a>
+                <a href="#"><img src="{!! config('app.url').'/app/innovate/product/'.$cart->options->img !!}" width="54" height="54" alt="{{ $cart->name }}"></a>
+                <h4><a href="#">{{ $cart->name }}</a></h4>
+                <p> {{ $cart->qty }} *  {{ $cart->price }}</p>
             </li>
             @endforeach
+            <li class="subtotal">Subtotal: {{ Cart::total()  }} ETB</li>
+            <li class="total">
+                <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i>&nbsp; View Cart</a>
+                <a href="{{ route('cart.checkout') }}">Checkout &nbsp;<i class="fa fa-share"></i></a>
+            </li>
+
         </ul>
     </div>
 </div>

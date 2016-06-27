@@ -149,22 +149,26 @@ class ProductController extends CommandsDomainEventController
      */
     public function storeDownloadable(Request $request, CommandBus $commandBus)
     {
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image') && $request->hasFile('file')) {
             $file = $request->file('image');
+            $prod = $request->file('file');
             //check if the image file is valid
-            if (!$file->isValid()) {
-                throw new GeneralException('There is error in your image file.');
+            if (!$file->isValid() || !$prod->isValid()) {
+                throw new GeneralException('There is error in your file input.');
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
             $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
+            $fl_name =  Str::random(32) . '.' .$prod->guessExtension();
+            $pr =$prod->move(config('innovate.upload_path') . DS . 'product',$fl_name);
+
             $all = $request->all();
             $all['valid_image'] = $im->basename;
-
+            $all['valid_file'] = $fl_name;
             //Fire the command
             $command = new PostDownloadableProductCommand($all);
             $commandBus->execute($command);
         }
-        throw new GeneralException('Fatal Error: 42  Innovate E-commerce encountered unknown error.Please  Try again!');
+        //throw new GeneralException('Fatal Error: 42  Innovate E-commerce encountered unknown error.Please  Try again!');
     }
 
     /**

@@ -17,8 +17,8 @@ class CreateOrderTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('product_id')->unsigned();
             $table->integer('customer_id')->unsigned();
-            $table->integer('shipping_id')->unsigned();
-            $table->integer('download_link_id')->unsigned();
+            $table->integer('shipping_id')->nullable();
+            $table->integer('download_link_id')->nullable();
             $table->integer('no_of_product');
             $table->string('firstname');
             $table->string('lastname');
@@ -26,7 +26,7 @@ class CreateOrderTable extends Migration
             $table->string('telephone');
             $table->float('total_price');
             $table->boolean('status');
-            $table->longText('custom_fields');
+            $table->longText('custom_fields')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
@@ -41,10 +41,10 @@ class CreateOrderTable extends Migration
                 ->on('customer_detail')
                 ->onDelete('cascade');
 
-            $table->foreign('shipping_id')->references('id')
+            /*$table->foreign('shipping_id')->references('id')
                 ->on('shipping')
                 ->onDelete('cascade');
-
+*/
           /* $table->foreign('download_link_id')->references('id')
                 ->on('downloadable_link')
                 ->onDelete('cascade');*/

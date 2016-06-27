@@ -47,6 +47,8 @@ $router->resource('eav/category',  'Eav\Category\EavProductAttributeCategory');
 /**
  * Category Module Routes
  */
+
+//$router->get('category/deleted', 'Category\CategoryController@deleted')->name('admin.category.deleted');
 $router->resource('category/description',  'Category\CategoryDescriptionController');
 $router->resource('category',  'Category\CategoryController');
 
@@ -66,3 +68,10 @@ $router->resource('product',  'Product\ProductController');
  */
 $router->get('activity_log/flush','Activity\ActivityController@flush')->name('admin.activity_log.flush');
 $router->resource('activity_log',  'Activity\ActivityController');
+
+
+/**
+ * Orders
+ */
+$router->get('order/deleted', 'Order\OrderController@deleted')->name('admin.order.deleted');
+$router->resource('order','Order\OrderController');

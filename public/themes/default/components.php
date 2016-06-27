@@ -38,3 +38,7 @@
 \Component::register('cart_summary', function() {
     return \Theme::view('includes.partials._cart_summary');
 });
+
+\Component::register('shipping_calculator', function() {
+    return \Theme::view('includes.partials._shipping_calculator');
+});

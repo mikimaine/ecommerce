@@ -32,7 +32,8 @@
                                 @if($category->parent_id == NULL)
                                     @foreach ($category->category_description->category_description_translations as $trans)
 
-                                    <div class="dd-handle"><a href="{{route('admin.category.show',$category->id)}}"> {!! $trans->name !!} </a> <span class="pull-right">{!! $category->status ? "Active" : "Not Active" !!}</span></div>
+                                    <div class="dd-handle"><a href="{{route('admin.category.show',$category->id)}}"> {!! $trans->name !!} </a>
+                                        <span class="pull-right">{!! $category->getDeleteButtonAttribute()  !!}</span></div>
                                     @endforeach
                                     <ol class="dd-list">
                                         @foreach($categorys as $category_h)
@@ -40,7 +41,8 @@
                                                 @foreach ($category_h->category_description->category_description_translations as $trans)
 
                                                     <li class="dd-item" data-id="{!! $category->id !!}">
-                                                        <div class="dd-handle"><a href="{{route('admin.category.show',$category_h->id)}}">{!! $trans->name !!} </a> <span class="pull-right">{!! $category_h->status ? "Active" : "Not Active" !!} </span></div>
+                                                        <div class="dd-handle"><a href="{{route('admin.category.show',$category_h->id)}}">{!! $trans->name !!} </a>
+                                                            <span class="pull-right">{!! $category_h->getDeleteButtonAttribute()  !!}  <a href="{{route('admin.category.destroy',$category_h->id)}}">  </a> </span></div>
                                                     </li>
                                                 @endforeach
 

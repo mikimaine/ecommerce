@@ -13,8 +13,15 @@ $router->resource('product',  'Product\FrontendProductController');
 
 
 $router->get('cart/createInstance',  'Cart\CartController@instance')->name('frontend.cart.instance');
-$router->resource('cart',  'Cart\CartController');
 
+$router->group(['middleware' => 'checkout'], function () use ($router) {
+    $router->get('cart/checkout', 'Cart\CartController@checkout')->name('cart.checkout');
+    $router->get('cart/guestCheckout', 'Cart\CartController@guestCheckout')->name('cart.checkout');
+    $router->post('cart/guestRegister', 'Cart\CartController@guestRegister')->name('cart.guestRegister');
+
+});
+$router->resource('cart','Cart\CartController');
+$router->resource('search','Search\SearchController');
 
 $router->group(['prefix' => 'api/v1'],function()
 {
