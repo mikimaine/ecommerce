@@ -4,21 +4,19 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/22/2016
- * Time: 3:46 PM
+ * Time: 3:46 PM.
  */
-
 namespace Innovate\Eav\Value\Traits\Relationship;
 
-
-trait ProductAttributeIntRelationship {
-
+trait ProductAttributeIntRelationship
+{
     public function product()
     {
-        return $this->belongsTo('Innovate\Products\Product','product_id');
+        return $this->belongsTo('Innovate\Products\Product', 'product_id');
     }
 
     public function attribute()
     {
-        return $this->belongsTo('Innovate\Eav\Attribute\ProductAttribute','product_attribute_id');
+        return $this->belongsTo('Innovate\Eav\Attribute\ProductAttribute', 'product_attribute_id');
     }
 }

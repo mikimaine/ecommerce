@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Spatie\Activitylog\Models\Activity;
 
 /**
- * Class DashboardController
- * @package App\Http\Controllers\Backend
+ * Class DashboardController.
  */
 class DashboardController extends Controller
 {

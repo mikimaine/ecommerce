@@ -4,23 +4,19 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 12:56 PM
+ * Time: 12:56 PM.
  */
-
 namespace Innovate\Products;
 
-
 /**
- * Class PostProductCommand
- * @package Innovate\Products
+ * Class PostProductCommand.
  */
-class PostProductCommand {
-
-
+class PostProductCommand
+{
     /**
      * @var
      */
-    public  $title;
+    public $title;
 
     /**
      * @var
@@ -31,10 +27,9 @@ class PostProductCommand {
      * @param $title
      * @param $description
      */
-    function __construct($title,$description)
+    public function __construct($title, $description)
     {
         $this->description = $description;
         $this->title = $title;
-
     }
 }

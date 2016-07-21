@@ -1,17 +1,13 @@
 <?php
 
-
 namespace App\Http\Controllers\Backend\StaticPage;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Innovate\Repositories\StaticPages\CheckOutAgreement\CheckOutAgreementContract;
 
 class CheckOutAgreementController extends Controller
 {
-
     /**
      * @var
      */
@@ -20,11 +16,10 @@ class CheckOutAgreementController extends Controller
     /**
      * @param $checkOutAgreement
      */
-    function __construct(CheckOutAgreementContract $checkOutAgreement)
+    public function __construct(CheckOutAgreementContract $checkOutAgreement)
     {
         $this->checkOutAgreement = $checkOutAgreement;
     }
-
 
     /**
      * Display a listing of the resource.
@@ -50,7 +45,8 @@ class CheckOutAgreementController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -58,13 +54,15 @@ class CheckOutAgreementController extends Controller
 
 
         $this->checkOutAgreement->create($request->all());
+
         return redirect()->route('admin.check_out_agreement.index')->withFlashSuccess(trans('tax.alerts.created'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,12 +73,14 @@ class CheckOutAgreementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $checkout = $this->checkOutAgreement->findOrThrowException($id, true);
+
         return view('backend.staticPage.check_out_agreement.edit')
             ->withCheckout($checkout);
     }
@@ -88,8 +88,9 @@ class CheckOutAgreementController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -100,21 +101,20 @@ class CheckOutAgreementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $this->checkOutAgreement->destroy($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted'));
     }
 
-    /**
-     *
-     */
+
     public function deleted()
     {
-
         return view('backend.staticPage.check_out_agreement.deleted')
             ->withCheckouts($this->checkOutAgreement->getDeletedPaginated(25));
     }
@@ -122,12 +122,14 @@ class CheckOutAgreementController extends Controller
     public function restore($id)
     {
         $this->checkOutAgreement->restore($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.restored'));
     }
 
     public function delete($id)
     {
         $this->checkOutAgreement->delete($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted_permanently'));
     }
 }

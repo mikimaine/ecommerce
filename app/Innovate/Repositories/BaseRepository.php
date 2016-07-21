@@ -4,33 +4,32 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/24/2016
- * Time: 4:40 PM
+ * Time: 4:40 PM.
  */
-
 namespace Innovate\Repositories;
-
 
 use App\Exceptions\GeneralException;
 
 /**
- * Class BaseRepository
- * @package Innovate\Repositories
+ * Class BaseRepository.
  */
-class BaseRepository implements BaseContract{
-
+class BaseRepository implements BaseContract
+{
     /**
      * @var
      */
     protected $modelName;
 
     /**
-     * Returns the instance of the Model
+     * Returns the instance of the Model.
+     *
      * @return mixed
      */
     protected function getNewInstance()
     {
         $model = $this->modelName;
-        return new $model;
+
+        return new $model();
     }
 
     /**
@@ -38,12 +37,16 @@ class BaseRepository implements BaseContract{
      */
     protected function getModelNameFromNamespace()
     {
-       return str_replace('\\', '.', get_class($this->getNewInstance()));
+        return str_replace('\\', '.', get_class($this->getNewInstance()));
     }
+
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
@@ -58,21 +61,27 @@ class BaseRepository implements BaseContract{
 
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function getPaginated($per_page, $order_by = 'id', $sort = 'asc')
     {
         $instance = $this->getNewInstance();
+
         return $instance->orderBy($order_by, $sort)->paginate($per_page);
     }
+
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -81,21 +90,25 @@ class BaseRepository implements BaseContract{
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc')
     {
-
         $instance = $this->getNewInstance();
+
         return $instance->orderBy($order_by, $sort)->get();
     }
 
     /**
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
@@ -107,26 +120,27 @@ class BaseRepository implements BaseContract{
             if ($preparedData->save()) {
                 return $preparedData;
             }
-        }catch (Exception $e){
-         //Do things with the Error
-
-       }throw new GeneralException('There was a problem creating this '.$this->getModelNameFromNamespace().' Please try again!');
-
+        } catch (Exception $e) {
+            //Do things with the Error
+        }
+        throw new GeneralException('There was a problem creating this '.$this->getModelNameFromNamespace().' Please try again!');
     }
 
     /**
      * @param $id
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input)
     {
         $collection = $this->findOrThrowException($id);
 
-        if($collection->update($input))
-        {
+        if ($collection->update($input)) {
             return true;
         }
         throw new GeneralException('There was a problem updating this'.$this->getModelNameFromNamespace().'. Please try again.');
@@ -134,14 +148,15 @@ class BaseRepository implements BaseContract{
 
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function destroy($id)
     {
         $collection = $this->findOrThrowException($id);
-        if ($collection->delete())
-        {
+        if ($collection->delete()) {
             return true;
         }
 
@@ -150,13 +165,18 @@ class BaseRepository implements BaseContract{
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function delete($id)
     {
         // TODO: Implement delete() method.
     }
+<<<<<<< HEAD
 
 
 
 }
+=======
+}
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6

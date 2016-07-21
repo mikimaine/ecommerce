@@ -4,12 +4,11 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/10/2016
- * Time: 2:10 AM
+ * Time: 2:10 AM.
  */
-
 namespace App\Console\Commands;
-use Illuminate\Console\Command;
 
+use Illuminate\Console\Command;
 
 class Maker extends Command
 {
@@ -25,7 +24,7 @@ class Maker extends Command
      *
      * @var string
      */
-    protected$description = 'Display the Maker of the application ';
+    protected $description = 'Display the Maker of the application ';
 
     /**
      * Execute the console command.
@@ -34,7 +33,6 @@ class Maker extends Command
      */
     public function handle()
     {
-
-        $this->comment(PHP_EOL . 'This INNOVATE  E-COMMERCE FRAMEWORK is created by  MIKI MAINE AMDU -- mikias.amdu@gmail.com'. PHP_EOL);
+        $this->comment(PHP_EOL.'This INNOVATE  E-COMMERCE FRAMEWORK is created by  MIKI MAINE AMDU -- mikias.amdu@gmail.com'.PHP_EOL);
     }
 }

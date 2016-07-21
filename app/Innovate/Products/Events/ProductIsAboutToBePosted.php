@@ -4,18 +4,15 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 5:31 PM
+ * Time: 5:31 PM.
  */
-
 namespace Innovate\Products\Events;
 
-
 /**
- * Class ProductWasPosted
- * @package Innovate\Products
+ * Class ProductWasPosted.
  */
-class ProductIsAboutToBePosted {
-
+class ProductIsAboutToBePosted
+{
     /**
      * @var Product
      */
@@ -24,10 +21,8 @@ class ProductIsAboutToBePosted {
     /**
      * @param Product $product
      */
-    function __construct(Product $product)
+    public function __construct(Product $product)
     {
         $this->product = $product;
     }
-
-
 }

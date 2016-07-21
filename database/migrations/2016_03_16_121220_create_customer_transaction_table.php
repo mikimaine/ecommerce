@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateCustomerTransactionTable extends Migration
 {
@@ -22,7 +22,7 @@ class CreateCustomerTransactionTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('customer_id')->references('id')
@@ -31,8 +31,6 @@ class CreateCustomerTransactionTable extends Migration
             $table->foreign('order_id')->references('id')
                 ->on('order')
                 ->onDelete('cascade');
-
-
         });
     }
 

@@ -4,25 +4,23 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/22/2016
- * Time: 5:25 PM
+ * Time: 5:25 PM.
  */
-
 namespace Innovate\Products\Traits\Relationship;
 
-
 /**
- * Class ProductRelationship
- * @package Innovate\Products\Traits\Relationship
+ * Class ProductRelationship.
  */
-trait ProductRelationship {
-
+trait ProductRelationship
+{
     /**
-     * Gets the description of the product
+     * Gets the description of the product.
+     *
      * @return mixed
      */
     public function product_description()
     {
-        return $this->hasOne('Innovate\Products\ProductDescription','product_id');
+        return $this->hasOne('Innovate\Products\ProductDescription', 'product_id');
     }
 
     public function product_translations()
@@ -31,7 +29,8 @@ trait ProductRelationship {
 
     }
     /**
-     * Gets attributes for the specified product_attribute_set
+     * Gets attributes for the specified product_attribute_set.
+     *
      * @return mixed
      */
     public function attributes()
@@ -45,7 +44,7 @@ trait ProductRelationship {
      */
     public function int_values()
     {
-        return $this->hasMany('Innovate\Eav\Value\ProductAttributeInt','product_id');
+        return $this->hasMany('Innovate\Eav\Value\ProductAttributeInt', 'product_id');
     }
 
     /**
@@ -53,7 +52,7 @@ trait ProductRelationship {
      */
     public function varchar_values()
     {
-        return $this->hasMany('Innovate\Eav\Value\ProductAttributeVarchar','product_id');
+        return $this->hasMany('Innovate\Eav\Value\ProductAttributeVarchar', 'product_id');
     }
 
     /**
@@ -61,7 +60,7 @@ trait ProductRelationship {
      */
     public function text_values()
     {
-        return $this->hasMany('Innovate\Eav\Value\ProductAttributeText','product_id');
+        return $this->hasMany('Innovate\Eav\Value\ProductAttributeText', 'product_id');
     }
 
     /**
@@ -69,49 +68,37 @@ trait ProductRelationship {
      */
     public function tax()
     {
-        return $this->belongsTo('Innovate\Taxs\Tax','tax_id');
+        return $this->belongsTo('Innovate\Taxs\Tax', 'tax_id');
     }
-
 
     /**
      * @return mixed
      */
     public function product_attribute_category()
     {
-        return $this->belongsTo('Innovate\Eav\Category\ProductAttributeCategory','attribute_category_id');
+        return $this->belongsTo('Innovate\Eav\Category\ProductAttributeCategory', 'attribute_category_id');
     }
-
 
     /**
      * @return mixed
      */
     public function category()
     {
-        return $this->belongsTo('Innovate\Category\Category','category_id');
+        return $this->belongsTo('Innovate\Category\Category', 'category_id');
     }
 
-    /**
-     *
-     */
+
     public function order()
     {
-
     }
 
-    /**
-     *
-     */
+
     public function wish_list()
     {
-
     }
 
-    /**
-     *
-     */
+
     public function download()
     {
-
     }
-
 }

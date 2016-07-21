@@ -5,8 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class ConfigServiceProvider
- * @package App\Providers
+ * Class ConfigServiceProvider.
  */
 class ConfigServiceProvider extends ServiceProvider
 {

@@ -1,83 +1,83 @@
 <?php
 
 return [
-	
-	/*
-	|--------------------------------------------------------------------------
-	| Default Active Theme
-	|--------------------------------------------------------------------------
-	|
-	| Assign the default active theme to be used if one is not set during
-	| runtime. This is especially useful if you're developing a very basic
-	| application that does not require dynamically changing the theme.
-	|
-	*/
 
-	'active' => 'default',
-	
-	/*
-	|--------------------------------------------------------------------------
-	| Templating Engine
-	|--------------------------------------------------------------------------
-	|
-	| Switch between using either Blade or Twig as youe templating engine. To
-	| use Twig, be sure to install the twigbridge package and register its
-	| service provider BEFORE the Caffeinated Themes service provider.
-	|
-	| Available Settings: "blade", "twig"
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Default Active Theme
+    |--------------------------------------------------------------------------
+    |
+    | Assign the default active theme to be used if one is not set during
+    | runtime. This is especially useful if you're developing a very basic
+    | application that does not require dynamically changing the theme.
+    |
+    */
 
-	'engine' => 'blade',
+    'active' => 'default',
 
-	/*
-	|--------------------------------------------------------------------------
-	| Theme Paths
-	|--------------------------------------------------------------------------
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Templating Engine
+    |--------------------------------------------------------------------------
+    |
+    | Switch between using either Blade or Twig as youe templating engine. To
+    | use Twig, be sure to install the twigbridge package and register its
+    | service provider BEFORE the Caffeinated Themes service provider.
+    |
+    | Available Settings: "blade", "twig"
+    |
+    */
 
-	'paths' => [
+    'engine' => 'blade',
 
-		/*
-		|----------------------------------------------------------------------
-		| Absolute Path
-		|----------------------------------------------------------------------
-		|
-		| Define the absolute path where you'd like to store your themes. Note
-		| that if you choose a path that's outside of your public directory, you
-		| will still need to store your assets within your public directory.
-		|
-		*/
+    /*
+    |--------------------------------------------------------------------------
+    | Theme Paths
+    |--------------------------------------------------------------------------
+    |
+    */
 
-		'absolute' => public_path('themes'),
+    'paths' => [
 
-		/*
-		|----------------------------------------------------------------------
-		| Base Path
-		|----------------------------------------------------------------------
-		|
-		| Define the base path where your themes will be publically available.
-		| This is used to generate the correct URL when utilizing both the
-		| asset() and secureAsset() methods.
-		|
-		*/
+        /*
+        |----------------------------------------------------------------------
+        | Absolute Path
+        |----------------------------------------------------------------------
+        |
+        | Define the absolute path where you'd like to store your themes. Note
+        | that if you choose a path that's outside of your public directory, you
+        | will still need to store your assets within your public directory.
+        |
+        */
 
-		'base' => 'themes',
+        'absolute' => public_path('themes'),
 
-		/*
-		|----------------------------------------------------------------------
-		| Assets Path
-		|----------------------------------------------------------------------
-		|
-		| Define the path that will store all assets for each of your themes.
-		| This is used to generate the correct URL when utilizing both the
-		| asset() and secureAsset() methods.
-		|
-		*/
+        /*
+        |----------------------------------------------------------------------
+        | Base Path
+        |----------------------------------------------------------------------
+        |
+        | Define the base path where your themes will be publically available.
+        | This is used to generate the correct URL when utilizing both the
+        | asset() and secureAsset() methods.
+        |
+        */
 
-		'assets' => 'assets',
+        'base' => 'themes',
 
-	]
+        /*
+        |----------------------------------------------------------------------
+        | Assets Path
+        |----------------------------------------------------------------------
+        |
+        | Define the path that will store all assets for each of your themes.
+        | This is used to generate the correct URL when utilizing both the
+        | asset() and secureAsset() methods.
+        |
+        */
+
+        'assets' => 'assets',
+
+    ],
 
 ];

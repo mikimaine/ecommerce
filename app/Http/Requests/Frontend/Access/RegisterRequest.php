@@ -5,8 +5,7 @@ namespace App\Http\Requests\Frontend\Access;
 use App\Http\Requests\Request;
 
 /**
- * Class RegisterRequest
- * @package App\Http\Requests\Frontend\Access
+ * Class RegisterRequest.
  */
 class RegisterRequest extends Request
 {

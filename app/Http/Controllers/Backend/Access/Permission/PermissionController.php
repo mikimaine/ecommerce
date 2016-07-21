@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\Backend\Access\Permission;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Backend\Role\RoleRepositoryContract;
-use App\Repositories\Backend\Permission\PermissionRepositoryContract;
-use App\Http\Requests\Backend\Access\Permission\EditPermissionRequest;
 use App\Http\Requests\Backend\Access\Permission\CreatePermissionRequest;
 use App\Http\Requests\Backend\Access\Permission\DeletePermissionRequest;
+use App\Http\Requests\Backend\Access\Permission\EditPermissionRequest;
 use App\Http\Requests\Backend\Access\Permission\StorePermissionRequest;
 use App\Http\Requests\Backend\Access\Permission\UpdatePermissionRequest;
 use App\Repositories\Backend\Permission\Group\PermissionGroupRepositoryContract;
+use App\Repositories\Backend\Permission\PermissionRepositoryContract;
+use App\Repositories\Backend\Role\RoleRepositoryContract;
 
 /**
- * Class PermissionController
- * @package App\Http\Controllers\Access
+ * Class PermissionController.
  */
 class PermissionController extends Controller
 {
@@ -40,9 +39,9 @@ class PermissionController extends Controller
      */
     public function __construct(RoleRepositoryContract $roles, PermissionRepositoryContract $permissions, PermissionGroupRepositoryContract $groups)
     {
-        $this->roles       = $roles;
+        $this->roles = $roles;
         $this->permissions = $permissions;
-        $this->groups      = $groups;
+        $this->groups = $groups;
     }
 
     /**
@@ -56,7 +55,8 @@ class PermissionController extends Controller
     }
 
     /**
-     * @param  CreatePermissionRequest $request
+     * @param CreatePermissionRequest $request
+     *
      * @return mixed
      */
     public function create(CreatePermissionRequest $request)
@@ -68,23 +68,27 @@ class PermissionController extends Controller
     }
 
     /**
-     * @param  StorePermissionRequest $request
+     * @param StorePermissionRequest $request
+     *
      * @return mixed
      */
     public function store(StorePermissionRequest $request)
     {
         $this->permissions->create($request->except('permission_roles'), $request->only('permission_roles'));
+
         return redirect()->route('admin.access.roles.permissions.index')->withFlashSuccess(trans('alerts.permissions.created'));
     }
 
     /**
      * @param  $id
-     * @param  EditPermissionRequest $request
+     * @param EditPermissionRequest $request
+     *
      * @return mixed
      */
     public function edit($id, EditPermissionRequest $request)
     {
         $permission = $this->permissions->findOrThrowException($id, true);
+
         return view('backend.access.roles.permissions.edit')
             ->withPermission($permission)
             ->withPermissionRoles($permission->roles->lists('id')->all())
@@ -96,23 +100,27 @@ class PermissionController extends Controller
 
     /**
      * @param  $id
-     * @param  UpdatePermissionRequest $request
+     * @param UpdatePermissionRequest $request
+     *
      * @return mixed
      */
     public function update($id, UpdatePermissionRequest $request)
     {
         $this->permissions->update($id, $request->except('permission_roles'), $request->only('permission_roles'));
+
         return redirect()->route('admin.access.roles.permissions.index')->withFlashSuccess(trans('alerts.permissions.updated'));
     }
 
     /**
      * @param  $id
-     * @param  DeletePermissionRequest $request
+     * @param DeletePermissionRequest $request
+     *
      * @return mixed
      */
     public function destroy($id, DeletePermissionRequest $request)
     {
         $this->permissions->destroy($id);
+
         return redirect()->route('admin.access.roles.permissions.index')->withFlashSuccess(trans('alerts.permissions.deleted'));
     }
 }

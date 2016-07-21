@@ -4,26 +4,23 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/22/2016
- * Time: 3:59 PM
+ * Time: 3:59 PM.
  */
-
 namespace Innovate\Repositories\Eav\Value;
 
 use App\Exceptions\GeneralException;
 use Innovate\Eav\Value\ProductAttributeVarchar;
 
-
 /**
- * Class EloquentEavValueVarcharRepository
- * @package Innovate\Repositories\Eav\Value
+ * Class EloquentEavValueVarcharRepository.
  */
 class EloquentEavValueVarcharRepository implements EavValueVarcharContract
 {
-
-
     /**
      * @param  $id
+     *
      * @return mixed
+     *
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
@@ -33,9 +30,11 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
 
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -44,8 +43,9 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc')
@@ -55,7 +55,9 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
 
     /**
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
@@ -66,7 +68,9 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
     /**
      * @param  $id
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input)
@@ -76,6 +80,7 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function destroy($id)
@@ -85,6 +90,7 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -96,15 +102,16 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
      * @param $product
      * @param $new_string
      * @param $value
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $input
      * @internal param $roles
      */
     public function createFromInput($product, $new_string, $value)
     {
-
-
         $varchar = new ProductAttributeVarchar();
         $varchar->product_id = $product->id;
         $varchar->product_attribute_id = $new_string[2];
@@ -113,11 +120,8 @@ class EloquentEavValueVarcharRepository implements EavValueVarcharContract
             if ($varchar->save()) {
                 return true;
             }
-
         } catch (GeneralException $e) {
-
         }
         throw new GeneralException('Something went wrong Inserting custom varchar value. Try again later!');
-
     }
 }

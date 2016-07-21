@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Frontend Access Controllers
+ * Frontend Access Controllers.
  */
 $router->group(['namespace' => 'Auth'], function () use ($router) {
-    /**
+    /*
      * These routes require the user to be logged in
      */
     $router->group(['middleware' => 'auth'], function () use ($router) {
@@ -13,7 +13,7 @@ $router->group(['namespace' => 'Auth'], function () use ($router) {
         $router->post('auth/password/change', 'PasswordController@postChangePassword')->name('password.change');
     });
 
-    /**
+    /*
      * These routes require the user NOT be logged in
      */
     $router->group(['middleware' => 'guest'], function () use ($router) {

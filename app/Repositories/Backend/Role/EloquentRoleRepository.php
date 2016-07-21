@@ -2,19 +2,20 @@
 
 namespace App\Repositories\Backend\Role;
 
-use App\Models\Access\Role\Role;
 use App\Exceptions\GeneralException;
+use App\Models\Access\Role\Role;
 
 /**
- * Class EloquentRoleRepository
- * @package App\Repositories\Role
+ * Class EloquentRoleRepository.
  */
 class EloquentRoleRepository implements RoleRepositoryContract
 {
     /**
      * @param  $id
-     * @param  bool                                                                                                                      $withPermissions
+     * @param bool $withPermissions
+     *
      * @throws GeneralException
+     *
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|\Illuminate\Support\Collection|null|static
      */
     public function findOrThrowException($id, $withPermissions = false)
@@ -32,8 +33,9 @@ class EloquentRoleRepository implements RoleRepositoryContract
 
     /**
      * @param  $per_page
-     * @param  string      $order_by
-     * @param  string      $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getRolesPaginated($per_page, $order_by = 'sort', $sort = 'asc')
@@ -42,9 +44,10 @@ class EloquentRoleRepository implements RoleRepositoryContract
     }
 
     /**
-     * @param  string  $order_by
-     * @param  string  $sort
-     * @param  bool    $withPermissions
+     * @param string $order_by
+     * @param string $sort
+     * @param bool   $withPermissions
+     *
      * @return mixed
      */
     public function getAllRoles($order_by = 'sort', $sort = 'asc', $withPermissions = false)
@@ -58,7 +61,9 @@ class EloquentRoleRepository implements RoleRepositoryContract
 
     /**
      * @param  $input
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function create($input)
@@ -71,15 +76,14 @@ class EloquentRoleRepository implements RoleRepositoryContract
         $all = $input['associated-permissions'] == 'all' ? true : false;
 
         //This config is only required if all is false
-        if (!$all)
-        //See if the role must contain a permission as per config
-        {
+        if (!$all) {
+            //See if the role must contain a permission as per config
             if (config('access.roles.role_must_contain_permission') && count($input['permissions']) == 0) {
                 throw new GeneralException('You must select at least one permission for this role.');
             }
         }
 
-        $role       = new Role;
+        $role = new Role();
         $role->name = $input['name'];
         $role->sort = isset($input['sort']) && strlen($input['sort']) > 0 && is_numeric($input['sort']) ? (int) $input['sort'] : 0;
 
@@ -88,7 +92,7 @@ class EloquentRoleRepository implements RoleRepositoryContract
 
         if ($role->save()) {
             if (!$all) {
-                $current     = explode(',', $input['permissions']);
+                $current = explode(',', $input['permissions']);
                 $permissions = [];
 
                 if (count($current)) {
@@ -96,7 +100,6 @@ class EloquentRoleRepository implements RoleRepositoryContract
                         if (is_numeric($perm)) {
                             array_push($permissions, $perm);
                         }
-
                     }
                 }
                 $role->attachPermissions($permissions);
@@ -111,7 +114,9 @@ class EloquentRoleRepository implements RoleRepositoryContract
     /**
      * @param  $id
      * @param  $input
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function update($id, $input)
@@ -126,9 +131,8 @@ class EloquentRoleRepository implements RoleRepositoryContract
         }
 
         //This config is only required if all is false
-        if (!$all)
-        //See if the role must contain a permission as per config
-        {
+        if (!$all) {
+            //See if the role must contain a permission as per config
             if (config('access.roles.role_must_contain_permission') && count($input['permissions']) == 0) {
                 throw new GeneralException('You must select at least one permission for this role.');
             }
@@ -149,7 +153,7 @@ class EloquentRoleRepository implements RoleRepositoryContract
                 $role->permissions()->sync([]);
 
                 //Attach permissions if the role does not have all access
-                $current     = explode(',', $input['permissions']);
+                $current = explode(',', $input['permissions']);
                 $permissions = [];
 
                 if (count($current)) {
@@ -157,7 +161,6 @@ class EloquentRoleRepository implements RoleRepositoryContract
                         if (is_numeric($perm)) {
                             array_push($permissions, $perm);
                         }
-
                     }
                 }
                 $role->attachPermissions($permissions);
@@ -171,14 +174,15 @@ class EloquentRoleRepository implements RoleRepositoryContract
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
+     *
      * @return bool
      */
     public function destroy($id)
     {
         //Would be stupid to delete the administrator role
-        if ($id == 1) //id is 1 because of the seeder
-        {
+        if ($id == 1) { //id is 1 because of the seeder
             throw new GeneralException('You can not delete the Administrator role.');
         }
 

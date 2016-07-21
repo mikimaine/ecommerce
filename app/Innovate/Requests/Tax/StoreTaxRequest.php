@@ -24,7 +24,7 @@ class StoreTaxRequest extends Request
     public function rules()
     {
         return [
-            'name'                  => 'required|min:4|unique:tax',
+            'name'                   => 'required|min:4|unique:tax',
             'rate'                   => 'required|unique:tax',
         ];
     }

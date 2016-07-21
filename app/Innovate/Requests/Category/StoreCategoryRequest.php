@@ -4,23 +4,16 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/14/2016
- * Time: 7:35 PM
+ * Time: 7:35 PM.
  */
-
 namespace Innovate\Requests\Category;
 
-
-use Illuminate\Http\Request  as Re;
-
 use App\Http\Requests\Request;
-use Illuminate\Support\Str;
+use Illuminate\Http\Request  as Re;
 use Innovate\Image\InnovateImageUploadContract;
 
-class StoreCategoryRequest extends Request  {
-
-
-
-
+class StoreCategoryRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -33,25 +26,26 @@ class StoreCategoryRequest extends Request  {
 
     /**
      * Get the validation rules that apply to the request.
+     *
      * @return array
+     *
      * @internal param InnovateImageUploadContract $image
      */
     public function rules()
     {
-       $rules=  [
-              "meta_title" => 'required|min:3',
-              "meta_description" => 'required|min:10',
+        $rules = [
+              'meta_title'       => 'required|min:3',
+              'meta_description' => 'required|min:10',
 
-              "image" => 'required',
-              "name_en" => 'required',
-              "description_en" => 'required',
+              'image'          => 'required',
+              'name_en'        => 'required',
+              'description_en' => 'required',
                  ];
 
         if (Re::has('status')) {
             $rules['status'] = 'required';
-          }
+        }
 
-        return $rules ;
+        return $rules;
     }
-
 }

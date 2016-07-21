@@ -4,28 +4,28 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/19/2016
- * Time: 11:19 AM
+ * Time: 11:19 AM.
  */
-
 namespace Innovate\Repositories\Product;
 
+<<<<<<< HEAD
 use App;
+=======
+use App\Exceptions\GeneralException;
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
 use DB;
 use Exception;
 use Illuminate\Support\Str;
-use Innovate\Products\Product;
-use App\Exceptions\GeneralException;
-
 use Innovate\Eventing\EventGenerator;
-use Innovate\Products\ProductDownload;
 use Innovate\Products\Events\ProductWasPosted;
+use Innovate\Products\Product;
+use Innovate\Products\ProductDownload;
 use Innovate\Repositories\Eav\Value\EavValueIntContract;
 use Innovate\Repositories\Eav\Value\EavValueTextContract;
 use Innovate\Repositories\Eav\Value\EavValueVarcharContract;
 
 class EloquentProductRepository implements ProductContract
 {
-
     use EventGenerator;
 
     protected $product;
@@ -46,13 +46,13 @@ class EloquentProductRepository implements ProductContract
     private $productDescription;
 
     /**
-     * @param Product $product
-     * @param EavValueVarcharContract $varcharContract
-     * @param EavValueTextContract $textContract
-     * @param EavValueIntContract $intContract
+     * @param Product                    $product
+     * @param EavValueVarcharContract    $varcharContract
+     * @param EavValueTextContract       $textContract
+     * @param EavValueIntContract        $intContract
      * @param ProductDescriptionContract $productDescriptionContract
      */
-    function __construct(Product $product, EavValueVarcharContract $varcharContract, EavValueTextContract $textContract,
+    public function __construct(Product $product, EavValueVarcharContract $varcharContract, EavValueTextContract $textContract,
                          EavValueIntContract $intContract, ProductDescriptionContract $productDescriptionContract)
     {
         $this->product = $product;
@@ -63,12 +63,13 @@ class EloquentProductRepository implements ProductContract
         $this->productDescription = $productDescriptionContract;
     }
 
-
     /**
      * @param $id
-     * @param  bool $withRoles
-     * @return mixed
+     * @param bool $withRoles
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function findOrThrowException($id, $withRoles = false)
     {
@@ -83,9 +84,10 @@ class EloquentProductRepository implements ProductContract
 
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
      * @param  $status
+     *
      * @return mixed
      */
     public function getProductsPaginated($per_page, $status = 1, $order_by = 'id', $sort = 'asc')
@@ -95,6 +97,7 @@ class EloquentProductRepository implements ProductContract
 
     /**
      * @param  $per_page
+     *
      * @return \Illuminate\Pagination\Paginator
      */
     public function getDeletedProductsPaginated($per_page)
@@ -103,8 +106,9 @@ class EloquentProductRepository implements ProductContract
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAllProducts($order_by = 'id', $sort = 'asc')
@@ -114,10 +118,14 @@ class EloquentProductRepository implements ProductContract
 
     /**
      * This Starts a Database Transaction and insert NON Downloadable data to there specific Entity's
-     * If any thing goes wrong every thing will be rollback
+     * If any thing goes wrong every thing will be rollback.
+     *
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
@@ -128,7 +136,7 @@ class EloquentProductRepository implements ProductContract
             if ($product->save()) {
                 // dd($input);
                 $input['product_id'] = $product->id;
-                if(!$this->productDescription->create($input)){
+                if (!$this->productDescription->create($input)) {
                     DB::rollback();
                 }
                 $productLocal = $this->createTranslationStub($input, $product);
@@ -136,17 +144,14 @@ class EloquentProductRepository implements ProductContract
                     foreach ($input as $key => $value) {
                         $new_string = explode('-', $key);
                         if (in_array('productAttributeVarchar', $new_string)) {
-
                             $this->varchar->createFromInput($product, $new_string, $value);
                         } elseif (in_array('productAttributeText', $new_string)) {
-
                             $this->text->createFromInput($product, $new_string, $value);
                         } elseif (in_array('productAttributeInt', $new_string)) {
-
                             $this->text->createFromInput($product, $new_string, $value);
                         }
                     }
-                }else{
+                } else {
                     DB::rollback();
                     throw new GeneralException('There was a problem Saving Downloadable product Local.Please try again!');
                 }
@@ -156,29 +161,40 @@ class EloquentProductRepository implements ProductContract
 
             return $this;
         } catch (Exception $e) {
-            DB::beginTransaction();    DB::beginTransaction();    DB::beginTransaction();
-        } throw new GeneralException('There was a problem creating this product. Please try again!'. $e);
+            DB::beginTransaction();
+            DB::beginTransaction();
+            DB::beginTransaction();
+        }
+        throw new GeneralException('There was a problem creating this product. Please try again!'.$e);
     }
 
     /**
      * This Starts a Database Transaction and insert Downloadable data to there specific Entity's
-     * If any thing goes wrong every thing will be rollback
+     * If any thing goes wrong every thing will be rollback.
+     *
      * @param $input
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function createDownloadable($input)
     {
         DB::beginTransaction();
         $product = $this->createDownloadableStub($input);
         try {
-         // Try to save the product model
+            // Try to save the product model
             if ($product->save()) {
                 $input['product_id'] = $product->id;
                 $download = $this->createDownloadStub($input, $product);
          // Try to save both download file info and Product description Model
-                if(!$download->save() || !$this->productDescription->create($input)){
+                if (!$download->save() || !$this->productDescription->create($input)) {
                     DB::rollback();
+<<<<<<< HEAD
+=======
+                } else {
+                    throw new GeneralException('There was a problem creating Downloadable product. Please try again!');
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
                 }
                 $productLocal = $this->createTranslationStub($input, $product);
          // Try to save Local information of the product
@@ -186,17 +202,14 @@ class EloquentProductRepository implements ProductContract
                     foreach ($input as $key => $value) {
                         $new_string = explode('-', $key);
                         if (in_array('productAttributeVarchar', $new_string)) {
-
                             $this->varchar->createFromInput($product, $new_string, $value);
                         } elseif (in_array('productAttributeText', $new_string)) {
-
                             $this->text->createFromInput($product, $new_string, $value);
                         } elseif (in_array('productAttributeInt', $new_string)) {
-
                             $this->text->createFromInput($product, $new_string, $value);
                         }
                     }
-                }else{
+                } else {
                     DB::rollback();
                     throw new GeneralException('There was a problem Saving Downloadable product Local.Please try again!');
                 }
@@ -207,12 +220,16 @@ class EloquentProductRepository implements ProductContract
 
             DB::commit();
          // Raise a new Event that tell product was posted
+<<<<<<< HEAD
+=======
+            $this->raise(new ProductWasPosted($this->product));
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
 
             return $this;
         } catch (Exception $e) {
             DB::rollback();
         }
-        throw new GeneralException('There was a problem creating this product. Please try again!'. $e);
+        throw new GeneralException('There was a problem creating this product. Please try again!'.$e);
     }
 
     public function search($search_term)
@@ -223,6 +240,7 @@ class EloquentProductRepository implements ProductContract
      * @param  $id
      * @param  $input
      * @param  $roles
+     *
      * @return mixed
      */
     public function update($id, $input, $roles, $permissions)
@@ -232,24 +250,25 @@ class EloquentProductRepository implements ProductContract
 
     /**
      * @param $id
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function destroy($id)
     {
         $product = $this->findOrThrowException($id);
         //dd($product);
-        if ($product->delete())
-        {
+        if ($product->delete()) {
             return true;
         }
 
         throw new GeneralException('There was a problem deleting this Product. Please try again.');
-
     }
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -259,6 +278,7 @@ class EloquentProductRepository implements ProductContract
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function restore($id)
@@ -269,6 +289,7 @@ class EloquentProductRepository implements ProductContract
     public function eagerLoadPaginated($per_page)
     {
         // $this->raise(new ProductWasPosted(new Product()));
+<<<<<<< HEAD
         return Product::with(['category', 'tax', 'product_attribute_category','varchar_values','text_values','int_values','product_translations' => function($query){
             $query->where('product_translations.locale', '=', App::getLocale());
         }])->paginate($per_page);
@@ -282,6 +303,9 @@ class EloquentProductRepository implements ProductContract
             //$query->orderBy('product.id', $product_id);
             $query->where('product_translations.locale', '=', App::getLocale());
              }])->find($product_id);
+=======
+        return Product::with('category', 'tax', 'product_attribute_category')->paginate($per_page);
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
     }
 
 
@@ -309,9 +333,9 @@ class EloquentProductRepository implements ProductContract
         return $product;
     }
 
-
     /**
      * @param $input
+     *
      * @return Product
      */
     private function createDownloadableStub($input)
@@ -324,7 +348,7 @@ class EloquentProductRepository implements ProductContract
         $product->currency = trim($input['currency']);
         $product->price = trim($input['price']);
         $product->previous_price = trim($input['previous_price']);
-        $product->stock = NULL;
+        $product->stock = null;
         $product->unlimited = 1;
         $product->location = trim($input['location']);
         $product->tax_id = trim($input['tax_id']);
@@ -335,7 +359,6 @@ class EloquentProductRepository implements ProductContract
 
         return $product;
     }
-
 
     private function createTranslationStub($input, $product)
     {
@@ -351,7 +374,6 @@ class EloquentProductRepository implements ProductContract
         isset($input['long_description_am']) ? $product->translateOrNew('am')->long_description = $input['long_description_am'] : 1;
 
         return $product;
-
     }
 
     private function createDownloadStub($input, $product)
@@ -359,11 +381,11 @@ class EloquentProductRepository implements ProductContract
         $download = new ProductDownload();
         $download->product_id = $product->id;
         $download->filename = $input['valid_file'];
-        $download->mask =  Str::random(16).sha1($input['valid_file']);
+        $download->mask = Str::random(16).sha1($input['valid_file']);
 
         return $download;
-
     }
+<<<<<<< HEAD
 
     public function eagerLoad($table,$order_by = 'id', $sort = 'asc')
     {
@@ -376,3 +398,6 @@ class EloquentProductRepository implements ProductContract
 
 
 }
+=======
+}
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6

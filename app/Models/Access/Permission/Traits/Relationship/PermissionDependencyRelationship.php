@@ -5,8 +5,7 @@ namespace App\Models\Access\Permission\Traits\Relationship;
 use App\Models\Access\Permission\Permission;
 
 /**
- * Class PermissionDependencyRelationship
- * @package App\Models\Access\Permission\Traits\Relationship
+ * Class PermissionDependencyRelationship.
  */
 trait PermissionDependencyRelationship
 {

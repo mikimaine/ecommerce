@@ -4,24 +4,23 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/22/2016
- * Time: 3:59 PM
+ * Time: 3:59 PM.
  */
-
 namespace Innovate\Repositories\Eav\Value;
+
 use App\Exceptions\GeneralException;
 use Innovate\Eav\Value\ProductAttributeInt;
 
-
 /**
- * Class EloquentEavValueIntRepository
- * @package Innovate\Repositories\Eav\Value
+ * Class EloquentEavValueIntRepository.
  */
-class EloquentEavValueIntRepository implements EavValueIntContract{
-
-
+class EloquentEavValueIntRepository implements EavValueIntContract
+{
     /**
      * @param  $id
+     *
      * @return mixed
+     *
      * @internal param bool $withRoles
      */
     public function findOrThrowException($id)
@@ -31,9 +30,11 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
 
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc')
@@ -42,8 +43,9 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
     }
 
     /**
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc')
@@ -53,7 +55,9 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
 
     /**
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function create($input)
@@ -64,7 +68,9 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
     /**
      * @param  $id
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input)
@@ -74,6 +80,7 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function destroy($id)
@@ -83,6 +90,7 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -94,8 +102,11 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
      * @param $product
      * @param $new_string
      * @param $value
-     * @return mixed
+     *
      * @throws GeneralException
+     *
+     * @return mixed
+     *
      * @internal param $input
      * @internal param $roles
      */
@@ -109,9 +120,8 @@ class EloquentEavValueIntRepository implements EavValueIntContract{
             if ($int->save()) {
                 return true;
             }
-
         } catch (GeneralException $e) {
-
-        }throw new GeneralException('Something went wrong Inserting Custom Int Value. Try again later!');
+        }
+        throw new GeneralException('Something went wrong Inserting Custom Int Value. Try again later!');
     }
 }

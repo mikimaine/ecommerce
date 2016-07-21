@@ -2,16 +2,15 @@
 
 namespace App\Repositories\Frontend\User;
 
-use App\Models\Access\User\User;
 use App\Exceptions\GeneralException;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
+use App\Models\Access\User\User;
 use App\Models\Access\User\UserProvider;
 use App\Repositories\Backend\Role\RoleRepositoryContract;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 /**
- * Class EloquentUserRepository
- * @package App\Repositories\User
+ * Class EloquentUserRepository.
  */
 class EloquentUserRepository implements UserContract
 {
@@ -30,7 +29,9 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $id
+     *
      * @throws GeneralException
+     *
      * @return \Illuminate\Support\Collection|null|static
      */
     public function findOrThrowException($id)
@@ -45,12 +46,13 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $data
-     * @param  bool     $provider
+     * @param bool $provider
+     *
      * @return static
      */
     public function create($data, $provider = false)
     {
-        /**
+        /*
          * See if creating a user from a social account or the application
          */
         if ($provider) {
@@ -73,12 +75,12 @@ class EloquentUserRepository implements UserContract
             ]);
         }
 
-        /**
+        /*
          * Add the default site role to the new user
          */
         $user->attachRole($this->role->getDefaultUserRole());
 
-        /**
+        /*
          * If users have to confirm their email and this is not a social account,
          * send the confirmation email
          *
@@ -88,7 +90,7 @@ class EloquentUserRepository implements UserContract
             $this->sendConfirmationEmail($user);
         }
 
-        /**
+        /*
          * Return the user object
          */
         return $user;
@@ -97,16 +99,17 @@ class EloquentUserRepository implements UserContract
     /**
      * @param  $data
      * @param  $provider
+     *
      * @return static
      */
     public function findByUsernameOrCreate($data, $provider)
     {
-        /**
+        /*
          * Check to see if there is a user with this email first
          */
         $user = User::where('email', $data->email)->first();
 
-        /**
+        /*
          * If the user does not exist create them
          * The true flag indicate that it is a social account
          * Which triggers the script to use some default values in the create method
@@ -118,17 +121,16 @@ class EloquentUserRepository implements UserContract
             ], true);
         }
 
-        /**
+        /*
          * See if the user has logged in with this social account before
          */
-        if ($this->hasProvider($user, $provider))
-        /**
+        if ($this->hasProvider($user, $provider)) /*
          * Account is not new, see if the account needs updating
          */
         {
             $this->checkIfUserNeedsUpdating($provider, $data, $user);
         } else {
-            /**
+            /*
              * Gather the provider data for saving and associate it with the user
              */
             $user->providers()->save(new UserProvider([
@@ -144,6 +146,7 @@ class EloquentUserRepository implements UserContract
     /**
      * @param  $user
      * @param  $provider
+     *
      * @return bool
      */
     public function hasProvider($user, $provider)
@@ -152,7 +155,6 @@ class EloquentUserRepository implements UserContract
             if ($p->provider == $provider) {
                 return true;
             }
-
         }
 
         return false;
@@ -179,7 +181,7 @@ class EloquentUserRepository implements UserContract
 
         if (!empty($differences)) {
             $user->email = $providerData->email;
-            $user->name  = $providerData->name;
+            $user->name = $providerData->name;
             $user->save();
         }
 
@@ -194,12 +196,14 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $input
+     *
      * @throws GeneralException
+     *
      * @return mixed
      */
     public function updateProfile($input)
     {
-        $user       = access()->user();
+        $user = access()->user();
         $user->name = $input['name'];
 
         if ($user->canChangeEmail()) {
@@ -219,7 +223,9 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $input
+     *
      * @throws GeneralException
+     *
      * @return mixed
      */
     public function changePassword($input)
@@ -229,6 +235,7 @@ class EloquentUserRepository implements UserContract
         if (Hash::check($input['old_password'], $user->password)) {
             //Passwords are hashed on the model
             $user->password = $input['password'];
+
             return $user->save();
         }
 
@@ -237,6 +244,7 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $token
+     *
      * @throws GeneralException
      */
     public function confirmAccount($token)
@@ -250,6 +258,7 @@ class EloquentUserRepository implements UserContract
 
             if ($user->confirmation_code == $token) {
                 $user->confirmed = 1;
+
                 return $user->save();
             }
 
@@ -261,6 +270,7 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $user
+     *
      * @return mixed
      */
     public function sendConfirmationEmail($user)
@@ -271,7 +281,7 @@ class EloquentUserRepository implements UserContract
         }
 
         return Mail::send('emails.confirm', ['token' => $user->confirmation_code], function ($message) use ($user) {
-            $message->to($user->email, $user->name)->subject(app_name() . ': Confirm your account!');
+            $message->to($user->email, $user->name)->subject(app_name().': Confirm your account!');
         });
     }
 }

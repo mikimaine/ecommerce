@@ -4,41 +4,46 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 4/24/2016
- * Time: 4:39 PM
+ * Time: 4:39 PM.
  */
-
 namespace Innovate\Repositories;
 
-
-interface BaseContract {
-
-
+interface BaseContract
+{
     /**
      * @param  $id
+     *
      * @return mixed
+<<<<<<< HEAD
+=======
+     *
+     * @internal param bool $withRoles
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
      */
     public function findOrThrowException($id);
 
     /**
      * @param  $per_page
-     * @param  string $order_by
-     * @param  string $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
+     *
      * @internal param $status
      */
     public function Paginated($per_page, $order_by = 'id', $sort = 'asc');
 
-
-
     /**
-     * @param  string  $order_by
-     * @param  string  $sort
+     * @param string $order_by
+     * @param string $sort
+     *
      * @return mixed
      */
     public function getAll($order_by = 'id', $sort = 'asc');
 
     /**
      * @param  $input
+     *
      * @return mixed
      */
     public function create($input);
@@ -46,19 +51,23 @@ interface BaseContract {
     /**
      * @param  $id
      * @param  $input
+     *
      * @return mixed
+     *
      * @internal param $roles
      */
     public function update($id, $input);
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function destroy($id);
 
     /**
      * @param  $id
+     *
      * @return mixed
      */
     public function delete($id);

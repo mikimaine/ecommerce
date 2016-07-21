@@ -2,8 +2,8 @@
 
 namespace Innovate\Providers;
 
-use Innovate\Services\Product\Product;
 use Illuminate\Support\ServiceProvider;
+use Innovate\Services\Product\Product;
 
 class ProductServiceProvider extends ServiceProvider
 {
@@ -34,21 +34,16 @@ class ProductServiceProvider extends ServiceProvider
     public function registerProduct()
     {
         $this->app->bind('product', function ($app) {
-
             return new Product($app);
         });
     }
 
-
     public function registerBinding()
     {
-
         $this->app->bind(
             \Innovate\Repositories\Product\ProductContract::class,
             \Innovate\Repositories\Product\EloquentProductRepository::class
         );
-
-
     }
 
     public function registerFacade()
@@ -57,6 +52,5 @@ class ProductServiceProvider extends ServiceProvider
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('Product', \Innovate\Services\Product\Facades\Product::class);
         });
-
     }
 }

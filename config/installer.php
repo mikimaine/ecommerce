@@ -17,8 +17,11 @@ return [
         'pdo',
         'mbstring',
         'tokenizer',
+<<<<<<< HEAD
         'curl',
         'fileinfo'
+=======
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
     ],
 
     /*
@@ -34,6 +37,6 @@ return [
         'storage/app/'           => '775',
         'storage/framework/'     => '775',
         'storage/logs/'          => '775',
-        'bootstrap/cache/'       => '775'
-    ]
+        'bootstrap/cache/'       => '775',
+    ],
 ];

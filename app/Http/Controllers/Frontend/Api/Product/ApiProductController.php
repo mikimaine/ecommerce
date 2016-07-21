@@ -4,19 +4,17 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/8/2016
- * Time: 10:50 PM
+ * Time: 10:50 PM.
  */
-
 namespace App\Http\Controllers\Frontend\Api\Product;
 
 use App\Exceptions\GeneralException;
 use App\Http\ApiController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 use Innovate\Api\Transformers\ProductTransformer;
-use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Commanding\CommandBus;
+use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Products\PostDownloadableProductCommand;
 use Innovate\Products\PostNonDownloadableProductCommand;
 use Innovate\Products\ProductSoldCommand;
@@ -28,12 +26,10 @@ use Innovate\Repositories\Tax\TaxContract;
 use Innovate\Requests\product\StoreProductRequest;
 
 /**
- * Class ProductController
- * @package app\Http\Controllers\Product\Backend
+ * Class ProductController.
  */
 class ApiProductController extends ApiController
 {
-
     /**
      * @var ProductContract
      */
@@ -71,19 +67,18 @@ class ApiProductController extends ApiController
     protected $productTransformer;
 
     /**
-     * @param ProductContract $productContract
-     * @param CategoryContract $categoryContract
-     * @param EavCategoryContract $eavCategoryContract
-     * @param EavAttributeContract $attributeContract
-     * @param TaxContract $taxContract
+     * @param ProductContract             $productContract
+     * @param CategoryContract            $categoryContract
+     * @param EavCategoryContract         $eavCategoryContract
+     * @param EavAttributeContract        $attributeContract
+     * @param TaxContract                 $taxContract
      * @param InnovateImageUploadContract $image
-     * @param ProductTransformer $productTransformer
+     * @param ProductTransformer          $productTransformer
      */
     public function __construct(ProductContract $productContract, CategoryContract $categoryContract,
                                 EavCategoryContract $eavCategoryContract, EavAttributeContract $attributeContract,
                                 TaxContract $taxContract, InnovateImageUploadContract $image, ProductTransformer $productTransformer)
     {
-
         $this->product = $productContract;
 
         $this->category = $categoryContract;
@@ -107,11 +102,9 @@ class ApiProductController extends ApiController
 
         if (!$products) {
             return $this->respondNotFound('No Product Found');
-
         }
 
-        return $this->respondWithPagination($products,['data' => $this->productTransformer->transformCollection($products->toArray())]);
-
+        return $this->respondWithPagination($products, ['data' => $this->productTransformer->transformCollection($products->toArray())]);
     }
 
     public function show($id)
@@ -121,14 +114,11 @@ class ApiProductController extends ApiController
         if (!$products) {
             return $this->respondNotFound('This Product Not Found');
         }
-            return $this->respond([
-                'data' => $this->productTransformer->transform($products->toArray())
+
+        return $this->respond([
+                'data' => $this->productTransformer->transform($products->toArray()),
             ]);
-
-
-
     }
-
 
     public function create()
     {
@@ -138,8 +128,10 @@ class ApiProductController extends ApiController
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
      * @throws GeneralException
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function newProduct(Request $request)
     {
@@ -152,9 +144,7 @@ class ApiProductController extends ApiController
                 ->withAttributes($this->eavAttribute->getWhereCategory($request['product_category_id']))
                 ->withCategorys($this->category->eagerLoad('category_description'))
                 ->withTaxs($this->tax->getAll());
-
         } elseif ($request['product_type'] == 'non-downloadable') {
-
             return view('backend.product.create_non_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
@@ -167,8 +157,9 @@ class ApiProductController extends ApiController
     }
 
     /**
-     * @param Request $request
+     * @param Request    $request
      * @param CommandBus $commandBus
+     *
      * @throws GeneralException
      */
     public function storeDownloadable(Request $request, CommandBus $commandBus)
@@ -180,7 +171,7 @@ class ApiProductController extends ApiController
                 throw new GeneralException('There is error in your image file.');
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
-            $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
+            $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
             $all = $request->all();
             $all['valid_image'] = $im->basename;
 
@@ -193,7 +184,8 @@ class ApiProductController extends ApiController
 
     /**
      * @param StoreProductRequest $request
-     * @param CommandBus $commandBus
+     * @param CommandBus          $commandBus
+     *
      * @throws GeneralException
      */
     public function storeNonDownloadable(StoreProductRequest $request, CommandBus $commandBus)
@@ -205,7 +197,7 @@ class ApiProductController extends ApiController
                 throw new GeneralException('There is error in your image file.');
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
-            $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
+            $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
             $all = $request->all();
             $all['valid_image'] = $im->basename;
 
@@ -213,7 +205,6 @@ class ApiProductController extends ApiController
             $command = new PostNonDownloadableProductCommand($all);
             $commandBus->execute($command);
         }
-
     }
 
     /**
@@ -227,7 +218,6 @@ class ApiProductController extends ApiController
           $command = new PostProductCommand($input['title'],$input['description']);
           $this->commandBus->execute($command);
  */
-
     }
 
     /**
@@ -239,6 +229,4 @@ class ApiProductController extends ApiController
         $command = new ProductSoldCommand($productId);
         $this->commandBus->execute($command);
     }
-
-
 }

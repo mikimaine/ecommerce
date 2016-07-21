@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\Role;
 use App\Http\Requests\Request;
 
 /**
- * Class EditRoleRequest
- * @package App\Http\Requests\Backend\Access\Role
+ * Class EditRoleRequest.
  */
 class EditRoleRequest extends Request
 {

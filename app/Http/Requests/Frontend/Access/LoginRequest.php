@@ -5,8 +5,7 @@ namespace App\Http\Requests\Frontend\Access;
 use App\Http\Requests\Request;
 
 /**
- * Class LoginRequest
- * @package App\Http\Requests\Frontend\Access
+ * Class LoginRequest.
  */
 class LoginRequest extends Request
 {

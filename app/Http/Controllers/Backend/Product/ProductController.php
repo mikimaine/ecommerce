@@ -4,9 +4,8 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 12:44 PM
+ * Time: 12:44 PM.
  */
-
 namespace App\Http\Controllers\Backend\Product;
 
 use App\Exceptions\GeneralException;
@@ -14,8 +13,8 @@ use App\Http\Controllers\CommandsDomainEventController;
 use Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Commanding\CommandBus;
+use Innovate\Image\InnovateImageUploadContract;
 use Innovate\Products\PostDownloadableProductCommand;
 use Innovate\Products\PostNonDownloadableProductCommand;
 use Innovate\Repositories\Category\CategoryContract;
@@ -26,12 +25,10 @@ use Innovate\Repositories\Tax\TaxContract;
 use Innovate\Requests\product\StoreProductRequest;
 
 /**
- * Class ProductController
- * @package app\Http\Controllers\Product\Backend
+ * Class ProductController.
  */
 class ProductController extends CommandsDomainEventController
 {
-
     /**
      * @var ProductContract
      */
@@ -63,18 +60,17 @@ class ProductController extends CommandsDomainEventController
     public $imageDriver;
 
     /**
-     * @param ProductContract $productContract
-     * @param CategoryContract $categoryContract
-     * @param EavCategoryContract $eavCategoryContract
-     * @param EavAttributeContract $attributeContract
-     * @param TaxContract $taxContract
+     * @param ProductContract             $productContract
+     * @param CategoryContract            $categoryContract
+     * @param EavCategoryContract         $eavCategoryContract
+     * @param EavAttributeContract        $attributeContract
+     * @param TaxContract                 $taxContract
      * @param InnovateImageUploadContract $image
      */
     public function __construct(ProductContract $productContract, CategoryContract $categoryContract,
                                 EavCategoryContract $eavCategoryContract, EavAttributeContract $attributeContract,
                                 TaxContract $taxContract, InnovateImageUploadContract $image)
     {
-
         $this->product = $productContract;
 
         $this->category = $categoryContract;
@@ -86,7 +82,6 @@ class ProductController extends CommandsDomainEventController
         $this->tax = $taxContract;
 
         $this->imageDriver = $image;
-
     }
 
     public function index()
@@ -103,7 +98,6 @@ class ProductController extends CommandsDomainEventController
         return view('backend.product.index')->withProducts($product);
         //  return view('backend.product.index')
         //  ->withProducts($this->product->getAllProducts());
-
     }
 
     public function create()
@@ -114,8 +108,10 @@ class ProductController extends CommandsDomainEventController
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
      * @throws GeneralException
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function newProduct(Request $request)
     {
@@ -128,9 +124,7 @@ class ProductController extends CommandsDomainEventController
                 ->withAttributes($this->eavAttribute->getWhereCategory($request['product_category_id']))
                 ->withCategorys($this->category->eagerLoad('category_description'))
                 ->withTaxs($this->tax->getAll());
-
         } elseif ($request['product_type'] == 'non-downloadable') {
-
             return view('backend.product.create_non_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
@@ -143,8 +137,9 @@ class ProductController extends CommandsDomainEventController
     }
 
     /**
-     * @param Request $request
+     * @param Request    $request
      * @param CommandBus $commandBus
+     *
      * @throws GeneralException
      */
     public function storeDownloadable(Request $request, CommandBus $commandBus)
@@ -157,10 +152,14 @@ class ProductController extends CommandsDomainEventController
                 throw new GeneralException('There is error in your file input.');
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
+<<<<<<< HEAD
             $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
             $fl_name =  Str::random(32) . '.' .$prod->guessExtension();
             $pr =$prod->move(config('innovate.upload_path') . DS . 'product',$fl_name);
 
+=======
+            $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
             $all = $request->all();
             $all['valid_image'] = $im->basename;
             $all['valid_file'] = $fl_name;
@@ -173,7 +172,8 @@ class ProductController extends CommandsDomainEventController
 
     /**
      * @param StoreProductRequest $request
-     * @param CommandBus $commandBus
+     * @param CommandBus          $commandBus
+     *
      * @throws GeneralException
      */
     public function storeNonDownloadable(StoreProductRequest $request, CommandBus $commandBus)
@@ -185,7 +185,7 @@ class ProductController extends CommandsDomainEventController
                 throw new GeneralException('There is error in your image file.');
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
-            $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
+            $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
             $all = $request->all();
             $all['valid_image'] = $im->basename;
 
@@ -193,7 +193,6 @@ class ProductController extends CommandsDomainEventController
             $command = new PostNonDownloadableProductCommand($all);
             $commandBus->execute($command);
         }
-
     }
 
     /**
@@ -207,24 +206,24 @@ class ProductController extends CommandsDomainEventController
           $command = new PostProductCommand($input['title'],$input['description']);
           $this->commandBus->execute($command);
  */
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)
     {
         $this->product->destroy($id);
+
         return redirect()->back()->withFlashSuccess(trans('product.alerts.deleted'));
     }
 
     /**
-     * Returns products that are deleted
-     *
+     * Returns products that are deleted.
      */
     public function deleted()
     {
@@ -233,25 +232,30 @@ class ProductController extends CommandsDomainEventController
     }
 
     /**
-     * restore products from deleted box
+     * restore products from deleted box.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function restore($id)
     {
         $this->product->restore($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.restored'));
     }
 
     /**
-     * Delete product beyond recovery
+     * Delete product beyond recovery.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function delete($id)
     {
         $this->product->delete($id);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted_permanently'));
     }
-
 }

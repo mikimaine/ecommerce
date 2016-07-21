@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateDownloadableLinkTable extends Migration
 {
@@ -20,14 +20,12 @@ class CreateDownloadableLinkTable extends Migration
             $table->integer('no_of_downloads_used');
 
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('order_id')->references('id')
                 ->on('order')
                 ->onDelete('cascade');
-
-
         });
     }
 

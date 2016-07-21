@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateDownloadTable extends Migration
 {
@@ -20,13 +20,12 @@ class CreateDownloadTable extends Migration
             $table->string('mask');
             $table->timestamps();
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
             $table->foreign('product_id')->references('id')
                 ->on('products')
                 ->onDelete('cascade');
-
         });
     }
 

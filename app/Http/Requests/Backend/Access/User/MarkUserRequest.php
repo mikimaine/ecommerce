@@ -5,8 +5,7 @@ namespace App\Http\Requests\Backend\Access\User;
 use App\Http\Requests\Request;
 
 /**
- * Class MarkUserRequest
- * @package App\Http\Requests\Backend\Access\User
+ * Class MarkUserRequest.
  */
 class MarkUserRequest extends Request
 {

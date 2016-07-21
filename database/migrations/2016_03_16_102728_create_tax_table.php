@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTaxTable extends Migration
 {
@@ -20,11 +20,9 @@ class CreateTaxTable extends Migration
             $table->timestamps();
 
 
-            /**
+            /*
              * Add Foreign/Unique/Index
              */
-
-
         });
     }
 

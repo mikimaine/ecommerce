@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Frontend Controllers
+ * Frontend Controllers.
  */
-
 $router->get('/', 'FrontendController@index')->name('home');
+<<<<<<< HEAD
 $router->get('/category','Category\FrontendCategoryController@index')->name('frontend.category');
 
 $router->get('product/trend','Product\FrontendProductController@trends')->name('frontend.product.trends');
@@ -26,9 +26,20 @@ $router->resource('search','Search\SearchController');
 $router->group(['prefix' => 'api/v1'],function()
 {
   Route::resource('product','Api\Product\ApiProductController');
+=======
+$router->get('/category', 'FrontendCategoryController@index')->name('frontend.category');
+
+$router->get('product/trend', 'Product\FrontendProductController@trends')->name('frontend.product.trends');
+$router->get('product', 'Product\FrontendProductController@index')->name('frontend.product');
+$router->get('macros', 'FrontendController@macros');
+
+
+$router->group(['prefix' => 'api/v1'], function () {
+    Route::resource('product', 'Api\Product\ApiProductController');
+>>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
 });
 
-/**
+/*
  * These frontend controllers require the user to be logged in
  */
 $router->group(['middleware' => 'auth'], function () use ($router) {
