@@ -13,42 +13,37 @@
                  <h1>{{ trans('cart.guest_checkout') }}</h1>
 
                  {!! Form::open(['route' => 'cart.guestRegister', 'class' => 'form-horizontal', 'role' => 'form']) !!}
-                 <div class="feedback  grid-col-4">
-                     <h3>Personal Information</h3>
+                 <div class="grid-col  grid-col-4 widget-alt widget-alt-feedback">
+                     <div class="head">Personal Information</div>
+                     <div class="cont">
                         <div class="form-group">
-                         {!! Form::label('firstname', trans('cart.customer_infor.firstname'), ['class' => 'col-md-4 control-label']) !!}
                          <div class="col-md-6">
-                             {!! Form::input('firstname', 'firstname', old('firstname'), ['class' => 'form-control']) !!}
+                             {!! Form::input('firstname', 'firstname', old('firstname'), ['class' => 'form-control','placeholder'=>trans('cart.customer_infor.firstname')]) !!}
                          </div>
                      </div>
                      <div class="form-group">
-                         {!! Form::label('lastname', trans('cart.customer_infor.lastname'), ['class' => 'col-md-4 control-label']) !!}
                          <div class="col-md-6">
-                             {!! Form::input('lastname', 'lastname', old('lastname'), ['class' => 'form-control']) !!}
+                             {!! Form::input('lastname', 'lastname', old('lastname'), ['class' => 'form-control','placeholder'=>trans('cart.customer_infor.lastname')]) !!}
                          </div>
                      </div>
                      <div class="form-group">
-                         {!! Form::label('secondary_email', trans('cart.customer_infor.secondary_email'), ['class' => 'col-md-4 control-label']) !!}
                          <div class="col-md-6">
-                             {!! Form::input('secondary_email', 'secondary_email', old('secondary_email'), ['class' => 'form-control']) !!}
+                             {!! Form::input('secondary_email', 'secondary_email', old('secondary_email'), ['class' => 'form-control','placeholder'=>trans('cart.customer_infor.secondary_email')]) !!}
                          </div>
                      </div>
                      <div class="form-group">
-                         {!! Form::label('telephone', trans('cart.customer_infor.telephone'), ['class' => 'col-md-4 control-label']) !!}
                          <div class="col-md-6">
-                             {!! Form::input('telephone', 'telephone', old('telephone'), ['class' => 'form-control']) !!}
+                             {!! Form::input('telephone', 'telephone', old('telephone'), ['class' => 'form-control','placeholder'=>trans('cart.customer_infor.telephone')]) !!}
                          </div>
                      </div>
                      <div class="form-group">
-                         {!! Form::label('fax', trans('cart.customer_infor.fax'), ['class' => 'col-md-4 control-label']) !!}
                          <div class="col-md-6">
-                             {!! Form::input('fax', 'fax', old('fax'), ['class' => 'form-control']) !!}
+                             {!! Form::input('fax', 'fax', old('fax'), ['class' => 'form-control','placeholder'=>trans('cart.customer_infor.fax')]) !!}
                          </div>
                      </div>
                      <div class="form-group">
-                         {!! Form::label('phone', trans('cart.customer_infor.phone'), ['class' => 'col-md-4 control-label']) !!}
                          <div class="col-md-6">
-                             {!! Form::input('phone', 'phone', old('phone'), ['class' => 'form-control']) !!}
+                             {!! Form::input('phone', 'phone', old('phone'), ['class' => 'form-control','placeholder'=>trans('cart.customer_infor.phone')]) !!}
                          </div>
                      </div>
                      <div class="form-group">
@@ -57,11 +52,23 @@
                          </div>
                      </div>
 
-                 </div>
-                 <div  class="feedback  grid-col-2">
-
-
-
+                 </div></div>
+                 <div  class="grid-col  grid-col-2">
+                     <div class="widget-alt widget-alt-feedback">
+                         <div class="head">Credit Card Information</div>
+                         <div class="cont">
+                             <form action="http://html.creaws.com/the8/php/contacts-process.php" method="post" id="widget-form">
+                                 <input type="text" data-strip="number" placeholder="Credit Card No">
+                                 <input type="email" name="email" placeholder="E-mail">
+                                 <textarea cols="30" rows="5" name="message" placeholder="Message"></textarea>
+                                 <div id="widget_server_responce"></div>
+                                 <div class="buttons">
+                                     <button type="reset">Reset</button><!--
+										--><button type="submit">{!! trans('cart.checkout') !!}</button>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
                  </div>
 
                  {!! Form::close() !!}

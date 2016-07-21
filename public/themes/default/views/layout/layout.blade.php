@@ -45,6 +45,7 @@
 
 
 <script src="{{ Theme::asset('default::js/frontend.js') }}"></script>
+@
 
 <!--/ scripts -->
 

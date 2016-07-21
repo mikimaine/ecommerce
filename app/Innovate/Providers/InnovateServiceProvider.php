@@ -31,8 +31,9 @@ class InnovateServiceProvider extends ServiceProvider
     {
         /**
          * check if The user Enabled Redis cache
+         * env('LADA_CACHE_DRIVER') ||
          */
-        if (env('LADA_CACHE_DRIVER')) {
+        if ( false) {
             $this->app->register('\Spiritix\LadaCache\LadaCacheServiceProvider');
         }
 

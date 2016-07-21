@@ -35,12 +35,12 @@ class GuestCheckoutRequest extends Request  {
     {
 
         $rules=  [
-            "meta_title" => 'required|min:3',
-            "meta_description" => 'required|min:10',
+            "firstname" => 'required|min:3',
+            "lastname" => 'required|min:10',
 
-            "image" => 'required',
-            "name_en" => 'required',
-            "cart_description_en" => 'required',
+            "secondary_email" => 'required',
+            "telephone" => 'required',
+            "fax" => 'required',
             "short_description_en" => 'required',
             "long_description_en" => 'required',
 
