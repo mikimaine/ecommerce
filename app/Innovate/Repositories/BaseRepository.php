@@ -116,7 +116,6 @@ class BaseRepository implements BaseContract
         $preparedData = $this->createStub($input);
 
         try {
-
             if ($preparedData->save()) {
                 return $preparedData;
             }
@@ -172,5 +171,4 @@ class BaseRepository implements BaseContract
     {
         // TODO: Implement delete() method.
     }
-
 }

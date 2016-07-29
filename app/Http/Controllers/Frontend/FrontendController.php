@@ -16,10 +16,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        Activity::log('User Arrived At the home page');
 
-       Activity::log('User Arrived At the home page');
-       return Theme::view('frontend.index');
-
+        return Theme::view('frontend.index');
     }
 
     /**

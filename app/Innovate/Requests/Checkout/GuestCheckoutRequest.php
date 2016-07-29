@@ -4,18 +4,15 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 5/23/2016
- * Time: 3:37 AM
+ * Time: 3:37 AM.
  */
-
 namespace Innovate\Requests\product;
 
-
+use App\Http\Requests\Request;
 use Illuminate\Http\Request  as Re;
 
-use App\Http\Requests\Request;
-
-class GuestCheckoutRequest extends Request  {
-
+class GuestCheckoutRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -28,30 +25,31 @@ class GuestCheckoutRequest extends Request  {
 
     /**
      * Get the validation rules that apply to the request.
+     *
      * @return array
+     *
      * @internal param InnovateImageUploadContract $image
      */
     public function rules()
     {
+        $rules = [
+            'firstname' => 'required|min:3',
+            'lastname'  => 'required|min:10',
 
-        $rules=  [
-            "firstname" => 'required|min:3',
-            "lastname" => 'required|min:10',
+            'secondary_email'      => 'required',
+            'telephone'            => 'required',
+            'fax'                  => 'required',
+            'short_description_en' => 'required',
+            'long_description_en'  => 'required',
 
-            "secondary_email" => 'required',
-            "telephone" => 'required',
-            "fax" => 'required',
-            "short_description_en" => 'required',
-            "long_description_en" => 'required',
-
-            "parent_category" => 'required',
-            "sku" => 'required',
-            "tax_id"=> 'required',
-            "currency"=> 'required',
-            "price"=> 'required',
-            "previous_price"=> 'required',
-            "stock"=> 'required',
-            "location"=> 'required',
+            'parent_category' => 'required',
+            'sku'             => 'required',
+            'tax_id'          => 'required',
+            'currency'        => 'required',
+            'price'           => 'required',
+            'previous_price'  => 'required',
+            'stock'           => 'required',
+            'location'        => 'required',
 
         ];
 
@@ -63,6 +61,6 @@ class GuestCheckoutRequest extends Request  {
             $rules['unlimited'] = 'required';
         }
 
-        return $rules ;
+        return $rules;
     }
 }

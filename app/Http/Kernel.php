@@ -38,16 +38,16 @@ class Kernel extends HttpKernel
         'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
 
 
-		/**
-		 * Access Middleware
-		 */
-		'access.routeNeedsRole' => \App\Http\Middleware\RouteNeedsRole::class,
-		'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
+        /*
+         * Access Middleware
+         */
+        'access.routeNeedsRole'       => \App\Http\Middleware\RouteNeedsRole::class,
+        'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
 
-		/**
-		 * Innovate Ecommerce
-		 */
-		'checkout'=> \App\Http\Middleware\CheckOutCheck::class,
+        /*
+         * Innovate Ecommerce
+         */
+        'checkout' => \App\Http\Middleware\CheckOutCheck::class,
 
         /*
          * Access Middleware
@@ -55,5 +55,4 @@ class Kernel extends HttpKernel
         'access.routeNeedsRole'       => \App\Http\Middleware\RouteNeedsRole::class,
         'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
     ];
-
 }

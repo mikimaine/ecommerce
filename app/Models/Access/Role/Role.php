@@ -29,7 +29,6 @@ class Role extends BaseModel
      */
     protected $guarded = ['id'];
 
-
     public function __construct()
     {
         $this->table = config('access.roles_table');

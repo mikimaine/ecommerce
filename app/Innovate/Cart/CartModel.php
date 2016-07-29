@@ -4,39 +4,39 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/22/2016
- * Time: 10:14 PM
+ * Time: 10:14 PM.
  */
-
 namespace Innovate\Cart;
 
-
-use Innovate\Repositories\Product\ProductContract;
 use Cart;
-class CartModel  implements CartContract{
+use Innovate\Repositories\Product\ProductContract;
 
+class CartModel implements CartContract
+{
     private $product;
 
-    function __construct(ProductContract $product)
+    public function __construct(ProductContract $product)
     {
         $this->product = $product;
     }
 
-
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function add($id)
     {
-        $product = $this->product->eagerLoadWhere('product_translations',$id);
+        $product = $this->product->eagerLoadWhere('product_translations', $id);
 
-        Cart::add(['id'=>$id,'name'=> $product->product_translations[0]->name,'qty'=>1,'price'=>$product->price]);
+        Cart::add(['id' => $id, 'name' => $product->product_translations[0]->name, 'qty' => 1, 'price' => $product->price]);
         dd(Cart::content());
     }
 
     /**
      * @param $id
      * @param $data
+     *
      * @return mixed
      */
     public function update($id, $data)
@@ -46,6 +46,7 @@ class CartModel  implements CartContract{
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function remove($id)
@@ -55,6 +56,7 @@ class CartModel  implements CartContract{
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function get($id)
@@ -113,6 +115,7 @@ class CartModel  implements CartContract{
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function search($id)

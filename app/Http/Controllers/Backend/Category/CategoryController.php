@@ -50,7 +50,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('backend.category.index')
-            ->withCategorys($this->category->eagerLoad('category_description',9));
+            ->withCategorys($this->category->eagerLoad('category_description', 9));
     }
 
     /**
@@ -145,6 +145,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $this->category->destroy($id);
+
         return redirect()->back()->withFlashSuccess(trans('category.alerts.category_deleted_'));
     }
 }

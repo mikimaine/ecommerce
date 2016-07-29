@@ -4,7 +4,7 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/20/2016
- * Time: 6:46 PM
+ * Time: 6:46 PM.
  */
 
 
@@ -22,31 +22,31 @@ return [
     |
     */
 
-    'checkout' =>'ጨርሰው ይውጡ',
-    'cart'=>'ግዢ ።',
-    'order'=>'ትዕዛዝ',
-    'guest_checkout' => 'እንግዳ አረጋግጥ',
-    'free_shipping' => 'ነፃ ማጓጓዣ',
-    'dont_create_account' => 'የተጠቃሚ መለያ መፍጠር አትፈልግም?',
-    'processed_to_checkout' => 'እንደ እንግዳ መሆኑን ያረጋግጡ።',
-    'dont_have_account' => 'ገና የተጠቃሚ መለያ የለዎትም?',
+    'checkout'                     => 'ጨርሰው ይውጡ',
+    'cart'                         => 'ግዢ ።',
+    'order'                        => 'ትዕዛዝ',
+    'guest_checkout'               => 'እንግዳ አረጋግጥ',
+    'free_shipping'                => 'ነፃ ማጓጓዣ',
+    'dont_create_account'          => 'የተጠቃሚ መለያ መፍጠር አትፈልግም?',
+    'processed_to_checkout'        => 'እንደ እንግዳ መሆኑን ያረጋግጡ።',
+    'dont_have_account'            => 'ገና የተጠቃሚ መለያ የለዎትም?',
     'have_access_to_every_feature' => 'ይመዝገቡና የሁሉም አገልግሎቶች ተጠቃሚ ይሁኑ።',
-    'customer_infor' =>[
-        'firstname'=>'ስም',
-        'lastname' => 'የአባት ስም።',
-        'secondary_email' => 'ኹለተኛ ኢሜይል',
-        'telephone' => 'ስልክ',
-        'fax' => 'ፋክስ',
-        'phone' => 'ስልክ',
-        'region' => 'ክልል',
-        'zipcode' => 'አካባቢያዊ መለያ ቁጥር',
-        'address' => 'አድራሻ',
-        'address2' => 'አድራሻ ፪',
-        'total' => 'አጠቃላይ',
-        'apply_coupon' =>'ኩፖን ተግብር።',
-        'update_cart' => 'ግዢዎትን ያሻሽሉ።',
-        'proceed_to_checkout' => 'ወደ መውጫ ይቀጥሉ።',
-        'cart_totals' => 'አጠቃላይ ግዢ ።',
+    'customer_infor'               => [
+        'firstname'             => 'ስም',
+        'lastname'              => 'የአባት ስም።',
+        'secondary_email'       => 'ኹለተኛ ኢሜይል',
+        'telephone'             => 'ስልክ',
+        'fax'                   => 'ፋክስ',
+        'phone'                 => 'ስልክ',
+        'region'                => 'ክልል',
+        'zipcode'               => 'አካባቢያዊ መለያ ቁጥር',
+        'address'               => 'አድራሻ',
+        'address2'              => 'አድራሻ ፪',
+        'total'                 => 'አጠቃላይ',
+        'apply_coupon'          => 'ኩፖን ተግብር።',
+        'update_cart'           => 'ግዢዎትን ያሻሽሉ።',
+        'proceed_to_checkout'   => 'ወደ መውጫ ይቀጥሉ።',
+        'cart_totals'           => 'አጠቃላይ ግዢ ።',
         'shipping_and_handling' => 'አላላክ እና አያያዝ።',
 
     ],
@@ -62,6 +62,6 @@ return [
 
     'labels' => [
 
-    ]
+    ],
 
 ];

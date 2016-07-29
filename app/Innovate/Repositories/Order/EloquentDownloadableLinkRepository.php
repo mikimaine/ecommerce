@@ -4,21 +4,20 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/25/2016
- * Time: 7:17 PM
+ * Time: 7:17 PM.
  */
-
 namespace Innovate\Repositories\Order;
-
 
 use Innovate\Order\DownloadLink;
 use Innovate\Repositories\BaseRepository;
 
-class EloquentDownloadableLinkRepository extends BaseRepository implements DownloadableLinkContract{
-
+class EloquentDownloadableLinkRepository extends BaseRepository implements DownloadableLinkContract
+{
     protected $modelName = 'Innovate\Order\DownloadLink';
 
     /**
      * @param $input
+     *
      * @return Tax
      */
     protected function createStub($input)

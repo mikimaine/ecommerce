@@ -4,41 +4,40 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/22/2016
- * Time: 10:14 PM
+ * Time: 10:14 PM.
  */
-
 namespace Innovate\Cart;
 
-
 /**
- * Interface CartContract
- * @package Innovate\Cart
+ * Interface CartContract.
  */
-interface CartContract {
-
-
+interface CartContract
+{
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function add($id);
 
-
     /**
      * @param $id
      * @param $data
+     *
      * @return mixed
      */
-    public function update($id,$data);
+    public function update($id, $data);
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function remove($id);
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function get($id);
@@ -75,8 +74,8 @@ interface CartContract {
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function search($id);
-
 }

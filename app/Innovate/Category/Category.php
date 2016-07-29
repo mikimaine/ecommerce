@@ -9,16 +9,12 @@
 namespace Innovate\Category;
 
 use Innovate\BaseModel;
-
-use Innovate\Category\Traits\Attribute\CategoryAttribute;
-use Innovate\SEOProvider\ObjectFlat;
-
 use Innovate\Category\Traits\Relationship\CategoryRelationship;
+use Innovate\SEOProvider\ObjectFlat;
 use Innovate\SEOProvider\ObjectFlat;
 
 /**
- * Class Category
- * @package Innovate\Category
+ * Class Category.
  */
 class Category extends BaseModel implements ObjectFlat
 {

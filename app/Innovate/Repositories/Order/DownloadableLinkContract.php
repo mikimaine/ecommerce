@@ -4,14 +4,12 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/25/2016
- * Time: 7:15 PM
+ * Time: 7:15 PM.
  */
-
 namespace Innovate\Repositories\Order;
-
 
 use Innovate\Repositories\BaseContract;
 
-interface DownloadableLinkContract extends BaseContract {
-
+interface DownloadableLinkContract extends BaseContract
+{
 }

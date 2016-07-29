@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers\BFrontend\Activity;
 
-
 use Activity;
 use App\Exceptions\GeneralException;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use Innovate\Repositories\Activity\ActivityContract;
 
 /**
- * Class ActivityController
- * @package App\Http\Controllers\Tax\Backend
+ * Class ActivityController.
  */
 class ActivityController extends Controller
 {
-
     /**
      * @var
      */
@@ -25,7 +21,7 @@ class ActivityController extends Controller
     /**
      * @param ActivityContract $activity
      */
-    function __construct(ActivityContract $activity)
+    public function __construct(ActivityContract $activity)
     {
         $this->activity = $activity;
     }
@@ -33,7 +29,7 @@ class ActivityController extends Controller
     /**
      * @return mixed
      */
-    public function  index()
+    public function index()
     {
         return view('frontend.activitylog')
             ->withActivities(Activity::with('user')->find(Auth::user()->id)->limit(100)->get());
@@ -44,35 +40,33 @@ class ActivityController extends Controller
      */
     public function create()
     {
-
-
-
     }
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function destroy($id)
     {
         $this->activity->destroy($id);
-        return redirect()->back()->withFlashSuccess(trans('activity.alerts.deleted'));
 
+        return redirect()->back()->withFlashSuccess(trans('activity.alerts.deleted'));
     }
 
     /**
      * @return mixed
+     *
      * @internal param $id
      */
     public function flush()
     {
         try {
             Activity::cleanLog();
+
             return redirect()->back()->withFlashSuccess(trans('activity.alerts.flushed'));
-        }catch (GeneralException $e){
-              dd($e);
+        } catch (GeneralException $e) {
+            dd($e);
         }
-
-
     }
 }

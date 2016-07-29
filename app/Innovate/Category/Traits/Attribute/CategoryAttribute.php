@@ -8,16 +8,15 @@
  */
 namespace Innovate\Category\Traits\Attribute;
 
-
-
-trait CategoryAttribute {
+trait CategoryAttribute
+{
     /**
      * @return string
      */
     public function getEditButtonAttribute()
     {
         if (access()->can('edit-users')) {
-            return '<a href="' . route('admin.order.edit', $this->id) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="' . trans('crud.edit_button') . '"></i></a> ';
+            return '<a href="'.route('admin.order.edit', $this->id).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('crud.edit_button').'"></i></a> ';
         }
 
         return '';
@@ -29,7 +28,7 @@ trait CategoryAttribute {
     public function getDeleteButtonAttribute()
     {
         if (access()->can('view-innovate-ecommerce')) {
-            return '<a href="' . route('admin.category.destroy', $this->id) . '" data-method="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="' . trans('crud.delete_button') . '"></i></a>';
+            return '<a href="'.route('admin.category.destroy', $this->id).'" data-method="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.trans('crud.delete_button').'"></i></a>';
         }
 
         return '';
@@ -43,4 +42,3 @@ trait CategoryAttribute {
         return  $this->getDeleteButtonAttribute();
     }
 }
-

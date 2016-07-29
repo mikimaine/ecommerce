@@ -4,23 +4,20 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/25/2016
- * Time: 6:53 PM
+ * Time: 6:53 PM.
  */
-
 namespace Innovate\Repositories\Shipping;
-
 
 use Innovate\Repositories\BaseRepository;
 use Innovate\Shipping\Shipping;
 
 class EloquentShippingRepository extends BaseRepository implements ShippingContract
 {
-
-
     protected $modelName = 'Innovate\Shipping\Shipping';
 
     /**
      * @param $input
+     *
      * @return Tax
      */
     protected function createStub($input)

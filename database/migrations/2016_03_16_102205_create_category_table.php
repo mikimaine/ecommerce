@@ -30,8 +30,6 @@ class CreateCategoryTable extends Migration
                 ->onDelete('cascade');
 
              **/
-
-
         });
     }
 

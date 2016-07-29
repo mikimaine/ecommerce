@@ -186,10 +186,8 @@ class EloquentProductRepository implements ProductContract
          // Try to save both download file info and Product description Model
                 if (!$download->save() || !$this->productDescription->create($input)) {
                     DB::rollback();
-
                 } else {
                     throw new GeneralException('There was a problem creating Downloadable product. Please try again!');
-
                 }
                 $productLocal = $this->createTranslationStub($input, $product);
          // Try to save Local information of the product
@@ -230,6 +228,7 @@ class EloquentProductRepository implements ProductContract
     {
         return Product::search($search_term)->get();
     }
+
     /**
      * @param  $id
      * @param  $input
@@ -284,23 +283,19 @@ class EloquentProductRepository implements ProductContract
     {
         // $this->raise(new ProductWasPosted(new Product()));
 
-        return Product::with(['category', 'tax', 'product_attribute_category','varchar_values','text_values','int_values','product_translations' => function($query){
+        return Product::with(['category', 'tax', 'product_attribute_category', 'varchar_values', 'text_values', 'int_values', 'product_translations' => function ($query) {
             $query->where('product_translations.locale', '=', App::getLocale());
         }])->paginate($per_page);
-
     }
 
-    public function eagerLoadWhere($table,$product_id)
+    public function eagerLoadWhere($table, $product_id)
     {
         // $this->raise(new ProductWasPosted(new Product()));
-        return Product::with(['category', 'tax', 'product_attribute_category','varchar_values','text_values','int_values','product_translations' => function($query){
+        return Product::with(['category', 'tax', 'product_attribute_category', 'varchar_values', 'text_values', 'int_values', 'product_translations' => function ($query) {
             //$query->orderBy('product.id', $product_id);
             $query->where('product_translations.locale', '=', App::getLocale());
-             }])->find($product_id);
-
+        }])->find($product_id);
     }
-
-
 
     private function createNonDownloadableStub($input)
     {
@@ -378,14 +373,11 @@ class EloquentProductRepository implements ProductContract
         return $download;
     }
 
-    public function eagerLoad($table,$order_by = 'id', $sort = 'asc')
+    public function eagerLoad($table, $order_by = 'id', $sort = 'asc')
     {
-        return Category::with(['category_description.category_description_translations' => function($query){
+        return Category::with(['category_description.category_description_translations' => function ($query) {
             $query->orderBy('id', 'asc');
             $query->where('category_description_translations.locale', '=', App::getLocale());
         }])->get();
     }
-
-
-
 }

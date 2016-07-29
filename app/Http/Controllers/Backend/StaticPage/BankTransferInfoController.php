@@ -112,7 +112,6 @@ class BankTransferInfoController extends Controller
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted'));
     }
 
-
     public function deleted()
     {
         return view('backend.staticPage.bank_transfer.deleted')

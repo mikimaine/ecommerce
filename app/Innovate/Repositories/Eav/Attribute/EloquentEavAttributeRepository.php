@@ -109,7 +109,7 @@ class EloquentEavAttributeRepository implements EavAttributeContract
     {
         $attribute = $this->findOrThrowException($id);
 
-        isset($input['notnull']) ?  $input['notnull'] = 1 : $input['notnull'] = 0;
+        isset($input['notnull']) ? $input['notnull'] = 1 : $input['notnull'] = 0;
         try {
             if ($attribute->update($input)) {
                 return true;
@@ -162,7 +162,7 @@ class EloquentEavAttributeRepository implements EavAttributeContract
         $attribute->title = $input['title'];
         $attribute->datatype = $input['datatype'];
 
-        isset($input['notnull']) ?  $attribute['notnull'] = 1 : $attribute['notnull'] = 0;
+        isset($input['notnull']) ? $attribute['notnull'] = 1 : $attribute['notnull'] = 0;
 
 
         return $attribute;

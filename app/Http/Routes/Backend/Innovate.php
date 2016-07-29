@@ -48,8 +48,8 @@ $router->resource('eav/category', 'Eav\Category\EavProductAttributeCategory');
 
 
 //$router->get('category/deleted', 'Category\CategoryController@deleted')->name('admin.category.deleted');
-$router->resource('category/description',  'Category\CategoryDescriptionController');
-$router->resource('category',  'Category\CategoryController');
+$router->resource('category/description', 'Category\CategoryDescriptionController');
+$router->resource('category', 'Category\CategoryController');
 
 
 /*
@@ -57,23 +57,22 @@ $router->resource('category',  'Category\CategoryController');
  */
 
 
-$router->post('product/newproduct/downloadable','Product\ProductController@storeDownloadable')->name('admin.product.store.downloadable');
-$router->post('product/newproduct/non_downloadable','Product\ProductController@storeNonDownloadable')->name('admin.product.store.non_downloadable');
-$router->post('product/newproduct','Product\ProductController@newProduct')->name('admin.product.newProduct');
-$router->get('product/newproduct','Product\ProductController@create')->name('admin.product.newProduct.get');
-$router->get('product/delete*','Product\ProductController@delete')->name('admin.product.newProduct.delete');
-$router->resource('product',  'Product\ProductController');
+$router->post('product/newproduct/downloadable', 'Product\ProductController@storeDownloadable')->name('admin.product.store.downloadable');
+$router->post('product/newproduct/non_downloadable', 'Product\ProductController@storeNonDownloadable')->name('admin.product.store.non_downloadable');
+$router->post('product/newproduct', 'Product\ProductController@newProduct')->name('admin.product.newProduct');
+$router->get('product/newproduct', 'Product\ProductController@create')->name('admin.product.newProduct.get');
+$router->get('product/delete*', 'Product\ProductController@delete')->name('admin.product.newProduct.delete');
+$router->resource('product', 'Product\ProductController');
 
-/**
+/*
  * Activity Log Module Routes
  */
-$router->get('activity_log/flush','Activity\ActivityController@flush')->name('admin.activity_log.flush');
-$router->resource('activity_log',  'Activity\ActivityController');
+$router->get('activity_log/flush', 'Activity\ActivityController@flush')->name('admin.activity_log.flush');
+$router->resource('activity_log', 'Activity\ActivityController');
 
 
-/**
+/*
  * Orders
  */
 $router->get('order/deleted', 'Order\OrderController@deleted')->name('admin.order.deleted');
-$router->resource('order','Order\OrderController');
-
+$router->resource('order', 'Order\OrderController');

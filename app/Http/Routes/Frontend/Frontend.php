@@ -5,28 +5,25 @@
  */
 $router->get('/', 'FrontendController@index')->name('home');
 
-$router->get('/category','Category\FrontendCategoryController@index')->name('frontend.category');
+$router->get('/category', 'Category\FrontendCategoryController@index')->name('frontend.category');
 
-$router->get('product/trend','Product\FrontendProductController@trends')->name('frontend.product.trends');
+$router->get('product/trend', 'Product\FrontendProductController@trends')->name('frontend.product.trends');
 //$router->get('product',  'Product\FrontendProductController@index')->name('frontend.product');
-$router->resource('product',  'Product\FrontendProductController');
+$router->resource('product', 'Product\FrontendProductController');
 
 
-$router->get('cart/createInstance',  'Cart\CartController@instance')->name('frontend.cart.instance');
+$router->get('cart/createInstance', 'Cart\CartController@instance')->name('frontend.cart.instance');
 
 $router->group(['middleware' => 'checkout'], function () use ($router) {
     $router->get('cart/checkout', 'Cart\CartController@checkout')->name('cart.checkout');
     $router->get('cart/guestCheckout', 'Cart\CartController@guestCheckout')->name('cart.checkout');
     $router->post('cart/guestRegister', 'Cart\CartController@guestRegister')->name('cart.guestRegister');
-
 });
-$router->resource('cart','Cart\CartController');
-$router->resource('search','Search\SearchController');
+$router->resource('cart', 'Cart\CartController');
+$router->resource('search', 'Search\SearchController');
 
-$router->group(['prefix' => 'api/v1'],function()
-{
-  Route::resource('product','Api\Product\ApiProductController');
-
+$router->group(['prefix' => 'api/v1'], function () {
+    Route::resource('product', 'Api\Product\ApiProductController');
 });
 
 /*

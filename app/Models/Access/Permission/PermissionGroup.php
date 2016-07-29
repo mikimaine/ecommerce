@@ -27,7 +27,6 @@ class PermissionGroup extends Model
      */
     protected $guarded = ['id'];
 
-
     public function __construct()
     {
         $this->table = config('access.permission_group_table');
