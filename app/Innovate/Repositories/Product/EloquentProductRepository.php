@@ -8,11 +8,7 @@
  */
 namespace Innovate\Repositories\Product;
 
-<<<<<<< HEAD
-use App;
-=======
 use App\Exceptions\GeneralException;
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
 use DB;
 use Exception;
 use Illuminate\Support\Str;
@@ -190,11 +186,10 @@ class EloquentProductRepository implements ProductContract
          // Try to save both download file info and Product description Model
                 if (!$download->save() || !$this->productDescription->create($input)) {
                     DB::rollback();
-<<<<<<< HEAD
-=======
+
                 } else {
                     throw new GeneralException('There was a problem creating Downloadable product. Please try again!');
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
                 }
                 $productLocal = $this->createTranslationStub($input, $product);
          // Try to save Local information of the product
@@ -220,10 +215,9 @@ class EloquentProductRepository implements ProductContract
 
             DB::commit();
          // Raise a new Event that tell product was posted
-<<<<<<< HEAD
-=======
+
             $this->raise(new ProductWasPosted($this->product));
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
 
             return $this;
         } catch (Exception $e) {
@@ -289,7 +283,7 @@ class EloquentProductRepository implements ProductContract
     public function eagerLoadPaginated($per_page)
     {
         // $this->raise(new ProductWasPosted(new Product()));
-<<<<<<< HEAD
+
         return Product::with(['category', 'tax', 'product_attribute_category','varchar_values','text_values','int_values','product_translations' => function($query){
             $query->where('product_translations.locale', '=', App::getLocale());
         }])->paginate($per_page);
@@ -303,9 +297,7 @@ class EloquentProductRepository implements ProductContract
             //$query->orderBy('product.id', $product_id);
             $query->where('product_translations.locale', '=', App::getLocale());
              }])->find($product_id);
-=======
-        return Product::with('category', 'tax', 'product_attribute_category')->paginate($per_page);
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
     }
 
 
@@ -385,7 +377,6 @@ class EloquentProductRepository implements ProductContract
 
         return $download;
     }
-<<<<<<< HEAD
 
     public function eagerLoad($table,$order_by = 'id', $sort = 'asc')
     {
@@ -398,6 +389,3 @@ class EloquentProductRepository implements ProductContract
 
 
 }
-=======
-}
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6

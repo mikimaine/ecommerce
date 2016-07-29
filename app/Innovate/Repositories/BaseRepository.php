@@ -172,11 +172,5 @@ class BaseRepository implements BaseContract
     {
         // TODO: Implement delete() method.
     }
-<<<<<<< HEAD
-
-
 
 }
-=======
-}
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6

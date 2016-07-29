@@ -8,7 +8,7 @@
  */
 namespace Innovate\Category\Traits\Attribute;
 
-<<<<<<< HEAD
+
 
 trait CategoryAttribute {
     /**
@@ -43,8 +43,4 @@ trait CategoryAttribute {
         return  $this->getDeleteButtonAttribute();
     }
 }
-=======
-trait CategoryAttribute
-{
-}
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+

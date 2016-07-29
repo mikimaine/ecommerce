@@ -152,14 +152,13 @@ class ProductController extends CommandsDomainEventController
                 throw new GeneralException('There is error in your file input.');
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
-<<<<<<< HEAD
+
             $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
             $fl_name =  Str::random(32) . '.' .$prod->guessExtension();
             $pr =$prod->move(config('innovate.upload_path') . DS . 'product',$fl_name);
 
-=======
             $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
             $all = $request->all();
             $all['valid_image'] = $im->basename;
             $all['valid_file'] = $fl_name;

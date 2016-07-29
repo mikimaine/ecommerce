@@ -144,10 +144,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
         $this->category->destroy($id);
         return redirect()->back()->withFlashSuccess(trans('category.alerts.category_deleted_'));
-=======
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
     }
 }

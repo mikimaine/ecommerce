@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
 
-<<<<<<< HEAD
+
 		/**
 		 * Access Middleware
 		 */
@@ -48,13 +48,12 @@ class Kernel extends HttpKernel
 		 * Innovate Ecommerce
 		 */
 		'checkout'=> \App\Http\Middleware\CheckOutCheck::class,
-	];
-=======
+
         /*
          * Access Middleware
          */
         'access.routeNeedsRole'       => \App\Http\Middleware\RouteNeedsRole::class,
         'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
     ];
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
 }
