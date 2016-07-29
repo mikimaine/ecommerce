@@ -173,17 +173,10 @@ class EloquentCheckOutAgreementRepository implements CheckOutAgreementContract
      */
     private function createBankTransferInfoStub($input)
     {
-<<<<<<< HEAD
             $checkoutagreement = new CheckOutAgreement();
             $checkoutagreement->name       = $input['name'];
             $checkoutagreement->content    = $input['bank_account_no'];
             $checkoutagreement->is_active   = $input['is_active'];
-=======
-        $checkoutagreement = new CheckOutAgreement();
-        $checkoutagreement->name = $input['	name'];
-        $checkoutagreement->content = $input['bank_account_no'];
-        $checkoutagreement->is_active = $input['is_active'];
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
 
         return $checkoutagreement;
     }

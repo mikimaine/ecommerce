@@ -31,12 +31,10 @@ class CreateCustomerDetailTable extends Migration
             $table->foreign('user_id')->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-<<<<<<< HEAD
+
              * */
 
 
-=======
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
         });
     }
 

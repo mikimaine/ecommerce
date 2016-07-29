@@ -24,7 +24,7 @@ return [
 
 
     'menus' => [
-<<<<<<< HEAD
+
         'innovate' => 'Innovate',
         'ecommerce' => 'E-commerce',
         'products'  => 'Products',
@@ -45,26 +45,7 @@ return [
         'check_out_agreement' => 'Check out Agreement',
         'order' => 'Order\'s',
         'stock' => 'Stock'
-=======
-        'innovate'                     => 'Innovate',
-        'ecommerce'                    => 'E-commerce',
-        'product'                      => 'Products',
-        'tax'                          => 'Tax Manager',
-        'static_pages'                 => 'Static Pages',
-        'sales'                        => 'Sales',
-        'catalog'                      => 'Catalog',
-        'eav_product'                  => 'Products Attributes',
-        'product_attribute_category'   => 'Attribute Category',
-        'product_attribute'            => 'Attributes',
-        'category'                     => 'Category',
-        'product'                      => 'Product',
-        'trend_products'               => 'Trend Products',
-        'product_category'             => 'Product Category',
-        'product_category_description' => 'Product Category Description',
-        'setting'                      => 'E-commerce Settings ',
-        'bank_info'                    => 'Bank Transfer Info',
-        'check_out_agreement'          => 'Check out Agreement',
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
 
     ],
     'static_page' => [

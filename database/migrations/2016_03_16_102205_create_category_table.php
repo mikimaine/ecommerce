@@ -28,11 +28,10 @@ class CreateCategoryTable extends Migration
             $table->foreign('parent_id')->references('id')
                 ->on('category')
                 ->onDelete('cascade');
-<<<<<<< HEAD
+
              **/
 
-=======
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
         });
     }
 

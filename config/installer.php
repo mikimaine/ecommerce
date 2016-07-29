@@ -17,11 +17,10 @@ return [
         'pdo',
         'mbstring',
         'tokenizer',
-<<<<<<< HEAD
+
         'curl',
         'fileinfo'
-=======
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
     ],
 
     /*

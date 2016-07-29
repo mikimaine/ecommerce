@@ -15,11 +15,10 @@ Breadcrumbs::register('admin.tax.create', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.tax.index');
     $breadcrumbs->push('Create Tax', route('admin.tax.create'));
 });
-<<<<<<< HEAD
+
 
 Breadcrumbs::register('admin.tax.edit', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.tax.index');
     $breadcrumbs->push('Edit Tax', route('admin.tax.edit'));
 });
-=======
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+

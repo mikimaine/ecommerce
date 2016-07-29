@@ -25,13 +25,10 @@ class BaseModel extends Model
         $grammar = $conn->getQueryGrammar();
 
 
-<<<<<<< HEAD
+
         if (env('LADA_CACHE_DRIVER')) {
            $query = new QueryBuilder(
-=======
-        if (true) {
-            $query = new QueryBuilder(
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
                 $conn,
                 $grammar,
                 $conn->getPostProcessor(),

@@ -45,21 +45,18 @@ $router->resource('eav/category', 'Eav\Category\EavProductAttributeCategory');
 /*
  * Category Module Routes
  */
-<<<<<<< HEAD
+
 
 //$router->get('category/deleted', 'Category\CategoryController@deleted')->name('admin.category.deleted');
 $router->resource('category/description',  'Category\CategoryDescriptionController');
 $router->resource('category',  'Category\CategoryController');
-=======
-$router->resource('category/description', 'Category\CategoryDescriptionController');
-$router->resource('category', 'Category\CategoryController');
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+
 
 /*
  * Product Module Routes
  */
 
-<<<<<<< HEAD
+
 $router->post('product/newproduct/downloadable','Product\ProductController@storeDownloadable')->name('admin.product.store.downloadable');
 $router->post('product/newproduct/non_downloadable','Product\ProductController@storeNonDownloadable')->name('admin.product.store.non_downloadable');
 $router->post('product/newproduct','Product\ProductController@newProduct')->name('admin.product.newProduct');
@@ -79,11 +76,4 @@ $router->resource('activity_log',  'Activity\ActivityController');
  */
 $router->get('order/deleted', 'Order\OrderController@deleted')->name('admin.order.deleted');
 $router->resource('order','Order\OrderController');
-=======
-$router->post('product/newproduct/downloadable', 'Product\ProductController@storeDownloadable')->name('admin.product.store.downloadable');
-$router->post('product/newproduct/non_downloadable', 'Product\ProductController@storeNonDownloadable')->name('admin.product.store.non_downloadable');
-$router->post('product/newproduct', 'Product\ProductController@newProduct')->name('admin.product.newProduct');
-$router->get('product/newproduct', 'Product\ProductController@create')->name('admin.product.newProduct.get');
-$router->get('product/delete*', 'Product\ProductController@delete')->name('admin.product.newProduct.delete');
-$router->resource('product', 'Product\ProductController');
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
+

@@ -16,18 +16,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
+
        Activity::log('User Arrived At the home page');
        return Theme::view('frontend.index');
-=======
-        javascript()->put([
-            'test' => 'it works!',
-        ]);
 
-        return Theme::view('frontend.index');
-
-        //return JsonResponse::create([$this->tax->getPaginated(config('access.users.default_per_page'))]);
->>>>>>> 61cca9260d75f322faff49975dedaaa23a4b4fd6
     }
 
     /**
