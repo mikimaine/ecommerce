@@ -153,9 +153,9 @@ class ProductController extends CommandsDomainEventController
             }
             //pass the image along with the path to the upload to the imageDriver for further processing
 
-            $im = $this->imageDriver->up($file, config('innovate.upload_path') . DS . 'product' . DS . Str::random(32) . '.' . $file->guessExtension());
-            $fl_name =  Str::random(32) . '.' .$prod->guessExtension();
-            $pr =$prod->move(config('innovate.upload_path') . DS . 'product',$fl_name);
+            $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
+            $fl_name = Str::random(32).'.'.$prod->guessExtension();
+            $pr = $prod->move(config('innovate.upload_path').DS.'product', $fl_name);
 
             $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
 

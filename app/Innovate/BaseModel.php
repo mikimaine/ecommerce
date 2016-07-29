@@ -27,7 +27,7 @@ class BaseModel extends Model
 
 
         if (env('LADA_CACHE_DRIVER')) {
-           $query = new QueryBuilder(
+            $query = new QueryBuilder(
 
                 $conn,
                 $grammar,

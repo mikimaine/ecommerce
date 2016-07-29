@@ -4,32 +4,32 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/25/2016
- * Time: 7:00 PM
+ * Time: 7:00 PM.
  */
-
 namespace Innovate\Repositories\Order;
-
 
 use Innovate\Order\Order;
 use Innovate\Repositories\BaseRepository;
 
 class EloquentOrderRepository extends BaseRepository implements OrderContract
 {
-
-
     protected $modelName = 'Innovate\Order\Order';
+
     /**
      * @param $per_page
      * @param string $order_by
      * @param string $sort
+     *
      * @return mixed
      */
     public function getDeletedPaginated($per_page, $order_by = 'id', $sort = 'asc')
     {
         return Order::onlyTrashed()->paginate($per_page);
     }
+
     /**
      * @param $input
+     *
      * @return Tax
      */
     protected function createStub($input)

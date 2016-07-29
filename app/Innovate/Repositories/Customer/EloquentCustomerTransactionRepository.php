@@ -4,22 +4,20 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/25/2016
- * Time: 7:39 PM
+ * Time: 7:39 PM.
  */
-
 namespace Innovate\Repositories\Customer;
-
 
 use Innovate\Customer\CustomerTransaction;
 use Innovate\Repositories\BaseRepository;
 
-class EloquentCustomerTransactionRepository extends BaseRepository implements CustomerTransactionContract {
-
-
+class EloquentCustomerTransactionRepository extends BaseRepository implements CustomerTransactionContract
+{
     protected $modelName = 'Innovate\Customer\CustomerTransaction';
 
     /**
      * @param $input
+     *
      * @return Tax
      */
     protected function createStub($input)

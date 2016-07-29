@@ -4,21 +4,16 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/25/2016
- * Time: 6:21 PM
+ * Time: 6:21 PM.
  */
-
 namespace Innovate\Repositories\WishList;
-
 
 use Innovate\Repositories\BaseRepository;
 use Innovate\WishList\WishList;
 
-class EloquentWishList extends BaseRepository implements WishListContract {
-
-
+class EloquentWishList extends BaseRepository implements WishListContract
+{
     protected $modelName = 'Innovate\WishList\WishList';
-
-
 
     protected function createStub($input)
     {
@@ -27,7 +22,5 @@ class EloquentWishList extends BaseRepository implements WishListContract {
         $wishlist->customer_id = $input['customer_id'];
 
         return $wishlist;
-
     }
-
 }

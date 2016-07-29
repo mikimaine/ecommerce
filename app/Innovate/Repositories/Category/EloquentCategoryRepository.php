@@ -111,22 +111,21 @@ class EloquentCategoryRepository implements CategoryContract
     /**
      * @param $id
 
-     * @return mixed
      * @throws GeneralException
+     *
+     * @return mixed
      */
     public function destroy($id)
     {
         $category = $this->findOrThrowException($id);
-        try{
-            if ($category->delete())
-            {
+        try {
+            if ($category->delete()) {
                 return true;
             }
-        }catch (Exception $e){
+        } catch (Exception $e) {
             //Do things with the Error
-
-        } throw new GeneralException('There was a problem deleting this Attribute set. Please try again.');
-
+        }
+        throw new GeneralException('There was a problem deleting this Attribute set. Please try again.');
     }
 
     /**
@@ -139,16 +138,12 @@ class EloquentCategoryRepository implements CategoryContract
         // TODO: Implement delete() method.
     }
 
-
-
-    public function eagerLoad($table,$per_page = 10, $sort = 'asc')
+    public function eagerLoad($table, $per_page = 10, $sort = 'asc')
     {
-
         return Category::with(['category_description.category_description_translations' => function ($query) {
             $query->orderBy('id', 'asc');
             $query->where('category_description_translations.locale', '=', App::getLocale());
         }])->paginate($per_page);
-
     }
 
     private function createCategoryStub($input)
@@ -156,8 +151,8 @@ class EloquentCategoryRepository implements CategoryContract
         $category = new Category();
         $category->image = trim($input['valid_image']);
 
-        isset($input['status']) ?  $category['status'] = 1 : $category['status'] = 0;
-        isset($input['parent_category']) ?  $category->parent_id = $input['parent_category'] : $category->parent_id = null;
+        isset($input['status']) ? $category['status'] = 1 : $category['status'] = 0;
+        isset($input['parent_category']) ? $category->parent_id = $input['parent_category'] : $category->parent_id = null;
 
 
         return $category;

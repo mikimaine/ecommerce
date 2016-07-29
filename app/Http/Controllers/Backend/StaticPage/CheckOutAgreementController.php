@@ -51,8 +51,6 @@ class CheckOutAgreementController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $this->checkOutAgreement->create($request->all());
 
         return redirect()->route('admin.check_out_agreement.index')->withFlashSuccess(trans('tax.alerts.created'));
@@ -111,7 +109,6 @@ class CheckOutAgreementController extends Controller
 
         return redirect()->back()->withFlashSuccess(trans('alerts.users.deleted'));
     }
-
 
     public function deleted()
     {

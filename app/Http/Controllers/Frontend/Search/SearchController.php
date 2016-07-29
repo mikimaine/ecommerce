@@ -4,38 +4,36 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/23/2016
- * Time: 7:32 AM
+ * Time: 7:32 AM.
  */
-
 namespace app\Http\Controllers\Frontend\Search;
-
 
 use App\Http\Controllers\Controller;
 use Caffeinated\Themes\Facades\Theme;
 use Innovate\Repositories\Product\ProductContract;
 
 /**
- * Class SearchController
- * @package app\Http\Controllers\Frontend\Search
+ * Class SearchController.
  */
-class SearchController extends Controller {
-
+class SearchController extends Controller
+{
     /**
-     * Holds the product model
+     * Holds the product model.
+     *
      * @var
      */
-    private $products ;
+    private $products;
 
     /**
      * @param ProductContract $products
      */
-    function __construct(ProductContract $products)
+    public function __construct(ProductContract $products)
     {
         $this->products = $products;
     }
 
     /**
-     * Search for products
+     * Search for products.
      */
     public function index()
     {
@@ -46,6 +44,4 @@ class SearchController extends Controller {
         return Theme::view('frontend.search.search_result')
             ->withResults($this->products->search($search_term));
     }
-
-
 }

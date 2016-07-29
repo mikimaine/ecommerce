@@ -21,4 +21,3 @@ Breadcrumbs::register('admin.tax.edit', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.tax.index');
     $breadcrumbs->push('Edit Tax', route('admin.tax.edit'));
 });
-

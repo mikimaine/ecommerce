@@ -19,7 +19,7 @@ return [
         'tokenizer',
 
         'curl',
-        'fileinfo'
+        'fileinfo',
 
     ],
 

@@ -30,7 +30,7 @@ class InnovateServiceProvider extends ServiceProvider
          * check if The user Enabled Redis cache
          * env('LADA_CACHE_DRIVER') ||
          */
-        if ( false) {
+        if (false) {
             $this->app->register('\Spiritix\LadaCache\LadaCacheServiceProvider');
         }
 
@@ -89,8 +89,6 @@ class InnovateServiceProvider extends ServiceProvider
         $this->OrderBinding();
         $this->ShippingBinding();
         $this->DownloadLinkBinding();
-
-
     }
 
     /**
@@ -172,7 +170,7 @@ class InnovateServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bind the appropriate Activity Log for use
+     * Bind the appropriate Activity Log for use.
      */
     private function ActivityLogBinding()
     {
@@ -180,12 +178,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Activity\ActivityContract::class,
             \Innovate\Repositories\Activity\EloquentActivityRepository::class
         );
-
     }
 
-
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function CartBinding()
     {
@@ -193,10 +189,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Cart\CartContract::class,
             \Innovate\Cart\CartModel::class
         );
-
     }
+
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function WishListBinding()
     {
@@ -204,11 +200,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\WishList\WishListContract::class,
             \Innovate\Repositories\WishList\EloquentWishList::class
         );
-
     }
 
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function CustomerBinding()
     {
@@ -216,10 +211,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Customer\CustomerContract::class,
             \Innovate\Repositories\Customer\EloquentCustomerRepository::class
         );
-
     }
+
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function CustomerTransactionBinding()
     {
@@ -227,11 +222,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Customer\CustomerTransactionContract::class,
             \Innovate\Repositories\Customer\EloquentCustomerTransactionRepository::class
         );
-
     }
 
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function OrderBinding()
     {
@@ -239,11 +233,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Order\OrderContract::class,
             \Innovate\Repositories\Order\EloquentOrderRepository::class
         );
-
     }
 
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function ShippingBinding()
     {
@@ -251,11 +244,10 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Shipping\ShippingContract::class,
             \Innovate\Repositories\Shipping\EloquentShippingRepository::class
         );
-
     }
 
     /**
-     * Bind the appropriate Cart for use
+     * Bind the appropriate Cart for use.
      */
     private function DownloadLinkBinding()
     {
@@ -263,7 +255,5 @@ class InnovateServiceProvider extends ServiceProvider
             \Innovate\Repositories\Order\DownloadableLinkContract::class,
             \Innovate\Repositories\Order\EloquentDownloadableLinkRepository::class
         );
-
     }
-
 }

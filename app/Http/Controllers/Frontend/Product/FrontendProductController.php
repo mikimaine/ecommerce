@@ -8,23 +8,13 @@
  */
 namespace App\Http\Controllers\Frontend\Product;
 
-use App\Exceptions\GeneralException;
 use App\Http\Controllers\CommandsDomainEventController;
-
-use Cart;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Innovate\Commanding\CommandBus;
 use Innovate\Image\InnovateImageUploadContract;
-use Innovate\Products\PostDownloadableProductCommand;
-use Innovate\Products\PostNonDownloadableProductCommand;
-use Innovate\Products\ProductSoldCommand;
 use Innovate\Repositories\Category\CategoryContract;
 use Innovate\Repositories\Eav\Attribute\EavAttributeContract;
 use Innovate\Repositories\Eav\Category\EavCategoryContract;
 use Innovate\Repositories\Product\ProductContract;
 use Innovate\Repositories\Tax\TaxContract;
-use Innovate\Requests\product\StoreProductRequest;
 use Theme;
 
 /**
@@ -98,16 +88,14 @@ class FrontendProductController extends CommandsDomainEventController
     public function create()
     {
         return view('backend.product.create')
-            ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())  ;
+            ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory());
     }
-
 
     public function show($id)
     {
         //dd($this->product->eagerLoadWhere('',$id));
         return Theme::view('frontend.product.show')
-            ->withProduct($this->product->eagerLoadWhere('',$id))
+            ->withProduct($this->product->eagerLoadWhere('', $id))
             ->withProducts($this->product->eagerLoadPaginated(10));
     }
 }
-

@@ -30,7 +30,6 @@ class CategorySEOGenerator implements SEOProviderContract
         $this->Twitter($category);
     }
 
-
     public function fire()
     {
         // TODO: Implement fire() method.

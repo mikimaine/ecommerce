@@ -50,11 +50,11 @@ return [
     'eav_category_total'        => 'Attribute set (s) Total',
     'eav_attribute_total'       => 'Attribute (s) Total',
 
-    'alerts'=>[
-        'category_created' =>'Attribute set created successfully ',
-        'category_updated' =>'Attribute set updated successfully ',
-        'category_deleted' =>'Attribute set deleted successfully',
-        'category_deleted_' =>'Category deleted successfully',
+    'alerts' => [
+        'category_created'  => 'Attribute set created successfully ',
+        'category_updated'  => 'Attribute set updated successfully ',
+        'category_deleted'  => 'Attribute set deleted successfully',
+        'category_deleted_' => 'Category deleted successfully',
 
 
         'eav_attribute_created' => 'Attribute created successfully ',

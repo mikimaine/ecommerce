@@ -4,19 +4,17 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 6/22/2016
- * Time: 9:14 PM
+ * Time: 9:14 PM.
  */
-
 namespace Innovate\Pagination;
-
 
 use Illuminate\Pagination\BootstrapThreePresenter;
 
-class HDPresenter extends BootstrapThreePresenter{
-
+class HDPresenter extends BootstrapThreePresenter
+{
     public function render()
     {
-        if($this->hasPages()) {
+        if ($this->hasPages()) {
             return sprintf(
                 '<div class="pagi-custom"><div class="pull-left">%s %s</div> <div class="pull-right">%s %s</div></div>',
 
@@ -29,70 +27,59 @@ class HDPresenter extends BootstrapThreePresenter{
                 $this->getLast()
             );
         }
-        return "";
+
+        return '';
     }
 
     public function getLast()
     {
         $url = $this->paginator->url($this->paginator->lastPage());
-        $btnStatus = "";
-        if($this->paginator->lastPage() == $this->paginator->currentPage()) {
+        $btnStatus = '';
+        if ($this->paginator->lastPage() == $this->paginator->currentPage()) {
             $btnStatus = 'active';
         }
-        return $btn = "<a class='button button-xsmall ".$btnStatus."' href='".$url."'>Last >> </a>";
 
+        return $btn = "<a class='button button-xsmall ".$btnStatus."' href='".$url."'>Last >> </a>";
     }
 
     public function getFirst()
     {
         $url = $this->paginator->url(1);
-        $btnStatus = "";
+        $btnStatus = '';
 
 
-        if(1 == $this->paginator->currentPage()) {
+        if (1 == $this->paginator->currentPage()) {
             $btnStatus = 'active';
         }
 
         return $btn = "<a class='button button-xsmall ".$btnStatus."'  href='".$url."'> << First </a>";
-
     }
 
     public function getButtonPre()
-
     {
-
         $url = $this->paginator->previousPageUrl();
 
         $btnStatus = '';
 
 
-        if(empty($url)){
-
+        if (empty($url)) {
             $btnStatus = 'active';
-
         }
 
         return $btn = "<a class='button button-xsmall ".$btnStatus."'  href='".$url."'>< Previous </a>";
-
     }
 
-
     public function getButtonNext()
-
     {
-
         $url = $this->paginator->nextPageUrl();
 
         $btnStatus = '';
 
 
-        if(empty($url)){
-
+        if (empty($url)) {
             $btnStatus = 'active';
-
         }
 
         return $btn = "<a class='button button-xsmall ".$btnStatus."'  href='".$url."'> Next >  </a>";
-
     }
 }

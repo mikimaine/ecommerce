@@ -25,9 +25,9 @@ trait ProductRelationship
 
     public function product_translations()
     {
-       return   $this->hasMany('Innovate\Products\ProductTranslation','product_id');
-
+        return   $this->hasMany('Innovate\Products\ProductTranslation', 'product_id');
     }
+
     /**
      * Gets attributes for the specified product_attribute_set.
      *
@@ -87,16 +87,13 @@ trait ProductRelationship
         return $this->belongsTo('Innovate\Category\Category', 'category_id');
     }
 
-
     public function order()
     {
     }
 
-
     public function wish_list()
     {
     }
-
 
     public function download()
     {

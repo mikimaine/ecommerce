@@ -33,8 +33,6 @@ class CreateCustomerDetailTable extends Migration
                 ->onDelete('cascade');
 
              * */
-
-
         });
     }
 

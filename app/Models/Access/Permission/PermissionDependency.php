@@ -26,7 +26,6 @@ class PermissionDependency extends Model
      */
     protected $guarded = ['id'];
 
-
     public function __construct()
     {
         $this->table = config('access.permission_dependencies_table');
