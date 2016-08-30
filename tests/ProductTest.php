@@ -26,11 +26,11 @@ class ProductTest extends TestCase
 
     private function makeProduct()
     {
-		return true
+		return true;
     }
 
     private function getResponse($string)
     {
-        return true
+        return true;
     }
 }
