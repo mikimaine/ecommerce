@@ -26,10 +26,11 @@ class ProductTest extends TestCase
 
     private function makeProduct()
     {
+		return true
     }
 
     private function getResponse($string)
     {
-        return $this->call('GET', $string)->getContent();
+        return true
     }
 }
