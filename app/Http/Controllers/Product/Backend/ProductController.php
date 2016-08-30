@@ -4,30 +4,25 @@
  * For : INNOVATE E-COMMERCE
  * User: MIKI$
  * Date: 3/18/2016
- * Time: 12:44 PM
+ * Time: 12:44 PM.
  */
-
 namespace app\Http\Controllers\Product\Backend;
 
 use App\Http\Controllers\CommandsDomainEventController;
-use Innovate\Products\PostProductCommand;
 use Illuminate\Support\Facades\Input;
+use Innovate\Products\PostProductCommand;
 use Innovate\Products\ProductSoldCommand;
 
 /**
- * Class ProductController
- * @package app\Http\Controllers\Product\Backend
+ * Class ProductController.
  */
-class ProductController extends CommandsDomainEventController{
-
-    /**
-     *
-     */
+class ProductController extends CommandsDomainEventController
+{
     public function store()
     {
-         $input = Input::only('title','description');
-         $command = new PostProductCommand($input['title'],$input['description']);
-         $this->commandBus->execute($command);
+        $input = Input::only('title', 'description');
+        $command = new PostProductCommand($input['title'], $input['description']);
+        $this->commandBus->execute($command);
     }
 
     /**
@@ -38,5 +33,4 @@ class ProductController extends CommandsDomainEventController{
         $command = new ProductSoldCommand($productId);
         $this->commandBus->execute($command);
     }
-
 }
