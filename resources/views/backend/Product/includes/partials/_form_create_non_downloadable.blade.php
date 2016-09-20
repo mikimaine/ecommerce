@@ -8,7 +8,7 @@
         @endif
 
         <div class="box-tools pull-right">
-            @include('backend.product.includes.partials.header-buttons')
+            @include('backend.Product.includes.partials.header-buttons')
         </div>
     </div>
     <!-- /.box-header -->

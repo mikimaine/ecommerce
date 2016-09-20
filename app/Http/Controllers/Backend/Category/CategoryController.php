@@ -49,7 +49,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.category.index')
+        return view('backend.Category.index')
             ->withCategorys($this->category->eagerLoad('category_description', 9));
     }
 
@@ -60,7 +60,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create')
+        return view('backend.Category.create')
             ->withCategorys($this->category->eagerLoad('category_description'));
     }
 
@@ -88,7 +88,7 @@ class CategoryController extends Controller
             $all['valid_image'] = $im->basename;
             $this->category->create($all);
 
-            return redirect()->route('admin.category.index')->withFlashSuccess('Product category created !');
+            return redirect()->route('admin.Category.index')->withFlashSuccess('Product category created !');
         } else {
             throw new GeneralException('The file should not be empty');
         }
@@ -107,7 +107,7 @@ class CategoryController extends Controller
         $category = $this->category->findOrThrowException($id);
         $seo->set($category);
 
-        return view('backend.category.show')
+        return view('backend.Category.show')
             ->withCategory($category)
             ->withCategorys($this->category->eagerLoad('category_description'));
     }
