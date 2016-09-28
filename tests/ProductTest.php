@@ -10,18 +10,15 @@ require 'TestCase.php';
 
 class ProductTest extends TestCase
 {
-
-
     public function testIsInstanceOfProduct()
     {
         $this->visit('/');
         $this->seePageIs('/');
     }
+
     /** @test */
     public function it_fetches_lessons()
     {
-
-
         return true;
     }
 
