@@ -1,3 +1,5 @@
+[![StyleCI](https://styleci.io/repos/48767861/shield?branch=master)](https://styleci.io/repos/48767861)
+
 ## INNOVATE Ecommerce Framework, Currently 0.1.5
 
 
