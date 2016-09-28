@@ -8,6 +8,7 @@
  */
 namespace Innovate\Repositories\Product;
 
+use App;
 use App\Exceptions\GeneralException;
 use DB;
 use Exception;

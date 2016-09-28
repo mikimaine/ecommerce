@@ -52,9 +52,6 @@
 
                                  @endif
                                     @endforeach
-
-
-
                         @else
 
                     @endif

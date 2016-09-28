@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Backend\Category;
 
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Innovate\Category\SEOProvider\CategorySEOGenerator;
@@ -82,13 +83,16 @@ class CategoryController extends Controller
             if (!$file->isValid()) {
                 throw new GeneralException('There is error in your image file.');
             }
+
+           // if(!File::exists(config('innovate.upload_path').DS.'product')){ File::makeDirectory(config('innovate.upload_path').DS.'product', 775);};
+
             //pass the image along with the path to the upload to the imageDriver for further processing
             $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
             $all = $request->all();
             $all['valid_image'] = $im->basename;
             $this->category->create($all);
 
-            return redirect()->route('admin.Category.index')->withFlashSuccess('Product category created !');
+            return redirect()->route('admin.category.index')->withFlashSuccess('Product category created !');
         } else {
             throw new GeneralException('The file should not be empty');
         }

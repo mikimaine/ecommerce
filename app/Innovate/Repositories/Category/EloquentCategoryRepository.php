@@ -92,7 +92,7 @@ class EloquentCategoryRepository implements CategoryContract
         } catch (Exception $e) {
             //Do things with the Errors
         }
-        throw new GeneralException('There was a problem creating this Product Category. Please try again!');
+        throw new GeneralException('There was a problem creating this Product Category. Please try again!'.$e->getMessage());
     }
 
     /**
@@ -152,7 +152,13 @@ class EloquentCategoryRepository implements CategoryContract
         $category->image = trim($input['valid_image']);
 
         isset($input['status']) ? $category['status'] = 1 : $category['status'] = 0;
-        isset($input['parent_category']) ? $category->parent_id = $input['parent_category'] : $category->parent_id = null;
+       // isset($input['parent_category']) ? $category->parent_id = $input['parent_category'] : $category->parent_id = null;
+
+        if($input['parent_category'] !=''){
+            $category->parent_id = $input['parent_category'] ;
+        }else{
+            $category->parent_id = null;
+        }
 
 
         return $category;
