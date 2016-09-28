@@ -8,7 +8,6 @@
  */
 namespace Innovate\Image;
 
-use File;
 use  Intervention\Image\Facades\Image;
 
 /**
@@ -75,8 +74,6 @@ class InnovateImageUpload implements InnovateImageUploadContract
      */
     public function up($image, $path)
     {
-
-
         $this->image = Image::make($image);
 
         return $this->image->resize($this->horizontal, $this->vertical)->save($path);

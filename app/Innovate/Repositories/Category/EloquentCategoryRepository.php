@@ -154,9 +154,9 @@ class EloquentCategoryRepository implements CategoryContract
         isset($input['status']) ? $category['status'] = 1 : $category['status'] = 0;
        // isset($input['parent_category']) ? $category->parent_id = $input['parent_category'] : $category->parent_id = null;
 
-        if($input['parent_category'] !=''){
-            $category->parent_id = $input['parent_category'] ;
-        }else{
+        if ($input['parent_category'] != '') {
+            $category->parent_id = $input['parent_category'];
+        } else {
             $category->parent_id = null;
         }
 
