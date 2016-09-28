@@ -17,7 +17,7 @@
             <h3 class="box-title">{{ trans('order.active_order') }}</h3>
 
             <div class="box-tools pull-right">
-                @include('backend.order.includes.partials.header-buttons')
+                @include('backend.Order.includes.partials.header-buttons')
             </div>
         </div><!-- /.box-header -->
 

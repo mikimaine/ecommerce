@@ -9,6 +9,7 @@
 namespace Innovate\Category;
 
 use Innovate\BaseModel;
+use Innovate\Category\Traits\Attribute\CategoryAttribute;
 use Innovate\Category\Traits\Relationship\CategoryRelationship;
 use Innovate\SEOProvider\ObjectFlat;
 
@@ -17,7 +18,7 @@ use Innovate\SEOProvider\ObjectFlat;
  */
 class Category extends BaseModel implements ObjectFlat
 {
-    use CategoryRelationship;
+    use CategoryRelationship,CategoryAttribute;
 
 
     protected $table = 'category';

@@ -12,5 +12,5 @@ return [
     'Innovate\Listeners\TwitterNotifier',
     'Innovate\Listeners\wkuLisener',
 ],
-    'upload_path' => base_path(env('APP_UPLOAD_PATH', 'public'.DS.'app'.DS.'innovate')),
+    'upload_path' => base_path(env('APP_UPLOAD_PAT', 'public'.DS.'app'.DS.'innovate')),
 ];

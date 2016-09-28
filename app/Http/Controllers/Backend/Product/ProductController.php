@@ -95,14 +95,14 @@ class ProductController extends CommandsDomainEventController
         $product = $this->product->eagerLoadPaginated(10);
         //Cache::tags('productAdmin')->put('productAdmin',$product , 43200);
 
-        return view('backend.product.index')->withProducts($product);
+        return view('backend.Product.index')->withProducts($product);
         //  return view('backend.product.index')
         //  ->withProducts($this->product->getAllProducts());
     }
 
     public function create()
     {
-        return view('backend.product.create')
+        return view('backend.Product.create')
             ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory());
     }
 
@@ -118,14 +118,14 @@ class ProductController extends CommandsDomainEventController
         if ($request['product_type'] == 'downloadable') {
             $a = $this->category->eagerLoad('category_description');
             //   dd($a);
-            return view('backend.product.create_downloadable')
+            return view('backend.Product.create_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
                 ->withAttributes($this->eavAttribute->getWhereCategory($request['product_category_id']))
                 ->withCategorys($this->category->eagerLoad('category_description'))
                 ->withTaxs($this->tax->getAll());
         } elseif ($request['product_type'] == 'non-downloadable') {
-            return view('backend.product.create_non_downloadable')
+            return view('backend.Product.create_non_downloadable')
                 ->withCategory($request['product_category_id'])
                 ->withEavcategorys($this->eavAttributeCategory->getAllEavCategory())
                 ->withAttributes($this->eavAttribute->getWhereCategory($request['product_category_id']))

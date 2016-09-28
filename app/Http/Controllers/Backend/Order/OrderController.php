@@ -23,7 +23,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        return view('backend.order.index')
+        return view('backend.Order.index')
                ->withOrders($this->order->getAll());
     }
 
@@ -35,7 +35,7 @@ class OrderController extends Controller
     {
         $order = $this->order->findOrThrowException($id);
 
-        return view('backend.order.edit')
+        return view('backend.Order.edit')
             ->withOrder($order);
     }
 
@@ -56,7 +56,7 @@ class OrderController extends Controller
      */
     public function deleted()
     {
-        return view('backend.order.deleted')
+        return view('backend.Order.deleted')
             ->withOrders($this->order->getDeletedPaginated(25));
     }
 

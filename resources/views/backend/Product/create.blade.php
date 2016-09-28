@@ -11,6 +11,6 @@
 
 @section('content')
     {!! Form::open(['route' => 'admin.product.newProduct', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) !!}
-    @include('backend.product.includes.partials._form',[$pageName = 'create',$buttonText = trans('strings.save_button') ])
+    @include('backend.Product.includes.partials._form',[$pageName = 'create',$buttonText = trans('strings.save_button') ])
     {!! Form::close() !!}
 @endsection

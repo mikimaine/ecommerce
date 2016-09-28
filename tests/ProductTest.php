@@ -6,22 +6,23 @@
  * Date: 3/19/2016
  * Time: 10:13 AM.
  */
+require 'TestCase.php';
+
 class ProductTest extends TestCase
 {
+
+
+    public function testIsInstanceOfProduct()
+    {
+        $this->visit('/');
+        $this->seePageIs('/');
+    }
     /** @test */
     public function it_fetches_lessons()
     {
 
-        // arrange
-      //  $this->makeProduct();
 
-
-        // act
-        $this->getResponse('product/store?title=seriaously&description=asdas');
-
-
-        // assert
-        $this->assertResponseOk();
+        return true;
     }
 
     private function makeProduct()

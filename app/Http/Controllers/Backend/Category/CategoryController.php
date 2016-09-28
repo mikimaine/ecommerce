@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Backend\Category;
 
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Innovate\Category\SEOProvider\CategorySEOGenerator;
@@ -49,7 +50,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.category.index')
+        return view('backend.Category.index')
             ->withCategorys($this->category->eagerLoad('category_description', 9));
     }
 
@@ -60,7 +61,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create')
+        return view('backend.Category.create')
             ->withCategorys($this->category->eagerLoad('category_description'));
     }
 
@@ -82,6 +83,9 @@ class CategoryController extends Controller
             if (!$file->isValid()) {
                 throw new GeneralException('There is error in your image file.');
             }
+
+           // if(!File::exists(config('innovate.upload_path').DS.'product')){ File::makeDirectory(config('innovate.upload_path').DS.'product', 775);};
+
             //pass the image along with the path to the upload to the imageDriver for further processing
             $im = $this->imageDriver->up($file, config('innovate.upload_path').DS.'product'.DS.Str::random(32).'.'.$file->guessExtension());
             $all = $request->all();
@@ -107,7 +111,7 @@ class CategoryController extends Controller
         $category = $this->category->findOrThrowException($id);
         $seo->set($category);
 
-        return view('backend.category.show')
+        return view('backend.Category.show')
             ->withCategory($category)
             ->withCategorys($this->category->eagerLoad('category_description'));
     }
