@@ -1,4 +1,4 @@
-[![StyleCI](https://styleci.io/repos/48767861/shield?branch=master)](https://styleci.io/repos/48767861)
+[![StyleCI](https://styleci.io/repos/48767861/shield?branch=master)](https://styleci.io/repos/48767861) [![PPM Compatible](https://raw.githubusercontent.com/php-pm/ppm-badge/master/ppm-badge.png)](https://github.com/php-pm/php-pm)
 
 ## INNOVATE Ecommerce Framework, Currently 0.1.5
 
