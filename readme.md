@@ -22,15 +22,18 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 -------------------------
 
 - If you want a better page load and overall improvement in speed , the Framework comes with redis implementation out of the box.
-  You can get Redis from [Redis Here] (http://redis.io/) follow instruction there
+  You can get Redis from [Redis Here] (http://redis.io/) follow instruction there.
+  
   For windows users you also have Redis Desktop [redisdesktop here ] (http://redisdesktop.com/download)
-  remember you first have to install Redis to work with redis desktop
+  
+  `Remember you first have to install Redis to work with redis desktop`
   
   Then you should set  CACHE_DRIVER on .env file to redis and 
   Fill this three with your redis info in .env file
-                                  REDIS_HOST=127.0.0.1   <--- change it if you are not on localhost
-                                  REDIS_PASSWORD=
-                                  REDIS_PORT=6379
+  
+      REDIS_HOST=127.0.0.1   <--- change it if you are not on localhost
+      REDIS_PASSWORD=
+      REDIS_PORT=6379
 
 
 ### Quick Installation
@@ -49,17 +52,17 @@ Then use this commands to install the database tables and there seed data
 
 #### Generate Application key
 ```php
-php innovate key:generate
+php artisan key:generate
 ```
 
 #### Migration
 ```php
- php innovate migrate
+ php artisan migrate
 ```
 
 #### Seed the database
 ```php
- php innovate db:seed
+ php artisan db:seed
 ```
 
 And that's it ! Start building awesome E-commerce applications for your business

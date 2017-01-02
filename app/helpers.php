@@ -71,7 +71,7 @@ if (!function_exists('googleCurrency')) {
         curl_close($request);
         $regularExpression = '#\<span class=bld\>(.+?)\<\/span\>#s';
         preg_match($regularExpression, $response, $finalData);
-        if (isset($finalData[0])) {
+        if (isset($finalData[   0])) {
             return $finalData[0];
         } else {
             return 'Currency conversion is not available now ';
