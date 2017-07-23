@@ -16,7 +16,6 @@ Breadcrumbs::register('admin.tax.create', function ($breadcrumbs) {
     $breadcrumbs->push('Create Tax', route('admin.tax.create'));
 });
 
-
 Breadcrumbs::register('admin.tax.edit', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.tax.index');
     $breadcrumbs->push('Edit Tax', route('admin.tax.edit'));

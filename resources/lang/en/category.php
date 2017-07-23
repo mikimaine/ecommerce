@@ -56,7 +56,6 @@ return [
         'category_deleted'  => 'Attribute set deleted successfully',
         'category_deleted_' => 'Category deleted successfully',
 
-
         'eav_attribute_created' => 'Attribute created successfully ',
         'eav_attribute_updated' => 'Attribute updated successfully ',
         'eav_attribute_deleted' => 'Attribute deleted successfully',

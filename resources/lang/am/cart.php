@@ -7,8 +7,6 @@
  * Time: 6:46 PM.
  */
 
-
-
 return [
 
     /*
@@ -53,10 +51,8 @@ return [
 
     'menus' => [
 
-
     ],
     'static_page' => [
-
 
     ],
 

@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 7:17 PM.
  */
+
 namespace Innovate\Repositories\Order;
 
 use Innovate\Order\DownloadLink;
@@ -26,7 +27,6 @@ class EloquentDownloadableLinkRepository extends BaseRepository implements Downl
         $download_link->order_id = $input['order_id'];
         $download_link->no_of_downloads_bought = $input['no_of_downloads_bought'];
         $download_link->no_of_downloads_user = $input['no_of_downloads_user'];
-
 
         return $download_link;
     }

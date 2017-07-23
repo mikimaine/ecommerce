@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 10:59 AM.
  */
+
 namespace Innovate\Category;
 
 use Dimsav\Translatable\Translatable;

@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 11:00 AM.
  */
+
 namespace Innovate\Category;
 
 use Innovate\BaseModel;

@@ -7,8 +7,6 @@
  * Time: 6:46 PM.
  */
 
-
-
 return [
 
     /*
@@ -21,7 +19,6 @@ return [
     | found in a intuitive way.
     |
     */
-
 
     'menus' => [
 
@@ -46,7 +43,6 @@ return [
         'order'                        => 'Order\'s',
         'stock'                        => 'Stock',
 
-
     ],
     'static_page' => [
         'bank_info_management'   => 'Bank Transfer Information',
@@ -66,8 +62,6 @@ return [
         'bankinfo'               => 'Bank Transfer Info',
         'no_bankinfo'            => 'There is no Bank information found',
         'bankinfo_total'         => 'Bank Transfer Information(s) Total',
-
-
 
         'check_out_agreement_management'    => 'Check Out Agreement Information',
         'active_check_out_agreement'        => 'Active Check Out Agreement information\'s',
@@ -94,7 +88,6 @@ return [
         'bank_account_no' => 'Bank Account No.',
         'support_phone'   => 'Support phone No.',
         'description'     => 'Description ',
-
 
         'Agreement_name'       => 'Agreement Name',
         'is_active'            => 'Is Active.',

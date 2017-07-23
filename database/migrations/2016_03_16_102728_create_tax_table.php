@@ -19,7 +19,6 @@ class CreateTaxTable extends Migration
             $table->integer('rate');
             $table->timestamps();
 
-
             /*
              * Add Foreign/Unique/Index
              */

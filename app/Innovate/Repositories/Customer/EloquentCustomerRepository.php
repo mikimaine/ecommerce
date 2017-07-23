@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 7:38 PM.
  */
+
 namespace Innovate\Repositories\Customer;
 
 use Innovate\Customer\Customer;

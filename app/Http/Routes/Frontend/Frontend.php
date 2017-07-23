@@ -11,7 +11,6 @@ $router->get('product/trend', 'Product\FrontendProductController@trends')->name(
 //$router->get('product',  'Product\FrontendProductController@index')->name('frontend.product');
 $router->resource('product', 'Product\FrontendProductController');
 
-
 $router->get('cart/createInstance', 'Cart\CartController@instance')->name('frontend.cart.instance');
 
 $router->group(['middleware' => 'checkout'], function () use ($router) {

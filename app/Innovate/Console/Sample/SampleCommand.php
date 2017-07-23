@@ -6,6 +6,7 @@
  * Date: 3/24/2016
  * Time: 11:28 AM.
  */
+
 namespace Innovate\Console\Sample;
 
 use Illuminate\Console\Command;
@@ -15,15 +16,12 @@ class SampleCommand extends Command
 {
     use ConfirmableTrait;
 
-
     /**
      * The console command name.
      *
      * @var string
      */
     protected $name = 'innovate:version';
-
-
 
     /**
      * The console command description.

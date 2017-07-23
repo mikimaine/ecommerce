@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 5:20 PM.
  */
+
 namespace Innovate\Eventing;
 
 use Illuminate\Events\Dispatcher;

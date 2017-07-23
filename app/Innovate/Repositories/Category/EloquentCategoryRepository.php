@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 1:51 PM.
  */
+
 namespace Innovate\Repositories\Category;
 
 use App;
@@ -111,6 +112,7 @@ class EloquentCategoryRepository implements CategoryContract
     /**
      * @param $id
 
+     *
      * @throws GeneralException
      *
      * @return mixed
@@ -159,7 +161,6 @@ class EloquentCategoryRepository implements CategoryContract
         } else {
             $category->parent_id = null;
         }
-
 
         return $category;
     }

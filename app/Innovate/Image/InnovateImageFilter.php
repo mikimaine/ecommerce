@@ -6,6 +6,7 @@
  * Date: 4/14/2016
  * Time: 10:08 PM.
  */
+
 namespace Innovate\Image;
 
 use Intervention\Image\Filters\FilterInterface;

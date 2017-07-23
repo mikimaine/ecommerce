@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 1:33 PM.
  */
+
 namespace Innovate\StaticPages\CheckOutAgreement;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,7 +20,6 @@ class CheckOutAgreement extends BaseModel
 {
     use CheckOutAgreementAttribute,SoftDeletes;
 
-
     /**
      * The database table used by the model.
      *
@@ -31,7 +31,6 @@ class CheckOutAgreement extends BaseModel
      * @var array
      */
     protected $fillable = ['name', 'content', 'is_active'];
-
 
     /**
      * For soft deletes.

@@ -6,6 +6,7 @@
  * Date: 3/29/2016
  * Time: 6:08 PM.
  */
+
 namespace Innovate\Repositories\Eav\Attribute;
 
 use App\Exceptions\GeneralException;
@@ -163,7 +164,6 @@ class EloquentEavAttributeRepository implements EavAttributeContract
         $attribute->datatype = $input['datatype'];
 
         isset($input['notnull']) ? $attribute['notnull'] = 1 : $attribute['notnull'] = 0;
-
 
         return $attribute;
     }

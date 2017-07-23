@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 7:39 PM.
  */
+
 namespace Innovate\Repositories\Customer;
 
 use Innovate\Customer\CustomerTransaction;
@@ -27,7 +28,6 @@ class EloquentCustomerTransactionRepository extends BaseRepository implements Cu
         $customer_transaction->order_id = $input['no_of_downloads_bought'];
         $customer_transaction->description = $input['no_of_downloads_user'];
         $customer_transaction->amount = $input['no_of_downloads_user'];
-
 
         return $customer_transaction;
     }

@@ -6,6 +6,7 @@
  * Date: 4/14/2016
  * Time: 10:30 PM.
  */
+
 namespace Innovate\Image;
 
 interface InnovateImageUploadContract

@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:39 PM.
  */
+
 namespace Innovate\Customer;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,7 +23,6 @@ class CustomerTransaction extends BaseModel
     use SoftDeletes;
 
     protected $table = 'customer_transaction';
-
 
     /**
      * For soft deletes.

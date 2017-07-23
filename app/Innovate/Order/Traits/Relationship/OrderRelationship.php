@@ -6,6 +6,7 @@
  * Date: 6/26/2016
  * Time: 11:01 PM.
  */
+
 namespace Innovate\Order\Traits\Relationship;
 
 trait OrderRelationship

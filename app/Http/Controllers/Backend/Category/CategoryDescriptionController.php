@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 11:05 AM.
  */
+
 namespace App\Http\Controllers\Backend\Category;
 
 use App\Http\Controllers\Controller;

@@ -6,6 +6,7 @@
  * Date: 6/22/2016
  * Time: 10:14 PM.
  */
+
 namespace Innovate\Cart;
 
 use Cart;

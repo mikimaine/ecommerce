@@ -6,6 +6,7 @@
  * Date: 6/8/2016
  * Time: 10:50 PM.
  */
+
 namespace App\Http\Controllers\Frontend\Api\Product;
 
 use App\Exceptions\GeneralException;
@@ -59,7 +60,6 @@ class ApiProductController extends ApiController
      * @var InnovateImageUploadContract
      */
     protected $imageDriver;
-
 
     /**
      * @var ProductTransformer
@@ -212,7 +212,6 @@ class ApiProductController extends ApiController
      */
     public function store(StoreProductRequest $request)
     {
-
 
         /*  $input = Input::only('title','description');
           $command = new PostProductCommand($input['title'],$input['description']);

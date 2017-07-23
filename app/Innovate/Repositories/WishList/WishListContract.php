@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:21 PM.
  */
+
 namespace Innovate\Repositories\WishList;
 
 use Innovate\Repositories\BaseContract;

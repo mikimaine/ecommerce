@@ -6,6 +6,7 @@
  * Date: 3/23/2016
  * Time: 11:43 PM.
  */
+
 namespace Innovate\Api\ApiUser\Traits\Relationship;
 
 /**

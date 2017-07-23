@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 12:44 PM.
  */
+
 namespace App\Http\Controllers\Backend\Product;
 
 use App\Exceptions\GeneralException;
@@ -199,7 +200,6 @@ class ProductController extends CommandsDomainEventController
      */
     public function store(StoreProductRequest $request)
     {
-
 
         /*  $input = Input::only('title','description');
           $command = new PostProductCommand($input['title'],$input['description']);

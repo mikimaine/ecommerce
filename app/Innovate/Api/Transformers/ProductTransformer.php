@@ -6,6 +6,7 @@
  * Date: 6/9/2016
  * Time: 10:32 PM.
  */
+
 namespace Innovate\Api\Transformers;
 
 class ProductTransformer extends Transformer

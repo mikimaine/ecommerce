@@ -10,16 +10,13 @@
     return \Theme::view('includes.partials._category');
 });
 
-
 \Component::register('sellers', function () {
     return \Theme::view('includes.partials._sellers');
 });
 
-
 \Component::register('shopping_cart', function () {
     return \Theme::view('includes.partials._shopping_cart');
 });
-
 
 \Component::register('google_analytics', function () {
     return \Theme::view('includes.partials.ga');
@@ -32,7 +29,6 @@
 \Component::register('tags', function () {
     return \Theme::view('includes.partials._tags');
 });
-
 
 \Component::register('cart_summary', function () {
     return \Theme::view('includes.partials._cart_summary');

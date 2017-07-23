@@ -7,7 +7,6 @@
  * Time: 6:19 PM.
  */
 
-
 /**
  * Check out Agreement Module Routes.
  */
@@ -18,7 +17,6 @@ $router->group(['prefix' => 'check_out_agreement/{id}', 'where' => ['id' => '[0-
 });
 $router->resource('check_out_agreement', 'StaticPage\CheckOutAgreementController');
 
-
 /*
  * Bank Transfer Module
  */
@@ -28,7 +26,6 @@ $router->group(['prefix' => 'bank_transfer_info/{id}', 'where' => ['id' => '[0-9
     $router->get('delete', 'StaticPage\BankTransferInfoController@delete')->name('admin.bank_transfer_info.delete-permanently');
 });
 $router->resource('bank_transfer_info', 'StaticPage\BankTransferInfoController');
-
 
 /*
  * Tax Module Routes
@@ -46,16 +43,13 @@ $router->resource('eav/category', 'Eav\Category\EavProductAttributeCategory');
  * Category Module Routes
  */
 
-
 //$router->get('category/deleted', 'Category\CategoryController@deleted')->name('admin.category.deleted');
 $router->resource('category/description', 'Category\CategoryDescriptionController');
 $router->resource('category', 'Category\CategoryController');
 
-
 /*
  * Product Module Routes
  */
-
 
 $router->post('product/newproduct/downloadable', 'Product\ProductController@storeDownloadable')->name('admin.product.store.downloadable');
 $router->post('product/newproduct/non_downloadable', 'Product\ProductController@storeNonDownloadable')->name('admin.product.store.non_downloadable');
@@ -69,7 +63,6 @@ $router->resource('product', 'Product\ProductController');
  */
 $router->get('activity_log/flush', 'Activity\ActivityController@flush')->name('admin.activity_log.flush');
 $router->resource('activity_log', 'Activity\ActivityController');
-
 
 /*
  * Orders

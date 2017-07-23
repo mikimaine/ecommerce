@@ -7,7 +7,6 @@
  * Time: 5:41 PM.
  */
 
-
 return [
 
     /*
@@ -55,7 +54,6 @@ return [
     'am'                       => 'Product in Amharic',
     'product_file'             => 'Product File',
     'message'                  => 'Please fill the data below if you want your product available in amharic language',
-
 
     'name_am'              => ' Product Name (AM)',
     'cart_description_am'  => 'Cart Description (AM)',
