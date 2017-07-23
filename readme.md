@@ -49,17 +49,17 @@ Then use this commands to install the database tables and there seed data
 
 #### Generate Application key
 ```php
-php innovate key:generate
+php artisan key:generate
 ```
 
 #### Migration
 ```php
- php innovate migrate
+ php artisan migrate
 ```
 
 #### Seed the database
 ```php
- php innovate db:seed
+ php artisan db:seed
 ```
 
 And that's it ! Start building awesome E-commerce applications for your business
