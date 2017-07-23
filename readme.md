@@ -23,7 +23,7 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 
 - If you want a better page load and overall improvement in speed , the Framework comes with redis implementation out of the box.
   You can get Redis from [Redis Here] (http://redis.io/) follow instruction there
-  For windows users you also have Redis Desktop [redisdesktop here ] (http://redisdesktop.com/download)
+  For windows users you also have Redis Desktop [redisdesktop here ] (https://redisdesktop.com/download)
   remember you first have to install Redis to work with redis desktop
   
   Then you should set  CACHE_DRIVER on .env file to redis and 
