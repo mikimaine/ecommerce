@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 10:07 PM.
  */
+
 namespace Innovate\Eventing;
 
 use Illuminate\Support\ServiceProvider;

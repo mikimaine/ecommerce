@@ -6,6 +6,7 @@
  * Date: 4/20/2016
  * Time: 9:48 AM.
  */
+
 namespace Innovate\Category\SEOProvider;
 
 use Innovate\Category\Category;

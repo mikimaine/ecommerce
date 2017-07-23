@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 6:20 PM.
  */
+
 namespace Innovate\Listeners;
 
 use Innovate\Eventing\EventListener;

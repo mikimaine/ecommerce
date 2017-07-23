@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 1:33 PM.
  */
+
 namespace Innovate\Products;
 
 use Cviebrock\EloquentSluggable\SluggableInterface;
@@ -22,7 +23,7 @@ use Sofa\Eloquence\Eloquence;
 /**
  * Class Product.
  */
-class Product extends BaseModel implements ObjectFlat,SluggableInterface
+class Product extends BaseModel implements ObjectFlat, SluggableInterface
 {
     /*
      * This are trait definition's and a solution for the conflict inside them
@@ -52,7 +53,6 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface
      */
     public $translationModel = 'Innovate\Products\ProductTranslation';
 
-
     /**
      * The translated attributes in this model.
      *
@@ -78,7 +78,6 @@ class Product extends BaseModel implements ObjectFlat,SluggableInterface
      * @var array
      */
     protected $dates = ['deleted_at'];
-
 
     /**
      * This array holds information about.

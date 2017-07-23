@@ -7,8 +7,6 @@
  * Time: 6:46 PM.
  */
 
-
-
 return [
 
     /*
@@ -58,7 +56,6 @@ return [
 
     ],
     'static_page' => [
-
 
     ],
 

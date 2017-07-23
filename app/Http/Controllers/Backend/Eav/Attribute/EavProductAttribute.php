@@ -6,6 +6,7 @@
  * Date: 3/29/2016
  * Time: 6:08 PM.
  */
+
 namespace App\Http\Controllers\Backend\Eav\Attribute;
 
 use App\Http\Controllers\Controller;

@@ -6,6 +6,7 @@
  * Date: 6/9/2016
  * Time: 10:29 PM.
  */
+
 namespace Innovate\Api\Transformers;
 
 /**

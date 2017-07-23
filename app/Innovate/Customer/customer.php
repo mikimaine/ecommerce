@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:36 PM.
  */
+
 namespace Innovate\Customer;
 
 use Innovate\BaseModel;
@@ -13,7 +14,6 @@ use Innovate\BaseModel;
 class customer extends BaseModel
 {
     protected $table = 'customer_detail';
-
 
     protected $dates = ['created_at', 'updated_at'];
 }

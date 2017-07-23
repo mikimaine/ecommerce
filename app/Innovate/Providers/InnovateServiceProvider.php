@@ -82,7 +82,6 @@ class InnovateServiceProvider extends ServiceProvider
         $this->ActivityLogBinding();
         $this->CartBinding();
 
-
         $this->WishListBinding();
         $this->CustomerBinding();
         $this->CustomerTransactionBinding();

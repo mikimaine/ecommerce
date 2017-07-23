@@ -6,6 +6,7 @@
  * Date: 6/23/2016
  * Time: 7:32 AM.
  */
+
 namespace app\Http\Controllers\Frontend\Search;
 
 use App\Http\Controllers\Controller;

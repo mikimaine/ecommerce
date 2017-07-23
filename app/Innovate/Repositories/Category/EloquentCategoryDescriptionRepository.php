@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 1:52 PM.
  */
+
 namespace Innovate\Repositories\Category;
 
 use App\Exceptions\GeneralException;

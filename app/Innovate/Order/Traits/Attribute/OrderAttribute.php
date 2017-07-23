@@ -6,6 +6,7 @@
  * Date: 6/26/2016
  * Time: 10:59 PM.
  */
+
 namespace Innovate\Order\Traits\Attribute;
 
 trait OrderAttribute

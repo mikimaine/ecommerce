@@ -6,6 +6,7 @@
  * Date: 5/27/2016
  * Time: 2:25 PM.
  */
+
 namespace Innovate;
 
 //use Spiritix\LadaCache\Database\Model;
@@ -24,7 +25,6 @@ class BaseModel extends Model
     {
         $conn = $this->getConnection();
         $grammar = $conn->getQueryGrammar();
-
 
 /*
         if (env('LADA_CACHE_DRIVER')) {

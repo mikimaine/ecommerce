@@ -6,6 +6,7 @@
  * Date: 6/9/2016
  * Time: 10:52 PM.
  */
+
 namespace App\Http;
 
 use App\Http\Controllers\CommandsDomainEventController;

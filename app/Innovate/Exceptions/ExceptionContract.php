@@ -6,6 +6,7 @@
  * Date: 3/19/2016
  * Time: 10:56 AM.
  */
+
 namespace Innovate\Exceptions;
 
 /**

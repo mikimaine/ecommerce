@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 6:31 PM.
  */
+
 namespace Innovate\Eventing;
 
 use ReflectionClass;

@@ -10,7 +10,6 @@ return [
     'title' => 'የፈጠራ ፡ መጫኛ ።',
     'next'  => 'ቀጣይ ፡ ደረጃ ።',
 
-
     /*
      *
      * Home page translations.
@@ -21,7 +20,6 @@ return [
         'message' => 'እንኳን ፡ ወደ ፡ መጫኛ ፡ ማስተካከያ ፡ በደህና ፡ መጡ ፤ ማሽኖ ፡ ላይ ፡ የመጫኑ ፡ ሂደት ፡ የሚመራዎት ፡ የፈጠራ ፡ የህዋ ፡ አውታር-ንግድ ፡ ነው ።',
     ],
 
-
     /*
      *
      * Requirements page translations.
@@ -31,7 +29,6 @@ return [
         'title' => 'መስፈርቶች ።',
     ],
 
-
     /*
      *
      * Permissions page translations.
@@ -40,7 +37,6 @@ return [
     'permissions' => [
         'title' => 'ፍቃዶች ።',
     ],
-
 
     /*
      *
@@ -53,7 +49,6 @@ return [
         'success' => 'የምልከታዎ ፡ ሰነድ ፡ መቼት ፡ ተቀምጧል ።',
         'errors'  => 'የምልከታውን ፡ ሰነድ ፡ ሊያስቀምጠው ፡ አልቻለም ፣ እባኮ ፡ እራስዎ ፡ ይፍጠሩ ።',
     ],
-
 
     /*
      *

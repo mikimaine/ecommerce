@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:43 PM.
  */
+
 namespace Innovate\Shipping;
 
 use Innovate\BaseModel;

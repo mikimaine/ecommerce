@@ -6,6 +6,7 @@
  * Date: 6/22/2016
  * Time: 10:12 PM.
  */
+
 namespace app\Http\Controllers\Frontend\Cart;
 
 use App\Http\Controllers\Controller;
@@ -38,7 +39,6 @@ class CartController extends Controller
      * @var
      */
     private $customer;
-
 
     private $order;
 
@@ -87,7 +87,6 @@ class CartController extends Controller
             'price'     => $product->price,
             'options'   => ['img' => $product->img_big, 'sku' => $product->sku, 'currency' => $product->currency],
         ]);
-
 
         return redirect()->back()->with('flash_success', 'Product is added to the cart');
     }
@@ -138,7 +137,6 @@ class CartController extends Controller
     {
         $all = $request->all();
         $customer = $this->customer->create($all);
-
 
         foreach (Cart::content() as $cart) {
             $order = [

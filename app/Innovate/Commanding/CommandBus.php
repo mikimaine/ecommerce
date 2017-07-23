@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 1:01 PM.
  */
+
 namespace Innovate\Commanding;
 
 use Illuminate\Foundation\Application;
@@ -19,7 +20,6 @@ class CommandBus
      * @var
      */
     protected $commandTranslator;
-
 
     /**
      * @var Application
@@ -45,7 +45,6 @@ class CommandBus
     public function execute($command)
     {
         $handler = $this->commandTranslator->toCommandHandler($command);
-
 
         return $this->app->make($handler)->handle($command);
     }

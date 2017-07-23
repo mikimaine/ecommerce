@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:24 PM.
  */
+
 namespace Innovate\WishList;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,7 +17,6 @@ class WishList extends BaseModel
     use SoftDeletes;
 
     protected $table = 'wish_list';
-
 
     /**
      * For soft deletes.

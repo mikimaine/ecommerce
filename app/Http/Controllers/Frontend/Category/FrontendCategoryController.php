@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 11:04 AM.
  */
+
 namespace App\Http\Controllers\Frontend\Category;
 
 use App\Exceptions\GeneralException;
@@ -29,7 +30,6 @@ class FrontendCategoryController extends Controller
      * @var
      */
     public $category;
-
 
     public $imageDriver;
 

@@ -6,6 +6,7 @@
  * Date: 3/23/2016
  * Time: 10:01 PM.
  */
+
 namespace Innovate\Eav\Attribute;
 
 use Innovate\BaseModel;
@@ -17,7 +18,6 @@ class ProductAttribute extends BaseModel
     use ProductAttributeAttribute,ProductAttributeRelationship;
 
     protected $table = 'product_attribute';
-
 
     /**
      * @var array

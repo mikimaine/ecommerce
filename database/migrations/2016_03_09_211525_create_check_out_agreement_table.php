@@ -21,7 +21,6 @@ class CreateCheckOutAgreementTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-
             /*
              * Add Foreign/Unique/Index
              */

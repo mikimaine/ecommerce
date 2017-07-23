@@ -6,6 +6,7 @@
  * Date: 3/20/2016
  * Time: 4:59 PM.
  */
+
 namespace Innovate\Repositories\StaticPages\BankTransferInfo;
 
 use App\Exceptions\GeneralException;
