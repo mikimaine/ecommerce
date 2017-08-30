@@ -19,7 +19,6 @@ class CreateDownloadableLinkTable extends Migration
             $table->integer('no_of_downloads_bought');
             $table->integer('no_of_downloads_used');
 
-
             /*
              * Add Foreign/Unique/Index
              */

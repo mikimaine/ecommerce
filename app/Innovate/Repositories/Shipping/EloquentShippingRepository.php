@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:53 PM.
  */
+
 namespace Innovate\Repositories\Shipping;
 
 use Innovate\Repositories\BaseRepository;
@@ -29,7 +30,6 @@ class EloquentShippingRepository extends BaseRepository implements ShippingContr
         $shipping->zipcode = $input['zipcode'];
         $shipping->address = $input['address'];
         $shipping->address2 = $input['address2'];
-
 
         return $shipping;
     }

@@ -6,6 +6,7 @@
  * Date: 6/26/2016
  * Time: 6:58 PM.
  */
+
 namespace app\Http\Middleware;
 
 use Cart;

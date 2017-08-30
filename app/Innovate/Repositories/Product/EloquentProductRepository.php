@@ -6,6 +6,7 @@
  * Date: 3/19/2016
  * Time: 11:19 AM.
  */
+
 namespace Innovate\Repositories\Product;
 
 use App;
@@ -38,7 +39,6 @@ class EloquentProductRepository implements ProductContract
      * @var EavValueIntContract
      */
     private $int;
-
 
     private $productDescription;
 
@@ -209,14 +209,12 @@ class EloquentProductRepository implements ProductContract
                 }
             }
 
-
             $this->raise(new ProductWasPosted($this->product));
 
             DB::commit();
          // Raise a new Event that tell product was posted
 
             $this->raise(new ProductWasPosted($this->product));
-
 
             return $this;
         } catch (Exception $e) {
@@ -354,7 +352,6 @@ class EloquentProductRepository implements ProductContract
         $product->translateOrNew('en')->cart_description = $input['cart_description_en'];
         $product->translateOrNew('en')->short_description = $input['short_description_en'];
         $product->translateOrNew('en')->long_description = $input['long_description_en'];
-
 
         isset($input['name_am']) ? $product->translateOrNew('am')->name = $input['name_am'] : 1;
         isset($input['cart_description_am']) ? $product->translateOrNew('am')->cart_description = $input['cart_description_am'] : 1;

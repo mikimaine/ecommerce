@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 7:00 PM.
  */
+
 namespace Innovate\Repositories\Order;
 
 use Innovate\Order\Order;

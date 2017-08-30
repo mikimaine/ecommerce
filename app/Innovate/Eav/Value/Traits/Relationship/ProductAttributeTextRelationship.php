@@ -6,6 +6,7 @@
  * Date: 4/22/2016
  * Time: 3:46 PM.
  */
+
 namespace Innovate\Eav\Value\Traits\Relationship;
 
 trait ProductAttributeTextRelationship

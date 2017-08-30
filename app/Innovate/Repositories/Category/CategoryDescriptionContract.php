@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 1:48 PM.
  */
+
 namespace Innovate\Repositories\Category;
 
 interface CategoryDescriptionContract

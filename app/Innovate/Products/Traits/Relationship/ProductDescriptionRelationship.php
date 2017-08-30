@@ -6,6 +6,7 @@
  * Date: 4/22/2016
  * Time: 5:25 PM.
  */
+
 namespace Innovate\Products\Traits\Relationship;
 
 /**

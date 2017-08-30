@@ -6,6 +6,7 @@
  * Date: 4/2/2016
  * Time: 10:57 AM.
  */
+
 namespace Innovate\Category;
 
 use Innovate\BaseModel;
@@ -19,7 +20,6 @@ use Innovate\SEOProvider\ObjectFlat;
 class Category extends BaseModel implements ObjectFlat
 {
     use CategoryRelationship,CategoryAttribute;
-
 
     protected $table = 'category';
 }

@@ -6,6 +6,7 @@
  * Date: 3/23/2016
  * Time: 10:03 PM.
  */
+
 namespace Innovate\Eav\Attribute\Traits\Relationship;
 
 /**

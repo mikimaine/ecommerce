@@ -6,6 +6,7 @@
  * Date: 4/22/2016
  * Time: 3:59 PM.
  */
+
 namespace Innovate\Repositories\Eav\Value;
 
 use Innovate\Repositories\BaseContract;

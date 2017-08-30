@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:42 PM.
  */
+
 namespace Innovate\Order;
 
 use Innovate\BaseModel;

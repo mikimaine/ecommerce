@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 1:04 PM.
  */
+
 namespace Innovate\Commanding;
 
 use Exception;

@@ -6,6 +6,7 @@
  * Date: 3/10/2016
  * Time: 2:10 AM.
  */
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;

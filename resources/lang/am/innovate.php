@@ -7,8 +7,6 @@
  * Time: 6:46 PM.
  */
 
-
-
 return [
 
     /*
@@ -21,7 +19,6 @@ return [
     | found in a intuitive way.
     |
     */
-
 
     'menus' => [
         'innovate'                     => 'ፈጠራ ።',
@@ -62,8 +59,6 @@ return [
         'no_bankinfo'            => 'ምንም ፡ የቤተ-ንዋይ ፡ መረጃ ፡ አልተገኘም ።',
         'bankinfo_total'         => 'አጠቃላይ ፡ የቤተ-ንዋይ ፡ ማስተላለፊያ ፡ መረጃ ።',
 
-
-
         'check_out_agreement_management'    => 'የስምምነቱን ፡ መረጃ ፡ አረጋግጥ ።',
         'active_check_out_agreement'        => 'የተረጋገጠውን ፡ የመረጃ ፡ ስምምነት ፡ ተግብር ።',
         'deleted_check_out_agreement'       => 'የተረጋገጠውን ፡ የመረጃ ፡ ስምምነት ፡ አጥፋ ።',
@@ -89,7 +84,6 @@ return [
         'bank_account_no' => 'የቤተ-ነዋይ ፡ ሔሳብ ፡ ቁጥር ።',
         'support_phone'   => 'ያገልግሎት ፡ ስልክ ፡ ቁጥር ።',
         'description'     => 'ገለፃ ።',
-
 
         'Agreement_name'       => 'የስምምነት ፡ ስም ።',
         'is_active'            => 'ተተግብሯል ።',

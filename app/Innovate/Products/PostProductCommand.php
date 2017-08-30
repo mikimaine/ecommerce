@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 12:56 PM.
  */
+
 namespace Innovate\Products;
 
 /**

@@ -6,6 +6,7 @@
  * Date: 3/19/2016
  * Time: 11:35 AM.
  */
+
 namespace Innovate\Services\Product\Facades;
 
 use Illuminate\Support\Facades\Facade;

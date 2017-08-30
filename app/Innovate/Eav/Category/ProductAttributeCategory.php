@@ -6,6 +6,7 @@
  * Date: 3/23/2016
  * Time: 9:47 PM.
  */
+
 namespace Innovate\Eav\Category;
 
 use Innovate\BaseModel;
@@ -16,9 +17,7 @@ class ProductAttributeCategory extends BaseModel
 {
     use ProductAttributeCategoryAttribute,ProductAttributeCategoryRelationship;
 
-
     protected $table = 'product_attribute_category';
-
 
     protected $fillable = ['attribute_set_name'];
 }

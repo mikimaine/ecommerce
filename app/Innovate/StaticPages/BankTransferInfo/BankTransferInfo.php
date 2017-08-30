@@ -6,6 +6,7 @@
  * Date: 3/18/2016
  * Time: 1:33 PM.
  */
+
 namespace Innovate\StaticPages\BankTransferInfo;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,7 +20,6 @@ class BankTransferInfo extends BaseModel
 {
     use BankInfoAttribute,SoftDeletes;
 
-
     /**
      * The database table used by the model.
      *
@@ -31,7 +31,6 @@ class BankTransferInfo extends BaseModel
      * @var array
      */
     protected $fillable = ['bank_name', 'bank_account_no', 'support_phone', 'description'];
-
 
     /**
      * For soft deletes.

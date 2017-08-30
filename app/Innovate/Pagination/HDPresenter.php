@@ -6,6 +6,7 @@
  * Date: 6/22/2016
  * Time: 9:14 PM.
  */
+
 namespace Innovate\Pagination;
 
 use Illuminate\Pagination\BootstrapThreePresenter;
@@ -47,7 +48,6 @@ class HDPresenter extends BootstrapThreePresenter
         $url = $this->paginator->url(1);
         $btnStatus = '';
 
-
         if (1 == $this->paginator->currentPage()) {
             $btnStatus = 'active';
         }
@@ -61,7 +61,6 @@ class HDPresenter extends BootstrapThreePresenter
 
         $btnStatus = '';
 
-
         if (empty($url)) {
             $btnStatus = 'active';
         }
@@ -74,7 +73,6 @@ class HDPresenter extends BootstrapThreePresenter
         $url = $this->paginator->nextPageUrl();
 
         $btnStatus = '';
-
 
         if (empty($url)) {
             $btnStatus = 'active';

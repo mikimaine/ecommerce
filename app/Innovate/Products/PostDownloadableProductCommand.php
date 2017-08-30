@@ -6,6 +6,7 @@
  * Date: 5/24/2016
  * Time: 9:38 AM.
  */
+
 namespace Innovate\Products;
 
 class PostDownloadableProductCommand

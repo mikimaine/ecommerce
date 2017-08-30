@@ -6,6 +6,7 @@
  * Date: 3/31/2016
  * Time: 3:48 PM.
  */
+
 namespace Innovate\Requests\Eav\Attribute;
 
 use App\Http\Requests\Request;

@@ -213,7 +213,6 @@ return [
         //	Spatie\Tail\TailServiceProvider::class,
         //Devio\Eavquent\EavquentServiceProvider::class,
 
-
     ],
 
     /*

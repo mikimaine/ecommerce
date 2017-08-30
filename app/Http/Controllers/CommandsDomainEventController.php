@@ -9,7 +9,6 @@ use Innovate\Commanding\CommandBus;
 
 //use Innovate\Commanding\CommandBus;
 
-
 /**
  * Class CommandsDomainEventController.
  */

@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 6:41 PM.
  */
+
 namespace Innovate\Order;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,7 +19,6 @@ class Order extends BaseModel
     use SoftDeletes,OrderAttribute,OrderRelationship;
 
     protected $table = 'order';
-
 
     /**
      * For soft deletes.

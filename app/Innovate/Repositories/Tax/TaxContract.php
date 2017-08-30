@@ -6,6 +6,7 @@
  * Date: 3/20/2016
  * Time: 4:58 PM.
  */
+
 namespace Innovate\Repositories\Tax;
 
 use Innovate\Repositories\BaseContract;

@@ -6,6 +6,7 @@
  * Date: 4/24/2016
  * Time: 4:39 PM.
  */
+
 namespace Innovate\Repositories;
 
 interface BaseContract

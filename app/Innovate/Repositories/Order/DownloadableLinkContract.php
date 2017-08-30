@@ -6,6 +6,7 @@
  * Date: 6/25/2016
  * Time: 7:15 PM.
  */
+
 namespace Innovate\Repositories\Order;
 
 use Innovate\Repositories\BaseContract;

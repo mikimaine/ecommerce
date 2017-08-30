@@ -10,7 +10,6 @@ return [
     'title' => 'INNOVATE INSTALLER',
     'next'  => 'Next Step',
 
-
     /*
      *
      * Home page translations.
@@ -22,7 +21,6 @@ return [
             Innovate E-Commerce on you machine .',
     ],
 
-
     /*
      *
      * Requirements page translations.
@@ -32,7 +30,6 @@ return [
         'title' => 'Requirements',
     ],
 
-
     /*
      *
      * Permissions page translations.
@@ -41,7 +38,6 @@ return [
     'permissions' => [
         'title' => 'Permissions',
     ],
-
 
     /*
      *
@@ -54,7 +50,6 @@ return [
         'success' => 'Your .env file settings have been saved.',
         'errors'  => 'Unable to save the .env file, Please create it manually.',
     ],
-
 
     /*
      *

@@ -6,6 +6,7 @@
  * Date: 5/24/2016
  * Time: 9:40 AM.
  */
+
 namespace Innovate\Products;
 
 use Innovate\Commanding\CommandHandler;
