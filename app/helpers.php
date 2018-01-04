@@ -60,7 +60,7 @@ if (!function_exists('googleCurrency')) {
      */
     function googleCurrency($from, $to, $amount)
     {
-        $url = "http://www.google.com/finance/converter?a=$amount&from=$from&to=$to";
+        $url = "http://finance.google.com/finance/converter?a=$amount&from=$from&to=$to";
         $request = curl_init();
         $timeOut = 0;
         curl_setopt($request, CURLOPT_URL, $url);
@@ -71,7 +71,7 @@ if (!function_exists('googleCurrency')) {
         curl_close($request);
         $regularExpression = '#\<span class=bld\>(.+?)\<\/span\>#s';
         preg_match($regularExpression, $response, $finalData);
-        if (isset($finalData[   0])) {
+        if (isset($finalData[0])) {
             return $finalData[0];
         } else {
             return 'Currency conversion is not available now ';
