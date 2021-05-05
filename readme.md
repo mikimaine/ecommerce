@@ -65,6 +65,13 @@ php artisan key:generate
 
 And that's it ! Start building awesome E-commerce applications for your business
 
+#### Running using docker
+
+``` bash
+  docker run --rm -v $(pwd):/app composer install
+```
+
+
 Documentation
 -------------
 
