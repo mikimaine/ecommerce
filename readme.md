@@ -71,6 +71,9 @@ And that's it ! Start building awesome E-commerce applications for your business
   docker run --rm -v $(pwd):/app composer install
 ```
 
+```bash
+  docker-compose up -d 
+```
 
 Documentation
 -------------
